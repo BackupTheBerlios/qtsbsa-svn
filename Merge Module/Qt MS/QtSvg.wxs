@@ -1,0 +1,15 @@
+﻿<?xml version='1.0'?>
+<Wix xmlns='http://schemas.microsoft.com/wix/2003/01/wi'>
+	<Module Id='QtSvgModul' Guid='60beb5bb-5700-4567-ab57-f5e0f4089dd8' Language='0' Version='4.1.4'>
+		<Package Id='b381c61d-71b8-4877-b4ea-fc673fb67aad' Manufacturer='Frank Büttner' Compressed='yes' />
+		<Dependency RequiredId='QtXMLModul' RequiredLanguage='0' RequiredVersion='4.1.4' />
+		<Directory Id='TARGETDIR' Name='SourceDir'>
+			<Directory Id='QtDir' Name='.'>
+				<Component Id='QtSvg' Guid='c0658ce5-43a0-4899-9384-a2880e9ab0e2'>
+					<File Id='qtsvgdll' Name='QtSvg4.dll' src='..\..\..\..\Qt\4.1.4MS\lib\QtSvg4.dll' />
+					<File Id='qtsvgmanifest' Name='svg.man' LongName='QtSvg4.dll.manifest' src='..\..\..\..\Qt\4.1.4MS\lib\QtSvg4.dll.manifest'/>
+				</Component>
+			</Directory>
+		</Directory>
+	</Module>
+</Wix>

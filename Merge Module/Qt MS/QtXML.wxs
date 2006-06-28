@@ -1,0 +1,15 @@
+﻿<?xml version='1.0'?>
+<Wix xmlns='http://schemas.microsoft.com/wix/2003/01/wi'>
+	<Module Id='QtXMLModul' Guid='26670fc1-d4f8-4c5c-9153-73fe379e4c2b' Language='0' Version='4.1.4'>
+		<Package Id='26670fc1-d4f8-4c5c-9153-73fe379e4c2b' Manufacturer='Frank Büttner' Compressed='yes' />
+		<Dependency RequiredId='QtCoreModul' RequiredLanguage='0' RequiredVersion='4.1.4' />
+		<Directory Id='TARGETDIR' Name='SourceDir'>
+			<Directory Id='QtDir' Name='.'>
+				<Component Id='QtXML' Guid='b513b6a1-0a57-4dd3-8a48-5130fd6c7b6c'>
+					<File Id='qtxmldll' Name='QtXml4.dll' src='..\..\..\..\Qt\4.1.4MS\lib\QtXml4.dll' />
+					<File Id='qtxmlmanifest' Name='xml.man' LongName='QtXml4.dll.manifest' src='..\..\..\..\Qt\4.1.4MS\lib\QtXml4.dll.manifest'/>
+				</Component>
+			</Directory>
+		</Directory>
+	</Module>
+</Wix>

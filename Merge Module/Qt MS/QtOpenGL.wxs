@@ -1,0 +1,15 @@
+﻿<?xml version='1.0'?>
+<Wix xmlns='http://schemas.microsoft.com/wix/2003/01/wi'>
+	<Module Id='QtOpenGLModul' Guid='50eb339b-3d0a-4d03-9b67-52a93b508be1' Language='0' Version='4.1.4'>
+		<Package Id='29221c23-1608-462b-b5e0-320de0cfe229' Manufacturer='Frank Büttner' Compressed='yes' />
+		<Dependency RequiredId='QtGuiModul' RequiredLanguage='0' RequiredVersion='4.1.4' />
+		<Directory Id='TARGETDIR' Name='SourceDir'>
+			<Directory Id='QtDir' Name='.'>
+				<Component Id='QtOpenGL' Guid='793116cf-7d48-4515-99a9-44071279656e'>
+					<File Id='qtopengldll' Name='gl.dll' LongName='QtOpenGL4.dll' src='..\..\..\..\Qt\4.1.4MS\lib\QtOpenGL4.dll' />
+					<File Id='qtopenglmanifest' Name='gl.man' LongName='QtOpenGL4.dll.manifest' src='..\..\..\..\Qt\4.1.4MS\lib\QtOpenGL4.dll.manifest'/>
+				</Component>
+			</Directory>
+		</Directory>
+	</Module>
+</Wix>
