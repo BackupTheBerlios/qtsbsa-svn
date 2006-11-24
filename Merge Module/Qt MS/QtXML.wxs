@@ -1,15 +1,15 @@
-﻿<?xml version='1.0'?>
-<Wix xmlns='http://schemas.microsoft.com/wix/2003/01/wi'>
-	<Module Id='QtXMLModul' Guid='26670fc1-d4f8-4c5c-9153-73fe379e4c2b' Language='0' Version='4.1.4'>
-		<Package Id='26670fc1-d4f8-4c5c-9153-73fe379e4c2b' Manufacturer='Frank Büttner' Compressed='yes' />
-		<Dependency RequiredId='QtCoreModul' RequiredLanguage='0' RequiredVersion='4.1.4' />
-		<Directory Id='TARGETDIR' Name='SourceDir'>
-			<Directory Id='QtDir' Name='.'>
-				<Component Id='QtXML' Guid='b513b6a1-0a57-4dd3-8a48-5130fd6c7b6c'>
-					<File Id='qtxmldll' Name='QtXml4.dll' src='..\..\..\..\Qt\4.1.4MS\lib\QtXml4.dll' />
-					<File Id='qtxmlmanifest' Name='xml.man' LongName='QtXml4.dll.manifest' src='..\..\..\..\Qt\4.1.4MS\lib\QtXml4.dll.manifest'/>
-				</Component>
-			</Directory>
-		</Directory>
-	</Module>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Module Id="QtXMLModul" Language="0" Version="4.2.1">
+        <Package Id="52EB9869-4DE3-4291-AEC1-DA962D7513D9" Manufacturer="Frank Büttner" />
+        <Dependency RequiredId="QtCoreModul" RequiredLanguage="0" RequiredVersion="4.2.1" />
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="QtDir" Name=".">
+                <Component Id="QtXML" Guid="07B848FC-700F-4119-8EFF-354EE8C1232E">
+                    <File Id="qtxmldll" Name="QtXml4.dll" Assembly="win32" Checksum="yes" Vital="yes" KeyPath="yes" AssemblyManifest="qtxmlmanifest" Source="..\..\..\..\Qt\4.2.1MS\lib\QtXml4.dll" />
+                <File Id="qtxmlmanifest" Name="QtXml4.dll.manifest" Checksum="yes" Vital="yes" Source="..\..\..\..\Qt\4.2.1MS\lib\QtXml4.dll.manifest" />
+		</Component>
+            </Directory>
+        </Directory>
+    </Module>
 </Wix>

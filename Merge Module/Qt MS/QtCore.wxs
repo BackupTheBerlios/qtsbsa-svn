@@ -1,14 +1,14 @@
-﻿<?xml version='1.0'?>
-<Wix xmlns='http://schemas.microsoft.com/wix/2003/01/wi'>
-	<Module Id='QtCoreModul' Guid='4e6edcfb-468d-4d63-ba7e-740b5fc0d502' Language='0' Version='4.1.4'>
-		<Package Id='323a4768-c82b-438c-9378-38df9dee299c' Manufacturer='Frank Büttner' Compressed='yes' />
-		<Directory Id='TARGETDIR' Name='SourceDir'>
-			<Directory Id='QtDir' Name='.'>
-				<Component Id='QtCore' Guid='fc0332af-7874-416b-a96f-36bfe3b636de'>
-					<File Id='qtcoredll' Name='QtCore4.dll' src='..\..\..\..\Qt\4.1.4MS\lib\QtCore4.dll' />
-					<File Id='qtcoremanifest' Name='core.man' LongName='QtCore4.dll.manifest' src='..\..\..\..\Qt\4.1.4MS\lib\QtCore4.dll.manifest'/>
-				</Component>
-			</Directory>
-		</Directory>
-	</Module>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Module Id="QtCoreModul" Language="0" Version="4.2.1">
+        <Package Id="5DF9FA90-C685-4210-AD37-1183245234BB" Manufacturer="Frank Büttner" />
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="QtDir" Name=".">
+                <Component Id="QtCore" Guid="2A2A4C82-BD2A-4B35-A13B-BA5DE2294A51">
+                    <File Id="qtcoredll" Name="QtCore4.dll" Assembly="win32" Checksum="yes" Vital="yes" Source="..\..\..\..\Qt\4.2.1MS\lib\QtCore4.dll" KeyPath="yes" AssemblyManifest="qtcoredllmanifest" />                    
+                   <File Id="qtcoredllmanifest" Name="QtCore4.dll.manifest" Checksum="yes" Vital="yes" Source="..\..\..\..\Qt\4.2.1MS\lib\QtCore4.dll.manifest" />
+		</Component>
+            </Directory>
+        </Directory>
+    </Module>
 </Wix>
