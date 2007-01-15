@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Module Id="QtOpenGLModul" Language="0" Version="4.2.1">
+    <Module Id="QtOpenGLModul" Language="0" Version="4.2.2">
         <Package Id="CFFC0C3A-82FE-4692-A8D5-E0A22CDB6B0C" Manufacturer="Frank Büttner" />
-        <Dependency RequiredId="QtGuiModul" RequiredLanguage="0" RequiredVersion="4.2.1" />
+        <Dependency RequiredId="QtGuiModul" RequiredLanguage="0" RequiredVersion="4.2.2" />
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="QtDir" Name=".">
                 <Component Id="QtOpenGL" Guid="374210CC-0F06-4069-82C4-65BE04421981">
-                    <File Id="qtopengldll" Name="QtOpenGL4.dll" Assembly="win32" Checksum="yes" Vital="yes" KeyPath="yes" AssemblyManifest="qtopenglmanifest" Source="..\..\..\..\Qt\4.2.1MS\lib\QtOpenGL4.dll" />
-                    <File Id="qtopenglmanifest" Name="QtOpenGL4.dll.manifest" Checksum="yes" Vital="yes" Source="..\..\..\..\Qt\4.2.1MS\lib\QtOpenGL4.dll.manifest" />
+                    <File Id="qtopengldll" Name="QtOpenGL4.dll" Assembly="win32" Checksum="yes" Vital="yes" KeyPath="yes" AssemblyManifest="qtopenglmanifest" Source="..\..\..\..\Qt\4.2.2MS\lib\QtOpenGL4.dll" />
+                    <File Id="qtopenglmanifest" Name="QtOpenGL4.dll.manifest" Checksum="yes" Vital="yes" Source="..\..\..\..\Qt\4.2.2MS\lib\QtOpenGL4.dll.manifest" />
                 </Component>
             </Directory>
         </Directory>
