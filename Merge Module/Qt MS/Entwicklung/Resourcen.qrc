@@ -1,0 +1,5 @@
+<!DOCTYPE RCC><RCC version="1.0">
+	<qresource prefix="/Uebersetzungen" lang="en">
+		<file alias="Uebersetzung">Uebersetzungen/Uebersetzung_en.qm</file>
+	</qresource>
+</RCC>
