@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Module Id="QtSvgModul" Language="0" Version="4.2.1">
+    <Module Id="QtSVGModul" Language="0" Version="4.2.1">
         <Package Id="0E4F24BA-8EA9-4690-89DA-BAA31236494F" Manufacturer="Frank Büttner" />
         <Dependency RequiredId="QtXMLModul" RequiredLanguage="0" RequiredVersion="4.2.2" />
         <Dependency RequiredId="QtGUIModul" RequiredLanguage="0" RequiredVersion="4.2.2" />
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="QtDir" Name=".">
-                <Component Id="QtSvg" Guid="91A543CF-76ED-43DB-959B-09C2986C3D0C">
+                <Component Id="QtSVG" Guid="91A543CF-76ED-43DB-959B-09C2986C3D0C">
                     <File Id="qtsvgdll" Name="QtSvg4.dll" Assembly="win32" Checksum="yes" Vital="yes" KeyPath="yes" AssemblyManifest="qtsvgmanifest" Source="..\..\..\..\Qt\4.2.2MS\lib\QtSvg4.dll" />
                     <File Id="qtsvgmanifest" Name="QtSvg4.dll.manifest" Checksum="yes" Vital="yes" Source="..\..\..\..\Qt\4.2.2MS\lib\QtSvg4.dll.manifest" />
                 </Component>

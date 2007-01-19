@@ -11,6 +11,8 @@ light -nologo QtNetwork.wixobj
 light -nologo QtOpenGL.wixobj
 light -nologo QtSql.wixobj
 light -nologo QtSvg.wixobj
+light -nologo Qt3Support.wixobj
+light -nologo QtAssistentClient.wixobj
 :ende
 del /Q *.wixobj
 pause
