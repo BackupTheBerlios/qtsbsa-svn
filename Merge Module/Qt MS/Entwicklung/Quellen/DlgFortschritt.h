@@ -14,23 +14,20 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQT4MERGEMODULEDLGHAUPT
-#define QFRANKQT4MERGEMODULEDLGHAUPT
+#ifndef QFRANKQT4MERGEMODULEDLGFORTSCHRITT
+#define QFRANKQT4MERGEMODULEDLGFORTSCHRITT
 
-#include "ui_HauptBasis.h"
+#include "ui_FortschrittBasis.h"
 
-class QFileDialog;
-class QFrankQt4MergemoduleDlgHaupt : public QMainWindow, private Ui::dlgHauptBasis
+class QFrankQt4MergemoduleDlgFortschritt : public QDialog, private Ui::dlgFortschrittBasis
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleDlgHaupt(QWidget *eltern = 0);
+				QFrankQt4MergemoduleDlgFortschritt(QWidget *eltern = 0);
+				virtual bool	event(QEvent *ereignis);
 	private:
-				QFileDialog*	K_Verzeichnisauswahl;
+				bool			K_darfGeschlossenWerden;
 	private slots:
-				void			on_sfQtPfadSuchen_clicked();
-				void			on_sfWixPfadSuchen_clicked();
-				void			on_sfZielpfadSuchen_clicked();
-				void			on_sfBox_accepted();
+				void			on_sfSchliessen_clicked();
 };
 #endif

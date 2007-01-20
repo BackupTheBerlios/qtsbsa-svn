@@ -14,23 +14,17 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQT4MERGEMODULEDLGHAUPT
-#define QFRANKQT4MERGEMODULEDLGHAUPT
+#ifndef QFRANKQT4MERGEMODULEEREIGNISFILTER
+#define QFRANKQT4MERGEMODULEEREIGNISFILTER
 
-#include "ui_HauptBasis.h"
+#include <QtCore>
 
-class QFileDialog;
-class QFrankQt4MergemoduleDlgHaupt : public QMainWindow, private Ui::dlgHauptBasis
+class QFrankQt4MergemoduleEreignisfilter : public QObject
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleDlgHaupt(QWidget *eltern = 0);
-	private:
-				QFileDialog*	K_Verzeichnisauswahl;
-	private slots:
-				void			on_sfQtPfadSuchen_clicked();
-				void			on_sfWixPfadSuchen_clicked();
-				void			on_sfZielpfadSuchen_clicked();
-				void			on_sfBox_accepted();
+				QFrankQt4MergemoduleEreignisfilter(QObject* eltern=0);
+	protected:
+				bool eventFilter(QObject *objekt, QEvent *ereignis);
 };
 #endif

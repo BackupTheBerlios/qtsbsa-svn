@@ -17,6 +17,9 @@
 TEMPLATE					= app
 TARGET						= Qt4MergemoduleErzeugen
 DESTDIR						= bin
+debug {
+	CONFIG					+= console
+}
 MOC_DIR						= tmp/moc
 OBJECTS_DIR					= tmp/obj
 UI_HEADERS_DIR				= tmp/ui_headers
@@ -27,7 +30,10 @@ RC_FILE						= Windows.rc
 RESOURCES					= Resourcen.qrc
 TRANSLATIONS				= Uebersetzungen/Uebersetzung_en.ts\
 							  Uebersetzungen/Uebersetzung_XX.ts
-FORMS						= Dialoge/HauptBasis.ui
-HEADERS						= Quellen/DlgHaupt.h
-SOURCES						= Quellen/DlgHaupt.cpp\
+FORMS						= Dialoge/HauptBasis.ui\
+							  Dialoge/FortschrittBasis.ui
+HEADERS						= Quellen/DlgFortschritt.h\
+							  Quellen/DlgHaupt.h
+SOURCES						= Quellen/DlgFortschritt.cpp\
+							  Quellen/DlgHaupt.cpp\
 							  Quellen/Haupt.cpp

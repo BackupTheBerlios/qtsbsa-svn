@@ -15,12 +15,13 @@
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
 #include "DlgHaupt.h"
+#include "DlgFortschritt.h"
 #include <QtGui>
 
-QFrankQt4MergemoduleDlgHaupt::QFrankQt4MergemoduleDlgHaupt(QWidget *eltern) : QDialog(eltern)
+QFrankQt4MergemoduleDlgHaupt::QFrankQt4MergemoduleDlgHaupt(QWidget *eltern) : QMainWindow(eltern)
 {
 	setupUi(this);
-	setWindowFlags(windowFlags()^Qt::WindowContextHelpButtonHint);
+	//Zentrieren
 	QDesktopWidget *Desktop = QApplication::desktop(); //neue X und Y Koordinate
 	int x=(Desktop->width()-this->width())/2;
 	int y=(Desktop->height()-this->height())/2;
@@ -55,5 +56,6 @@ void QFrankQt4MergemoduleDlgHaupt::on_sfZielpfadSuchen_clicked()
 }
 void QFrankQt4MergemoduleDlgHaupt::on_sfBox_accepted()
 {
-	QMessageBox::information(this,"Hallo","Und Los");
+	QFrankQt4MergemoduleDlgFortschritt Fortschritt(this);
+	Fortschritt.exec();	
 }
