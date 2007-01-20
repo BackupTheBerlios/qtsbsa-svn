@@ -19,15 +19,18 @@
 
 #include "ui_FortschrittBasis.h"
 
+class QFrankQt4MergemoduleParameter;
 class QFrankQt4MergemoduleDlgFortschritt : public QDialog, private Ui::dlgFortschrittBasis
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleDlgFortschritt(QWidget *eltern = 0);
-				virtual bool	event(QEvent *ereignis);
+				QFrankQt4MergemoduleDlgFortschritt(QWidget *eltern,const QFrankQt4MergemoduleParameter* parameter);
+				virtual bool					event(QEvent *ereignis);				
 	private:
-				bool			K_darfGeschlossenWerden;
+				bool							K_darfGeschlossenWerden;				
 	private slots:
-				void			on_sfSchliessen_clicked();
+				void							on_sfSchliessen_clicked();
+				void							K_NeueMeldung(const QString &meldung);
+				void							K_ErstellungBeendet();
 };
 #endif

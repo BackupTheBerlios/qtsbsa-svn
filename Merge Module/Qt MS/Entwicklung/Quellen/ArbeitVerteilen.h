@@ -14,26 +14,29 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQT4MERGEMODULEDLGHAUPT
-#define QFRANKQT4MERGEMODULEDLGHAUPT
+#ifndef QFRANKQT4MERGEMODULEARBEITVERTEILEN
+#define QFRANKQT4MERGEMODULEARBEITVERTEILEN
 
-#include "ui_HauptBasis.h"
+#include <QtCore>
 
-class QFileDialog;
-class QFrankQt4MergemoduleDlgHaupt : public QMainWindow, private Ui::dlgHauptBasis
+class QFrankQt4MergemoduleParameter;
+class QFrankQt4MergemoduleArbeitVerteilen:public QObject
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleDlgHaupt(QWidget *eltern = 0);
+				QFrankQt4MergemoduleArbeitVerteilen(QObject *eltern,const QFrankQt4MergemoduleParameter* parameter);				
+	public slots:
+				void									Loslegen();
+	signals:
+				void									fertig();
+				void									Meldung(const QString &meldung);
 	private:
-				QFileDialog*	K_Verzeichnisauswahl;
-				QString			K_FeldNachHex(const QByteArray &feld); 
-	private slots:
-				void			on_sfQtPfadSuchen_clicked();
-				void			on_sfWixPfadSuchen_clicked();
-				void			on_sfZielpfadSuchen_clicked();
-				void			on_sfZertifikatSuchen_clicked();
-				void			on_sfWindowsSDKPfadSuchen_clicked();
-				void			on_sfBox_accepted();
+				const QFrankQt4MergemoduleParameter*	K_Parameter;
+				bool									K_WindowsSDKPruefen();
+				void									K_ErstellenGescheitert();
+				void									K_ErstellenErfolgreich();
+				void									K_SchrittFertig();
+				void									K_SchrittFehlgeschlagen();
+
 };
 #endif

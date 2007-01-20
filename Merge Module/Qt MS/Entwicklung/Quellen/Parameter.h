@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Frank BÃ¼ttner frank-buettner@gmx.net
+/* Copyright (C) 2007 Frank Büttner frank-buettner@gmx.net
 
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
@@ -14,26 +14,18 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQT4MERGEMODULEDLGHAUPT
-#define QFRANKQT4MERGEMODULEDLGHAUPT
+#ifndef QFRANKQT4MERGEMODULEPARAMETER
+#define QFRANKQT4MERGEMODULEPARAMETER
 
-#include "ui_HauptBasis.h"
+#include <QtCore>
 
-class QFileDialog;
-class QFrankQt4MergemoduleDlgHaupt : public QMainWindow, private Ui::dlgHauptBasis
+class QFrankQt4MergemoduleParameter: public QObject
 {
-	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleDlgHaupt(QWidget *eltern = 0);
+				QFrankQt4MergemoduleParameter(QObject* eltern=0);
+				void			WindowsSDKPfadSetzen(const QString &pfad){K_WindowsSDKPfad=pfad;}
+				const QString&	WindowsSDKPfadHohlen()const{return K_WindowsSDKPfad;}
 	private:
-				QFileDialog*	K_Verzeichnisauswahl;
-				QString			K_FeldNachHex(const QByteArray &feld); 
-	private slots:
-				void			on_sfQtPfadSuchen_clicked();
-				void			on_sfWixPfadSuchen_clicked();
-				void			on_sfZielpfadSuchen_clicked();
-				void			on_sfZertifikatSuchen_clicked();
-				void			on_sfWindowsSDKPfadSuchen_clicked();
-				void			on_sfBox_accepted();
+				QString			K_WindowsSDKPfad;
 };
 #endif

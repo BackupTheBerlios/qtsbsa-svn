@@ -15,9 +15,10 @@
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
 #include "DlgFortschritt.h"
+#include "ArbeitVerteilen.h"
 #include <QtGui>
 
-QFrankQt4MergemoduleDlgFortschritt::QFrankQt4MergemoduleDlgFortschritt(QWidget *eltern) : QDialog(eltern)
+QFrankQt4MergemoduleDlgFortschritt::QFrankQt4MergemoduleDlgFortschritt(QWidget *eltern,const QFrankQt4MergemoduleParameter* parameter) : QDialog(eltern)
 {
 	setupUi(this);
 	setWindowFlags(windowFlags()^Qt::WindowSystemMenuHint);
@@ -27,7 +28,11 @@ QFrankQt4MergemoduleDlgFortschritt::QFrankQt4MergemoduleDlgFortschritt(QWidget *
 	int y=(Desktop->height()-this->height())/2;
 	//jetzt das Fenster verschieben
 	this->move(x,y);
-	K_darfGeschlossenWerden=false;	
+	K_darfGeschlossenWerden=false;
+	QFrankQt4MergemoduleArbeitVerteilen *Abarbeiten=new QFrankQt4MergemoduleArbeitVerteilen(this,parameter);
+	connect(Abarbeiten,SIGNAL(fertig()),this,SLOT(K_ErstellungBeendet()));
+	connect(Abarbeiten,SIGNAL(Meldung(const QString&)),this,SLOT(K_NeueMeldung(const QString&)));
+	QTimer::singleShot(0,Abarbeiten,SLOT(Loslegen()));	
 }
 void QFrankQt4MergemoduleDlgFortschritt::on_sfSchliessen_clicked()
 {
@@ -46,4 +51,12 @@ bool QFrankQt4MergemoduleDlgFortschritt::event(QEvent *ereignis)
 			ereignis->ignore();
 	}
 	return bearbeitet;
+}
+void QFrankQt4MergemoduleDlgFortschritt::K_NeueMeldung(const QString &meldung)
+{
+	txtAusgabe->append(meldung);
+}
+void QFrankQt4MergemoduleDlgFortschritt::K_ErstellungBeendet()
+{
+	sfSchliessen->setEnabled(true);
 }

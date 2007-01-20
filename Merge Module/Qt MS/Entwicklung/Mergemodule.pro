@@ -28,12 +28,17 @@ RCC_DIR						= tmp/resourcen
 #RC_FILE						= $$RCC_DIR/Windows.rc
 RC_FILE						= Windows.rc
 RESOURCES					= Resourcen.qrc
+LIBS						+= -lCrypt32 -lCryptui
 TRANSLATIONS				= Uebersetzungen/Uebersetzung_en.ts\
 							  Uebersetzungen/Uebersetzung_XX.ts
 FORMS						= Dialoge/HauptBasis.ui\
 							  Dialoge/FortschrittBasis.ui
-HEADERS						= Quellen/DlgFortschritt.h\
+HEADERS						= Quellen/Parameter.h\
+							  Quellen/ArbeitVerteilen.h\
+							  Quellen/DlgFortschritt.h\
 							  Quellen/DlgHaupt.h
-SOURCES						= Quellen/DlgFortschritt.cpp\
+SOURCES						= Quellen/Parameter.cpp\
+							  Quellen/ArbeitVerteilen.cpp\
+							  Quellen/DlgFortschritt.cpp\
 							  Quellen/DlgHaupt.cpp\
 							  Quellen/Haupt.cpp
