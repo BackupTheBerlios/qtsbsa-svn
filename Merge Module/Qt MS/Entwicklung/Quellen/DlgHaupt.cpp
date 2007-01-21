@@ -137,6 +137,10 @@ void QFrankQt4MergemoduleDlgHaupt::on_sfBox_accepted()
 	}
 	QFrankQt4MergemoduleParameter *Parameter=new QFrankQt4MergemoduleParameter(this);
 	Parameter->WindowsSDKPfadSetzen(txtWindowsSDKPfad->text());
+	Parameter->QtPfadSetzen(txtQtPfad->text());
+	Parameter->ZertSHA1Setzen(txtZertifikat->text());
+	Parameter->CPUTypeSetzen(awProzessor->currentText());
+	Parameter->ZielverzeichnisSetzen(txtZielPfad->text());
 	QFrankQt4MergemoduleDlgFortschritt Fortschritt(this,Parameter);
 	Fortschritt.exec();	
 }

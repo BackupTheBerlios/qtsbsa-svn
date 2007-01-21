@@ -24,7 +24,7 @@ class QFrankQt4MergemoduleDlgFortschritt : public QDialog, private Ui::dlgFortsc
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleDlgFortschritt(QWidget *eltern,const QFrankQt4MergemoduleParameter* parameter);
+				QFrankQt4MergemoduleDlgFortschritt(QWidget *eltern,QFrankQt4MergemoduleParameter* parameter);
 				virtual bool					event(QEvent *ereignis);				
 	private:
 				bool							K_darfGeschlossenWerden;				

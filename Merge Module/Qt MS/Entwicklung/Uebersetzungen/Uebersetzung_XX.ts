@@ -1,71 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1">
+<context>
+    <name>QFrankQt4MergemoduleArbeitVerteilen</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="33"/>
+        <source>Prüfe Windows SDK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="42"/>
+        <source>Die Datei %1 wurde nicht gefunden.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="55"/>
+        <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Erstellung der Mergemodule gescheitert.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="59"/>
+        <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Erstellung der Mergemodule erfolgreich.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="63"/>
+        <source>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;fertig&lt;/span&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="67"/>
+        <source>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;fehlgeschlagen&lt;/span&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 <context encoding="UTF-8">
     <name>QFrankQt4MergemoduleDlgHaupt</name>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgHaupt.cpp" line="39"/>
+        <location filename="../Quellen/DlgHaupt.cpp" line="40"/>
         <source>Bitte das Verzeichnis mit den Qt4 Bibliotheken auswählen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/DlgHaupt.cpp" line="47"/>
+        <location filename="../Quellen/DlgHaupt.cpp" line="48"/>
         <source>Werkzeuge vom Windows SDK suchen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgHaupt.cpp" line="55"/>
+        <location filename="../Quellen/DlgHaupt.cpp" line="56"/>
         <source>Bitte das Verzeichnis in dem sich Wix3 befindet auswählen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgHaupt.cpp" line="63"/>
+        <location filename="../Quellen/DlgHaupt.cpp" line="64"/>
         <source>Bitte das Verzeichnis für die Mergemodule auswählen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgHaupt.cpp" line="75"/>
+        <location filename="../Quellen/DlgHaupt.cpp" line="76"/>
         <source>Fehler beim öffnen des Zertifikatsspeichers.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgHaupt.cpp" line="75"/>
+        <location filename="../Quellen/DlgHaupt.cpp" line="76"/>
         <source>Der Zertifikatsspeicher konnte nicht geöffnet werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgHaupt.cpp" line="78"/>
+        <location filename="../Quellen/DlgHaupt.cpp" line="79"/>
         <source>Bitte das Zertifikat zum signieren auswählen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/DlgHaupt.cpp" line="79"/>
+        <location filename="../Quellen/DlgHaupt.cpp" line="80"/>
         <source>Welches Zertifikat soll genutzt werden?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/DlgHaupt.cpp" line="82"/>
+        <location filename="../Quellen/DlgHaupt.cpp" line="83"/>
         <source>Fehler bei der Auswahl des Zertifikates.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgHaupt.cpp" line="82"/>
+        <location filename="../Quellen/DlgHaupt.cpp" line="83"/>
         <source>Es wurde kein Zertifikat ausgewählt.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/DlgHaupt.cpp" line="103"/>
+        <location filename="../Quellen/DlgHaupt.cpp" line="104"/>
         <source>Fehler im Zertifikat</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgHaupt.cpp" line="95"/>
+        <location filename="../Quellen/DlgHaupt.cpp" line="96"/>
         <source>Die SHA-1 Prüfsumme wurde nicht empfangen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgHaupt.cpp" line="104"/>
+        <location filename="../Quellen/DlgHaupt.cpp" line="105"/>
         <source>Für Manifeste beträgt die minimale Schlüssellänge 2048 Bit.<byte value="xd"/>
 Bei dem gewählten Zertifikat beträgt diese jedoch nur %1 Bit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgHaupt.cpp" line="135"/>
+        <source>Kein Zertifikat gewählt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgHaupt.cpp" line="135"/>
+        <source>Es wurde kein gültiges Zertifikat ausgewählt.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

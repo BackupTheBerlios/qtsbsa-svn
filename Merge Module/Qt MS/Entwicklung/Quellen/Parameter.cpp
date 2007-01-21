@@ -19,3 +19,9 @@
 QFrankQt4MergemoduleParameter::QFrankQt4MergemoduleParameter(QObject* eltern):QObject(eltern)
 {
 }
+void QFrankQt4MergemoduleParameter::ZertSHA1Setzen(const QString &sha1)
+{
+	K_ZertSHA1=sha1;
+	K_ZertSHA1.remove(":"); //Trennzeichen entfernen
+	K_publicKeyToken=K_ZertSHA1.right(16);//Die letzen 8 Bytes von der SHA-1 Prüfsumme ist der pkt.	
+}

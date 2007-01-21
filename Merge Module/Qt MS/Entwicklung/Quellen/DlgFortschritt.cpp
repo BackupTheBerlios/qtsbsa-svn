@@ -18,7 +18,7 @@
 #include "ArbeitVerteilen.h"
 #include <QtGui>
 
-QFrankQt4MergemoduleDlgFortschritt::QFrankQt4MergemoduleDlgFortschritt(QWidget *eltern,const QFrankQt4MergemoduleParameter* parameter) : QDialog(eltern)
+QFrankQt4MergemoduleDlgFortschritt::QFrankQt4MergemoduleDlgFortschritt(QWidget *eltern,QFrankQt4MergemoduleParameter* parameter) : QDialog(eltern)
 {
 	setupUi(this);
 	setWindowFlags(windowFlags()^Qt::WindowSystemMenuHint);

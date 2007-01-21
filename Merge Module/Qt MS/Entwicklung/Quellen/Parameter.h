@@ -20,12 +20,32 @@
 #include <QtCore>
 
 class QFrankQt4MergemoduleParameter: public QObject
-{
+{	
 	public:
 				QFrankQt4MergemoduleParameter(QObject* eltern=0);
-				void			WindowsSDKPfadSetzen(const QString &pfad){K_WindowsSDKPfad=pfad;}
-				const QString&	WindowsSDKPfadHohlen()const{return K_WindowsSDKPfad;}
+				void				WindowsSDKPfadSetzen(const QString &pfad){K_WindowsSDKPfad=pfad;}
+				void				QtPfadSetzen(const QString &pfad){K_QtPfad=pfad;}
+				void				QtVersionSetzen(const QString &version){K_QtVersion=version;}
+				void				QtBibliothekenSetzen(const QStringList &bibliotheken){K_QtBibliotheken=bibliotheken;}
+				void				ZertSHA1Setzen(const QString &sha1);
+				void				CPUTypeSetzen(const QString &cpu){K_CPU=cpu;}
+				void				ZielverzeichnisSetzen(const QString &verzeichnis){K_Zielverzeichnis=verzeichnis;}
+				const QString&		WindowsSDKPfadHohlen()const{return K_WindowsSDKPfad;}
+				const QString&		QtPfadHohlen()const{return K_QtPfad;}
+				const QString&		QtVersionHohlen()const{return K_QtVersion;}
+				const QStringList&	QtBibliothekenHohlen()const{return K_QtBibliotheken;}
+				const QString&		ZertSHA1Hohlen()const{return K_ZertSHA1;}
+				const QString&		publicKeyTokenHohlen()const{return K_publicKeyToken;}
+				const QString&		CPUTypeHohlen()const{return K_CPU;}
+				const QString&		ZielverzeichnisHohlen()const{return K_Zielverzeichnis;}
 	private:
-				QString			K_WindowsSDKPfad;
+				QString				K_WindowsSDKPfad;
+				QString				K_QtPfad;
+				QString				K_QtVersion;
+				QStringList			K_QtBibliotheken;
+				QString				K_ZertSHA1;
+				QString				K_publicKeyToken;
+				QString				K_CPU;
+				QString				K_Zielverzeichnis;
 };
 #endif

@@ -24,19 +24,28 @@ class QFrankQt4MergemoduleArbeitVerteilen:public QObject
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleArbeitVerteilen(QObject *eltern,const QFrankQt4MergemoduleParameter* parameter);				
+				QFrankQt4MergemoduleArbeitVerteilen(QObject *eltern,QFrankQt4MergemoduleParameter* parameter);				
 	public slots:
-				void									Loslegen();
+				void							Loslegen();
 	signals:
-				void									fertig();
-				void									Meldung(const QString &meldung);
+				void							fertig();
+				void							Meldung(const QString &meldung);
+	private slots:
+				void							K_ThreadFertig( QThread *welcher);
 	private:
-				const QFrankQt4MergemoduleParameter*	K_Parameter;
-				bool									K_WindowsSDKPruefen();
-				void									K_ErstellenGescheitert();
-				void									K_ErstellenErfolgreich();
-				void									K_SchrittFertig();
-				void									K_SchrittFehlgeschlagen();
+				QFrankQt4MergemoduleParameter*	K_Parameter;
+				int								K_AnzahlDerProzesse;	
+				bool							K_WindowsSDKPruefen();
+				bool							K_QtPruefen();
+				bool							K_ZielverzeichnisPruefen();
+				bool							K_DateienVorhanden(const QStringList &liste);
+				bool							K_DateienKopieren(const QStringList &dateiliste,const QString &zielverzeichnis);
+				void							K_ErstellenGescheitert();
+				void							K_ErstellenErfolgreich();
+				void							K_SchrittFertig();
+				void							K_SchrittFehlgeschlagen();
+				void							K_ManifesteExportieren();
+				const QString					K_Dateiversion(const QString &datei);
 
 };
 #endif
