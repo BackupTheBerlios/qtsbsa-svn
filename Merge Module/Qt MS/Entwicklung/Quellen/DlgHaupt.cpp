@@ -135,12 +135,18 @@ void QFrankQt4MergemoduleDlgHaupt::on_sfBox_accepted()
 		QMessageBox::critical(this,trUtf8("Kein Zertifikat gewählt"),trUtf8("Es wurde kein gültiges Zertifikat ausgewählt."));
 		return;
 	}
+	if(txtEntwicklername->text().isEmpty())
+	{
+		QMessageBox::critical(this,tr("Kein Entwickler angegeben"),tr("Das Feld Entwickler darf nicht leer sein."));
+		return;
+	}
 	QFrankQt4MergemoduleParameter *Parameter=new QFrankQt4MergemoduleParameter(this);
 	Parameter->WindowsSDKPfadSetzen(txtWindowsSDKPfad->text());
 	Parameter->QtPfadSetzen(txtQtPfad->text());
 	Parameter->ZertSHA1Setzen(txtZertifikat->text());
 	Parameter->CPUTypeSetzen(awProzessor->currentText());
 	Parameter->ZielverzeichnisSetzen(txtZielPfad->text());
+	Parameter->EntwicklerSetzen(txtEntwicklername->text());
 	QFrankQt4MergemoduleDlgFortschritt Fortschritt(this,Parameter);
 	Fortschritt.exec();	
 }

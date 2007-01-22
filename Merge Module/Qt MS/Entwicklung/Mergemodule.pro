@@ -17,6 +17,7 @@
 TEMPLATE					= app
 TARGET						= Qt4MergemoduleErzeugen
 DESTDIR						= bin
+QT							+= xml
 debug {
 	CONFIG					+= console
 }
@@ -34,12 +35,16 @@ TRANSLATIONS				= Uebersetzungen/Uebersetzung_en.ts\
 FORMS						= Dialoge/HauptBasis.ui\
 							  Dialoge/FortschrittBasis.ui
 HEADERS						= Quellen/Parameter.h\
+							  Quellen/BasisThread.h\
 							  Quellen/ManifestExportieren.h\
+							  Quellen/ManifestBearbeiten.h\
 							  Quellen/ArbeitVerteilen.h\
 							  Quellen/DlgFortschritt.h\
 							  Quellen/DlgHaupt.h
 SOURCES						= Quellen/Parameter.cpp\
+							  Quellen/BasisThread.cpp\
 							  Quellen/ManifestExportieren.cpp\
+							  Quellen/ManifestBearbeiten.cpp\
 							  Quellen/ArbeitVerteilen.cpp\
 							  Quellen/DlgFortschritt.cpp\
 							  Quellen/DlgHaupt.cpp\

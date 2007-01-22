@@ -14,25 +14,22 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQT4MERGEMODULEMANIFESTEXPORTIEREN
-#define QFRANKQT4MERGEMODULEMANIFESTEXPORTIEREN
+#ifndef QFRANKQT4MERGEMODULEMANIFESTBEARBEITEN
+#define QFRANKQT4MERGEMODULEMANIFESTBEARBEITEN
 
 #include <QtCore>
 #include "BasisThread.h"
 
 class QFrankQt4MergemoduleParameter;
-class QFrankQt4MergemoduleManifestExportieren:public QFrankQt4MergemoduleBasisThread
+class QFrankQt4MergemoduleManifestBearbeiten: public QFrankQt4MergemoduleBasisThread
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleManifestExportieren(const QFrankQt4MergemoduleParameter* parameter,QObject *eltern=0);	
-				~QFrankQt4MergemoduleManifestExportieren();
-
-	private slots:
-				void		K_mtFertig(int statusCode);
-	private:	
-				QProcess*	K_mtProzess;				
+				QFrankQt4MergemoduleManifestBearbeiten(const QFrankQt4MergemoduleParameter* parameter,QObject* eltern=0);
+	private:
+				QString	K_QtKomponente;
+				bool	K_QtKomponenteErmitteln(const QString &datei);
 	protected:
-				void		run();
+				void	run();
 };
 #endif

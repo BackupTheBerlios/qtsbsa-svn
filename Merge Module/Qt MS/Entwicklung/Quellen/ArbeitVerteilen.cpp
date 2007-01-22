@@ -17,6 +17,7 @@
 #include "ArbeitVerteilen.h"
 #include "Parameter.h"
 #include "Manifestexportieren.h"
+#include "ManifestBearbeiten.h"
 #include <Windows.h>
 #include <Winver.h>
 
@@ -30,17 +31,22 @@ void QFrankQt4MergemoduleArbeitVerteilen::Loslegen()
 		return;
 	if(!K_QtPruefen())
 		return;
-	if(!K_ZielverzeichnisPruefen())
+	//Damit man zum Testen nicht laufend die Dateien löschen muss.
+	/*if(!K_ZielverzeichnisPruefen())
 		return;
 	if(!K_DateienKopieren(K_Parameter->QtBibliothekenHohlen(),K_Parameter->ZielverzeichnisHohlen()))
-		return;
+		return;*/
 	K_ManifesteExportieren();
 	//K_ErstellenErfolgreich();
 	//emit fertig();
 }
 void QFrankQt4MergemoduleArbeitVerteilen::K_ManifesteExportieren()
 {
+	K_Arbeitsschritt=QFrankQt4MergemoduleArbeitVerteilen::ManifestExportieren;
 	emit Meldung(tr("Extrahiere Manifeste"));
+	//zum testen nur 1 Thread 
+	//K_AnzahlDerProzesse=1;
+
 	K_AnzahlDerProzesse=K_Parameter->QtBibliothekenHohlen().count();
 #ifndef QT_NO_DEBUG
 	qDebug("%s K_ManifesteExportieren: Anzahl der Prozesse: %i",this->metaObject()->className(),K_AnzahlDerProzesse);
@@ -49,32 +55,75 @@ void QFrankQt4MergemoduleArbeitVerteilen::K_ManifesteExportieren()
 	{
 		QFrankQt4MergemoduleManifestExportieren *Export=new QFrankQt4MergemoduleManifestExportieren(K_Parameter,this);
 		Export->DateinummerFestlegen(Threadnummer);
-		connect(Export,SIGNAL(fertig(QThread*)),this,SLOT(K_ThreadFertig( QThread*)));
+		connect(Export,SIGNAL(fertig(QFrankQt4MergemoduleBasisThread*)),this,SLOT(K_ThreadFertig( QFrankQt4MergemoduleBasisThread*)));
 		Export->start();
 	}		
 }
-void QFrankQt4MergemoduleArbeitVerteilen::K_ThreadFertig(QThread *welcher)
+void QFrankQt4MergemoduleArbeitVerteilen::K_ManifesteBearbeiten()
+{
+	emit Meldung(tr("Bearbeite Manifeste"));
+	//zum testen nur 1 Thread 
+	//K_AnzahlDerProzesse=1;
+	K_AnzahlDerProzesse=K_Parameter->QtBibliothekenHohlen().count();
+#ifndef QT_NO_DEBUG
+	qDebug("%s K_ManifesteBearbeiten: Anzahl der Prozesse: %i",this->metaObject()->className(),K_AnzahlDerProzesse);
+#endif
+	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
+	{
+		QFrankQt4MergemoduleManifestBearbeiten *bearbeiten=new QFrankQt4MergemoduleManifestBearbeiten(K_Parameter,this);
+		bearbeiten->DateinummerFestlegen(Threadnummer);
+		connect(bearbeiten,SIGNAL(fertig(QFrankQt4MergemoduleBasisThread*)),this,SLOT(K_ThreadFertig( QFrankQt4MergemoduleBasisThread*)));
+		bearbeiten->start();
+	}	
+}
+void QFrankQt4MergemoduleArbeitVerteilen::K_ThreadFertig(QFrankQt4MergemoduleBasisThread *welcher)
 {
 	static bool FehlerAufgetreten=false;
 	K_AnzahlDerProzesse--;
-	int Fehlercode=-1;
-	QMetaObject::invokeMethod(welcher,"FehlercodeHohlen",Q_RETURN_ARG(int,Fehlercode));
+	int Fehlercode=welcher->FehlercodeHohlen();	
 	if(Fehlercode!=0)
+	{
 		FehlerAufgetreten=true;
+		emit Meldung(welcher->FehlermeldungHohlen());
+	}
 #ifndef QT_NO_DEBUG
-	int Threadnummer=-1;
-	QMetaObject::invokeMethod(welcher,"Threadnummer",Q_RETURN_ARG(int,Threadnummer));
+	int Threadnummer=welcher->Threadnummer();
 	qDebug("%s K_ThreadFertig: Thread %i ist fertig mit dem Fehlercode %i",this->metaObject()->className(),Threadnummer,Fehlercode);
 #endif
 	if(K_AnzahlDerProzesse==0)
 	{
 		if(!FehlerAufgetreten)
+		{
 			K_SchrittFertig();
+			//Da es keinen Fehler gab, den nächsten Schritt bitte:)
+			FehlerAufgetreten=false;
+			K_NaechsterArbeitsschritt();
+		}
 		else
+		{
 			K_SchrittFehlgeschlagen();
-		//Wenn alle fertig sind, emit fertig() aufrufen damit es weiter geht
-		emit fertig();
+			K_ErstellenGescheitert();
+			emit fertig();
+		}		
 	}	
+}
+void QFrankQt4MergemoduleArbeitVerteilen::K_NaechsterArbeitsschritt()
+{
+	K_Arbeitsschritt++;
+	//Was kommt als nächtses??
+	switch(K_Arbeitsschritt)
+	{
+		case QFrankQt4MergemoduleArbeitVerteilen::ManifestBearbeiten:
+																		K_ManifesteBearbeiten();
+																		break;
+		default:
+#ifndef QT_NO_DEBUG
+																		qDebug("%s K_NaechsterArbeitsschritt: alle Schritt fertig",this->metaObject()->className());
+#endif
+																		K_ErstellenErfolgreich();
+																		emit fertig();
+																		break;
+	};
 }
 bool QFrankQt4MergemoduleArbeitVerteilen::K_DateienKopieren(const QStringList &dateiliste,const QString &zielverzeichnis)
 {

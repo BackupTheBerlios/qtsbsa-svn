@@ -22,9 +22,9 @@
 	Manifest importieren: mt.exe -manifest XXX.manifest -outputresource:XXXX.dll;#1	
 */
 
-QFrankQt4MergemoduleManifestExportieren::QFrankQt4MergemoduleManifestExportieren(const QFrankQt4MergemoduleParameter* parameter,QObject *eltern):QThread(eltern)
-{
-	K_Parameter=parameter;
+QFrankQt4MergemoduleManifestExportieren::QFrankQt4MergemoduleManifestExportieren(const QFrankQt4MergemoduleParameter* parameter,QObject *eltern)
+										:QFrankQt4MergemoduleBasisThread(parameter,eltern)
+{	
 	K_mtProzess=NULL;
 }
 QFrankQt4MergemoduleManifestExportieren::~QFrankQt4MergemoduleManifestExportieren()
@@ -35,10 +35,19 @@ QFrankQt4MergemoduleManifestExportieren::~QFrankQt4MergemoduleManifestExportiere
 void QFrankQt4MergemoduleManifestExportieren::run()
 {
 	K_mtProzess=new QProcess();
+	K_mtProzess->setProcessChannelMode(QProcess::MergedChannels);
 	connect(K_mtProzess,SIGNAL(finished(int)),this,SLOT(K_mtFertig(int)));
-	K_mtProzess->start("\""+K_Parameter->WindowsSDKPfadHohlen()+"\\mt.exe\"");
+	QStringList Argumente;
+	QString Datei=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer);
+	Argumente<<"-inputresource:"+K_Parameter->ZielverzeichnisHohlen()+Datei.right(Datei.length()-Datei.lastIndexOf("\\"))+";#2"
+			 <<"-out:"+K_Parameter->ZielverzeichnisHohlen()+Datei.right(Datei.length()-Datei.lastIndexOf("\\"))+".manifest"
+			 <<"-nologo";
+	K_mtProzess->start("\""+K_Parameter->WindowsSDKPfadHohlen()+"\\mt.exe\"",Argumente);
 	if(!K_mtProzess->waitForStarted(5000))
 	{
+		K_Fehlercode=1;
+		K_Fehlermeldung=trUtf8("Das Werkzeug mt.exe konnte nicht ausgeführt werden.");
+		emit fertig(this);
 		return;
 	}
 	K_Fehlercode=exec();
@@ -47,14 +56,34 @@ void QFrankQt4MergemoduleManifestExportieren::run()
 void QFrankQt4MergemoduleManifestExportieren::K_mtFertig(int statusCode)
 {	
 	/*
+		exit Code:
 		0 alles ok
 		1 Fehler
 	*/
-
-	//nur zum Testen!!!!
-	if(K_Dateinummer==3)
+	QString Fehlermeldung=QString(K_mtProzess->readAll());
+	Fehlermeldung.remove("\r");
+	Fehlermeldung.remove("\n");
+#ifndef QT_NO_DEBUG	
+	qDebug("%s K_mtFertig: Nummer: %i\r\nStatuscode: %i\r\nFehlertext: %s\r\nAusgabe:\r\n%s",this->metaObject()->className(),K_Dateinummer,statusCode,
+																							qPrintable(QString(K_mtProzess->errorString())),
+									  														qPrintable(Fehlermeldung));
+#endif
+	if(statusCode!=0)
+	{
+		K_Fehlermeldung=Fehlermeldung;
 		exit(1);
+	}
 	else
+#ifndef QT_NO_DEBUG
+		//Fehler Simmulation
+		/*if(K_Dateinummer==3)
+		{
+			K_Fehlermeldung="Simmulierter Fehler";
+			exit(1);
+		}
+		else*/
+			exit(0);
+#else
 		exit(0);
-	//exit(0);
+#endif
 }

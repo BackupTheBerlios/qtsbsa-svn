@@ -20,6 +20,7 @@
 #include <QtCore>
 
 class QFrankQt4MergemoduleParameter;
+class QFrankQt4MergemoduleBasisThread;
 class QFrankQt4MergemoduleArbeitVerteilen:public QObject
 {
 	Q_OBJECT
@@ -31,8 +32,9 @@ class QFrankQt4MergemoduleArbeitVerteilen:public QObject
 				void							fertig();
 				void							Meldung(const QString &meldung);
 	private slots:
-				void							K_ThreadFertig( QThread *welcher);
+				void							K_ThreadFertig( QFrankQt4MergemoduleBasisThread *welcher);
 	private:
+				enum							K_Arbeitsschritte{ManifestExportieren=0x0,ManifestBearbeiten=0x1};
 				QFrankQt4MergemoduleParameter*	K_Parameter;
 				int								K_AnzahlDerProzesse;	
 				bool							K_WindowsSDKPruefen();
@@ -45,7 +47,10 @@ class QFrankQt4MergemoduleArbeitVerteilen:public QObject
 				void							K_SchrittFertig();
 				void							K_SchrittFehlgeschlagen();
 				void							K_ManifesteExportieren();
+				void							K_ManifesteBearbeiten();
+				void							K_NaechsterArbeitsschritt();
 				const QString					K_Dateiversion(const QString &datei);
+				uchar							K_Arbeitsschritt;
 
 };
 #endif

@@ -3,33 +3,78 @@
 <context>
     <name>QFrankQt4MergemoduleArbeitVerteilen</name>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="33"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="151"/>
         <source>Prüfe Windows SDK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="42"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="260"/>
         <source>Die Datei %1 wurde nicht gefunden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="55"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="269"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Erstellung der Mergemodule gescheitert.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="59"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="273"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Erstellung der Mergemodule erfolgreich.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="63"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="277"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;fertig&lt;/span&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="67"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="281"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;fehlgeschlagen&lt;/span&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="46"/>
+        <source>Extrahiere Manifeste</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="130"/>
+        <source>Kopiere Qt4 Bibliotheken</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="138"/>
+        <source>Die Datei %1 konnte nicht nach %2 kopiert werden.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="168"/>
+        <source>Prüfe Qt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="201"/>
+        <source>Prüfe Zielverzeichnis für die Mergemodule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="209"/>
+        <source>Das Zielverzeichnis %1 konnte nicht erstellt werden.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="219"/>
+        <source>Das Zielverzeichnis %1 ist nicht leer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="250"/>
+        <source>Die Version der Datei %1 konnte nicht ermittelt werden.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="64"/>
+        <source>Bearbeite Manifeste</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -111,6 +156,47 @@ Bei dem gewählten Zertifikat beträgt diese jedoch nur %1 Bit</source>
         <source>Es wurde kein gültiges Zertifikat ausgewählt.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../Quellen/DlgHaupt.cpp" line="140"/>
+        <source>Kein Entwickler angegeben</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/DlgHaupt.cpp" line="140"/>
+        <source>Das Feld Entwickler darf nicht leer sein.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>QFrankQt4MergemoduleManifestBearbeiten</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="33"/>
+        <source>Nicht erkannte oder ungültige Qt4 Komponente %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="42"/>
+        <source>Die Datei %1 konnte nicht göffnet werden.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="49"/>
+        <source>%1 ist keine gültige XML Datei.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="70"/>
+        <source>%1 konnte nicht überschrieben werden.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>QFrankQt4MergemoduleManifestExportieren</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestExportieren.cpp" line="49"/>
+        <source>Das Werkzeug mt.exe konnte nicht ausgeführt werden.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>dlgFortschrittBasis</name>
@@ -120,7 +206,7 @@ Bei dem gewählten Zertifikat beträgt diese jedoch nur %1 Bit</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Dialoge/FortschrittBasis.ui" line="63"/>
+        <location filename="../Dialoge/FortschrittBasis.ui" line="66"/>
         <source>schließen</source>
         <translation type="unfinished"></translation>
     </message>

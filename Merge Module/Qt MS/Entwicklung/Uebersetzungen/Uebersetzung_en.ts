@@ -3,34 +3,79 @@
 <context>
     <name>QFrankQt4MergemoduleArbeitVerteilen</name>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="33"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="151"/>
         <source>Prüfe Windows SDK</source>
         <translation>Check the Windows SDK</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="42"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="260"/>
         <source>Die Datei %1 wurde nicht gefunden.</source>
         <translation>The file %1 was not found.</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="55"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="269"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Erstellung der Mergemodule gescheitert.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Build of the merge modules failed.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="59"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="273"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Erstellung der Mergemodule erfolgreich.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Build of the merge modules complete.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="63"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="277"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;fertig&lt;/span&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;OK&lt;/span&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="67"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="281"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;fehlgeschlagen&lt;/span&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;failed&lt;/span&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="46"/>
+        <source>Extrahiere Manifeste</source>
+        <translation>Extract manifests</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="130"/>
+        <source>Kopiere Qt4 Bibliotheken</source>
+        <translation>Copy Qt4 libs</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="138"/>
+        <source>Die Datei %1 konnte nicht nach %2 kopiert werden.</source>
+        <translation>Failed copy file %1 to %2.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="168"/>
+        <source>Prüfe Qt</source>
+        <translation>Check Qt</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="201"/>
+        <source>Prüfe Zielverzeichnis für die Mergemodule</source>
+        <translation>Check the targed directory for the merge modules</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="209"/>
+        <source>Das Zielverzeichnis %1 konnte nicht erstellt werden.</source>
+        <translation>The target directory %1 coun&apos;t be created.</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="219"/>
+        <source>Das Zielverzeichnis %1 ist nicht leer.</source>
+        <translation>The target directory %1 is not empty.</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="250"/>
+        <source>Die Version der Datei %1 konnte nicht ermittelt werden.</source>
+        <translation>The version of file %1 can&apos;t be resived.</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="64"/>
+        <source>Bearbeite Manifeste</source>
+        <translation>fix the manifest files</translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -112,11 +157,52 @@ But at the selected one the key is only %1 Bits long.</translation>
         <source>Es wurde kein gültiges Zertifikat ausgewählt.</source>
         <translation>No valid certificate was selected.</translation>
     </message>
+    <message>
+        <location filename="../Quellen/DlgHaupt.cpp" line="140"/>
+        <source>Kein Entwickler angegeben</source>
+        <translation>No developer was given</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/DlgHaupt.cpp" line="140"/>
+        <source>Das Feld Entwickler darf nicht leer sein.</source>
+        <translation>The filed devekoprt muste be filled.</translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>QFrankQt4MergemoduleManifestBearbeiten</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="33"/>
+        <source>Nicht erkannte oder ungültige Qt4 Komponente %1.</source>
+        <translation>Unkown Qt4 compoent %1.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="42"/>
+        <source>Die Datei %1 konnte nicht göffnet werden.</source>
+        <translation>Error while open the file %1.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="49"/>
+        <source>%1 ist keine gültige XML Datei.</source>
+        <translation>%1 is not an valid XML file.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="70"/>
+        <source>%1 konnte nicht überschrieben werden.</source>
+        <translation>%1 can&apos;t be overwritten.</translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>QFrankQt4MergemoduleManifestExportieren</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestExportieren.cpp" line="49"/>
+        <source>Das Werkzeug mt.exe konnte nicht ausgeführt werden.</source>
+        <translation>The tool mt.exe can&apos;t be started.</translation>
+    </message>
 </context>
 <context>
     <name>dlgFortschrittBasis</name>
     <message encoding="UTF-8">
-        <location filename="../Dialoge/FortschrittBasis.ui" line="63"/>
+        <location filename="../Dialoge/FortschrittBasis.ui" line="66"/>
         <source>schließen</source>
         <translation>close</translation>
     </message>

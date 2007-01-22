@@ -14,25 +14,30 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQT4MERGEMODULEMANIFESTEXPORTIEREN
-#define QFRANKQT4MERGEMODULEMANIFESTEXPORTIEREN
+#ifndef QFRANKQT4MERGEMODULEBASISTHREAD
+#define QFRANKQT4MERGEMODULEBASISTHREAD
 
 #include <QtCore>
-#include "BasisThread.h"
 
 class QFrankQt4MergemoduleParameter;
-class QFrankQt4MergemoduleManifestExportieren:public QFrankQt4MergemoduleBasisThread
+class QFrankQt4MergemoduleBasisThread:public QThread
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleManifestExportieren(const QFrankQt4MergemoduleParameter* parameter,QObject *eltern=0);	
-				~QFrankQt4MergemoduleManifestExportieren();
-
-	private slots:
-				void		K_mtFertig(int statusCode);
-	private:	
-				QProcess*	K_mtProzess;				
+				QFrankQt4MergemoduleBasisThread(const QFrankQt4MergemoduleParameter* parameter,QObject* eltern=0);
+				void									DateinummerFestlegen(const int &nummer){K_Dateinummer=nummer;}
+	public slots:
+				const int								FehlercodeHohlen(){return K_Fehlercode;}
+				const QString							FehlermeldungHohlen(){return K_Fehlermeldung;}
+#ifndef QT_NO_DEBUG
+				const int								Threadnummer(){return K_Dateinummer;}
+#endif
+	signals:
+				void									fertig(QFrankQt4MergemoduleBasisThread *welcher);
 	protected:
-				void		run();
+				const QFrankQt4MergemoduleParameter*	K_Parameter;
+				QString									K_Fehlermeldung;
+				int										K_Fehlercode;
+				int										K_Dateinummer;				
 };
 #endif

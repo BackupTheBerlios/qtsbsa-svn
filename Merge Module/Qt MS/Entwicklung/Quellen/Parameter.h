@@ -30,6 +30,7 @@ class QFrankQt4MergemoduleParameter: public QObject
 				void				ZertSHA1Setzen(const QString &sha1);
 				void				CPUTypeSetzen(const QString &cpu){K_CPU=cpu;}
 				void				ZielverzeichnisSetzen(const QString &verzeichnis){K_Zielverzeichnis=verzeichnis;}
+				void				EntwicklerSetzen(const QString &entwickler){K_Entwickler=entwickler;}
 				const QString&		WindowsSDKPfadHohlen()const{return K_WindowsSDKPfad;}
 				const QString&		QtPfadHohlen()const{return K_QtPfad;}
 				const QString&		QtVersionHohlen()const{return K_QtVersion;}
@@ -38,6 +39,7 @@ class QFrankQt4MergemoduleParameter: public QObject
 				const QString&		publicKeyTokenHohlen()const{return K_publicKeyToken;}
 				const QString&		CPUTypeHohlen()const{return K_CPU;}
 				const QString&		ZielverzeichnisHohlen()const{return K_Zielverzeichnis;}
+				const QString&		EntwicklerHohlen()const{return K_Entwickler;}
 	private:
 				QString				K_WindowsSDKPfad;
 				QString				K_QtPfad;
@@ -47,5 +49,6 @@ class QFrankQt4MergemoduleParameter: public QObject
 				QString				K_publicKeyToken;
 				QString				K_CPU;
 				QString				K_Zielverzeichnis;
+				QString				K_Entwickler;
 };
 #endif
