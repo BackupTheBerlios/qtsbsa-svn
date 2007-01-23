@@ -18,6 +18,7 @@
 #include "Parameter.h"
 #include "Manifestexportieren.h"
 #include "ManifestBearbeiten.h"
+#include "KatalogErstellen.h"
 #include <Windows.h>
 #include <Winver.h>
 
@@ -78,6 +79,19 @@ void QFrankQt4MergemoduleArbeitVerteilen::K_ManifesteBearbeiten()
 		bearbeiten->start();
 	}	
 }
+void QFrankQt4MergemoduleArbeitVerteilen::K_KatalogeErstellen()
+{
+	emit Meldung(tr("Erstelle Kataloge"));
+	K_AnzahlDerProzesse=K_Parameter->QtBibliothekenHohlen().count();
+	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
+	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
+	{
+		QFrankQt4MergemoduleKatalogErstellen *erstellen=new QFrankQt4MergemoduleKatalogErstellen(K_Parameter,this);
+		erstellen->DateinummerFestlegen(Threadnummer);
+		connect(erstellen,SIGNAL(fertig(QFrankQt4MergemoduleBasisThread*)),this,SLOT(K_ThreadFertig( QFrankQt4MergemoduleBasisThread*)));		
+		erstellen->start();
+	}	
+}
 void QFrankQt4MergemoduleArbeitVerteilen::K_ThreadFertig(QFrankQt4MergemoduleBasisThread *welcher)
 {
 	emit FortschrittsanzeigeSchritt();
@@ -119,6 +133,9 @@ void QFrankQt4MergemoduleArbeitVerteilen::K_NaechsterArbeitsschritt()
 		case QFrankQt4MergemoduleArbeitVerteilen::ManifestBearbeiten:
 																		K_ManifesteBearbeiten();
 																		break;
+		case QFrankQt4MergemoduleArbeitVerteilen::KatalogErstellen:
+																		K_KatalogeErstellen();
+																		break;
 		default:
 #ifndef QT_NO_DEBUG
 																		qDebug("%s K_NaechsterArbeitsschritt: alle Schritt fertig",this->metaObject()->className());
@@ -159,7 +176,8 @@ bool QFrankQt4MergemoduleArbeitVerteilen::K_WindowsSDKPruefen()
 	QStringList Werkzeugliste;
 	Werkzeugliste<< K_Parameter->WindowsSDKPfadHohlen()+"\\mt.exe"<<
 					K_Parameter->WindowsSDKPfadHohlen()+"\\signtool.exe"<<
-					K_Parameter->WindowsSDKPfadHohlen()+"\\Depends.Exe";
+					K_Parameter->WindowsSDKPfadHohlen()+"\\Depends.Exe"<<
+					K_Parameter->WindowsSDKPfadHohlen()+"\\MakeCat.Exe";
 	emit FortschrittsanzeigeMaximum(Werkzeugliste.count());
 	if(!K_DateienVorhanden(Werkzeugliste))
 	{
