@@ -31,6 +31,8 @@ class QFrankQt4MergemoduleArbeitVerteilen:public QObject
 	signals:
 				void							fertig();
 				void							Meldung(const QString &meldung);
+				void							FortschrittsanzeigeSchritt();
+				void							FortschrittsanzeigeMaximum(const int schritte);
 	private slots:
 				void							K_ThreadFertig( QFrankQt4MergemoduleBasisThread *welcher);
 	private:

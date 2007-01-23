@@ -51,6 +51,7 @@ void QFrankQt4MergemoduleArbeitVerteilen::K_ManifesteExportieren()
 #ifndef QT_NO_DEBUG
 	qDebug("%s K_ManifesteExportieren: Anzahl der Prozesse: %i",this->metaObject()->className(),K_AnzahlDerProzesse);
 #endif
+	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
 	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
 	{
 		QFrankQt4MergemoduleManifestExportieren *Export=new QFrankQt4MergemoduleManifestExportieren(K_Parameter,this);
@@ -68,16 +69,18 @@ void QFrankQt4MergemoduleArbeitVerteilen::K_ManifesteBearbeiten()
 #ifndef QT_NO_DEBUG
 	qDebug("%s K_ManifesteBearbeiten: Anzahl der Prozesse: %i",this->metaObject()->className(),K_AnzahlDerProzesse);
 #endif
+	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
 	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
 	{
 		QFrankQt4MergemoduleManifestBearbeiten *bearbeiten=new QFrankQt4MergemoduleManifestBearbeiten(K_Parameter,this);
 		bearbeiten->DateinummerFestlegen(Threadnummer);
-		connect(bearbeiten,SIGNAL(fertig(QFrankQt4MergemoduleBasisThread*)),this,SLOT(K_ThreadFertig( QFrankQt4MergemoduleBasisThread*)));
+		connect(bearbeiten,SIGNAL(fertig(QFrankQt4MergemoduleBasisThread*)),this,SLOT(K_ThreadFertig( QFrankQt4MergemoduleBasisThread*)));		
 		bearbeiten->start();
 	}	
 }
 void QFrankQt4MergemoduleArbeitVerteilen::K_ThreadFertig(QFrankQt4MergemoduleBasisThread *welcher)
 {
+	emit FortschrittsanzeigeSchritt();
 	static bool FehlerAufgetreten=false;
 	K_AnzahlDerProzesse--;
 	int Fehlercode=welcher->FehlercodeHohlen();	
@@ -128,6 +131,7 @@ void QFrankQt4MergemoduleArbeitVerteilen::K_NaechsterArbeitsschritt()
 bool QFrankQt4MergemoduleArbeitVerteilen::K_DateienKopieren(const QStringList &dateiliste,const QString &zielverzeichnis)
 {
 	emit Meldung(tr("Kopiere Qt4 Bibliotheken"));
+	emit FortschrittsanzeigeMaximum(dateiliste.count());
 	QString Datei;
 	Q_FOREACH(Datei,dateiliste)
 	{
@@ -142,6 +146,7 @@ bool QFrankQt4MergemoduleArbeitVerteilen::K_DateienKopieren(const QStringList &d
 			return false;
 			break;
 		}
+		emit FortschrittsanzeigeSchritt();
 	}
 	K_SchrittFertig();	
 	return true;
@@ -149,10 +154,13 @@ bool QFrankQt4MergemoduleArbeitVerteilen::K_DateienKopieren(const QStringList &d
 bool QFrankQt4MergemoduleArbeitVerteilen::K_WindowsSDKPruefen()
 {
 	emit Meldung(trUtf8("Prüfe Windows SDK"));
+
 	//Haben wir alle SDK Werkzeuge??
 	QStringList Werkzeugliste;
 	Werkzeugliste<< K_Parameter->WindowsSDKPfadHohlen()+"\\mt.exe"<<
-					K_Parameter->WindowsSDKPfadHohlen()+"\\signtool.exe";
+					K_Parameter->WindowsSDKPfadHohlen()+"\\signtool.exe"<<
+					K_Parameter->WindowsSDKPfadHohlen()+"\\Depends.Exe";
+	emit FortschrittsanzeigeMaximum(Werkzeugliste.count());
 	if(!K_DateienVorhanden(Werkzeugliste))
 	{
 		K_SchrittFehlgeschlagen();
@@ -261,6 +269,7 @@ bool QFrankQt4MergemoduleArbeitVerteilen::K_DateienVorhanden(const QStringList &
 			return false;
 			break;
 		}
+		emit FortschrittsanzeigeSchritt();
 	}
 	return true;
 }

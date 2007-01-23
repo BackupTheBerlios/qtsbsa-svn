@@ -33,7 +33,7 @@ class QFrankQt4MergemoduleBasisThread:public QThread
 				const int								Threadnummer(){return K_Dateinummer;}
 #endif
 	signals:
-				void									fertig(QFrankQt4MergemoduleBasisThread *welcher);
+				void									fertig(QFrankQt4MergemoduleBasisThread *welcher);				
 	protected:
 				const QFrankQt4MergemoduleParameter*	K_Parameter;
 				QString									K_Fehlermeldung;

@@ -25,12 +25,14 @@ class QFrankQt4MergemoduleDlgFortschritt : public QDialog, private Ui::dlgFortsc
 	Q_OBJECT
 	public:
 				QFrankQt4MergemoduleDlgFortschritt(QWidget *eltern,QFrankQt4MergemoduleParameter* parameter);
-				virtual bool					event(QEvent *ereignis);				
+				virtual bool					event(QEvent *ereignis);					
 	private:
 				bool							K_darfGeschlossenWerden;				
 	private slots:
 				void							on_sfSchliessen_clicked();
 				void							K_NeueMeldung(const QString &meldung);
 				void							K_ErstellungBeendet();
+				void							K_FortschrittsanzeigeMaximum(int endpunkt);
+				void							K_FortschrittsanzeigeSchritt();
 };
 #endif

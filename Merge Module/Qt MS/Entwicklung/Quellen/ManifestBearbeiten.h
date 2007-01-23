@@ -18,6 +18,7 @@
 #define QFRANKQT4MERGEMODULEMANIFESTBEARBEITEN
 
 #include <QtCore>
+#include <QtXml>
 #include "BasisThread.h"
 
 class QFrankQt4MergemoduleParameter;
@@ -26,10 +27,17 @@ class QFrankQt4MergemoduleManifestBearbeiten: public QFrankQt4MergemoduleBasisTh
 	Q_OBJECT
 	public:
 				QFrankQt4MergemoduleManifestBearbeiten(const QFrankQt4MergemoduleParameter* parameter,QObject* eltern=0);
+	private slots:
+				void				K_ProzessFertig(int rueckgabe);
 	private:
-				QString	K_QtKomponente;
-				bool	K_QtKomponenteErmitteln(const QString &datei);
+				QString				K_Dateiname;
+				QString				K_QtKomponente;
+				QStringList			K_BenoetigeQtKomponenten;
+				bool				K_QtKomponenteErmitteln(const QString &datei);
+				bool				K_AbhaengigkeitenErmitteln();
+				const QDomElement	K_AssemblyIdentifikationEinfuegen(QDomDocument &manifest);
+				bool				K_AbhaengigkeitEinfuegen(QDomDocument &manifest,const QString &welche);
 	protected:
-				void	run();
+				void				run();
 };
 #endif

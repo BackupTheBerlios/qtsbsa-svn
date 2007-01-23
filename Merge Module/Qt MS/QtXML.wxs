@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Module Id="QtXMLModul" Language="0" Version="4.2.1">
-        <Package Id="52EB9869-4DE3-4291-AEC1-DA962D7513D9" Manufacturer="Frank Büttner" />
+        <Package Id="52EB9869-4DE3-4291-AEC1-DA962D7513D9" Manufacturer="Frank Büttner" InstallerVersion="301"/>
         <Dependency RequiredId="QtCoreModul" RequiredLanguage="0" RequiredVersion="4.2.2" />
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="QtDir" Name=".">
                 <Component Id="QtXML" Guid="07B848FC-700F-4119-8EFF-354EE8C1232E">
-                    <File Id="qtxmldll" Name="QtXml4.dll" Assembly="win32" Checksum="yes" Vital="yes" KeyPath="yes" AssemblyManifest="qtxmlmanifest" Source="..\..\..\..\Qt\4.2.2MS\lib\QtXml4.dll" />
-                <File Id="qtxmlmanifest" Name="QtXml4.dll.manifest" Checksum="yes" Vital="yes" Source="..\..\..\..\Qt\4.2.2MS\lib\QtXml4.dll.manifest" />
+                    <File Id="qtxmldll" Name="QtXml4.dll" Assembly="win32" Checksum="yes" Vital="yes" KeyPath="yes" AssemblyManifest="qtxmlmanifest" Source="F:\Temp\Qt4\Mergemodule\QtXml4.dll" />
+                <File Id="qtxmlmanifest" Name="QtXml4.dll.manifest" Checksum="yes" Vital="yes" Source="F:\Temp\Qt4\Mergemodule\QtXml4.dll.manifest" />
 		</Component>
             </Directory>
         </Directory>
