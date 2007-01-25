@@ -25,7 +25,15 @@ class QFrankQt4MergemoduleKatalogErstellen: public QFrankQt4MergemoduleBasisThre
 	Q_OBJECT
 	public:
 				QFrankQt4MergemoduleKatalogErstellen(const QFrankQt4MergemoduleParameter* parameter,QObject* eltern=0);
+				~QFrankQt4MergemoduleKatalogErstellen();
+	private:
+				enum		K_Schritt{KatalogvorlageErstellen=0x0,KatalogErstellen=0x01};
+				uchar		K_AktuellerSchritt;
+				QProcess	*K_Prozess;
+				QString		K_Dateiname;
+	private slots:
+				void		K_ProzessIstFertig(int rueckgabe);
 	protected:
-				void	run();
+				void		run();
 };
 #endif

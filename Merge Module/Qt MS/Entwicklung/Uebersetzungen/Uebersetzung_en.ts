@@ -3,79 +3,84 @@
 <context>
     <name>QFrankQt4MergemoduleArbeitVerteilen</name>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="151"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="173"/>
         <source>Prüfe Windows SDK</source>
         <translation>Check the Windows SDK</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="260"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="286"/>
         <source>Die Datei %1 wurde nicht gefunden.</source>
         <translation>The file %1 was not found.</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="269"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="296"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Erstellung der Mergemodule gescheitert.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Build of the merge modules failed.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="273"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="300"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Erstellung der Mergemodule erfolgreich.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Build of the merge modules complete.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="277"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="304"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;fertig&lt;/span&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;OK&lt;/span&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="281"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="308"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;fehlgeschlagen&lt;/span&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;failed&lt;/span&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="46"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="47"/>
         <source>Extrahiere Manifeste</source>
         <translation>Extract manifests</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="130"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="150"/>
         <source>Kopiere Qt4 Bibliotheken</source>
         <translation>Copy Qt4 libs</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="138"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="159"/>
         <source>Die Datei %1 konnte nicht nach %2 kopiert werden.</source>
         <translation>Failed copy file %1 to %2.</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="168"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="194"/>
         <source>Prüfe Qt</source>
         <translation>Check Qt</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="201"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="227"/>
         <source>Prüfe Zielverzeichnis für die Mergemodule</source>
         <translation>Check the targed directory for the merge modules</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="209"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="235"/>
         <source>Das Zielverzeichnis %1 konnte nicht erstellt werden.</source>
         <translation>The target directory %1 coun&apos;t be created.</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="219"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="245"/>
         <source>Das Zielverzeichnis %1 ist nicht leer.</source>
         <translation>The target directory %1 is not empty.</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="250"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="276"/>
         <source>Die Version der Datei %1 konnte nicht ermittelt werden.</source>
         <translation>The version of file %1 can&apos;t be resived.</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="64"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="66"/>
         <source>Bearbeite Manifeste</source>
         <translation>fix the manifest files</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="84"/>
+        <source>Erstelle Kataloge</source>
+        <translation>Creating catalogs</translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -171,24 +176,44 @@ But at the selected one the key is only %1 Bits long.</translation>
 <context encoding="UTF-8">
     <name>QFrankQt4MergemoduleManifestBearbeiten</name>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="33"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="32"/>
         <source>Nicht erkannte oder ungültige Qt4 Komponente %1.</source>
         <translation>Unkown Qt4 compoent %1.</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="42"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="41"/>
         <source>Die Datei %1 konnte nicht göffnet werden.</source>
         <translation>Error while open the file %1.</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="49"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="48"/>
         <source>%1 ist keine gültige XML Datei.</source>
         <translation>%1 is not an valid XML file.</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="70"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="82"/>
         <source>%1 konnte nicht überschrieben werden.</source>
         <translation>%1 can&apos;t be overwritten.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="174"/>
+        <source>Prozess zur Abhängigkeitsermittlung für %1 konnte nicht gestartet werden.</source>
+        <translation>The process for creating the dependencys for %1 coun&apos;t not started.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="180"/>
+        <source>Fehler beim Ausführen von depens.exe für %1</source>
+        <translation>Error  at running depens.exe for %1.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="187"/>
+        <source>Fehler beim lesen der Abhängigkeiten aus %1</source>
+        <translation>Error while reading the dependencys from %1.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="214"/>
+        <source>Unbekante Abhängigkeit entdeckt.</source>
+        <translation>Unkown delendency detected.</translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -202,7 +227,7 @@ But at the selected one the key is only %1 Bits long.</translation>
 <context>
     <name>dlgFortschrittBasis</name>
     <message encoding="UTF-8">
-        <location filename="../Dialoge/FortschrittBasis.ui" line="66"/>
+        <location filename="../Dialoge/FortschrittBasis.ui" line="88"/>
         <source>schließen</source>
         <translation>close</translation>
     </message>
@@ -240,11 +265,6 @@ But at the selected one the key is only %1 Bits long.</translation>
 Die letzen 8 Bytes bilden den &quot;publicKeyToken&quot; für die Manifeste.</source>
         <translation>This is the SHA-1 fingerprint of the certificate.
 The last 8 Bytes will be the &quot;publicKeyToken&quot; for the manifests.</translation>
-    </message>
-    <message>
-        <location filename="../Dialoge/HauptBasis.ui" line="204"/>
-        <source>f:\temp\Qt4\Merrgemodule</source>
-        <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Dialoge/HauptBasis.ui" line="261"/>
@@ -329,6 +349,11 @@ This application is protected under the GPL.</translation>
         <location filename="../Dialoge/HauptBasis.ui" line="322"/>
         <source>Zu benutzendes Zertifikat:</source>
         <translation>Certificate to use:</translation>
+    </message>
+    <message>
+        <location filename="../Dialoge/HauptBasis.ui" line="204"/>
+        <source>f:\temp\Qt4\Mergemodule</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

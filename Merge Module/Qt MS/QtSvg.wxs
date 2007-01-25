@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Module Id="QtSVGModul" Language="0" Version="4.2.1">
-        <Package Id="0E4F24BA-8EA9-4690-89DA-BAA31236494F" Manufacturer="Frank Büttner" InstallerVersion="301"/>
+        <Package Id="0E4F24BA-8EA9-4690-89DA-BAA31236494F" Manufacturer="Frank Büttner" InstallerVersion="300"/>
         <Dependency RequiredId="QtXMLModul" RequiredLanguage="0" RequiredVersion="4.2.2" />
         <Dependency RequiredId="QtGUIModul" RequiredLanguage="0" RequiredVersion="4.2.2" />
         <Directory Id="TARGETDIR" Name="SourceDir">

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Module Id="Qt3SupportKatalogModul" Language="0" Version="4.2.2">
+	<Package Id="48bc4fbc-90d1-48bd-a4cb-45ae23831bbe" Manufacturer="Frank Büttner" InstallerVersion="300"/>
+	<SFPCatalog Name="Qt3Suppo.cat" Dependency="Qt3SupportModul" SourceFile="F:\Temp\Qt4\Mergemodule\Qt3Support4.dll.cat"/>
+   </Module>
+</Wix>

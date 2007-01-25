@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Module Id="QtOpenGLModul" Language="0" Version="4.2.2">
-        <Package Id="CFFC0C3A-82FE-4692-A8D5-E0A22CDB6B0C" Manufacturer="Frank Büttner" InstallerVersion="301"/>
+        <Package Id="CFFC0C3A-82FE-4692-A8D5-E0A22CDB6B0C" Manufacturer="Frank Büttner" InstallerVersion="300"/>
         <Dependency RequiredId="QtGuiModul" RequiredLanguage="0" RequiredVersion="4.2.2" />
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="QtDir" Name=".">

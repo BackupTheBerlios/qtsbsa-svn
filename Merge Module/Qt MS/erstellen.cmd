@@ -4,15 +4,16 @@ candle -nologo -sw1044 *.wxs
 if ERRORLEVEL 1 goto ende
 echo "Die Kerze brennt"
 rem light  -notidy -v0 QtCore.wixobj
-light -nologo -w0 -v0 QtCore.wixobj
-light -nologo QtXML.wixobj
-light -nologo QtGui.wixobj
-light -nologo QtNetwork.wixobj
-light -nologo QtOpenGL.wixobj
-light -nologo QtSql.wixobj
-light -nologo QtSvg.wixobj
-light -nologo Qt3Support.wixobj
-light -nologo QtAssistentClient.wixobj
+rem -sh Wird gebraucht, da in den Qt DLL's das Feld Sprache fehlt.
+light -nologo -sh QtCore.wixobj
+light -nologo -sh QtXML.wixobj
+light -nologo -sh QtGui.wixobj
+light -nologo -sh QtNetwork.wixobj
+light -nologo -sh QtOpenGL.wixobj
+light -nologo -sh QtSql.wixobj
+light -nologo -sh QtSvg.wixobj
+light -nologo -sh Qt3Support.wixobj
+light -nologo -sh QtAssistentClient.wixobj
 :ende
 del /Q *.wixobj
 pause

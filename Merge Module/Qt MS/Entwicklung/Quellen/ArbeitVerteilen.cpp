@@ -32,14 +32,15 @@ void QFrankQt4MergemoduleArbeitVerteilen::Loslegen()
 		return;
 	if(!K_QtPruefen())
 		return;
+	qDebug()<<"Hier ist noch Testcode";
 	//Damit man zum Testen nicht laufend die Dateien löschen muss.
 	/*if(!K_ZielverzeichnisPruefen())
 		return;
 	if(!K_DateienKopieren(K_Parameter->QtBibliothekenHohlen(),K_Parameter->ZielverzeichnisHohlen()))
-		return;*/
-	K_ManifesteExportieren();
-	//K_ErstellenErfolgreich();
-	//emit fertig();
+		return;
+	K_ManifesteExportieren();*/
+	//nur zum testen!!!
+	K_KatalogeErstellen();
 }
 void QFrankQt4MergemoduleArbeitVerteilen::K_ManifesteExportieren()
 {
@@ -83,6 +84,8 @@ void QFrankQt4MergemoduleArbeitVerteilen::K_KatalogeErstellen()
 {
 	emit Meldung(tr("Erstelle Kataloge"));
 	K_AnzahlDerProzesse=K_Parameter->QtBibliothekenHohlen().count();
+	//zum testen nur 1 Thread 
+	//K_AnzahlDerProzesse=1;
 	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
 	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
 	{
