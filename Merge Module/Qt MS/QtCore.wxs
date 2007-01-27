@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Module Id="QtCoreModul" Language="0" Version="4.2.2">
-        <Package Id="5DF9FA90-C685-4210-AD37-1183245234BB" Manufacturer="Frank Büttner" InstallerVersion="300"/>
+    <Module Id="QtCoreModul" Language="0" Version="4.2.2.0">
+        <Package Id="5DF9FA90-C685-4210-AD37-1183245234BB" Manufacturer="Frank Buettner" InstallerVersion="300"/>
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="QtDir" Name=".">
                 <Component Id="QtCore" Guid="2A2A4C82-BD2A-4B35-A13B-BA5DE2294A51">
-                    <File Id="qtcoredll" Name="QtCore4.dll" Assembly="win32" Checksum="yes" Vital="yes" Source="F:\Temp\Qt4\Mergemodule\QtCore4.dll" KeyPath="yes" AssemblyManifest="qtcoredllmanifest" />                    
-                   <File Id="qtcoredllmanifest" Name="QtCore4.dll.manifest" Checksum="yes" Vital="yes" Source="F:\Temp\Qt4\Mergemodule\QtCore4.dll.manifest" />
+			<File Id="qtcoredllcat" Vital="yes" Name="QtCore4.dll.cat" Source="F:\Temp\Qt4\Mergemodule\QtCore4.dll.cat" />
+                    	<File Id="qtcoredll" Vital="yes" Name="QtCore4.dll" Assembly="win32" KeyPath="yes" Source="F:\Temp\Qt4\Mergemodule\QtCore4.dll" AssemblyManifest="qtcoredllmanifest" />                    
+                   	<File Id="qtcoredllmanifest" Vital="yes" Name="QtCore4.dll.manifest" Source="F:\Temp\Qt4\Mergemodule\QtCore4.dll.manifest" />	
 		</Component>
             </Directory>
         </Directory>

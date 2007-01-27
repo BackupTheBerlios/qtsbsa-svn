@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Module Id="QtGuiModul" Language="0" Version="4.2.2">
-        <Package Id="964C23E4-A2EF-40F6-B555-829CED434D5C" Manufacturer="Frank Büttner" InstallerVersion="300"/>
-        <Dependency RequiredId="QtCoreModul" RequiredLanguage="0" RequiredVersion="4.2.2" />
+    <Module Id="QtGuiModul" Language="0" Version="4.2.2.0">
+        <Package Id="964C23E4-A2EF-40F6-B555-829CED434D5C" Manufacturer="Frank Buettner" InstallerVersion="300"/>
+        <Dependency RequiredId="QtCoreModul" RequiredLanguage="0" RequiredVersion="4.2.2.0" />
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="QtDir" Name=".">
                 <Component Id="QtGui" Guid="4354684A-EDB5-4C7E-B796-62EAE4AFD342">
-                    <File Id="qtguidll" Name="QtGui4.dll" Assembly="win32" Checksum="yes" Vital="yes" Source="F:\Temp\Qt4\Mergemodule\QtGui4.dll" KeyPath="yes" AssemblyManifest="qtguimanifest" />                    
+			<File Id="qtguidllkatalog" Name="QtGui4.dll.cat"  Checksum="yes" Vital="yes" Source="F:\Temp\Qt4\Mergemodule\QtGui4.dll.cat"  />
+                    	<File Id="qtguidll" Name="QtGui4.dll" Assembly="win32" Checksum="yes" Vital="yes" Source="F:\Temp\Qt4\Mergemodule\QtGui4.dll" KeyPath="yes" AssemblyManifest="qtguimanifest" />                    
                 	<File Id="qtguimanifest" Name="QtGui4.dll.manifest" Checksum="yes" Vital="yes" Source="F:\Temp\Qt4\Mergemodule\QtGui4.dll.manifest" />
 		</Component>
             </Directory>

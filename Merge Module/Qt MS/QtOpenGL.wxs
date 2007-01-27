@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Module Id="QtOpenGLModul" Language="0" Version="4.2.2">
-        <Package Id="CFFC0C3A-82FE-4692-A8D5-E0A22CDB6B0C" Manufacturer="Frank Büttner" InstallerVersion="300"/>
-        <Dependency RequiredId="QtGuiModul" RequiredLanguage="0" RequiredVersion="4.2.2" />
+    <Module Id="QtOpenGLModul" Language="0" Version="4.2.2.0">
+        <Package Id="CFFC0C3A-82FE-4692-A8D5-E0A22CDB6B0C" Manufacturer="Frank Buettner" InstallerVersion="300"/>
+        <Dependency RequiredId="QtGuiModul" RequiredLanguage="0" RequiredVersion="4.2.2.0" />
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="QtDir" Name=".">
                 <Component Id="QtOpenGL" Guid="374210CC-0F06-4069-82C4-65BE04421981">
+		    <File Id="qtopengldllkatalog" Name="QtOpenGL4.dll.cat"  Checksum="yes" Vital="yes" Source="F:\Temp\Qt4\Mergemodule\QtOpenGL4.dll.cat" />
                     <File Id="qtopengldll" Name="QtOpenGL4.dll" Assembly="win32" Checksum="yes" Vital="yes" KeyPath="yes" AssemblyManifest="qtopenglmanifest" Source="F:\Temp\Qt4\Mergemodule\QtOpenGL4.dll" />
                     <File Id="qtopenglmanifest" Name="QtOpenGL4.dll.manifest" Checksum="yes" Vital="yes" Source="F:\Temp\Qt4\Mergemodule\QtOpenGL4.dll.manifest" />
                 </Component>
