@@ -19,6 +19,7 @@
 #include "Manifestexportieren.h"
 #include "ManifestBearbeiten.h"
 #include "KatalogErstellen.h"
+#include "KatalogSignieren.h"
 #include <Windows.h>
 #include <Winver.h>
 
@@ -37,10 +38,12 @@ void QFrankQt4MergemoduleArbeitVerteilen::Loslegen()
 	/*if(!K_ZielverzeichnisPruefen())
 		return;
 	if(!K_DateienKopieren(K_Parameter->QtBibliothekenHohlen(),K_Parameter->ZielverzeichnisHohlen()))
-		return;
-	K_ManifesteExportieren();*/
+		return;*/
+	K_ManifesteExportieren();
 	//nur zum testen!!!
-	K_KatalogeErstellen();
+	//K_Arbeitsschritt=QFrankQt4MergemoduleArbeitVerteilen::KatalogErstellen;
+	//K_KatalogeErstellen();
+	//testEnde
 }
 void QFrankQt4MergemoduleArbeitVerteilen::K_ManifesteExportieren()
 {
@@ -95,6 +98,21 @@ void QFrankQt4MergemoduleArbeitVerteilen::K_KatalogeErstellen()
 		erstellen->start();
 	}	
 }
+void QFrankQt4MergemoduleArbeitVerteilen::K_KatalogeSignieren()
+{
+	emit Meldung(tr("Signiere Kataloge"));
+	K_AnzahlDerProzesse=K_Parameter->QtBibliothekenHohlen().count();
+	//zum testen nur 1 Thread 
+	//K_AnzahlDerProzesse=1;
+	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
+	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
+	{
+		QFrankQt4MergemoduleKatalogSignieren *signieren=new QFrankQt4MergemoduleKatalogSignieren(K_Parameter,this);
+		signieren->DateinummerFestlegen(Threadnummer);
+		connect(signieren,SIGNAL(fertig(QFrankQt4MergemoduleBasisThread*)),this,SLOT(K_ThreadFertig( QFrankQt4MergemoduleBasisThread*)));		
+		signieren->start();
+	}	
+}
 void QFrankQt4MergemoduleArbeitVerteilen::K_ThreadFertig(QFrankQt4MergemoduleBasisThread *welcher)
 {
 	emit FortschrittsanzeigeSchritt();
@@ -138,6 +156,9 @@ void QFrankQt4MergemoduleArbeitVerteilen::K_NaechsterArbeitsschritt()
 																		break;
 		case QFrankQt4MergemoduleArbeitVerteilen::KatalogErstellen:
 																		K_KatalogeErstellen();
+																		break;
+		case QFrankQt4MergemoduleArbeitVerteilen::KatalogSignieren:
+																		K_KatalogeSignieren();
 																		break;
 		default:
 #ifndef QT_NO_DEBUG
@@ -233,7 +254,7 @@ bool QFrankQt4MergemoduleArbeitVerteilen::K_ZielverzeichnisPruefen()
 	if(!Verzeichnis.exists())
 	{
 		//versuche es zu erstellen
-		if(!Verzeichnis.mkdir(K_Parameter->ZielverzeichnisHohlen()))
+		if(!Verzeichnis.mkpath(K_Parameter->ZielverzeichnisHohlen()))
 		{
 			emit Meldung(tr("Das Zielverzeichnis %1 konnte nicht erstellt werden.").arg(K_Parameter->ZielverzeichnisHohlen()));
 			K_SchrittFehlgeschlagen();

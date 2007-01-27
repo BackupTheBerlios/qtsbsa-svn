@@ -20,20 +20,22 @@
 #include "ui_HauptBasis.h"
 
 class QFileDialog;
+class QFrankQt4MergemoduleParameter;
 class QFrankQt4MergemoduleDlgHaupt : public QMainWindow, private Ui::dlgHauptBasis
 {
 	Q_OBJECT
 	public:
 				QFrankQt4MergemoduleDlgHaupt(QWidget *eltern = 0);
 	private:
-				QFileDialog*	K_Verzeichnisauswahl;
-				QString			K_FeldNachHex(const QByteArray &feld); 
+				QFileDialog*					K_Verzeichnisauswahl;
+				QFrankQt4MergemoduleParameter*	K_Parameter;
+				QString							K_FeldNachHex(const QByteArray &feld); 
 	private slots:
-				void			on_sfQtPfadSuchen_clicked();
-				void			on_sfWixPfadSuchen_clicked();
-				void			on_sfZielpfadSuchen_clicked();
-				void			on_sfZertifikatSuchen_clicked();
-				void			on_sfWindowsSDKPfadSuchen_clicked();
-				void			on_sfBox_accepted();
+				void							on_sfQtPfadSuchen_clicked();
+				void							on_sfWixPfadSuchen_clicked();
+				void							on_sfZielpfadSuchen_clicked();
+				void							on_sfZertifikatSuchen_clicked();
+				void							on_sfWindowsSDKPfadSuchen_clicked();
+				void							on_sfBox_accepted();
 };
 #endif

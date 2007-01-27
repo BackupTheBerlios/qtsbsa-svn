@@ -27,7 +27,8 @@ class QFrankQt4MergemoduleParameter: public QObject
 				void				QtPfadSetzen(const QString &pfad){K_QtPfad=pfad;}
 				void				QtVersionSetzen(const QString &version){K_QtVersion=version;}
 				void				QtBibliothekenSetzen(const QStringList &bibliotheken){K_QtBibliotheken=bibliotheken;}
-				void				ZertSHA1Setzen(const QString &sha1);
+				void				ZertSHA1Setzen(const QString &sha1){K_ZertSHA1=sha1;}
+				void				publicKeyTokenSetzen(const QString &token){K_publicKeyToken=token;}
 				void				CPUTypeSetzen(const QString &cpu){K_CPU=cpu;}
 				void				ZielverzeichnisSetzen(const QString &verzeichnis){K_Zielverzeichnis=verzeichnis;}
 				void				EntwicklerSetzen(const QString &entwickler){K_Entwickler=entwickler;}

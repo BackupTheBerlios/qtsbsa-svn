@@ -33,6 +33,7 @@ QFrankQt4MergemoduleDlgHaupt::QFrankQt4MergemoduleDlgHaupt(QWidget *eltern) : QM
 	this->move(x,y);
 	K_Verzeichnisauswahl=new QFileDialog(this,Qt::Window); 
 	K_Verzeichnisauswahl->setFileMode(QFileDialog::DirectoryOnly);
+	K_Parameter=new QFrankQt4MergemoduleParameter(this);
 }
 void QFrankQt4MergemoduleDlgHaupt::on_sfQtPfadSuchen_clicked()
 {
@@ -104,6 +105,72 @@ void QFrankQt4MergemoduleDlgHaupt::on_sfZertifikatSuchen_clicked()
 		QMessageBox::critical(this,tr("Fehler im Zertifikat"),trUtf8("Für Manifeste beträgt die minimale Schlüssellänge 2048 Bit.\r\n"
 																	 "Bei dem gewählten Zertifikat beträgt diese jedoch nur %1 Bit").arg(Schluessellaenge));
 	}
+	//Der publickeyToken sind die letzten 8 Bytes der SHA1 Prüfsumme vom öffentlichen Schlüssel
+	QByteArray OeffentlicherSchluessel((char*)Auswahldialog->pCertInfo->SubjectPublicKeyInfo.PublicKey.pbData,
+										Auswahldialog->pCertInfo->SubjectPublicKeyInfo.PublicKey.cbData);
+
+	//So davon jetzte die SHA1 Prüfsumme
+	HCRYPTPROV Cryptkontext;
+	if(!CryptAcquireContext(&Cryptkontext,NULL,NULL,PROV_RSA_FULL,CRYPT_VERIFYCONTEXT))
+	{
+		QMessageBox::critical(this,tr("Fehler beim ermitteln des publickeyTokens"),trUtf8("Es konnte keine Verbindung zum Windows Verschlüsselungssystem"
+																						  " aufgebaut werden."));
+		txtZertifikat->setText("");		
+	}
+	else
+	{
+		HCRYPTHASH Cryptohash;
+		if(!CryptCreateHash(Cryptkontext,CALG_SHA1,0,0,&Cryptohash))
+		{
+			QMessageBox::critical(this,tr("Fehler beim ermitteln des publickeyTokens"),tr("Es konnte kein SHA1 Objekt angefordert werden."));
+			txtZertifikat->setText("");	
+		}
+		else
+		{
+			//So jetzte können wir eine SHA1 Prüfsumme erstellen
+			if(!CryptHashData(Cryptohash,(BYTE*)OeffentlicherSchluessel.data(),OeffentlicherSchluessel.size(),0))
+			{
+				QMessageBox::critical(this,tr("Fehler beim ermitteln des publickeyTokens"),trUtf8("Der öffentliche Schlüssel konnte nicht an die"
+																								  " Prüfsummenberechnung übergeben werden."));
+				txtZertifikat->setText("");
+			}
+			else
+			{
+				//SHA1 erzeugen
+				QByteArray Puffer;
+				DWORD Puffergroesse;
+				DWORD Parameterlaenge=sizeof(DWORD);
+				//Puffergröße ermitteln
+				if(!CryptGetHashParam(Cryptohash,HP_HASHSIZE,(BYTE*)&Puffergroesse,&Parameterlaenge,0))
+				{
+					QMessageBox::critical(this,tr("Fehler beim ermitteln des publickeyTokens"),tr("Der Puffer für den publickeyToken konnte nicht erstellt"
+																								  " werden."));
+					txtZertifikat->setText("");
+				}
+				else
+				{
+					Puffer.resize(Puffergroesse);
+					if(!CryptGetHashParam(Cryptohash,HP_HASHVAL,(BYTE*)Puffer.data(),&Puffergroesse,0))
+					{
+						QMessageBox::critical(this,tr("Fehler beim ermitteln des publickeyTokens"),tr("Der publickeyToken konnte nicht abgeholt werden."));
+						txtZertifikat->setText("");
+					}
+					else
+					{	
+						//Das geht noch nicht so wie es soll
+						//K_Parameter->publicKeyTokenSetzen(K_FeldNachHex(Puffer.right(8)).remove(':'));
+						K_Parameter->publicKeyTokenSetzen("c0677197e04ed00a");
+						qDebug()<<K_Parameter->publicKeyTokenHohlen();
+						
+					}					
+				}				
+				
+
+			}
+			CryptDestroyHash(Cryptohash);
+		}
+		CryptReleaseContext(Cryptkontext,0);
+	}	
 	//alles wieder schließen
 	CertFreeCertificateContext(Auswahldialog);
 	CertCloseStore(Zertifikatsspeicher,CERT_CLOSE_STORE_FORCE_FLAG);	
@@ -139,14 +206,13 @@ void QFrankQt4MergemoduleDlgHaupt::on_sfBox_accepted()
 	{
 		QMessageBox::critical(this,tr("Kein Entwickler angegeben"),tr("Das Feld Entwickler darf nicht leer sein."));
 		return;
-	}
-	QFrankQt4MergemoduleParameter *Parameter=new QFrankQt4MergemoduleParameter(this);
-	Parameter->WindowsSDKPfadSetzen(txtWindowsSDKPfad->text());
-	Parameter->QtPfadSetzen(txtQtPfad->text());
-	Parameter->ZertSHA1Setzen(txtZertifikat->text());
-	Parameter->CPUTypeSetzen(awProzessor->currentText());
-	Parameter->ZielverzeichnisSetzen(txtZielPfad->text());
-	Parameter->EntwicklerSetzen(txtEntwicklername->text());
-	QFrankQt4MergemoduleDlgFortschritt Fortschritt(this,Parameter);
+	}	
+	K_Parameter->WindowsSDKPfadSetzen(txtWindowsSDKPfad->text());
+	K_Parameter->QtPfadSetzen(txtQtPfad->text());
+	K_Parameter->ZertSHA1Setzen(txtZertifikat->text().remove(':'));
+	K_Parameter->CPUTypeSetzen(awProzessor->currentText());
+	K_Parameter->ZielverzeichnisSetzen(txtZielPfad->text());
+	K_Parameter->EntwicklerSetzen(txtEntwicklername->text());
+	QFrankQt4MergemoduleDlgFortschritt Fortschritt(this,K_Parameter);
 	Fortschritt.exec();	
 }

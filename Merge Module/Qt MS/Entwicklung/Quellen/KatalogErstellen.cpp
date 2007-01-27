@@ -33,7 +33,7 @@ void QFrankQt4MergemoduleKatalogErstellen::run()
 	QStringList Argumente;
 	K_Dateiname=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer);
 	K_Dateiname=K_Dateiname.right(K_Dateiname.length()-K_Dateiname.lastIndexOf("\\"))+".manifest";
-	Argumente<<"-manifest"<<K_Dateiname.remove(0,1)<<"-makecdfs"<<"-nologo";
+	Argumente<<"-manifest"<<K_Dateiname.remove(0,1)<<"-makecdfs"<<"-nologo"<<"-hashupdate";
 	K_Prozess->setWorkingDirectory(K_Parameter->ZielverzeichnisHohlen());
 	K_Prozess->start(K_Parameter->WindowsSDKPfadHohlen()+"\\mt.exe",Argumente);
 	if(!K_Prozess->waitForStarted(5000))

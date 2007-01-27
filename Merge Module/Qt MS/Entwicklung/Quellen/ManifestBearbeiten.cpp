@@ -53,9 +53,13 @@ void QFrankQt4MergemoduleManifestBearbeiten::run()
 	Datei.close();
 	// Auf gehts:)
 
-	QDomElement Rootelement=Manifest.documentElement();	
-	Rootelement.insertBefore(K_AssemblyIdentifikationEinfuegen(Manifest),Rootelement.firstChild());
-	
+	QDomElement Rootelement=Manifest.documentElement();
+	QDomElement AssemblyID=K_AssemblyIdentifikationEinfuegen(Manifest);
+	Rootelement.insertBefore(AssemblyID,Rootelement.firstChild());
+	//File Tag einfügen
+	QDomElement DateiTag=Manifest.createElement("file");
+	DateiTag.setAttribute("name",K_Dateiname.remove(0,1));
+	Rootelement.insertAfter(DateiTag,AssemblyID);
 	//Abhängigkeiten von anderen Qt Komponenten ermitteln
 	if(!K_AbhaengigkeitenErmitteln())
 	{
@@ -123,7 +127,7 @@ bool QFrankQt4MergemoduleManifestBearbeiten::K_AbhaengigkeitEinfuegen(QDomDocume
 	*/
 	QDomElement Root=manifest.documentElement();
 	QDomElement Abhaengigkeiten=manifest.createElement("dependency");
-	QDomElement AnhaengigeAssemblys=manifest.createElement("depentAssembly");
+	QDomElement AnhaengigeAssemblys=manifest.createElement("dependentAssembly");
 	Abhaengigkeiten.appendChild(AnhaengigeAssemblys);
 	Root.appendChild(Abhaengigkeiten);
 	//So jetzt ein neuer Eintrag einfügen
@@ -165,33 +169,43 @@ bool QFrankQt4MergemoduleManifestBearbeiten::K_AbhaengigkeitenErmitteln()
 	QProcess Prozess;
 	Prozess.setProcessChannelMode(QProcess::MergedChannels);
 	QStringList Argumente;
-	Argumente<<"/c"<<"/oc:"+K_Parameter->ZielverzeichnisHohlen()+K_Dateiname+".braucht"
-			 <<K_Parameter->ZielverzeichnisHohlen()+K_Dateiname;
+	Argumente<<"/c"<<"/oc:"+K_Dateiname+".braucht"<<K_Dateiname;
+	Prozess.setWorkingDirectory(K_Parameter->ZielverzeichnisHohlen());
 	Prozess.start("\""+K_Parameter->WindowsSDKPfadHohlen()+"\\Depends.Exe\"",Argumente);
 	connect(&Prozess,SIGNAL(finished(int)),this,SLOT(K_ProzessFertig(int)));
 	if(!Prozess.waitForStarted(3000))
 	{
-		K_Fehlermeldung=trUtf8("Prozess zur Abhängigkeitsermittlung für %1 konnte nicht gestartet werden.").arg(K_Parameter->ZielverzeichnisHohlen()+K_Dateiname);
+		K_Fehlermeldung=trUtf8("Prozess zur Abhängigkeitsermittlung für %1 konnte nicht gestartet werden.").arg(K_Parameter->ZielverzeichnisHohlen()+"\\"
+																												+K_Dateiname);
 		return false;
 	}
 	//depends gibt 522 als Rückegabecode zurück, wenn alles gut ging.
 	if(exec()!=522)
 	{		
-		K_Fehlermeldung=trUtf8("Fehler beim Ausführen von depens.exe für %1").arg(K_Parameter->ZielverzeichnisHohlen()+K_Dateiname);
+#ifndef QT_NO_DEBUG
+		QString Fehlermeldung=QString(Prozess.readAll());
+		Fehlermeldung.remove("\r");
+		Fehlermeldung.remove("\n");
+		qDebug("%s K_AbhaengigkeitenErmitteln: Nummer: %i\r\nStatuscode: %i\r\nFehlertext: %s\r\nAusgabe:\r\n%s",this->metaObject()->className(),
+																												 K_Dateinummer,Prozess.exitCode(),
+																												 qPrintable(QString(Prozess.errorString())),
+									  																			 qPrintable(Fehlermeldung));
+#endif
+		K_Fehlermeldung=trUtf8("Fehler beim Ausführen von depens.exe für %1").arg(K_Parameter->ZielverzeichnisHohlen()+"\\"+K_Dateiname);
 		return false;
 	}
 	//Dann schauen wir mal in der Datei nach
-	QFile DateiMitDenAbhaengigkeiten(K_Parameter->ZielverzeichnisHohlen()+K_Dateiname+".braucht");
+	QFile DateiMitDenAbhaengigkeiten(K_Parameter->ZielverzeichnisHohlen()+"\\"+K_Dateiname+".braucht");
 	if(!DateiMitDenAbhaengigkeiten.open(QIODevice::ReadOnly))
 	{
-		K_Fehlermeldung=trUtf8("Fehler beim lesen der Abhängigkeiten aus %1").arg(K_Parameter->ZielverzeichnisHohlen()+K_Dateiname+".braucht");
+		K_Fehlermeldung=trUtf8("Fehler beim lesen der Abhängigkeiten aus %1").arg(K_Parameter->ZielverzeichnisHohlen()+"\\"+K_Dateiname+".braucht");
 		return false;
 	}
 	QTextStream Dateiinhalt(&DateiMitDenAbhaengigkeiten);
 	QStringList Zeile;
 	QString Eintrag;
 #ifndef QT_NO_DEBUG
-		QString Debugtext=K_Parameter->ZielverzeichnisHohlen()+K_Dateiname+" braucht: ";
+		QString Debugtext=K_Parameter->ZielverzeichnisHohlen()+"\\"+K_Dateiname+" braucht: ";
 #endif	
 	while(!Dateiinhalt.atEnd())
 	{
@@ -202,7 +216,7 @@ bool QFrankQt4MergemoduleManifestBearbeiten::K_AbhaengigkeitenErmitteln()
 		if(Eintrag.startsWith("QT"))
 		{
 			//Leider steht auch die Datei selbst in der Liste. K_Dateiname hat als 1. Zeichen das Pfadtrennzeichen!! 
-			if(!Eintrag.contains(K_Dateiname.remove(0,1),Qt::CaseInsensitive))
+			if(!Eintrag.contains(K_Dateiname,Qt::CaseInsensitive))
 			{
 #ifndef QT_NO_DEBUG
 				Debugtext.append(Eintrag+" ");
@@ -226,6 +240,6 @@ bool QFrankQt4MergemoduleManifestBearbeiten::K_AbhaengigkeitenErmitteln()
 	return true;
 }
 void QFrankQt4MergemoduleManifestBearbeiten::K_ProzessFertig(int rueckgabe)
-{	
+{
 	exit(rueckgabe);
 }

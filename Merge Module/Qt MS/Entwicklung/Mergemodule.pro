@@ -29,7 +29,7 @@ RCC_DIR						= tmp/resourcen
 #RC_FILE						= $$RCC_DIR/Windows.rc
 RC_FILE						= Windows.rc
 RESOURCES					= Resourcen.qrc
-LIBS						+= -lCrypt32 -lCryptui -lversion
+LIBS						+= -lCrypt32 -lCryptui -lAdvapi32 -lversion
 TRANSLATIONS				= Uebersetzungen/Uebersetzung_en.ts\
 							  Uebersetzungen/Uebersetzung_XX.ts
 FORMS						= Dialoge/HauptBasis.ui\
@@ -39,6 +39,7 @@ HEADERS						= Quellen/Parameter.h\
 							  Quellen/ManifestExportieren.h\
 							  Quellen/ManifestBearbeiten.h\
 							  Quellen/KatalogErstellen.h\
+							  Quellen/KatalogSignieren.h\
 							  Quellen/ArbeitVerteilen.h\
 							  Quellen/DlgFortschritt.h\
 							  Quellen/DlgHaupt.h
@@ -47,6 +48,7 @@ SOURCES						= Quellen/Parameter.cpp\
 							  Quellen/ManifestExportieren.cpp\
 							  Quellen/ManifestBearbeiten.cpp\
 							  Quellen/KatalogErstellen.cpp\
+							  Quellen/KatalogSignieren.cpp\
 							  Quellen/ArbeitVerteilen.cpp\
 							  Quellen/DlgFortschritt.cpp\
 							  Quellen/DlgHaupt.cpp\
