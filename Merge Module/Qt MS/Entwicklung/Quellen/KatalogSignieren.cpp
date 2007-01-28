@@ -30,6 +30,7 @@ QFrankQt4MergemoduleKatalogSignieren::~QFrankQt4MergemoduleKatalogSignieren()
 void QFrankQt4MergemoduleKatalogSignieren::run()
 {
 	QString Datei=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer);
+	Datei.replace('/','\\');
 	Datei=Datei.right(Datei.length()-Datei.lastIndexOf("\\")).remove(0,1)+".cat";
 	K_signtoolProzess=new QProcess();
 	K_signtoolProzess->setProcessChannelMode(QProcess::MergedChannels);

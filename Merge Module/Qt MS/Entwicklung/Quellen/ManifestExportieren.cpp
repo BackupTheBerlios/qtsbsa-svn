@@ -39,10 +39,14 @@ void QFrankQt4MergemoduleManifestExportieren::run()
 	connect(K_mtProzess,SIGNAL(finished(int)),this,SLOT(K_mtFertig(int)));
 	QStringList Argumente;
 	QString Datei=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer);
-	Argumente<<"-inputresource:"+K_Parameter->ZielverzeichnisHohlen()+Datei.right(Datei.length()-Datei.lastIndexOf("\\"))+";#2"
-			 <<"-out:"+K_Parameter->ZielverzeichnisHohlen()+Datei.right(Datei.length()-Datei.lastIndexOf("\\"))+".manifest"
-			 <<"-nologo";
+	Datei.replace('/','\\');
+	Datei=Datei.right(Datei.length()-Datei.lastIndexOf("\\")).remove(0,1);
+	Argumente<<"-inputresource:"+Datei+";#2"
+			 <<"-out:"+Datei+".manifest"
+			 <<"-verbose"<<"-nologo";
+	K_mtProzess->setWorkingDirectory(K_Parameter->ZielverzeichnisHohlen());
 	K_mtProzess->start("\""+K_Parameter->WindowsSDKPfadHohlen()+"\\mt.exe\"",Argumente);
+		
 	if(!K_mtProzess->waitForStarted(5000))
 	{
 		K_Fehlercode=1;
@@ -66,7 +70,7 @@ void QFrankQt4MergemoduleManifestExportieren::K_mtFertig(int statusCode)
 #ifndef QT_NO_DEBUG	
 	qDebug("%s K_mtFertig: Nummer: %i\r\nStatuscode: %i\r\nFehlertext: %s\r\nAusgabe:\r\n%s",this->metaObject()->className(),K_Dateinummer,statusCode,
 																							qPrintable(QString(K_mtProzess->errorString())),
-									  														qPrintable(Fehlermeldung));
+									  														qPrintable(Fehlermeldung));	
 #endif
 	if(statusCode!=0)
 	{

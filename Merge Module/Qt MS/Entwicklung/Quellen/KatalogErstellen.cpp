@@ -30,8 +30,10 @@ void QFrankQt4MergemoduleKatalogErstellen::run()
 {
 	K_Prozess=new QProcess();
 	connect(K_Prozess,SIGNAL(finished(int)),this,SLOT(K_ProzessIstFertig(int)));
+	K_Prozess->setProcessChannelMode(QProcess::MergedChannels);
 	QStringList Argumente;
 	K_Dateiname=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer);
+	K_Dateiname.replace('/','\\');
 	K_Dateiname=K_Dateiname.right(K_Dateiname.length()-K_Dateiname.lastIndexOf("\\"))+".manifest";
 	Argumente<<"-manifest"<<K_Dateiname.remove(0,1)<<"-makecdfs"<<"-nologo"<<"-hashupdate";
 	K_Prozess->setWorkingDirectory(K_Parameter->ZielverzeichnisHohlen());

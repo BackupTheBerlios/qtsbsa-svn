@@ -39,7 +39,20 @@ void QFrankQt4MergemoduleArbeitVerteilen::Loslegen()
 		return;
 	if(!K_DateienKopieren(K_Parameter->QtBibliothekenHohlen(),K_Parameter->ZielverzeichnisHohlen()))
 		return;*/
-	K_ManifesteExportieren();
+	
+	//Da die Liste nur beim kopierren korregiert wird, muss es hier nochmal erfolgen, wenn wir kopieren überspringen
+	QStringList Temp=K_Parameter->QtBibliothekenHohlen();
+	QString NeuerEintrag;
+	QRegExp Suchterm("*iconengines/*svg*");
+	Suchterm.setPatternSyntax(QRegExp::Wildcard);
+	int Position=Temp.indexOf(Suchterm);
+	NeuerEintrag=Temp.at(Position);
+	NeuerEintrag.replace("svg","iconengineSVG");
+	Temp.replace(Position,NeuerEintrag);
+	K_Parameter->QtBibliothekenSetzen(Temp);
+
+
+	K_ManifesteExportieren();	
 	//nur zum testen!!!
 	//K_Arbeitsschritt=QFrankQt4MergemoduleArbeitVerteilen::KatalogErstellen;
 	//K_KatalogeErstellen();
@@ -174,10 +187,19 @@ bool QFrankQt4MergemoduleArbeitVerteilen::K_DateienKopieren(const QStringList &d
 	emit Meldung(tr("Kopiere Qt4 Bibliotheken"));
 	emit FortschrittsanzeigeMaximum(dateiliste.count());
 	QString Datei;
+	QString Ziel;
 	Q_FOREACH(Datei,dateiliste)
 	{
-		Datei.replace("/","\\");		
-		if(!QFile::copy(Datei,zielverzeichnis+Datei.right(Datei.length()-Datei.lastIndexOf("\\"))))
+		Datei.replace("/","\\");
+		Ziel=zielverzeichnis+Datei.right(Datei.length()-Datei.lastIndexOf("\\"));	
+		//Den Namen qsvg gibt es 2 mal. Das iconengine PlugIn wird umbenannt
+		bool EintragKorregieren=false;
+		if(Datei.contains("iconengines") && Datei.contains("svg"))
+		{
+			Ziel.replace("svg","iconengineSVG");
+			EintragKorregieren=true;
+		}
+		if(!QFile::copy(Datei,Ziel))
 		{
 			emit Meldung(tr("Die Datei %1 konnte nicht nach %2 kopiert werden.")
 							.arg(Datei).arg(zielverzeichnis+Datei.right(Datei.length()-Datei.lastIndexOf("\\"))));
@@ -186,6 +208,18 @@ bool QFrankQt4MergemoduleArbeitVerteilen::K_DateienKopieren(const QStringList &d
 			emit fertig();
 			return false;
 			break;
+		}
+		if(EintragKorregieren)
+		{
+			QStringList Temp=dateiliste;
+			QString NeuerEintrag;
+			QRegExp Suchterm("*iconengines/*svg*");
+			Suchterm.setPatternSyntax(QRegExp::Wildcard);
+			int Position=Temp.indexOf(Suchterm);
+			NeuerEintrag=Temp.at(Position);
+			NeuerEintrag.replace("svg","iconengineSVG");
+			Temp.replace(Position,NeuerEintrag);
+			K_Parameter->QtBibliothekenSetzen(Temp);
 		}
 		emit FortschrittsanzeigeSchritt();
 	}
@@ -235,6 +269,26 @@ bool QFrankQt4MergemoduleArbeitVerteilen::K_QtPruefen()
 		emit fertig();
 		return false;
 	}
+	//Optionale Dateien (Plug-Ins)
+	QString Plugin;
+	QString QtPlugInBereich;
+	QDir PluginVerzeichnis;
+	QStringList QtPlugInBereiche;
+	QtPlugInBereiche <<"sqldrivers"<<"accessible"<<"codecs"<<"iconengines"<<"imageformats";
+	Q_FOREACH(QtPlugInBereich,QtPlugInBereiche)
+	{
+		PluginVerzeichnis.setPath(K_Parameter->QtPfadHohlen()+"\\..\\plugins\\"+QtPlugInBereich);
+		//imageformats iconengines accessible
+		if(QtPlugInBereich=="sqldrivers" || QtPlugInBereich=="codecs")
+			PluginVerzeichnis.setNameFilters(QStringList("*[a-c,e-z,0-9].dll"));
+		else
+			PluginVerzeichnis.setNameFilters(QStringList("*[a-c,e-z,0-9][0-9].dll"));		
+		Q_FOREACH(Plugin,PluginVerzeichnis.entryList(QDir::Files))
+		{			
+			Bibliotheken<<PluginVerzeichnis.canonicalPath()+"/"+Plugin;			
+		}
+	}	
+	K_Parameter->QtBibliothekenSetzen(Bibliotheken);
 	K_Parameter->QtVersionSetzen(K_Dateiversion(Bibliotheken.at(0)));
 	if(K_Parameter->QtVersionHohlen().isEmpty())
 	{

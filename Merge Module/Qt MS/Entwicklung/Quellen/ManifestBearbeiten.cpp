@@ -24,6 +24,7 @@ QFrankQt4MergemoduleManifestBearbeiten::QFrankQt4MergemoduleManifestBearbeiten(c
 void QFrankQt4MergemoduleManifestBearbeiten::run()
 {
 	QString Dateiname=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer);
+	Dateiname.replace('/','\\');
 	K_Dateiname=Dateiname.right(Dateiname.length()-Dateiname.lastIndexOf("\\"));
 	Dateiname=K_Parameter->ZielverzeichnisHohlen()+K_Dateiname+".manifest";
 	if(!K_QtKomponenteErmitteln(Dateiname))
@@ -136,7 +137,7 @@ bool QFrankQt4MergemoduleManifestBearbeiten::K_AbhaengigkeitEinfuegen(QDomDocume
 	return true;
 }
 bool QFrankQt4MergemoduleManifestBearbeiten::K_QtKomponenteErmitteln(const QString &datei)
-{
+{	
 	//Welche Komponete wird bearbeitet??
 	if(datei.contains("core4",Qt::CaseInsensitive))
 		K_QtKomponente="QtCore";
@@ -156,6 +157,34 @@ bool QFrankQt4MergemoduleManifestBearbeiten::K_QtKomponenteErmitteln(const QStri
 		K_QtKomponente="QtXML";
 	else if (datei.contains("3Support4",Qt::CaseInsensitive))
 		K_QtKomponente="Qt3Support";
+	else if (datei.contains("cncodecs",Qt::CaseInsensitive))
+		K_QtKomponente="PlugIn-TextCodecChina";
+	else if (datei.contains("jpcodecs",Qt::CaseInsensitive))
+		K_QtKomponente="PlugIn-TextCodecJapan";
+	else if (datei.contains("krcodecs",Qt::CaseInsensitive))
+		K_QtKomponente="PlugIn-TextCodecKorea";
+	else if (datei.contains("twcodecs",Qt::CaseInsensitive))
+		K_QtKomponente="PlugIn-TextCodecTaiwan";
+	else if (datei.contains("odbc",Qt::CaseInsensitive))
+		K_QtKomponente="PlugIn-SqlODBC";
+	else if (datei.contains("mysql",Qt::CaseInsensitive))
+		K_QtKomponente="PlugIn-SqlMySQL";
+	else if (datei.contains("sqlite",Qt::CaseInsensitive))
+		K_QtKomponente="PlugIn-SqlSqlite";
+	else if (datei.contains("gif",Qt::CaseInsensitive))
+		K_QtKomponente="PlugIn-BildGif";
+	else if (datei.contains("jpeg",Qt::CaseInsensitive))
+		K_QtKomponente="PlugIn-BildJpeg";
+	else if (datei.contains("mng",Qt::CaseInsensitive))
+		K_QtKomponente="PlugIn-BildMng";
+	else if (datei.contains("svg",Qt::CaseInsensitive) && !datei.contains("iconengine",Qt::CaseInsensitive))
+		K_QtKomponente="PlugIn-BildSvg";
+	else if (datei.contains("svg",Qt::CaseInsensitive) && datei.contains("iconengine",Qt::CaseInsensitive))
+		K_QtKomponente="PlugIn-IconengineSvg";
+	else if (datei.contains("accessiblewidgets",Qt::CaseInsensitive))
+		K_QtKomponente="PlugIn-Eingabehilfen";
+	else if (datei.contains("accessiblecompatwidgets",Qt::CaseInsensitive))
+		K_QtKomponente="PlugIn-Qt3Eingabehilfen";
 	else
 		return false;
 	return true;
