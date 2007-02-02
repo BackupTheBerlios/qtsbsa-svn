@@ -28,7 +28,7 @@ int main(int anzahlArgumente, char *Argumente[])
 	Meine.load(":/Uebersetzungen/Uebersetzung");
 	Programm.installTranslator(&QtSystem);
 	Programm.installTranslator(&Meine);
-	QFrankQt4MergemoduleDlgHaupt Hauptdialog;
+	QFrankQtSBSADlgHaupt Hauptdialog;
 	Hauptdialog.show();
 	return Programm.exec(); 
 }

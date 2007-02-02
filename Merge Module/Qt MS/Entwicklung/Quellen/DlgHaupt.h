@@ -14,28 +14,30 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQT4MERGEMODULEDLGHAUPT
-#define QFRANKQT4MERGEMODULEDLGHAUPT
+#ifndef QFRANKQTSBSADLGHAUPT
+#define QFRANKQTSBSADLGHAUPT
 
 #include "ui_HauptBasis.h"
 
 class QFileDialog;
-class QFrankQt4MergemoduleParameter;
-class QFrankQt4MergemoduleDlgHaupt : public QMainWindow, private Ui::dlgHauptBasis
+class QFrankQtSBSAParameter;
+class QFrankQtSBSADlgHaupt : public QMainWindow, private Ui::dlgHauptBasis
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleDlgHaupt(QWidget *eltern = 0);
+				QFrankQtSBSADlgHaupt(QWidget *eltern = 0);
 	private:
-				QFileDialog*					K_Verzeichnisauswahl;
-				QFrankQt4MergemoduleParameter*	K_Parameter;
-				QString							K_FeldNachHex(const QByteArray &feld); 
+				QFileDialog*			K_Verzeichnisauswahl;
+				QFrankQtSBSAParameter*	K_Parameter;
+				QString					K_FeldNachHex(const QByteArray &feld); 
 	private slots:
-				void							on_sfQtPfadSuchen_clicked();
-				void							on_sfWixPfadSuchen_clicked();
-				void							on_sfZielpfadSuchen_clicked();
-				void							on_sfZertifikatSuchen_clicked();
-				void							on_sfWindowsSDKPfadSuchen_clicked();
-				void							on_sfBox_accepted();
+				void					on_sfQtPfadSuchen_clicked();
+				void					on_sfWixPfadSuchen_clicked();
+				void					on_sfZielpfadSuchen_clicked();
+				void					on_sfZertifikatSuchen_clicked();
+				void					on_sfWindowsSDKPfadSuchen_clicked();
+				void					on_sfBox_accepted();
+				void					on_Menue_UeberQt_triggered();
+				void					on_Menue_UeberDasProgramm_triggered();
 };
 #endif

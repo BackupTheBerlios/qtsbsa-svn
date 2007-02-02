@@ -14,18 +14,18 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQT4MERGEMODULEMANIFESTEXPORTIEREN
-#define QFRANKQT4MERGEMODULEMANIFESTEXPORTIEREN
+#ifndef QFRANKQTSBSAMANIFESTEXPORTIEREN
+#define QFRANKQTSBSAMANIFESTEXPORTIEREN
 
 #include <QtCore>
 #include "BasisThread.h"
 
-class QFrankQt4MergemoduleManifestExportieren:public QFrankQt4MergemoduleBasisThread
+class QFrankQtSBSAManifestExportieren:public QFrankQtSBSABasisThread
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleManifestExportieren(const QFrankQt4MergemoduleParameter* parameter,QObject *eltern=0);	
-				~QFrankQt4MergemoduleManifestExportieren();
+				QFrankQtSBSAManifestExportieren(const QFrankQtSBSAParameter* parameter,QObject *eltern=0);	
+				~QFrankQtSBSAManifestExportieren();
 
 	private slots:
 				void		K_mtFertig(int statusCode);

@@ -22,17 +22,17 @@
 	Manifest importieren: mt.exe -manifest XXX.manifest -outputresource:XXXX.dll;#1	
 */
 
-QFrankQt4MergemoduleManifestExportieren::QFrankQt4MergemoduleManifestExportieren(const QFrankQt4MergemoduleParameter* parameter,QObject *eltern)
-										:QFrankQt4MergemoduleBasisThread(parameter,eltern)
+QFrankQtSBSAManifestExportieren::QFrankQtSBSAManifestExportieren(const QFrankQtSBSAParameter* parameter,QObject *eltern)
+										:QFrankQtSBSABasisThread(parameter,eltern)
 {	
 	K_mtProzess=NULL;
 }
-QFrankQt4MergemoduleManifestExportieren::~QFrankQt4MergemoduleManifestExportieren()
+QFrankQtSBSAManifestExportieren::~QFrankQtSBSAManifestExportieren()
 {
 	if(K_mtProzess!=NULL)
 		delete K_mtProzess;
 }
-void QFrankQt4MergemoduleManifestExportieren::run()
+void QFrankQtSBSAManifestExportieren::run()
 {
 	K_mtProzess=new QProcess();
 	K_mtProzess->setProcessChannelMode(QProcess::MergedChannels);
@@ -57,7 +57,7 @@ void QFrankQt4MergemoduleManifestExportieren::run()
 	K_Fehlercode=exec();
 	emit fertig(this);
 }
-void QFrankQt4MergemoduleManifestExportieren::K_mtFertig(int statusCode)
+void QFrankQtSBSAManifestExportieren::K_mtFertig(int statusCode)
 {	
 	/*
 		exit Code:

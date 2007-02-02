@@ -14,25 +14,17 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQTSBSADLGFORTSCHRITT
-#define QFRANKQTSBSADLGFORTSCHRITT
+#include "DlgProgramminfo.h"
 
-#include "ui_FortschrittBasis.h"
-
-class QFrankQtSBSAParameter;
-class QFrankQtSBSADlgFortschritt : public QDialog, private Ui::dlgFortschrittBasis
+QFrankQtSBSADlgInfo::QFrankQtSBSADlgInfo(QWidget *eltern):QDialog(eltern)
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSADlgFortschritt(QWidget *eltern,QFrankQtSBSAParameter* parameter);
-				virtual bool					event(QEvent *ereignis);					
-	private:
-				bool							K_darfGeschlossenWerden;				
-	private slots:
-				void							on_sfSchliessen_clicked();
-				void							K_NeueMeldung(const QString &meldung);
-				void							K_ErstellungBeendet();
-				void							K_FortschrittsanzeigeMaximum(int endpunkt);
-				void							K_FortschrittsanzeigeSchritt();
-};
-#endif
+	setupUi(this);
+	setWindowFlags(windowFlags()^Qt::WindowContextHelpButtonHint);
+	//Zentrieren
+	QDesktopWidget *Desktop = QApplication::desktop(); //neue X und Y Koordinate
+	int x=(Desktop->width()-this->width())/2;
+	int y=(Desktop->height()-this->height())/2;
+	//jetzt das Fenster verschieben
+	this->move(x,y);
+
+}

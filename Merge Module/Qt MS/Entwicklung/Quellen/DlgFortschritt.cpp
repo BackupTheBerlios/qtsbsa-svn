@@ -18,7 +18,7 @@
 #include "ArbeitVerteilen.h"
 #include <QtGui>
 
-QFrankQt4MergemoduleDlgFortschritt::QFrankQt4MergemoduleDlgFortschritt(QWidget *eltern,QFrankQt4MergemoduleParameter* parameter) : QDialog(eltern)
+QFrankQtSBSADlgFortschritt::QFrankQtSBSADlgFortschritt(QWidget *eltern,QFrankQtSBSAParameter* parameter) : QDialog(eltern)
 {
 	setupUi(this);
 	setWindowFlags(windowFlags()^Qt::WindowSystemMenuHint);
@@ -29,19 +29,19 @@ QFrankQt4MergemoduleDlgFortschritt::QFrankQt4MergemoduleDlgFortschritt(QWidget *
 	//jetzt das Fenster verschieben
 	this->move(x,y);
 	K_darfGeschlossenWerden=false;
-	QFrankQt4MergemoduleArbeitVerteilen *Abarbeiten=new QFrankQt4MergemoduleArbeitVerteilen(this,parameter);
+	QFrankQtSBSAArbeitVerteilen *Abarbeiten=new QFrankQtSBSAArbeitVerteilen(this,parameter);
 	connect(Abarbeiten,SIGNAL(fertig()),this,SLOT(K_ErstellungBeendet()));
 	connect(Abarbeiten,SIGNAL(Meldung(const QString&)),this,SLOT(K_NeueMeldung(const QString&)));
 	connect(Abarbeiten,SIGNAL(FortschrittsanzeigeSchritt()),this,SLOT(K_FortschrittsanzeigeSchritt()));
 	connect(Abarbeiten,SIGNAL(FortschrittsanzeigeMaximum(int)),this,SLOT(K_FortschrittsanzeigeMaximum(int)));
 	QTimer::singleShot(0,Abarbeiten,SLOT(Loslegen()));	
 }
-void QFrankQt4MergemoduleDlgFortschritt::on_sfSchliessen_clicked()
+void QFrankQtSBSADlgFortschritt::on_sfSchliessen_clicked()
 {
 	K_darfGeschlossenWerden=true;
 	reject();
 }
-bool QFrankQt4MergemoduleDlgFortschritt::event(QEvent *ereignis)
+bool QFrankQtSBSADlgFortschritt::event(QEvent *ereignis)
 {
 	bool bearbeitet=false;
 	if(ereignis->type()==QEvent::Close)
@@ -54,20 +54,20 @@ bool QFrankQt4MergemoduleDlgFortschritt::event(QEvent *ereignis)
 	}
 	return bearbeitet;
 }
-void QFrankQt4MergemoduleDlgFortschritt::K_NeueMeldung(const QString &meldung)
+void QFrankQtSBSADlgFortschritt::K_NeueMeldung(const QString &meldung)
 {
 	txtAusgabe->append(meldung);
 }
-void QFrankQt4MergemoduleDlgFortschritt::K_ErstellungBeendet()
+void QFrankQtSBSADlgFortschritt::K_ErstellungBeendet()
 {
 	sfSchliessen->setEnabled(true);
 }
-void QFrankQt4MergemoduleDlgFortschritt::K_FortschrittsanzeigeMaximum(int endpunkt)
+void QFrankQtSBSADlgFortschritt::K_FortschrittsanzeigeMaximum(int endpunkt)
 {
 	Fortschrittsanzeige->setMaximum(endpunkt);
 	Fortschrittsanzeige->reset();
 }
-void QFrankQt4MergemoduleDlgFortschritt::K_FortschrittsanzeigeSchritt()
+void QFrankQtSBSADlgFortschritt::K_FortschrittsanzeigeSchritt()
 {
 	Fortschrittsanzeige->setValue(Fortschrittsanzeige->value()+1);	
 }

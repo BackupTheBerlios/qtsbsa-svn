@@ -16,6 +16,6 @@
 
 #include "Parameter.h"
 
-QFrankQt4MergemoduleParameter::QFrankQt4MergemoduleParameter(QObject* eltern):QObject(eltern)
+QFrankQtSBSAParameter::QFrankQtSBSAParameter(QObject* eltern):QObject(eltern)
 {
 }

@@ -14,17 +14,17 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQT4MERGEMODULEBASISTHREAD
-#define QFRANKQT4MERGEMODULEBASISTHREAD
+#ifndef QFRANKQTSBSABASISTHREAD
+#define QFRANKQTSBSABASISTHREAD
 
 #include <QtCore>
 
-class QFrankQt4MergemoduleParameter;
-class QFrankQt4MergemoduleBasisThread:public QThread
+class QFrankQtSBSAParameter;
+class QFrankQtSBSABasisThread:public QThread
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleBasisThread(const QFrankQt4MergemoduleParameter* parameter,QObject* eltern=0);
+				QFrankQtSBSABasisThread(const QFrankQtSBSAParameter* parameter,QObject* eltern=0);
 				void									DateinummerFestlegen(const int &nummer){K_Dateinummer=nummer;}
 	public slots:
 				const int								FehlercodeHohlen(){return K_Fehlercode;}
@@ -33,9 +33,9 @@ class QFrankQt4MergemoduleBasisThread:public QThread
 				const int								Threadnummer(){return K_Dateinummer;}
 #endif
 	signals:
-				void									fertig(QFrankQt4MergemoduleBasisThread *welcher);				
+				void									fertig(QFrankQtSBSABasisThread *welcher);				
 	protected:
-				const QFrankQt4MergemoduleParameter*	K_Parameter;
+				const QFrankQtSBSAParameter*	K_Parameter;
 				QString									K_Fehlermeldung;
 				int										K_Fehlercode;
 				int										K_Dateinummer;				

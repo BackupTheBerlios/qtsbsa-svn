@@ -17,17 +17,17 @@
 #include "KatalogSignieren.h"
 #include "Parameter.h"
 
-QFrankQt4MergemoduleKatalogSignieren::QFrankQt4MergemoduleKatalogSignieren(const QFrankQt4MergemoduleParameter* parameter,QObject* eltern)
-									:QFrankQt4MergemoduleBasisThread(parameter,eltern)
+QFrankQtSBSAKatalogSignieren::QFrankQtSBSAKatalogSignieren(const QFrankQtSBSAParameter* parameter,QObject* eltern)
+									:QFrankQtSBSABasisThread(parameter,eltern)
 {
 	K_signtoolProzess=NULL;
 }
-QFrankQt4MergemoduleKatalogSignieren::~QFrankQt4MergemoduleKatalogSignieren()
+QFrankQtSBSAKatalogSignieren::~QFrankQtSBSAKatalogSignieren()
 {
 	if(K_signtoolProzess!=NULL)
 		delete K_signtoolProzess;
 }
-void QFrankQt4MergemoduleKatalogSignieren::run()
+void QFrankQtSBSAKatalogSignieren::run()
 {
 	QString Datei=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer);
 	Datei.replace('/','\\');
@@ -50,7 +50,7 @@ void QFrankQt4MergemoduleKatalogSignieren::run()
 	K_Fehlercode=exec();
 	emit fertig(this);
 }
-void QFrankQt4MergemoduleKatalogSignieren::K_signtoolFertig(int statusCode)
+void QFrankQtSBSAKatalogSignieren::K_signtoolFertig(int statusCode)
 {
 	/*
 		exit Code:

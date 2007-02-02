@@ -14,16 +14,16 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQT4MERGEMODULEEREIGNISFILTER
-#define QFRANKQT4MERGEMODULEEREIGNISFILTER
+#ifndef QFRANKQTSBSAEREIGNISFILTER
+#define QFRANKQTSBSAEREIGNISFILTER
 
 #include <QtCore>
 
-class QFrankQt4MergemoduleEreignisfilter : public QObject
+class QFrankQtSBSAEreignisfilter : public QObject
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleEreignisfilter(QObject* eltern=0);
+				QFrankQtSBSAEreignisfilter(QObject* eltern=0);
 	protected:
 				bool eventFilter(QObject *objekt, QEvent *ereignis);
 };

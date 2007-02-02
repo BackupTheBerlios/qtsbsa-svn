@@ -2,4 +2,15 @@
 	<qresource prefix="/Uebersetzungen" lang="en">
 		<file alias="Uebersetzung">Uebersetzungen/Uebersetzung_en.qm</file>
 	</qresource>
+	<qresource prefix="/Info" lang="en">
+		<file alias="Version.html">Uebersetzungen/Version_en.html</file>
+		<file alis="Entwickler.html">Uebersetzungen/Entwickler_en.html</file>
+	</qresource>
+	<qresource prefix="/Info" lang="de">
+		<file>Version.html</file>
+		<file>Entwickler.html</file>		
+	</qresource>
+	<qresource prefix="/Info">
+		<file>Lizenz.html</file>
+	</qresource>
 </RCC>

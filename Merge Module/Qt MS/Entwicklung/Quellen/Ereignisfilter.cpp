@@ -16,17 +16,17 @@
 
 #include "Ereignisfilter.h"
 
-QFrankQt4MergemoduleEreignisfilter::QFrankQt4MergemoduleEreignisfilter(QObject* eltern):QObject(eltern)
+QFrankQtSBSAEreignisfilter::QFrankQtSBSAEreignisfilter(QObject* eltern):QObject(eltern)
 {
 }
-bool QFrankQt4MergemoduleEreignisfilter::eventFilter(QObject *objekt, QEvent *ereignis)
+bool QFrankQtSBSAEreignisfilter::eventFilter(QObject *objekt, QEvent *ereignis)
 {
 	/*
 		Der Fortschrittsdialog darf nur geschlossen werden, wenn er fertig ist.
 	*/
 	qDebug()<<objekt->metaObject()->className();
 	qDebug()<<ereignis;
-	if(objekt->metaObject()->className()=="QFrankQt4MergemoduleDlgFortschritt")
+	if(objekt->metaObject()->className()=="QFrankQtSBSADlgFortschritt")
 	{
 		qDebug()<<"teste";
 		if(ereignis->type()==QEvent::Close)

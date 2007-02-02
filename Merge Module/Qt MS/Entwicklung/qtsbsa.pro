@@ -15,7 +15,7 @@
 # Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 TEMPLATE					= app
-TARGET						= Qt4MergemoduleErzeugen
+TARGET						= qtsbsa
 DESTDIR						= bin
 QT							+= xml
 debug {
@@ -33,7 +33,8 @@ LIBS						+= -lCrypt32 -lCryptui -lAdvapi32 -lversion
 TRANSLATIONS				= Uebersetzungen/Uebersetzung_en.ts\
 							  Uebersetzungen/Uebersetzung_XX.ts
 FORMS						= Dialoge/HauptBasis.ui\
-							  Dialoge/FortschrittBasis.ui
+							  Dialoge/FortschrittBasis.ui\
+							  Dialoge/InfoBasis.ui
 HEADERS						= Quellen/Parameter.h\
 							  Quellen/BasisThread.h\
 							  Quellen/ManifestExportieren.h\
@@ -42,6 +43,7 @@ HEADERS						= Quellen/Parameter.h\
 							  Quellen/KatalogSignieren.h\
 							  Quellen/ArbeitVerteilen.h\
 							  Quellen/DlgFortschritt.h\
+							  Quellen/DlgProgramminfo.h\
 							  Quellen/DlgHaupt.h
 SOURCES						= Quellen/Parameter.cpp\
 							  Quellen/BasisThread.cpp\
@@ -52,4 +54,5 @@ SOURCES						= Quellen/Parameter.cpp\
 							  Quellen/ArbeitVerteilen.cpp\
 							  Quellen/DlgFortschritt.cpp\
 							  Quellen/DlgHaupt.cpp\
+							  Quellen/DlgProgramminfo.cpp\
 							  Quellen/Haupt.cpp

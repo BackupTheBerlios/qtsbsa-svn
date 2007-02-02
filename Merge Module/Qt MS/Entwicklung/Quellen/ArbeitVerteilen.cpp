@@ -23,11 +23,11 @@
 #include <Windows.h>
 #include <Winver.h>
 
-QFrankQt4MergemoduleArbeitVerteilen::QFrankQt4MergemoduleArbeitVerteilen(QObject *eltern,QFrankQt4MergemoduleParameter* parameter):QObject(eltern)
+QFrankQtSBSAArbeitVerteilen::QFrankQtSBSAArbeitVerteilen(QObject *eltern,QFrankQtSBSAParameter* parameter):QObject(eltern)
 {
 	K_Parameter=parameter;
 }
-void QFrankQt4MergemoduleArbeitVerteilen::Loslegen()
+void QFrankQtSBSAArbeitVerteilen::Loslegen()
 {
 	if(!K_WindowsSDKPruefen())
 		return;
@@ -54,13 +54,13 @@ void QFrankQt4MergemoduleArbeitVerteilen::Loslegen()
 
 	K_ManifesteExportieren();	
 	//nur zum testen!!!
-	//K_Arbeitsschritt=QFrankQt4MergemoduleArbeitVerteilen::KatalogErstellen;
+	//K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::KatalogErstellen;
 	//K_KatalogeErstellen();
 	//testEnde
 }
-void QFrankQt4MergemoduleArbeitVerteilen::K_ManifesteExportieren()
+void QFrankQtSBSAArbeitVerteilen::K_ManifesteExportieren()
 {
-	K_Arbeitsschritt=QFrankQt4MergemoduleArbeitVerteilen::ManifestExportieren;
+	K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::ManifestExportieren;
 	emit Meldung(tr("Extrahiere Manifeste"));
 	//zum testen nur 1 Thread 
 	//K_AnzahlDerProzesse=1;
@@ -72,13 +72,13 @@ void QFrankQt4MergemoduleArbeitVerteilen::K_ManifesteExportieren()
 	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
 	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
 	{
-		QFrankQt4MergemoduleManifestExportieren *Export=new QFrankQt4MergemoduleManifestExportieren(K_Parameter,this);
+		QFrankQtSBSAManifestExportieren *Export=new QFrankQtSBSAManifestExportieren(K_Parameter,this);
 		Export->DateinummerFestlegen(Threadnummer);
-		connect(Export,SIGNAL(fertig(QFrankQt4MergemoduleBasisThread*)),this,SLOT(K_ThreadFertig( QFrankQt4MergemoduleBasisThread*)));
+		connect(Export,SIGNAL(fertig(QFrankQtSBSABasisThread*)),this,SLOT(K_ThreadFertig( QFrankQtSBSABasisThread*)));
 		Export->start();
 	}		
 }
-void QFrankQt4MergemoduleArbeitVerteilen::K_ManifesteBearbeiten()
+void QFrankQtSBSAArbeitVerteilen::K_ManifesteBearbeiten()
 {
 	emit Meldung(tr("Bearbeite Manifeste"));
 	//zum testen nur 1 Thread 
@@ -90,13 +90,13 @@ void QFrankQt4MergemoduleArbeitVerteilen::K_ManifesteBearbeiten()
 	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
 	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
 	{
-		QFrankQt4MergemoduleManifestBearbeiten *bearbeiten=new QFrankQt4MergemoduleManifestBearbeiten(K_Parameter,this);
+		QFrankQtSBSAManifestBearbeiten *bearbeiten=new QFrankQtSBSAManifestBearbeiten(K_Parameter,this);
 		bearbeiten->DateinummerFestlegen(Threadnummer);
-		connect(bearbeiten,SIGNAL(fertig(QFrankQt4MergemoduleBasisThread*)),this,SLOT(K_ThreadFertig( QFrankQt4MergemoduleBasisThread*)));		
+		connect(bearbeiten,SIGNAL(fertig(QFrankQtSBSABasisThread*)),this,SLOT(K_ThreadFertig( QFrankQtSBSABasisThread*)));		
 		bearbeiten->start();
 	}	
 }
-void QFrankQt4MergemoduleArbeitVerteilen::K_KatalogeErstellen()
+void QFrankQtSBSAArbeitVerteilen::K_KatalogeErstellen()
 {
 	emit Meldung(tr("Erstelle Kataloge"));
 	K_AnzahlDerProzesse=K_Parameter->QtBibliothekenHohlen().count();
@@ -105,13 +105,13 @@ void QFrankQt4MergemoduleArbeitVerteilen::K_KatalogeErstellen()
 	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
 	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
 	{
-		QFrankQt4MergemoduleKatalogErstellen *erstellen=new QFrankQt4MergemoduleKatalogErstellen(K_Parameter,this);
+		QFrankQtSBSAKatalogErstellen *erstellen=new QFrankQtSBSAKatalogErstellen(K_Parameter,this);
 		erstellen->DateinummerFestlegen(Threadnummer);
-		connect(erstellen,SIGNAL(fertig(QFrankQt4MergemoduleBasisThread*)),this,SLOT(K_ThreadFertig( QFrankQt4MergemoduleBasisThread*)));		
+		connect(erstellen,SIGNAL(fertig(QFrankQtSBSABasisThread*)),this,SLOT(K_ThreadFertig( QFrankQtSBSABasisThread*)));		
 		erstellen->start();
 	}	
 }
-void QFrankQt4MergemoduleArbeitVerteilen::K_KatalogeSignieren()
+void QFrankQtSBSAArbeitVerteilen::K_KatalogeSignieren()
 {
 	emit Meldung(tr("Signiere Kataloge"));
 	K_AnzahlDerProzesse=K_Parameter->QtBibliothekenHohlen().count();
@@ -120,13 +120,13 @@ void QFrankQt4MergemoduleArbeitVerteilen::K_KatalogeSignieren()
 	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
 	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
 	{
-		QFrankQt4MergemoduleKatalogSignieren *signieren=new QFrankQt4MergemoduleKatalogSignieren(K_Parameter,this);
+		QFrankQtSBSAKatalogSignieren *signieren=new QFrankQtSBSAKatalogSignieren(K_Parameter,this);
 		signieren->DateinummerFestlegen(Threadnummer);
-		connect(signieren,SIGNAL(fertig(QFrankQt4MergemoduleBasisThread*)),this,SLOT(K_ThreadFertig( QFrankQt4MergemoduleBasisThread*)));		
+		connect(signieren,SIGNAL(fertig(QFrankQtSBSABasisThread*)),this,SLOT(K_ThreadFertig( QFrankQtSBSABasisThread*)));		
 		signieren->start();
 	}	
 }
-void QFrankQt4MergemoduleArbeitVerteilen::K_ThreadFertig(QFrankQt4MergemoduleBasisThread *welcher)
+void QFrankQtSBSAArbeitVerteilen::K_ThreadFertig(QFrankQtSBSABasisThread *welcher)
 {
 	emit FortschrittsanzeigeSchritt();
 	static bool FehlerAufgetreten=false;
@@ -158,19 +158,19 @@ void QFrankQt4MergemoduleArbeitVerteilen::K_ThreadFertig(QFrankQt4MergemoduleBas
 		}		
 	}	
 }
-void QFrankQt4MergemoduleArbeitVerteilen::K_NaechsterArbeitsschritt()
+void QFrankQtSBSAArbeitVerteilen::K_NaechsterArbeitsschritt()
 {
 	K_Arbeitsschritt++;
 	//Was kommt als nächtses??
 	switch(K_Arbeitsschritt)
 	{
-		case QFrankQt4MergemoduleArbeitVerteilen::ManifestBearbeiten:
+		case QFrankQtSBSAArbeitVerteilen::ManifestBearbeiten:
 																		K_ManifesteBearbeiten();
 																		break;
-		case QFrankQt4MergemoduleArbeitVerteilen::KatalogErstellen:
+		case QFrankQtSBSAArbeitVerteilen::KatalogErstellen:
 																		K_KatalogeErstellen();
 																		break;
-		case QFrankQt4MergemoduleArbeitVerteilen::KatalogSignieren:
+		case QFrankQtSBSAArbeitVerteilen::KatalogSignieren:
 																		K_KatalogeSignieren();
 																		break;
 		default:
@@ -182,7 +182,7 @@ void QFrankQt4MergemoduleArbeitVerteilen::K_NaechsterArbeitsschritt()
 																		break;
 	};
 }
-bool QFrankQt4MergemoduleArbeitVerteilen::K_DateienKopieren(const QStringList &dateiliste,const QString &zielverzeichnis)
+bool QFrankQtSBSAArbeitVerteilen::K_DateienKopieren(const QStringList &dateiliste,const QString &zielverzeichnis)
 {
 	emit Meldung(tr("Kopiere Qt4 Bibliotheken"));
 	emit FortschrittsanzeigeMaximum(dateiliste.count());
@@ -226,7 +226,7 @@ bool QFrankQt4MergemoduleArbeitVerteilen::K_DateienKopieren(const QStringList &d
 	K_SchrittFertig();	
 	return true;
 }
-bool QFrankQt4MergemoduleArbeitVerteilen::K_WindowsSDKPruefen()
+bool QFrankQtSBSAArbeitVerteilen::K_WindowsSDKPruefen()
 {
 	emit Meldung(trUtf8("Prüfe Windows SDK"));
 
@@ -247,7 +247,7 @@ bool QFrankQt4MergemoduleArbeitVerteilen::K_WindowsSDKPruefen()
 	K_SchrittFertig();
 	return true;
 }
-bool QFrankQt4MergemoduleArbeitVerteilen::K_QtPruefen()
+bool QFrankQtSBSAArbeitVerteilen::K_QtPruefen()
 {
 	emit Meldung(trUtf8("Prüfe Qt"));
 	//sind alle Qt Libs da??
@@ -300,7 +300,7 @@ bool QFrankQt4MergemoduleArbeitVerteilen::K_QtPruefen()
 	K_SchrittFertig();
 	return true;
 }
-bool QFrankQt4MergemoduleArbeitVerteilen::K_ZielverzeichnisPruefen()
+bool QFrankQtSBSAArbeitVerteilen::K_ZielverzeichnisPruefen()
 {
 	emit Meldung(trUtf8("Prüfe Zielverzeichnis für die Mergemodule"));
 	//Ist das Verzeichnis existen und leer? Wenn es nicht da ist, dann soll es angelegt werden
@@ -329,7 +329,7 @@ bool QFrankQt4MergemoduleArbeitVerteilen::K_ZielverzeichnisPruefen()
 	K_SchrittFertig();
 	return true;
 }
-const QString QFrankQt4MergemoduleArbeitVerteilen::K_Dateiversion(const QString &datei)
+const QString QFrankQtSBSAArbeitVerteilen::K_Dateiversion(const QString &datei)
 {
 	VS_FIXEDFILEINFO *Dateiinfos;
 	DWORD Dummy;
@@ -354,7 +354,7 @@ const QString QFrankQt4MergemoduleArbeitVerteilen::K_Dateiversion(const QString 
 	emit Meldung(tr("Die Version der Datei %1 konnte nicht ermittelt werden.").arg(datei));
 	return "";
 }
-bool QFrankQt4MergemoduleArbeitVerteilen::K_DateienVorhanden(const QStringList &liste)
+bool QFrankQtSBSAArbeitVerteilen::K_DateienVorhanden(const QStringList &liste)
 {
 	QString Datei;
 	Q_FOREACH(Datei,liste)
@@ -369,19 +369,19 @@ bool QFrankQt4MergemoduleArbeitVerteilen::K_DateienVorhanden(const QStringList &
 	}
 	return true;
 }
-void QFrankQt4MergemoduleArbeitVerteilen::K_ErstellenGescheitert()
+void QFrankQtSBSAArbeitVerteilen::K_ErstellenGescheitert()
 {
 	emit Meldung(tr("<html><b><span style=\"color:#ff0000;\">Erstellung der Mergemodule gescheitert.</span></b></html>")); //Rot und Fett
 }
-void QFrankQt4MergemoduleArbeitVerteilen::K_ErstellenErfolgreich()
+void QFrankQtSBSAArbeitVerteilen::K_ErstellenErfolgreich()
 {
 	emit Meldung(tr("<html><b><span style=\"color:#008000;\">Erstellung der Mergemodule erfolgreich.</span></b></html>")); //Grün und Fett
 }
-void QFrankQt4MergemoduleArbeitVerteilen::K_SchrittFertig()
+void QFrankQtSBSAArbeitVerteilen::K_SchrittFertig()
 {
 	emit Meldung(tr("<html><span style=\"color:#008000;\">fertig</span></html>"));
 }
-void QFrankQt4MergemoduleArbeitVerteilen::K_SchrittFehlgeschlagen()
+void QFrankQtSBSAArbeitVerteilen::K_SchrittFehlgeschlagen()
 {
 	emit Meldung(tr("<html><span style=\"color:#ff0000;\">fehlgeschlagen</span></html>"));
 }

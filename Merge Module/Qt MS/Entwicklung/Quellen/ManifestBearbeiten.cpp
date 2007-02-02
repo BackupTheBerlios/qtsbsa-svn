@@ -17,11 +17,11 @@
 #include "ManifestBearbeiten.h"
 #include "Parameter.h"
 
-QFrankQt4MergemoduleManifestBearbeiten::QFrankQt4MergemoduleManifestBearbeiten(const QFrankQt4MergemoduleParameter* parameter,QObject* eltern)
-										:QFrankQt4MergemoduleBasisThread(parameter,eltern)
+QFrankQtSBSAManifestBearbeiten::QFrankQtSBSAManifestBearbeiten(const QFrankQtSBSAParameter* parameter,QObject* eltern)
+										:QFrankQtSBSABasisThread(parameter,eltern)
 {
 }
-void QFrankQt4MergemoduleManifestBearbeiten::run()
+void QFrankQtSBSAManifestBearbeiten::run()
 {
 	QString Dateiname=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer);
 	Dateiname.replace('/','\\');
@@ -97,7 +97,7 @@ void QFrankQt4MergemoduleManifestBearbeiten::run()
 	K_Fehlercode=0;
 	emit fertig(this);
 }
-const QDomElement QFrankQt4MergemoduleManifestBearbeiten::K_AssemblyIdentifikationEinfuegen(QDomDocument &manifest)
+const QDomElement QFrankQtSBSAManifestBearbeiten::K_AssemblyIdentifikationEinfuegen(QDomDocument &manifest)
 {
 	QDomElement Identifikation=manifest.createElement("assemblyIdentity");
 	Identifikation.setAttribute("type","win32");
@@ -107,7 +107,7 @@ const QDomElement QFrankQt4MergemoduleManifestBearbeiten::K_AssemblyIdentifikati
 	Identifikation.setAttribute("publicKeyToken",K_Parameter->publicKeyTokenHohlen());
 	return QDomElement(Identifikation);
 }
-bool QFrankQt4MergemoduleManifestBearbeiten::K_AbhaengigkeitEinfuegen(QDomDocument &manifest,const QString &welche)
+bool QFrankQtSBSAManifestBearbeiten::K_AbhaengigkeitEinfuegen(QDomDocument &manifest,const QString &welche)
 {												 
 	/*QDomNode Abhaengigkeiten=manifest.documentElement().namedItem("dependency");
 	if(Abhaengigkeiten.isNull())
@@ -136,7 +136,7 @@ bool QFrankQt4MergemoduleManifestBearbeiten::K_AbhaengigkeitEinfuegen(QDomDocume
 	AnhaengigeAssemblys.appendChild(K_AssemblyIdentifikationEinfuegen(manifest));	
 	return true;
 }
-bool QFrankQt4MergemoduleManifestBearbeiten::K_QtKomponenteErmitteln(const QString &datei)
+bool QFrankQtSBSAManifestBearbeiten::K_QtKomponenteErmitteln(const QString &datei)
 {	
 	//Welche Komponete wird bearbeitet??
 	if(datei.contains("core4",Qt::CaseInsensitive))
@@ -189,7 +189,7 @@ bool QFrankQt4MergemoduleManifestBearbeiten::K_QtKomponenteErmitteln(const QStri
 		return false;
 	return true;
 }
-bool QFrankQt4MergemoduleManifestBearbeiten::K_AbhaengigkeitenErmitteln()
+bool QFrankQtSBSAManifestBearbeiten::K_AbhaengigkeitenErmitteln()
 {
 	/*
 		Abängigkeiten bearbeiten
@@ -268,7 +268,7 @@ bool QFrankQt4MergemoduleManifestBearbeiten::K_AbhaengigkeitenErmitteln()
 	DateiMitDenAbhaengigkeiten.close();
 	return true;
 }
-void QFrankQt4MergemoduleManifestBearbeiten::K_ProzessFertig(int rueckgabe)
+void QFrankQtSBSAManifestBearbeiten::K_ProzessFertig(int rueckgabe)
 {
 	exit(rueckgabe);
 }

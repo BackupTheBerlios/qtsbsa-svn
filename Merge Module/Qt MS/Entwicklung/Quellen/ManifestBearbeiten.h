@@ -14,19 +14,19 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQT4MERGEMODULEMANIFESTBEARBEITEN
-#define QFRANKQT4MERGEMODULEMANIFESTBEARBEITEN
+#ifndef QFRANKQTSBSAMANIFESTBEARBEITEN
+#define QFRANKQTSBSAMANIFESTBEARBEITEN
 
 #include <QtCore>
 #include <QtXml>
 #include "BasisThread.h"
 
-class QFrankQt4MergemoduleParameter;
-class QFrankQt4MergemoduleManifestBearbeiten: public QFrankQt4MergemoduleBasisThread
+class QFrankQtSBSAParameter;
+class QFrankQtSBSAManifestBearbeiten: public QFrankQtSBSABasisThread
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleManifestBearbeiten(const QFrankQt4MergemoduleParameter* parameter,QObject* eltern=0);
+				QFrankQtSBSAManifestBearbeiten(const QFrankQtSBSAParameter* parameter,QObject* eltern=0);
 	private slots:
 				void				K_ProzessFertig(int rueckgabe);
 	private:

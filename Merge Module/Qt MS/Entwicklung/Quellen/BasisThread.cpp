@@ -16,7 +16,7 @@
 
 #include "BasisThread.h"
 
-QFrankQt4MergemoduleBasisThread::QFrankQt4MergemoduleBasisThread(const QFrankQt4MergemoduleParameter* parameter,QObject* eltern):QThread(eltern)
+QFrankQtSBSABasisThread::QFrankQtSBSABasisThread(const QFrankQtSBSAParameter* parameter,QObject* eltern):QThread(eltern)
 {
 	K_Parameter=parameter;
 }

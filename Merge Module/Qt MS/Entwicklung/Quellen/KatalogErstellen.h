@@ -14,18 +14,18 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQT4MERGEMODULEKATALOGERSTELLEN
-#define QFRANKQT4MERGEMODULEKATALOGERSTELLEN
+#ifndef QFRANKQTSBSAKATALOGERSTELLEN
+#define QFRANKQTSBSAKATALOGERSTELLEN
 
 #include <QtCore>
 #include "BasisThread.h"
 
-class QFrankQt4MergemoduleKatalogErstellen: public QFrankQt4MergemoduleBasisThread
+class QFrankQtSBSAKatalogErstellen: public QFrankQtSBSABasisThread
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleKatalogErstellen(const QFrankQt4MergemoduleParameter* parameter,QObject* eltern=0);
-				~QFrankQt4MergemoduleKatalogErstellen();
+				QFrankQtSBSAKatalogErstellen(const QFrankQtSBSAParameter* parameter,QObject* eltern=0);
+				~QFrankQtSBSAKatalogErstellen();
 	private:
 				enum		K_Schritt{KatalogvorlageErstellen=0x0,KatalogErstellen=0x01};
 				uchar		K_AktuellerSchritt;

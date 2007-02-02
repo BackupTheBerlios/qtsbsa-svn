@@ -16,13 +16,14 @@
 
 #include "DlgHaupt.h"
 #include "DlgFortschritt.h"
+#include "DlgProgramminfo.h"
 #include "Parameter.h"
 #include <QtGui>
 #include <windows.h>
 #include <Wincrypt.h>
 #include <Cryptuiapi.h>
 
-QFrankQt4MergemoduleDlgHaupt::QFrankQt4MergemoduleDlgHaupt(QWidget *eltern) : QMainWindow(eltern)
+QFrankQtSBSADlgHaupt::QFrankQtSBSADlgHaupt(QWidget *eltern) : QMainWindow(eltern)
 {
 	setupUi(this);
 	//Zentrieren
@@ -33,9 +34,9 @@ QFrankQt4MergemoduleDlgHaupt::QFrankQt4MergemoduleDlgHaupt(QWidget *eltern) : QM
 	this->move(x,y);
 	K_Verzeichnisauswahl=new QFileDialog(this,Qt::Window); 
 	K_Verzeichnisauswahl->setFileMode(QFileDialog::DirectoryOnly);
-	K_Parameter=new QFrankQt4MergemoduleParameter(this);
+	K_Parameter=new QFrankQtSBSAParameter(this);
 }
-void QFrankQt4MergemoduleDlgHaupt::on_sfQtPfadSuchen_clicked()
+void QFrankQtSBSADlgHaupt::on_sfQtPfadSuchen_clicked()
 {
 	K_Verzeichnisauswahl->setAcceptMode(QFileDialog::AcceptOpen);
 	K_Verzeichnisauswahl->setWindowTitle(trUtf8("Bitte das Verzeichnis mit den Qt4 Bibliotheken auswählen."));
@@ -43,7 +44,7 @@ void QFrankQt4MergemoduleDlgHaupt::on_sfQtPfadSuchen_clicked()
 	if(K_Verzeichnisauswahl->result()==QDialog::Accepted)
 		txtQtPfad->setText(K_Verzeichnisauswahl->selectedFiles().first());
 }
-void QFrankQt4MergemoduleDlgHaupt::on_sfWindowsSDKPfadSuchen_clicked()
+void QFrankQtSBSADlgHaupt::on_sfWindowsSDKPfadSuchen_clicked()
 {
 	K_Verzeichnisauswahl->setAcceptMode(QFileDialog::AcceptOpen);
 	K_Verzeichnisauswahl->setWindowTitle(tr("Werkzeuge vom Windows SDK suchen."));
@@ -51,7 +52,7 @@ void QFrankQt4MergemoduleDlgHaupt::on_sfWindowsSDKPfadSuchen_clicked()
 	if(K_Verzeichnisauswahl->result()==QDialog::Accepted)
 		txtWindowsSDKPfad->setText(K_Verzeichnisauswahl->selectedFiles().first());
 }
-void QFrankQt4MergemoduleDlgHaupt::on_sfWixPfadSuchen_clicked()
+void QFrankQtSBSADlgHaupt::on_sfWixPfadSuchen_clicked()
 {
 	K_Verzeichnisauswahl->setAcceptMode(QFileDialog::AcceptOpen);
 	K_Verzeichnisauswahl->setWindowTitle(trUtf8("Bitte das Verzeichnis in dem sich Wix3 befindet auswählen."));
@@ -59,7 +60,7 @@ void QFrankQt4MergemoduleDlgHaupt::on_sfWixPfadSuchen_clicked()
 	if(K_Verzeichnisauswahl->result()==QDialog::Accepted)
 		txtWixPfad->setText(K_Verzeichnisauswahl->selectedFiles().first());
 }
-void QFrankQt4MergemoduleDlgHaupt::on_sfZielpfadSuchen_clicked()
+void QFrankQtSBSADlgHaupt::on_sfZielpfadSuchen_clicked()
 {
 	K_Verzeichnisauswahl->setAcceptMode(QFileDialog::AcceptSave);
 	K_Verzeichnisauswahl->setWindowTitle(trUtf8("Bitte das Verzeichnis für die Mergemodule auswählen."));
@@ -67,7 +68,16 @@ void QFrankQt4MergemoduleDlgHaupt::on_sfZielpfadSuchen_clicked()
 	if(K_Verzeichnisauswahl->result()==QDialog::Accepted)
 		txtZielPfad->setText(K_Verzeichnisauswahl->selectedFiles().first());
 }
-void QFrankQt4MergemoduleDlgHaupt::on_sfZertifikatSuchen_clicked()
+void QFrankQtSBSADlgHaupt::on_Menue_UeberQt_triggered()
+{
+	QMessageBox::aboutQt(this);
+}
+void QFrankQtSBSADlgHaupt::on_Menue_UeberDasProgramm_triggered()
+{
+	QFrankQtSBSADlgInfo Infodialog=new QFrankQtSBSADlgInfo(this);
+	Infodialog.exec();
+}
+void QFrankQtSBSADlgHaupt::on_sfZertifikatSuchen_clicked()
 {
 	HCERTSTORE Zertifikatsspeicher=NULL;
 	PCCERT_CONTEXT Auswahldialog= NULL; 
@@ -105,7 +115,6 @@ void QFrankQt4MergemoduleDlgHaupt::on_sfZertifikatSuchen_clicked()
 		QMessageBox::critical(this,tr("Fehler im Zertifikat"),trUtf8("Für Manifeste beträgt die minimale Schlüssellänge 2048 Bit.\r\n"
 																	 "Bei dem gewählten Zertifikat beträgt diese jedoch nur %1 Bit").arg(Schluessellaenge));
 	}
-	//Der publickeyToken sind die letzten 8 Bytes der SHA1 Prüfsumme vom öffentlichen Schlüssel
 	QByteArray OeffentlicherSchluessel((char*)Auswahldialog->pCertInfo->SubjectPublicKeyInfo.PublicKey.pbData,
 										Auswahldialog->pCertInfo->SubjectPublicKeyInfo.PublicKey.cbData);
 
@@ -143,12 +152,12 @@ void QFrankQt4MergemoduleDlgHaupt::on_sfZertifikatSuchen_clicked()
 				//Puffergröße ermitteln
 				if(!CryptGetHashParam(Cryptohash,HP_HASHSIZE,(BYTE*)&Puffergroesse,&Parameterlaenge,0))
 				{
-					QMessageBox::critical(this,tr("Fehler beim ermitteln des publickeyTokens"),tr("Der Puffer für den publickeyToken konnte nicht erstellt"
-																								  " werden."));
+					QMessageBox::critical(this,tr("Fehler beim ermitteln des publickeyTokens"),trUtf8("Der Puffer für den publickeyToken konnte nicht erstellt"
+																									  " werden."));
 					txtZertifikat->setText("");
 				}
 				else
-				{
+				{					
 					Puffer.resize(Puffergroesse);
 					if(!CryptGetHashParam(Cryptohash,HP_HASHVAL,(BYTE*)Puffer.data(),&Puffergroesse,0))
 					{
@@ -158,9 +167,11 @@ void QFrankQt4MergemoduleDlgHaupt::on_sfZertifikatSuchen_clicked()
 					else
 					{	
 						//Das geht noch nicht so wie es soll
-						//K_Parameter->publicKeyTokenSetzen(K_FeldNachHex(Puffer.right(8)).remove(':'));
-						K_Parameter->publicKeyTokenSetzen("c0677197e04ed00a");
-						qDebug()<<K_Parameter->publicKeyTokenHohlen();
+						K_Parameter->publicKeyTokenSetzen(K_FeldNachHex(Puffer.right(8)).remove(':'));
+						//K_Parameter->publicKeyTokenSetzen("c0677197e04ed00a");
+						qDebug()<<K_FeldNachHex(OeffentlicherSchluessel);
+						qDebug()<<"Soll c0677197e04ed00a";
+						qDebug()<<"Ist:"<<qPrintable(K_Parameter->publicKeyTokenHohlen());
 						
 					}					
 				}				
@@ -175,7 +186,7 @@ void QFrankQt4MergemoduleDlgHaupt::on_sfZertifikatSuchen_clicked()
 	CertFreeCertificateContext(Auswahldialog);
 	CertCloseStore(Zertifikatsspeicher,CERT_CLOSE_STORE_FORCE_FLAG);	
 }
-QString QFrankQt4MergemoduleDlgHaupt::K_FeldNachHex(const QByteArray &feld)
+QString QFrankQtSBSADlgHaupt::K_FeldNachHex(const QByteArray &feld)
 {
 	QString tmp="";
 	uchar low,high;
@@ -194,7 +205,7 @@ QString QFrankQt4MergemoduleDlgHaupt::K_FeldNachHex(const QByteArray &feld)
 	}
 	return tmp.left(tmp.size()-1);
 }
-void QFrankQt4MergemoduleDlgHaupt::on_sfBox_accepted()
+void QFrankQtSBSADlgHaupt::on_sfBox_accepted()
 {
 	//wurde ein Zertifikat gewählt?
 	if(txtZertifikat->text().isEmpty())
@@ -213,6 +224,6 @@ void QFrankQt4MergemoduleDlgHaupt::on_sfBox_accepted()
 	K_Parameter->CPUTypeSetzen(awProzessor->currentText());
 	K_Parameter->ZielverzeichnisSetzen(txtZielPfad->text());
 	K_Parameter->EntwicklerSetzen(txtEntwicklername->text());
-	QFrankQt4MergemoduleDlgFortschritt Fortschritt(this,K_Parameter);
+	QFrankQtSBSADlgFortschritt Fortschritt(this,K_Parameter);
 	Fortschritt.exec();	
 }

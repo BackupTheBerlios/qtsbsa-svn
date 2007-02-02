@@ -14,18 +14,18 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQT4MERGEMODULEKATALOGSIGNIEREN
-#define QFRANKQT4MERGEMODULEKATALOGSIGNIEREN
+#ifndef QFRANKQTSBSAKATALOGSIGNIEREN
+#define QFRANKQTSBSAKATALOGSIGNIEREN
 
 #include <QtCore>
 #include "BasisThread.h"
 
-class QFrankQt4MergemoduleKatalogSignieren:public QFrankQt4MergemoduleBasisThread
+class QFrankQtSBSAKatalogSignieren:public QFrankQtSBSABasisThread
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleKatalogSignieren(const QFrankQt4MergemoduleParameter* parameter,QObject* eltern=0);
-				~QFrankQt4MergemoduleKatalogSignieren();
+				QFrankQtSBSAKatalogSignieren(const QFrankQtSBSAParameter* parameter,QObject* eltern=0);
+				~QFrankQtSBSAKatalogSignieren();
 	private:
 					QProcess*	K_signtoolProzess;
 	private slots:

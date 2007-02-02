@@ -6,11 +6,11 @@
     <x>0</x>
     <y>0</y>
     <width>604</width>
-    <height>366</height>
+    <height>358</height>
    </rect>
   </property>
   <property name="windowTitle" >
-   <string>Mergemodul Ersteller für Qt4</string>
+   <string>Side-by-Side Assembly Erstellung für Qt</string>
   </property>
   <widget class="QWidget" name="centralwidget" >
    <layout class="QVBoxLayout" >
@@ -358,24 +358,6 @@ p, li { white-space: pre-wrap; }
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="label_4" >
-      <property name="text" >
-       <string>Mergemodule Ersteller für Qt4 Version 0.1.0
-Urherberrechte 2007 Frank Büttner
-Dieses Programm unterliegt der GPL.</string>
-      </property>
-      <property name="textFormat" >
-       <enum>Qt::AutoText</enum>
-      </property>
-      <property name="alignment" >
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="wordWrap" >
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QDialogButtonBox" name="sfBox" >
       <property name="orientation" >
        <enum>Qt::Horizontal</enum>
@@ -387,6 +369,89 @@ Dieses Programm unterliegt der GPL.</string>
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menuBar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>604</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_Optionen" >
+    <property name="title" >
+     <string>&amp;Optionen</string>
+    </property>
+    <addaction name="Menue_Einstellungen" />
+   </widget>
+   <widget class="QMenu" name="menu_Hilfe" >
+    <property name="title" >
+     <string>&amp;Hilfe</string>
+    </property>
+    <addaction name="Menue_UeberQt" />
+    <addaction name="Menue_UeberDasProgramm" />
+   </widget>
+   <widget class="QMenu" name="menu_Anwendungsfall" >
+    <property name="title" >
+     <string>&amp;Anwendungsfall</string>
+    </property>
+    <addaction name="Menue_MergemoduleFuerQt" />
+    <addaction name="Menue_AnwendungAnpassen" />
+   </widget>
+   <addaction name="menu_Anwendungsfall" />
+   <addaction name="menu_Optionen" />
+   <addaction name="menu_Hilfe" />
+  </widget>
+  <widget class="QStatusBar" name="statusBar" />
+  <action name="Menue_UeberQt" >
+   <property name="text" >
+    <string>Über &amp;Qt</string>
+   </property>
+   <property name="statusTip" >
+    <string>Zeigt Informationen über Qt an.</string>
+   </property>
+   <property name="menuRole" >
+    <enum>QAction::AboutQtRole</enum>
+   </property>
+  </action>
+  <action name="Menue_UeberDasProgramm" >
+   <property name="text" >
+    <string>Über das &amp;Programm</string>
+   </property>
+   <property name="statusTip" >
+    <string>Zeigt Informationen über das Programm an.</string>
+   </property>
+   <property name="menuRole" >
+    <enum>QAction::AboutRole</enum>
+   </property>
+  </action>
+  <action name="Menue_Einstellungen" >
+   <property name="text" >
+    <string>&amp;Einstellungen</string>
+   </property>
+   <property name="statusTip" >
+    <string>Legt die Paramteer für das Programm fest.</string>
+   </property>
+   <property name="menuRole" >
+    <enum>QAction::PreferencesRole</enum>
+   </property>
+  </action>
+  <action name="Menue_MergemoduleFuerQt" >
+   <property name="text" >
+    <string>&amp;Mergemodule für Qt</string>
+   </property>
+   <property name="statusTip" >
+    <string>Erstellt die MSI Mergemodule für Qt.</string>
+   </property>
+  </action>
+  <action name="Menue_AnwendungAnpassen" >
+   <property name="text" >
+    <string>&amp;Anwendung anpassen</string>
+   </property>
+   <property name="statusTip" >
+    <string>Passt das Manifest für eine Anwendung an.</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections>

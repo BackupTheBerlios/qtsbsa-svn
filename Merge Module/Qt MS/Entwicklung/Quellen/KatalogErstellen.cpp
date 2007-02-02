@@ -17,16 +17,16 @@
 #include "KatalogErstellen.h"
 #include "Parameter.h"
 
-QFrankQt4MergemoduleKatalogErstellen::QFrankQt4MergemoduleKatalogErstellen(const QFrankQt4MergemoduleParameter* parameter,QObject* eltern)
-									  :QFrankQt4MergemoduleBasisThread(parameter,eltern)
+QFrankQtSBSAKatalogErstellen::QFrankQtSBSAKatalogErstellen(const QFrankQtSBSAParameter* parameter,QObject* eltern)
+									  :QFrankQtSBSABasisThread(parameter,eltern)
 {	
 	K_AktuellerSchritt=KatalogvorlageErstellen;
 }
-QFrankQt4MergemoduleKatalogErstellen::~QFrankQt4MergemoduleKatalogErstellen()
+QFrankQtSBSAKatalogErstellen::~QFrankQtSBSAKatalogErstellen()
 {
 	delete K_Prozess;
 }
-void QFrankQt4MergemoduleKatalogErstellen::run()
+void QFrankQtSBSAKatalogErstellen::run()
 {
 	K_Prozess=new QProcess();
 	connect(K_Prozess,SIGNAL(finished(int)),this,SLOT(K_ProzessIstFertig(int)));
@@ -48,7 +48,7 @@ void QFrankQt4MergemoduleKatalogErstellen::run()
 	K_Fehlercode=exec();
 	emit fertig(this);
 }
-void QFrankQt4MergemoduleKatalogErstellen::K_ProzessIstFertig(int rueckgabe)
+void QFrankQtSBSAKatalogErstellen::K_ProzessIstFertig(int rueckgabe)
 {
 	QString Fehlermeldung=QString(K_Prozess->readAll());
 	Fehlermeldung.remove("\r");

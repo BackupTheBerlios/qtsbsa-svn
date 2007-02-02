@@ -14,18 +14,18 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQT4MERGEMODULEARBEITVERTEILEN
-#define QFRANKQT4MERGEMODULEARBEITVERTEILEN
+#ifndef QFRANKQTSBSAARBEITVERTEILEN
+#define QFRANKQTSBSAARBEITVERTEILEN
 
 #include <QtCore>
 
-class QFrankQt4MergemoduleParameter;
-class QFrankQt4MergemoduleBasisThread;
-class QFrankQt4MergemoduleArbeitVerteilen:public QObject
+class QFrankQtSBSAParameter;
+class QFrankQtSBSABasisThread;
+class QFrankQtSBSAArbeitVerteilen:public QObject
 {
 	Q_OBJECT
 	public:
-				QFrankQt4MergemoduleArbeitVerteilen(QObject *eltern,QFrankQt4MergemoduleParameter* parameter);				
+				QFrankQtSBSAArbeitVerteilen(QObject *eltern,QFrankQtSBSAParameter* parameter);				
 	public slots:
 				void							Loslegen();
 	signals:
@@ -34,10 +34,10 @@ class QFrankQt4MergemoduleArbeitVerteilen:public QObject
 				void							FortschrittsanzeigeSchritt();
 				void							FortschrittsanzeigeMaximum(const int schritte);
 	private slots:
-				void							K_ThreadFertig( QFrankQt4MergemoduleBasisThread *welcher);
+				void							K_ThreadFertig( QFrankQtSBSABasisThread *welcher);
 	private:
 				enum							K_Arbeitsschritte{ManifestExportieren=0x0,ManifestBearbeiten=0x1,KatalogErstellen=0x2,KatalogSignieren=0x3};
-				QFrankQt4MergemoduleParameter*	K_Parameter;
+				QFrankQtSBSAParameter*	K_Parameter;
 				int								K_AnzahlDerProzesse;	
 				bool							K_WindowsSDKPruefen();
 				bool							K_QtPruefen();

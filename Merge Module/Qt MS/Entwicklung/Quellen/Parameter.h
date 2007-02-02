@@ -14,15 +14,15 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQT4MERGEMODULEPARAMETER
-#define QFRANKQT4MERGEMODULEPARAMETER
+#ifndef QFRANKQTSBSAPARAMETER
+#define QFRANKQTSBSAPARAMETER
 
 #include <QtCore>
 
-class QFrankQt4MergemoduleParameter: public QObject
+class QFrankQtSBSAParameter: public QObject
 {	
 	public:
-				QFrankQt4MergemoduleParameter(QObject* eltern=0);
+				QFrankQtSBSAParameter(QObject* eltern=0);
 				void				WindowsSDKPfadSetzen(const QString &pfad){K_WindowsSDKPfad=pfad;}
 				void				QtPfadSetzen(const QString &pfad){K_QtPfad=pfad;}
 				void				QtVersionSetzen(const QString &version){K_QtVersion=version;}
