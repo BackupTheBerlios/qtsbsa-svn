@@ -18,6 +18,7 @@ TEMPLATE					= app
 TARGET						= qtsbsa
 DESTDIR						= bin
 QT							+= xml
+#DEFINES						+= QT_SIDE_BY_SIDE_ASSEMBLY
 debug {
 	CONFIG					+= console
 }
@@ -34,7 +35,8 @@ TRANSLATIONS				= Uebersetzungen/Uebersetzung_en.ts\
 							  Uebersetzungen/Uebersetzung_XX.ts
 FORMS						= Dialoge/HauptBasis.ui\
 							  Dialoge/FortschrittBasis.ui\
-							  Dialoge/InfoBasis.ui
+							  Dialoge/InfoBasis.ui\
+							  Dialoge/EinstellungenBasis.ui
 HEADERS						= Quellen/Parameter.h\
 							  Quellen/BasisThread.h\
 							  Quellen/ManifestExportieren.h\
@@ -44,6 +46,7 @@ HEADERS						= Quellen/Parameter.h\
 							  Quellen/ArbeitVerteilen.h\
 							  Quellen/DlgFortschritt.h\
 							  Quellen/DlgProgramminfo.h\
+							  Quellen/DlgEinstellungen.h\
 							  Quellen/DlgHaupt.h
 SOURCES						= Quellen/Parameter.cpp\
 							  Quellen/BasisThread.cpp\
@@ -53,6 +56,7 @@ SOURCES						= Quellen/Parameter.cpp\
 							  Quellen/KatalogSignieren.cpp\
 							  Quellen/ArbeitVerteilen.cpp\
 							  Quellen/DlgFortschritt.cpp\
+							  Quellen/DlgEinstellungen.cpp\
 							  Quellen/DlgHaupt.cpp\
 							  Quellen/DlgProgramminfo.cpp\
 							  Quellen/Haupt.cpp

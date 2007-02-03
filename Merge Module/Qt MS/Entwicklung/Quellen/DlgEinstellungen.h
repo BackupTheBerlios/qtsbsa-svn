@@ -14,23 +14,27 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQTSBSADLGHAUPT
-#define QFRANKQTSBSADLGHAUPT
+#ifndef QFRANKQTSBSADLGEINSTELLUNGEN
+#define QFRANKQTSBSADLGEINSTELLUNGEN
 
-#include "ui_HauptBasis.h"
+#include <QtGui>
+#include "ui_EinstellungenBasis.h"
 
-class QFrankQtSBSAParameter;
-class QFrankQtSBSADlgHaupt : public QMainWindow, private Ui::dlgHauptBasis
+class QFrankQtSBSADlgEinstellungen:public QDialog, private Ui::dlgEinstellungenBasis
 {
 	Q_OBJECT
 	public:
-				QFrankQtSBSADlgHaupt(QWidget *eltern = 0);
-	private:				
-				QFrankQtSBSAParameter*	K_Parameter;				
-	private slots:						
-				void					on_sfBox_accepted();
-				void					on_Menue_Einstellungen_triggered();
-				void					on_Menue_UeberQt_triggered();
-				void					on_Menue_UeberDasProgramm_triggered();
+				QFrankQtSBSADlgEinstellungen(QWidget *eltern=0);
+	private:
+				QFileDialog*	K_Verzeichnisauswahl;
+				bool			AlleAngabenVollstaendig();
+				QString			K_FeldNachHex(const QByteArray &feld); 
+	private slots:
+				void			on_sfBox_clicked(QAbstractButton *schaltflaeche);
+				void			on_sfQtPfadSuchen_clicked();
+				void			on_sfWixPfadSuchen_clicked();
+				void			on_sfWindowsSDKPfadSuchen_clicked();
+				void			on_sfZielpfadSuchen_clicked();
+				void			on_sfZertifikatSuchen_clicked();
 };
 #endif
