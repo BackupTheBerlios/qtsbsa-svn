@@ -91,84 +91,81 @@
 <context encoding="UTF-8">
     <name>QFrankQtSBSADlgEinstellungen</name>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="45"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="82"/>
         <source>Eingaben unvollständig</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="45"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="82"/>
         <source>Sie haben mindestes ein Feld nicht korrekt ausgefüllt.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="70"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="107"/>
         <source>Bitte das Verzeichnis in dem sich Wix3 befindet auswählen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="78"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="115"/>
         <source>Werkzeuge vom Windows SDK suchen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="86"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="123"/>
         <source>Bitte das Verzeichnis für die Mergemodule auswählen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="62"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="99"/>
         <source>Bitte das Verzeichnis mit den Qt Bibliotheken auswählen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="98"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="135"/>
         <source>Fehler beim öffnen des Zertifikatsspeichers.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="98"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="135"/>
         <source>Der Zertifikatsspeicher konnte nicht geöffnet werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="101"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="138"/>
         <source>Bitte das Zertifikat zum signieren auswählen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="102"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="139"/>
         <source>Welches Zertifikat soll genutzt werden?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="105"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="142"/>
         <source>Fehler bei der Auswahl des Zertifikates.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="105"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="142"/>
         <source>Es wurde kein Zertifikat ausgewählt.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="125"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="162"/>
         <source>Fehler im Zertifikat</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="114"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="151"/>
         <source>Für Manifeste beträgt die minimale Schlüssellänge 2048 Bit.<byte value="xd"/>
 Bei dem gewählten Zertifikat beträgt diese jedoch nur %1 Bit</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="125"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="162"/>
         <source>Die SHA-1 Prüfsumme wurde nicht empfangen.</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>QFrankQtSBSADlgHaupt</name>
 </context>
 <context encoding="UTF-8">
     <name>QFrankQtSBSAKatalogErstellen</name>
@@ -260,12 +257,12 @@ Bei dem gewählten Zertifikat beträgt diese jedoch nur %1 Bit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="439"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="424"/>
         <source>Mergemodule</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="509"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="491"/>
         <source>Zertifikat</source>
         <translation type="unfinished"></translation>
     </message>
@@ -275,102 +272,72 @@ Bei dem gewählten Zertifikat beträgt diese jedoch nur %1 Bit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="140"/>
-        <source>C:\c++\Qt\4.2.2MS\lib</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="561"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="543"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="184"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="181"/>
         <source>Pfad zum Wix Verzeichnis:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="199"/>
-        <source>C:\c++\WiX3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="223"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="217"/>
         <source>Pfad zum Windows SDK:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="238"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="232"/>
         <source>Hier bitte den Pfad eingeben, wo sich die Werkzeuge aus dem Windows SDK befinden.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="241"/>
-        <source>C:\Programme\Microsoft SDKs\Windows\v6.0\Bin</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message encoding="UTF-8">
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="265"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="256"/>
         <source>Zielverzeichnis für die Mergemodule:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="280"/>
-        <source>f:\temp\Qt4\Mergemodule</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="322"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="310"/>
         <source>Manifest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="345"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="333"/>
         <source>Name des Entwicklers/Firma:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="360"/>
-        <source>FrankBuettner</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="377"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="362"/>
         <source>Zielplatform:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="393"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="378"/>
         <source>x86</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="398"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="383"/>
         <source>x64</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="403"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="388"/>
         <source>ia64</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="459"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="444"/>
         <source>Autor:</source>
         <translation type="unfinished"></translation>
     </message>
-    <message encoding="UTF-8">
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="474"/>
-        <source>Frank Büttner</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="532"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="514"/>
         <source>Zu benutzendes Zertifikat:</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="547"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="529"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
@@ -379,21 +346,16 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="578"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="560"/>
         <source>PublickeyToken:</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="593"/>
+        <location filename="../Dialoge/EinstellungenBasis.ui" line="575"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Der publickeyToken läßt sich aus dem Zertifikat z.B. mit dem Programm &lt;/span&gt;Pktextract aus dem Platform SDK ermitteln.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Dialoge/EinstellungenBasis.ui" line="599"/>
-        <source>c0677197e04ed00a</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -418,68 +380,78 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/HauptBasis.ui" line="46"/>
+        <location filename="../Dialoge/HauptBasis.ui" line="27"/>
         <source>&amp;Optionen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/HauptBasis.ui" line="52"/>
+        <location filename="../Dialoge/HauptBasis.ui" line="40"/>
         <source>&amp;Hilfe</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/HauptBasis.ui" line="59"/>
+        <location filename="../Dialoge/HauptBasis.ui" line="33"/>
         <source>&amp;Anwendungsfall</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Dialoge/HauptBasis.ui" line="71"/>
+        <location filename="../Dialoge/HauptBasis.ui" line="53"/>
         <source>Über &amp;Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Dialoge/HauptBasis.ui" line="74"/>
+        <location filename="../Dialoge/HauptBasis.ui" line="56"/>
         <source>Zeigt Informationen über Qt an.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Dialoge/HauptBasis.ui" line="82"/>
+        <location filename="../Dialoge/HauptBasis.ui" line="64"/>
         <source>Über das &amp;Programm</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Dialoge/HauptBasis.ui" line="85"/>
+        <location filename="../Dialoge/HauptBasis.ui" line="67"/>
         <source>Zeigt Informationen über das Programm an.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/HauptBasis.ui" line="93"/>
+        <location filename="../Dialoge/HauptBasis.ui" line="75"/>
         <source>&amp;Einstellungen</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Dialoge/HauptBasis.ui" line="96"/>
+        <location filename="../Dialoge/HauptBasis.ui" line="78"/>
         <source>Legt die Paramteer für das Programm fest.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Dialoge/HauptBasis.ui" line="104"/>
+        <location filename="../Dialoge/HauptBasis.ui" line="86"/>
         <source>&amp;Mergemodule für Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Dialoge/HauptBasis.ui" line="107"/>
+        <location filename="../Dialoge/HauptBasis.ui" line="89"/>
         <source>Erstellt die MSI Mergemodule für Qt.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/HauptBasis.ui" line="112"/>
+        <location filename="../Dialoge/HauptBasis.ui" line="94"/>
         <source>&amp;Anwendung anpassen</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Dialoge/HauptBasis.ui" line="115"/>
+        <location filename="../Dialoge/HauptBasis.ui" line="97"/>
         <source>Passt das Manifest für eine Anwendung an.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Dialoge/HauptBasis.ui" line="102"/>
+        <source>&amp;Vorspann für Programme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Dialoge/HauptBasis.ui" line="105"/>
+        <source>Vorspann für Qt Programme anzeigen.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Module Id="QtUebersetzungModul" Language="0" Version="4.2.2.0">
+        	<Package Id="1cc6ed54-03f4-4599-9dc0-637a1283744d" Manufacturer="Frank Buettner" InstallerVersion="300"/>
+		<Dependency RequiredId="QtCoreModul" RequiredLanguage="0" RequiredVersion="4.2.2.0" />
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="CommonFilesFolder">
+				<Directory Id="Entwickler" Name="FrankBuettner">
+					<Directory Id="Qt" Name="Qt">
+						<Directory Id="Version" Name="4.2.2">
+							<Directory Id="Uebersetzungen" Name="Uebersetzungen">						
+        							<Component Id="Uebersetzungen" Guid="b017fed6-3f75-4af3-9206-51d5f0c5f7cd">							
+									<File Id="de" Vital="yes" Name="qt_de.qm" Source="C:\c++\Qt\4.2.2MS\translations\qt_de.qm" />
+              		  						<File Id="ar" Vital="yes" Name="qt_ar.qm" Source="C:\c++\Qt\4.2.2MS\translations\qt_ar.qm" />
+									<File Id="es" Vital="yes" Name="qt_es.qm" Source="C:\c++\Qt\4.2.2MS\translations\qt_es.qm" />
+									<File Id="fr" Vital="yes" Name="qt_fr.qm" Source="C:\c++\Qt\4.2.2MS\translations\qt_fr.qm" />
+									<File Id="iw" Vital="yes" Name="qt_iw.qm" Source="C:\c++\Qt\4.2.2MS\translations\qt_iw.qm" />
+									<File Id="ru" Vital="yes" Name="qt_ru.qm" Source="C:\c++\Qt\4.2.2MS\translations\qt_ru.qm" />
+									<File Id="sk" Vital="yes" Name="qt_sk.qm" Source="C:\c++\Qt\4.2.2MS\translations\qt_sk.qm" />
+									<File Id="zh_CN" Vital="yes" Name="qt_zh_CN.qm" Source="C:\c++\Qt\4.2.2MS\translations\qt_zh_CN.qm" />
+								</Component>
+							</Directory>
+						</Directory>
+					</Directory>
+				</Directory>
+			</Directory>
+		</Directory>
+	</Module>
+</Wix>

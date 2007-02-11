@@ -12,16 +12,7 @@
   <property name="windowTitle" >
    <string>Side-by-Side Assembly Erstellung für Qt</string>
   </property>
-  <widget class="QWidget" name="centralwidget" >
-   <layout class="QVBoxLayout" >
-    <property name="margin" >
-     <number>9</number>
-    </property>
-    <property name="spacing" >
-     <number>6</number>
-    </property>
-   </layout>
-  </widget>
+  <widget class="QWidget" name="centralwidget" />
   <widget class="QMenuBar" name="menuBar" >
    <property name="geometry" >
     <rect>
@@ -37,19 +28,20 @@
     </property>
     <addaction name="Menue_Einstellungen" />
    </widget>
-   <widget class="QMenu" name="menu_Hilfe" >
-    <property name="title" >
-     <string>&amp;Hilfe</string>
-    </property>
-    <addaction name="Menue_UeberQt" />
-    <addaction name="Menue_UeberDasProgramm" />
-   </widget>
    <widget class="QMenu" name="menu_Anwendungsfall" >
     <property name="title" >
      <string>&amp;Anwendungsfall</string>
     </property>
     <addaction name="Menue_MergemoduleFuerQt" />
     <addaction name="Menue_AnwendungAnpassen" />
+   </widget>
+   <widget class="QMenu" name="menu_Hilfe" >
+    <property name="title" >
+     <string>&amp;Hilfe</string>
+    </property>
+    <addaction name="Menue_VorspannFuerProgramme" />
+    <addaction name="Menue_UeberQt" />
+    <addaction name="Menue_UeberDasProgramm" />
    </widget>
    <addaction name="menu_Anwendungsfall" />
    <addaction name="menu_Optionen" />
@@ -103,6 +95,14 @@
    </property>
    <property name="statusTip" >
     <string>Passt das Manifest für eine Anwendung an.</string>
+   </property>
+  </action>
+  <action name="Menue_VorspannFuerProgramme" >
+   <property name="text" >
+    <string>&amp;Vorspann für Programme</string>
+   </property>
+   <property name="statusTip" >
+    <string>Vorspann für Qt Programme anzeigen.</string>
    </property>
   </action>
  </widget>

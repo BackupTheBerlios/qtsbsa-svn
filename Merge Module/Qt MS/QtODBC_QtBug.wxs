@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+<!--
+	Die Lösung ist nötig, da ein Bug in Qt verhindet, das die Plug-Ins als
+	Side-by-Side-Assemblies laufen können.
+-->
+	<Module Id="QtSqlODBCModul" Language="0" Version="4.2.2.0">
+        	<Package Id="a24e493b-2bde-42b9-b0ed-408ad0aadc37" Manufacturer="Frank Buettner" InstallerVersion="300"/>
+		<Dependency RequiredId="QtSQLModul" RequiredLanguage="0" RequiredVersion="4.2.2" />
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="CommonFilesFolder">
+				<Directory Id="Entwickler" Name="FrankBuettner">
+					<Directory Id="Qt" Name="Qt">
+						<Directory Id="Version" Name="4.2.2">
+							<Directory Id="plugins" Name="plugins">
+								<Directory Id="sqldrivers" Name="sqldrivers">
+        								<Component Id="QtODBC" Guid="53fe21bb-0003-4b3b-87f5-89c8addf6275">										
+										<File Id="qtodbcdll" Vital="yes" Name="qsqlodbc.dll" Source="F:\Temp\Qt4\Mergemodule\qsqlodbc.dll"  />                    
+               	 								<File Id="qtodbcdllmanifest" Vital="yes" Name="qsqlodbc.dll.manifest" Source="F:\Temp\Qt4\Mergemodule\qsqlodbc.dll.manifest" />			
+									</Component>
+								</Directory>
+							</Directory>
+						</Directory>
+					</Directory>			
+				</Directory>
+			</Directory>
+		</Directory>
+	</Module>
+</Wix>

@@ -14,25 +14,22 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQTSBSADLGHAUPT
-#define QFRANKQTSBSADLGHAUPT
+#include "DlgVorspann.h"
+#include "Syntaxhervorhebung.h"
 
-#include "ui_HauptBasis.h"
-
-class QFrankQtSBSAParameter;
-class QFrankQtSBSADlgHaupt : public QMainWindow, private Ui::dlgHauptBasis
+QFrankQtSBSADlgVorspann::QFrankQtSBSADlgVorspann(QWidget *eltern):QDialog(eltern)
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSADlgHaupt(QWidget *eltern = 0);
-	private:				
-				QFrankQtSBSAParameter*	K_Parameter;
-				void					K_ParamterLaden();
-				void					K_ParameterSpeichern();
-	private slots:				
-				void					on_Menue_Einstellungen_triggered();
-				void					on_Menue_UeberQt_triggered();
-				void					on_Menue_UeberDasProgramm_triggered();
-				void					on_Menue_VorspannFuerProgramme_triggered();
-};
-#endif
+	setupUi(this);
+	QFrankQtSBSASyntaxhervorhebung *Syntaxhervorhebung=new QFrankQtSBSASyntaxhervorhebung(txtVorspann->document());	
+	QFile Vorspanntext(":/Vorspann.txt");
+	Vorspanntext.open(QIODevice::ReadOnly);
+	txtVorspann->setText(Vorspanntext.readAll().constData());
+	Vorspanntext.close();
+	setWindowFlags(windowFlags()^Qt::WindowContextHelpButtonHint);
+	//Zentrieren
+	QDesktopWidget *Desktop = QApplication::desktop(); //neue X und Y Koordinate
+	int x=(Desktop->width()-this->width())/2;
+	int y=(Desktop->height()-this->height())/2;
+	//jetzt das Fenster verschieben
+	this->move(x,y);
+}

@@ -36,7 +36,8 @@ TRANSLATIONS				= Uebersetzungen/Uebersetzung_en.ts\
 FORMS						= Dialoge/HauptBasis.ui\
 							  Dialoge/FortschrittBasis.ui\
 							  Dialoge/InfoBasis.ui\
-							  Dialoge/EinstellungenBasis.ui
+							  Dialoge/EinstellungenBasis.ui\
+							  Dialoge/VorspannBasis.ui
 HEADERS						= Quellen/Parameter.h\
 							  Quellen/BasisThread.h\
 							  Quellen/ManifestExportieren.h\
@@ -47,7 +48,9 @@ HEADERS						= Quellen/Parameter.h\
 							  Quellen/DlgFortschritt.h\
 							  Quellen/DlgProgramminfo.h\
 							  Quellen/DlgEinstellungen.h\
-							  Quellen/DlgHaupt.h
+							  Quellen/DlgHaupt.h\
+							  Quellen/DlgVorspann.h\
+							  Quellen/Syntaxhervorhebung.h
 SOURCES						= Quellen/Parameter.cpp\
 							  Quellen/BasisThread.cpp\
 							  Quellen/ManifestExportieren.cpp\
@@ -59,4 +62,6 @@ SOURCES						= Quellen/Parameter.cpp\
 							  Quellen/DlgEinstellungen.cpp\
 							  Quellen/DlgHaupt.cpp\
 							  Quellen/DlgProgramminfo.cpp\
-							  Quellen/Haupt.cpp
+							  Quellen/Haupt.cpp\
+							  Quellen/DlgVorspann.cpp\
+							  Quellen/Syntaxhervorhebung.cpp

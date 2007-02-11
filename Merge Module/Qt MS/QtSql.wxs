@@ -1,16 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Module Id="QtSQLModul" Language="0" Version="4.2.2.0">
-        <Package Id="D2C8D180-924E-4A98-A959-50659F9F350B" Manufacturer="Frank Buettner" InstallerVersion="300"/>
-        <Dependency RequiredId="QtCoreModul" RequiredLanguage="0" RequiredVersion="4.2.2.0" />
-        <Directory Id="TARGETDIR" Name="SourceDir">
-            <Directory Id="QtDir" Name=".">
-                <Component Id="QtSQL" Guid="B7AA5FC7-DC70-4DD9-9BA0-4AC522008B51">
-		    <File Id="qtsqldllKatalog" Name="QtSql4.dll.cat" Checksum="yes" Vital="yes" Source="F:\Temp\Qt4\Mergemodule\QtSql4.dll.cat" />
-                    <File Id="qtsqldll" Name="QtSql4.dll" Assembly="win32" Checksum="yes" Vital="yes" KeyPath="yes" AssemblyManifest="qtsqlmanifest" Source="F:\Temp\Qt4\Mergemodule\QtSql4.dll" />
-                    <File Id="qtsqlmanifest" Name="QtSql4.dll.manifest" Checksum="yes" Vital="yes" Source="F:\Temp\Qt4\Mergemodule\QtSql4.dll.manifest" />
-                </Component>
-            </Directory>
-        </Directory>
-    </Module>
+	<Module Id="QtSQLModul" Language="0" Version="4.2.2.0">
+        	<Package Id="D2C8D180-924E-4A98-A959-50659F9F350B" Manufacturer="Frank Buettner" InstallerVersion="300"/>
+        	<Dependency RequiredId="QtCoreModul" RequiredLanguage="0" RequiredVersion="4.2.2.0" />
+        	<Directory Id="TARGETDIR" Name="SourceDir">
+            		<Directory Id="WindowsFolder" Name="Windows">
+				<Directory Id="WinSxsDirectory" Name="winsxs">
+                			<Component Id="QtSQL" Guid="B7AA5FC7-DC70-4DD9-9BA0-4AC522008B51">
+		    				<File Id="qtsqldllKatalog" Name="QtSql4.dll.cat" Checksum="yes" Vital="yes" Source="F:\Temp\Qt4\Mergemodule\QtSql4.dll.cat" />
+                    				<File Id="qtsqldll" Name="QtSql4.dll" Assembly="win32" Checksum="yes" Vital="yes" KeyPath="yes" AssemblyManifest="qtsqlmanifest" Source="F:\Temp\Qt4\Mergemodule\QtSql4.dll" />
+                    				<File Id="qtsqlmanifest" Name="QtSql4.dll.manifest" Checksum="yes" Vital="yes" Source="F:\Temp\Qt4\Mergemodule\QtSql4.dll.manifest" />
+                			</Component>
+            			</Directory>
+        		</Directory>
+		</Directory>
+	</Module>
 </Wix>

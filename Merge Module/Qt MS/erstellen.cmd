@@ -15,6 +15,12 @@ light -nologo -sh QtSql.wixobj
 light -nologo -sh QtSvg.wixobj
 light -nologo -sh Qt3Support.wixobj
 light -nologo -sh QtAssistentClient.wixobj
+rem light -nologo -sh QtMySQL.wixobj
+light -nologo -sh QtODBC.wixobj
+light -nologo -sh QtMySQL_QtBug.wixobj
+light -nologo -sh QtODBC_QtBug.wixobj
+light -nologo QtUebersetzung.wixobj
+
 rem light -nologo QtAssistentClientKatalog.wixobj
 rem light -nologo Qt3SupportKatalog.wixobj
 rem light -nologo QtCoreKatalog.wixobj

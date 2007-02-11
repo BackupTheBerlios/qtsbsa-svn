@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Module Id="QtSqlODBCModul" Language="0" Version="4.2.2.0">
+        	<Package Id="a24e493b-2bde-42b9-b0ed-408ad0aadc37" Manufacturer="Frank Buettner" InstallerVersion="300"/>
+		<Dependency RequiredId="QtSQLModul" RequiredLanguage="0" RequiredVersion="4.2.2.0" />
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="WindowsFolder" Name="Windows">
+				<Directory Id="WinSxsDirectory" Name="winsxs">						
+        				<Component Id="QtODBC" Guid="53fe21bb-0003-4b3b-87f5-89c8addf6275">
+						<File Id="qtodbcllcat" Vital="yes" Name="qsqlodbc.dll.cat" Source="F:\Temp\Qt4\Mergemodule\qsqlodbc.dll.cat" />
+              		  			<File Id="qtodbcdll" Vital="yes" Name="qsqlodbc.dll" Assembly="win32" KeyPath="yes" Source="F:\Temp\Qt4\Mergemodule\qsqlodbc.dll" AssemblyManifest="qtodbcdllmanifest" />                    
+               	 				<File Id="qtodbcdllmanifest" Vital="yes" Name="qsqlodbc.dll.manifest" Source="F:\Temp\Qt4\Mergemodule\qsqlodbc.dll.manifest" />			
+					</Component>
+				</Directory>
+			</Directory>
+		</Directory>
+	</Module>
+</Wix>

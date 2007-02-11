@@ -14,25 +14,12 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQTSBSADLGHAUPT
-#define QFRANKQTSBSADLGHAUPT
+#include "Syntaxhervorhebung.h"
 
-#include "ui_HauptBasis.h"
-
-class QFrankQtSBSAParameter;
-class QFrankQtSBSADlgHaupt : public QMainWindow, private Ui::dlgHauptBasis
+QFrankQtSBSASyntaxhervorhebung::QFrankQtSBSASyntaxhervorhebung(QTextDocument *eltern):QSyntaxHighlighter(eltern)
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSADlgHaupt(QWidget *eltern = 0);
-	private:				
-				QFrankQtSBSAParameter*	K_Parameter;
-				void					K_ParamterLaden();
-				void					K_ParameterSpeichern();
-	private slots:				
-				void					on_Menue_Einstellungen_triggered();
-				void					on_Menue_UeberQt_triggered();
-				void					on_Menue_UeberDasProgramm_triggered();
-				void					on_Menue_VorspannFuerProgramme_triggered();
-};
-#endif
+}
+void QFrankQtSBSASyntaxhervorhebung::highlightBlock(const QString &text)
+{
+	
+}

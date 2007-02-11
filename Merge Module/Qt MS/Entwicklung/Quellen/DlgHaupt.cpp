@@ -18,6 +18,7 @@
 #include "DlgFortschritt.h"
 #include "DlgProgramminfo.h"
 #include "DlgEinstellungen.h"
+#include "DlgVorspann.h"
 #include "Parameter.h"
 #include <QtGui>
 
@@ -81,6 +82,11 @@ void QFrankQtSBSADlgHaupt::on_Menue_UeberDasProgramm_triggered()
 {
 	QFrankQtSBSADlgInfo Infodialog=new QFrankQtSBSADlgInfo(this);
 	Infodialog.exec();
+}
+void QFrankQtSBSADlgHaupt::on_Menue_VorspannFuerProgramme_triggered()
+{
+	QFrankQtSBSADlgVorspann Vorspann=new QFrankQtSBSADlgVorspann(this);
+	Vorspann.exec();
 }
 /*void QFrankQtSBSADlgHaupt::on_sfBox_accepted()
 {

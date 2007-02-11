@@ -1,0 +1,64 @@
+<ui version="4.0" >
+ <author>Frank Büttner</author>
+ <class>dlgVorspannBasis</class>
+ <widget class="QDialog" name="dlgVorspannBasis" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>590</width>
+    <height>288</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Vorspann für Qt Programme</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="margin" >
+    <number>9</number>
+   </property>
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <item>
+    <widget class="QTextEdit" name="txtVorspann" >
+     <property name="readOnly" >
+      <bool>true</bool>
+     </property>
+     <property name="textInteractionFlags" >
+      <enum>Qt::TextSelectableByMouse</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons" >
+      <set>QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>dlgVorspannBasis</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>181</x>
+     <y>221</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>203</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

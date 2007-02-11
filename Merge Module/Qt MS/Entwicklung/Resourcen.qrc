@@ -13,4 +13,7 @@
 	<qresource prefix="/Info">
 		<file>Lizenz.html</file>
 	</qresource>
+	<qresource>
+		<file>Vorspann.txt</file>
+	</qresource>
 </RCC>

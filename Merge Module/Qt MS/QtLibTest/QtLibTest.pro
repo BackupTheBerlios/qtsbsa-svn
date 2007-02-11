@@ -7,6 +7,7 @@ TARGET =
 DEPENDPATH += .
 INCLUDEPATH += .
 CONFIG	+= console release
+QT	+= sql
 DEFINES	+= QT_SIDE_BY_SIDE_ASSEMBLY
 # Input
 SOURCES += test.cpp

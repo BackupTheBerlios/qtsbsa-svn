@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Module Id="QtSQlMySQLModul" Language="0" Version="4.2.2.0">
+        	<Package Id="97081087-0cc6-462d-a4dd-cb322124c6e0" Manufacturer="Frank Buettner" InstallerVersion="300"/>
+		<Dependency RequiredId="QtSQLModul" RequiredLanguage="0" RequiredVersion="4.2.2.0" />
+        	<Directory Id="TARGETDIR" Name="SourceDir">
+            		<Directory Id="WindowsFolder" Name="Windows">
+				<Directory Id="WinSxsDirectory" Name="winsxs">
+                			<Component Id="QtMySQL" Guid="b29c8bdf-3820-47e1-b293-98d7d51dc0df">
+						<File Id="qtmysqlllcat" Vital="yes" Name="qsqlmysql.dll.cat" Source="F:\Temp\Qt4\Mergemodule\qsqlmysql.dll.cat" />
+                    				<File Id="qtmysqldll" Vital="yes" Name="qsqlmysql.dll" Assembly="win32" KeyPath="yes" Source="F:\Temp\Qt4\Mergemodule\qsqlmysql.dll" AssemblyManifest="qtmysqldllmanifest" />                    
+                   				<File Id="qtmysqldllmanifest" Vital="yes" Name="qsqlmysql.dll.manifest" Source="F:\Temp\Qt4\Mergemodule\qsqlmysql.dll.manifest" />	
+					</Component>
+            			</Directory>
+        		</Directory>
+		</Directory>
+	</Module>
+</Wix>
