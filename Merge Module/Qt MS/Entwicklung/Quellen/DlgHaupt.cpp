@@ -32,13 +32,38 @@ QFrankQtSBSADlgHaupt::QFrankQtSBSADlgHaupt(QWidget *eltern) : QMainWindow(eltern
 	//jetzt das Fenster verschieben
 	this->move(x,y);
 	K_Parameter=new QFrankQtSBSAParameter(this);
+	K_ParamterLaden();
+}
+void QFrankQtSBSADlgHaupt::K_ParamterLaden()
+{
+	QSettings Programmparamter(QSettings::IniFormat,QSettings::UserScope,"QtSBSA","Parameter");
+	K_Parameter->WindowsSDKPfadSetzen(Programmparamter.value("Verzeichnisse/WindowsSDK","").toString());
+	K_Parameter->WixPfadSetzen(Programmparamter.value("Verzeichnisse/Wix","").toString());
+	K_Parameter->QtPfadSetzen(Programmparamter.value("Verzeichnisse/Qt","").toString());
+	K_Parameter->ZielverzeichnisSetzen(Programmparamter.value("Verzeichnisse/Mergemodule","").toString());
+
+	K_Parameter->ManifestentwicklerSetzen(Programmparamter.value("Manifest/Entwickler","").toString());
+	K_Parameter->CPUTypeSetzen(Programmparamter.value("Manifest/CPU","").toString());
+}
+void QFrankQtSBSADlgHaupt::K_ParameterSpeichern()
+{
+	QSettings Programmparamter(QSettings::IniFormat,QSettings::UserScope,"QtSBSA","Parameter");
+	Programmparamter.setValue("Verzeichnisse/WindowsSDK",K_Parameter->WindowsSDKPfadHohlen());
+	Programmparamter.setValue("Verzeichnisse/Wix",K_Parameter->WixPfadHohlen());
+	Programmparamter.setValue("Verzeichnisse/Qt",K_Parameter->QtPfadHohlen());
+	Programmparamter.setValue("Verzeichnisse/Mergemodule",K_Parameter->ZielverzeichnisHohlen());
+
+	Programmparamter.setValue("Manifest/Entwickler",K_Parameter->ManifestentwicklerHohlen());
+	Programmparamter.setValue("Manifest/CPU",K_Parameter->CPUTypeHohlen());
 }
 void QFrankQtSBSADlgHaupt::on_Menue_Einstellungen_triggered()
 {
-	QFrankQtSBSADlgEinstellungen Einstellungen =new QFrankQtSBSADlgEinstellungen(this);
-	Einstellungen.exec();
-	if(Einstellungen.result()==QDialog::Accepted)
-		qDebug()<<"ja";
+	QFrankQtSBSADlgEinstellungen* Einstellungen =new QFrankQtSBSADlgEinstellungen(K_Parameter,this);
+	Einstellungen->exec();
+	if(Einstellungen->result()==QDialog::Accepted)
+	{
+		K_ParameterSpeichern();
+	}		
 	else
 		qDebug()<<"nein";
 }
@@ -51,9 +76,8 @@ void QFrankQtSBSADlgHaupt::on_Menue_UeberDasProgramm_triggered()
 	QFrankQtSBSADlgInfo Infodialog=new QFrankQtSBSADlgInfo(this);
 	Infodialog.exec();
 }
-void QFrankQtSBSADlgHaupt::on_sfBox_accepted()
+/*void QFrankQtSBSADlgHaupt::on_sfBox_accepted()
 {
-	/*	
 	K_Parameter->WindowsSDKPfadSetzen(txtWindowsSDKPfad->text());
 	K_Parameter->QtPfadSetzen(txtQtPfad->text());
 	K_Parameter->ZertSHA1Setzen(txtZertifikat->text().remove(':'));
@@ -61,6 +85,5 @@ void QFrankQtSBSADlgHaupt::on_sfBox_accepted()
 	K_Parameter->ZielverzeichnisSetzen(txtZielPfad->text());
 	K_Parameter->EntwicklerSetzen(txtEntwicklername->text());
 	QFrankQtSBSADlgFortschritt Fortschritt(this,K_Parameter);
-	Fortschritt.exec();
-	*/
-}
+	Fortschritt.exec();	
+}*/

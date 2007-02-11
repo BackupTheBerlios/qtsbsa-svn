@@ -101,7 +101,7 @@ const QDomElement QFrankQtSBSAManifestBearbeiten::K_AssemblyIdentifikationEinfue
 {
 	QDomElement Identifikation=manifest.createElement("assemblyIdentity");
 	Identifikation.setAttribute("type","win32");
-	Identifikation.setAttribute("name",K_Parameter->EntwicklerHohlen()+".Qt."+K_QtKomponente);
+	Identifikation.setAttribute("name",K_Parameter->ManifestentwicklerHohlen()+".Qt."+K_QtKomponente);
 	Identifikation.setAttribute("processorArchitecture",K_Parameter->CPUTypeHohlen());
 	Identifikation.setAttribute("version",K_Parameter->QtVersionHohlen());
 	Identifikation.setAttribute("publicKeyToken",K_Parameter->publicKeyTokenHohlen());

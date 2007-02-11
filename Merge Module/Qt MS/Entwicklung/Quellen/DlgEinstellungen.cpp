@@ -15,11 +15,12 @@
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
 #include "DlgEinstellungen.h"
+#include "Parameter.h"
 #include <windows.h>
 #include <Wincrypt.h>
 #include <Cryptuiapi.h>
 
-QFrankQtSBSADlgEinstellungen::QFrankQtSBSADlgEinstellungen(QWidget *eltern):QDialog(eltern)
+QFrankQtSBSADlgEinstellungen::QFrankQtSBSADlgEinstellungen(QFrankQtSBSAParameter *parameter,QWidget *eltern):QDialog(eltern)
 {
 	setupUi(this);
 	//Eingabeüberprüfung
@@ -34,13 +35,33 @@ QFrankQtSBSADlgEinstellungen::QFrankQtSBSADlgEinstellungen(QWidget *eltern):QDia
 	this->move(x,y);
 	K_Verzeichnisauswahl=new QFileDialog(this,Qt::Window); 
 	K_Verzeichnisauswahl->setFileMode(QFileDialog::DirectoryOnly);
+	K_Parameter=parameter;
+	txtQtPfad->setText(K_Parameter->QtPfadHohlen());
+	txtWixPfad->setText(K_Parameter->WixPfadHohlen());
+	txtWindowsSDKPfad->setText(K_Parameter->WindowsSDKPfadHohlen());
+	txtZielPfad->setText(K_Parameter->ZielverzeichnisHohlen());
+	
+	txtEntwicklername->setText(K_Parameter->ManifestentwicklerHohlen());
+	int Position=awProzessor->findText(K_Parameter->CPUTypeHohlen());
+	if(Position==-1)
+		Position=0;
+	awProzessor->setCurrentIndex(Position);
 }
 void QFrankQtSBSADlgEinstellungen::on_sfBox_clicked(QAbstractButton *schaltflaeche)
 {
 	if(sfBox->buttonRole(schaltflaeche)==QDialogButtonBox::ApplyRole)
 	{
 		if(AlleAngabenVollstaendig())
+		{
+			K_Parameter->WindowsSDKPfadSetzen(txtWindowsSDKPfad->text());
+			K_Parameter->WixPfadSetzen(txtWixPfad->text());
+			K_Parameter->QtPfadSetzen(txtQtPfad->text());
+			K_Parameter->ZielverzeichnisSetzen(txtZielPfad->text());
+
+			K_Parameter->ManifestentwicklerSetzen(txtEntwicklername->text());
+			K_Parameter->CPUTypeSetzen(awProzessor->currentText());
 			accept();
+		}
 		else			
 		QMessageBox::critical(this,trUtf8("Eingaben unvollständig"),trUtf8("Sie haben mindestes ein Feld nicht korrekt ausgefüllt."));
 	}

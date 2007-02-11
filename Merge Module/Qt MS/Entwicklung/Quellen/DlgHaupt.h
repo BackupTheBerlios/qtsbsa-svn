@@ -26,9 +26,10 @@ class QFrankQtSBSADlgHaupt : public QMainWindow, private Ui::dlgHauptBasis
 	public:
 				QFrankQtSBSADlgHaupt(QWidget *eltern = 0);
 	private:				
-				QFrankQtSBSAParameter*	K_Parameter;				
-	private slots:						
-				void					on_sfBox_accepted();
+				QFrankQtSBSAParameter*	K_Parameter;
+				void					K_ParamterLaden();
+				void					K_ParameterSpeichern();
+	private slots:				
 				void					on_Menue_Einstellungen_triggered();
 				void					on_Menue_UeberQt_triggered();
 				void					on_Menue_UeberDasProgramm_triggered();

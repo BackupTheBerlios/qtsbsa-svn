@@ -20,21 +20,23 @@
 #include <QtGui>
 #include "ui_EinstellungenBasis.h"
 
+class QFrankQtSBSAParameter;
 class QFrankQtSBSADlgEinstellungen:public QDialog, private Ui::dlgEinstellungenBasis
 {
 	Q_OBJECT
 	public:
-				QFrankQtSBSADlgEinstellungen(QWidget *eltern=0);
+				QFrankQtSBSADlgEinstellungen(QFrankQtSBSAParameter *parameter,QWidget *eltern=0);
 	private:
-				QFileDialog*	K_Verzeichnisauswahl;
-				bool			AlleAngabenVollstaendig();
-				QString			K_FeldNachHex(const QByteArray &feld); 
+				QFileDialog*			K_Verzeichnisauswahl;
+				bool					AlleAngabenVollstaendig();
+				QString					K_FeldNachHex(const QByteArray &feld); 
+				QFrankQtSBSAParameter*	K_Parameter;
 	private slots:
-				void			on_sfBox_clicked(QAbstractButton *schaltflaeche);
-				void			on_sfQtPfadSuchen_clicked();
-				void			on_sfWixPfadSuchen_clicked();
-				void			on_sfWindowsSDKPfadSuchen_clicked();
-				void			on_sfZielpfadSuchen_clicked();
-				void			on_sfZertifikatSuchen_clicked();
+				void					on_sfBox_clicked(QAbstractButton *schaltflaeche);
+				void					on_sfQtPfadSuchen_clicked();
+				void					on_sfWixPfadSuchen_clicked();
+				void					on_sfWindowsSDKPfadSuchen_clicked();
+				void					on_sfZielpfadSuchen_clicked();
+				void					on_sfZertifikatSuchen_clicked();
 };
 #endif

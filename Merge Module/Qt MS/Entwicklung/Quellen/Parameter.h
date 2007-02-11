@@ -25,25 +25,28 @@ class QFrankQtSBSAParameter: public QObject
 				QFrankQtSBSAParameter(QObject* eltern=0);
 				void				WindowsSDKPfadSetzen(const QString &pfad){K_WindowsSDKPfad=pfad;}
 				void				QtPfadSetzen(const QString &pfad){K_QtPfad=pfad;}
+				void				WixPfadSetzen(const QString &pfad){K_WixPfad=pfad;}
 				void				QtVersionSetzen(const QString &version){K_QtVersion=version;}
 				void				QtBibliothekenSetzen(const QStringList &bibliotheken){K_QtBibliotheken=bibliotheken;}
 				void				ZertSHA1Setzen(const QString &sha1){K_ZertSHA1=sha1;}
 				void				publicKeyTokenSetzen(const QString &token){K_publicKeyToken=token;}
 				void				CPUTypeSetzen(const QString &cpu){K_CPU=cpu;}
 				void				ZielverzeichnisSetzen(const QString &verzeichnis){K_Zielverzeichnis=verzeichnis;}
-				void				EntwicklerSetzen(const QString &entwickler){K_Entwickler=entwickler;}
+				void				ManifestentwicklerSetzen(const QString &entwickler){K_Entwickler=entwickler;}
 				const QString&		WindowsSDKPfadHohlen()const{return K_WindowsSDKPfad;}
 				const QString&		QtPfadHohlen()const{return K_QtPfad;}
+				const QString&		WixPfadHohlen()const{return K_WixPfad;}
 				const QString&		QtVersionHohlen()const{return K_QtVersion;}
 				const QStringList&	QtBibliothekenHohlen()const{return K_QtBibliotheken;}
 				const QString&		ZertSHA1Hohlen()const{return K_ZertSHA1;}
 				const QString&		publicKeyTokenHohlen()const{return K_publicKeyToken;}
 				const QString&		CPUTypeHohlen()const{return K_CPU;}
 				const QString&		ZielverzeichnisHohlen()const{return K_Zielverzeichnis;}
-				const QString&		EntwicklerHohlen()const{return K_Entwickler;}
+				const QString&		ManifestentwicklerHohlen()const{return K_Entwickler;}
 	private:
 				QString				K_WindowsSDKPfad;
 				QString				K_QtPfad;
+				QString				K_WixPfad;
 				QString				K_QtVersion;
 				QStringList			K_QtBibliotheken;
 				QString				K_ZertSHA1;
