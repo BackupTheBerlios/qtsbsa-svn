@@ -33,6 +33,7 @@ class QFrankQtSBSAParameter: public QObject
 				void				CPUTypeSetzen(const QString &cpu){K_CPU=cpu;}
 				void				ZielverzeichnisSetzen(const QString &verzeichnis){K_Zielverzeichnis=verzeichnis;}
 				void				ManifestentwicklerSetzen(const QString &entwickler){K_Entwickler=entwickler;}
+				void				MergemodulentwicklerSetzen(const QString &entwickler){K_Mergemodulentwickler=entwickler;}
 				const QString&		WindowsSDKPfadHohlen()const{return K_WindowsSDKPfad;}
 				const QString&		QtPfadHohlen()const{return K_QtPfad;}
 				const QString&		WixPfadHohlen()const{return K_WixPfad;}
@@ -43,6 +44,7 @@ class QFrankQtSBSAParameter: public QObject
 				const QString&		CPUTypeHohlen()const{return K_CPU;}
 				const QString&		ZielverzeichnisHohlen()const{return K_Zielverzeichnis;}
 				const QString&		ManifestentwicklerHohlen()const{return K_Entwickler;}
+				const QString&		MergemodulentwicklerHohlen()const{return K_Mergemodulentwickler;}
 	private:
 				QString				K_WindowsSDKPfad;
 				QString				K_QtPfad;
@@ -54,5 +56,6 @@ class QFrankQtSBSAParameter: public QObject
 				QString				K_CPU;
 				QString				K_Zielverzeichnis;
 				QString				K_Entwickler;
+				QString				K_Mergemodulentwickler;
 };
 #endif

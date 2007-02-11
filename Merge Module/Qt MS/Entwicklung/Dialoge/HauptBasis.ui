@@ -5,8 +5,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>604</width>
-    <height>166</height>
+    <width>516</width>
+    <height>352</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -20,16 +20,6 @@
     <property name="spacing" >
      <number>6</number>
     </property>
-    <item>
-     <widget class="QDialogButtonBox" name="sfBox" >
-      <property name="orientation" >
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="standardButtons" >
-       <set>QDialogButtonBox::Close|QDialogButtonBox::NoButton|QDialogButtonBox::Ok</set>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar" >
@@ -37,7 +27,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>604</width>
+     <width>516</width>
      <height>21</height>
     </rect>
    </property>
@@ -117,22 +107,5 @@
   </action>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>sfBox</sender>
-   <signal>rejected()</signal>
-   <receiver>dlgHauptBasis</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>282</x>
-     <y>332</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>282</x>
-     <y>191</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

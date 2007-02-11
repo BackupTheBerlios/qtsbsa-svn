@@ -44,6 +44,11 @@ void QFrankQtSBSADlgHaupt::K_ParamterLaden()
 
 	K_Parameter->ManifestentwicklerSetzen(Programmparamter.value("Manifest/Entwickler","").toString());
 	K_Parameter->CPUTypeSetzen(Programmparamter.value("Manifest/CPU","").toString());
+
+	K_Parameter->MergemodulentwicklerSetzen(Programmparamter.value("Mergemodul/Entwickler","").toString());
+
+	K_Parameter->ZertSHA1Setzen(Programmparamter.value("Zertifikat/SHA1","").toString());
+	K_Parameter->publicKeyTokenSetzen(Programmparamter.value("Zertifikat/publickeyToken","").toString());
 }
 void QFrankQtSBSADlgHaupt::K_ParameterSpeichern()
 {
@@ -55,17 +60,18 @@ void QFrankQtSBSADlgHaupt::K_ParameterSpeichern()
 
 	Programmparamter.setValue("Manifest/Entwickler",K_Parameter->ManifestentwicklerHohlen());
 	Programmparamter.setValue("Manifest/CPU",K_Parameter->CPUTypeHohlen());
+
+	Programmparamter.setValue("Mergemodul/Entwickler",K_Parameter->MergemodulentwicklerHohlen());
+
+	Programmparamter.setValue("Zertifikat/SHA1",K_Parameter->ZertSHA1Hohlen());
+	Programmparamter.setValue("Zertifikat/publickeyToken",K_Parameter->publicKeyTokenHohlen());
 }
 void QFrankQtSBSADlgHaupt::on_Menue_Einstellungen_triggered()
 {
 	QFrankQtSBSADlgEinstellungen* Einstellungen =new QFrankQtSBSADlgEinstellungen(K_Parameter,this);
 	Einstellungen->exec();
 	if(Einstellungen->result()==QDialog::Accepted)
-	{
-		K_ParameterSpeichern();
-	}		
-	else
-		qDebug()<<"nein";
+		K_ParameterSpeichern();		
 }
 void QFrankQtSBSADlgHaupt::on_Menue_UeberQt_triggered()
 {

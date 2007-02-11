@@ -46,6 +46,17 @@ QFrankQtSBSADlgEinstellungen::QFrankQtSBSADlgEinstellungen(QFrankQtSBSAParameter
 	if(Position==-1)
 		Position=0;
 	awProzessor->setCurrentIndex(Position);
+
+	txtMergemodulAutor->setText(K_Parameter->MergemodulentwicklerHohlen());
+
+	QString tmp;
+	for(int Stelle=0;Stelle!=K_Parameter->ZertSHA1Hohlen().size()/2;Stelle++)
+	{
+		tmp=tmp.append(K_Parameter->ZertSHA1Hohlen().mid(Stelle*2,2)).append(":");
+	}
+	tmp.remove(tmp.size()-1,1);
+	txtZertifikat->setText(tmp);
+	txtPublickeyToken->setText(K_Parameter->publicKeyTokenHohlen());
 }
 void QFrankQtSBSADlgEinstellungen::on_sfBox_clicked(QAbstractButton *schaltflaeche)
 {
@@ -60,6 +71,11 @@ void QFrankQtSBSADlgEinstellungen::on_sfBox_clicked(QAbstractButton *schaltflaec
 
 			K_Parameter->ManifestentwicklerSetzen(txtEntwicklername->text());
 			K_Parameter->CPUTypeSetzen(awProzessor->currentText());
+
+			K_Parameter->MergemodulentwicklerSetzen(txtMergemodulAutor->text());
+
+			K_Parameter->ZertSHA1Setzen(txtZertifikat->text().remove(":"));
+			K_Parameter->publicKeyTokenSetzen(txtPublickeyToken->text());
 			accept();
 		}
 		else			

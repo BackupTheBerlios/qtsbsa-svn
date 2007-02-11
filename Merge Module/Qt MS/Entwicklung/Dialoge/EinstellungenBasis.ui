@@ -136,9 +136,6 @@
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
-                <property name="text" >
-                 <string>C:\c++\Qt\4.2.2MS\lib</string>
-                </property>
                </widget>
               </item>
               <item>
@@ -195,9 +192,6 @@
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
-                <property name="text" >
-                 <string>C:\c++\WiX3</string>
-                </property>
                </widget>
               </item>
               <item>
@@ -237,9 +231,6 @@
                 <property name="toolTip" >
                  <string>Hier bitte den Pfad eingeben, wo sich die Werkzeuge aus dem Windows SDK befinden.</string>
                 </property>
-                <property name="text" >
-                 <string>C:\Programme\Microsoft SDKs\Windows\v6.0\Bin</string>
-                </property>
                </widget>
               </item>
               <item>
@@ -275,9 +266,6 @@
                   <horstretch>255</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
-                </property>
-                <property name="text" >
-                 <string>f:\temp\Qt4\Mergemodule</string>
                 </property>
                </widget>
               </item>
@@ -355,9 +343,6 @@
                   <horstretch>255</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
-                </property>
-                <property name="text" >
-                 <string>FrankBuettner</string>
                 </property>
                </widget>
               </item>
@@ -469,9 +454,6 @@
                   <horstretch>255</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
-                </property>
-                <property name="text" >
-                 <string>Frank Büttner</string>
                 </property>
                </widget>
               </item>
@@ -594,9 +576,6 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style>&lt;/head>&lt;body style=" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;">
 &lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Der publickeyToken läßt sich aus dem Zertifikat z.B. mit dem Programm &lt;/span>Pktextract aus dem Platform SDK ermitteln.&lt;/p>&lt;/body>&lt;/html></string>
-                </property>
-                <property name="text" >
-                 <string>c0677197e04ed00a</string>
                 </property>
                </widget>
               </item>
