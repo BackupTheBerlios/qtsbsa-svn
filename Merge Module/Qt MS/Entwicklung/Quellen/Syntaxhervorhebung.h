@@ -23,7 +23,12 @@ class QFrankQtSBSASyntaxhervorhebung:public QSyntaxHighlighter
 	Q_OBJECT
 	public:
 			QFrankQtSBSASyntaxhervorhebung(QTextDocument *eltern);
+			~QFrankQtSBSASyntaxhervorhebung();
+	private:
+			QTextCharFormat	*K_Blau;
+			QTextCharFormat	*K_Gruen;
+			QTextCharFormat	*K_Rot;
 	protected:
-			void	highlightBlock(const QString &text);
+			void			highlightBlock(const QString &text);
 };
 #endif
