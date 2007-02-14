@@ -20,7 +20,7 @@ DESTDIR						= bin
 QT							+= xml
 #DEFINES						+= QT_SIDE_BY_SIDE_ASSEMBLY
 debug {
-	CONFIG					+= console
+	CONFIG					+= console warn_on
 }
 MOC_DIR						= tmp/moc
 OBJECTS_DIR					= tmp/obj

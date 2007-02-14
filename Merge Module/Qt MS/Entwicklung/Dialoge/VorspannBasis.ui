@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>590</width>
-    <height>288</height>
+    <width>594</width>
+    <height>281</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -21,9 +21,22 @@
     <number>6</number>
    </property>
    <item>
+    <widget class="QLabel" name="label" >
+     <property name="text" >
+      <string>Dieser Kode solle direkt dem Erstellen des Qt Basisobjekt aufgerufen werden, damit die Qt Plug-Ins korrekt geladen werden können.</string>
+     </property>
+     <property name="wordWrap" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QTextEdit" name="txtVorspann" >
      <property name="readOnly" >
       <bool>true</bool>
+     </property>
+     <property name="tabStopWidth" >
+      <number>20</number>
      </property>
      <property name="textInteractionFlags" >
       <enum>Qt::TextSelectableByMouse</enum>

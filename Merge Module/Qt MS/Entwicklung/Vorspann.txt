@@ -18,14 +18,15 @@
 			//Jedes Qt Programm benötigt QtCore. Darauf kann man sicher testen.
 			if(Zeile.contains("QtCore"))
 			{
-				PlattformStart=Zeile.indexOf("processorArchitecture");				
-				PlattformStart=Zeile.indexOf(QRegExp("[x,X,i]"),PlattformStart+21);//wo fängt der Platformtext an 21=Länge processorArchitecture
+				PlattformStart=Zeile.indexOf("processorArchitecture");
+				//wo fängt der Platformtext an 21=Länge processorArchitecture
+				PlattformStart=Zeile.indexOf(QRegExp("[x,X,i]"),PlattformStart+21);
 				PlattformEnde=Zeile.indexOf(QRegExp("[\",\']"),PlattformStart+1);
 				Plattform=Zeile.mid(PlattformStart,PlattformEnde-PlattformStart);
 				HerstellerStart=Zeile.indexOf("name");
 				HerstellerStart=Zeile.indexOf(QRegExp("[\",\']"),HerstellerStart+4)+1;
 				HerstellerEnde=Zeile.indexOf(QRegExp("[\",\']"),HerstellerStart+1);
-				Hersteller=Zeile.mid(HerstellerStart,HerstellerEnde-HerstellerStart).split('.').first();				
+				Hersteller=Zeile.mid(HerstellerStart,HerstellerEnde-HerstellerStart).split('.').first();
 				break;
 			}
 		}
@@ -33,12 +34,17 @@
 		//Welche Verzeichnise haben wir??
 		//Die Plug-INs als Side-by-Side Assekmblys gehen nicht, da Qt immer in unterverzeichnissen suchen will!!
 		QDir WindowsSXS(QProcess::systemEnvironment().filter("SystemRoot").first().split('=').last()+"\\winsxs");
-		QStringList VerzeichnisseMitPlugINs=WindowsSXS.entryList(QStringList(Plattform+"_"+Hersteller+".Qt.PlugIn-*"),QDir::Dirs|QDir::CaseSensitive);
-		QString GemeinsamesVerzeichnis=QProcess::systemEnvironment().filter("CommonProgramFiles").first().split('=').last()+"\\"+Hersteller+"\\Qt\\"+qVersion();
+		QStringList VerzeichnisseMitPlugINs=WindowsSXS.entryList(QStringList(Plattform+"_"+Hersteller
+																			 +".Qt.PlugIn-*")
+																 ,QDir::Dirs|QDir::CaseSensitive);
+		QString GemeinsamesVerzeichnis=QProcess::systemEnvironment().filter("CommonProgramFiles").first()
+																	.split('=').last()
+																	+"\\"+Hersteller+"\\Qt\\"+qVersion();
 		QCoreApplication::setLibraryPaths(QStringList(GemeinsamesVerzeichnis+"\\plugins"));
 		//Übersetzungen für Qt
 		QTranslator QtUebersetzung;
-		QtUebersetzung.load("qt_"+QLocale::system().name().left(QLocale::system().name().indexOf("_")),GemeinsamesVerzeichnis+"\\Uebersetzungen");
+		QtUebersetzung.load("qt_"+QLocale::system().name().left(QLocale::system().name().indexOf("_")),
+							GemeinsamesVerzeichnis+"\\Uebersetzungen");
 		QCoreApplication::instance()->installTranslator(&QtUebersetzung);
-	}	
+	}
 #endif

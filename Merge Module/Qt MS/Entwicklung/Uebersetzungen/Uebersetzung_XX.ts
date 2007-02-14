@@ -516,4 +516,17 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
 </context>
+<context encoding="UTF-8">
+    <name>dlgVorspannBasis</name>
+    <message encoding="UTF-8">
+        <location filename="../Dialoge/VorspannBasis.ui" line="14"/>
+        <source>Vorspann für Qt Programme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Dialoge/VorspannBasis.ui" line="26"/>
+        <source>Dieser Kode solle direkt dem Erstellen des Qt Basisobjekt aufgerufen werden, damit die Qt Plug-Ins korrekt geladen werden können.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>
