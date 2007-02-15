@@ -3,87 +3,87 @@
 <context>
     <name>QFrankQtSBSAArbeitVerteilen</name>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="64"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="63"/>
         <source>Extrahiere Manifeste</source>
         <translation>Extract manifests</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="83"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="82"/>
         <source>Bearbeite Manifeste</source>
         <translation>fix the manifest files</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="101"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="100"/>
         <source>Erstelle Kataloge</source>
         <translation>Creating catalogs</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="116"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="115"/>
         <source>Signiere Kataloge</source>
         <translation>Sign catalogs</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="187"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="186"/>
         <source>Kopiere Qt4 Bibliotheken</source>
         <translation>Copy Qt4 libs</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="205"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="204"/>
         <source>Die Datei %1 konnte nicht nach %2 kopiert werden.</source>
         <translation>Failed copy file %1 to %2.</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="231"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="230"/>
         <source>Prüfe Windows SDK</source>
         <translation>Check the Windows SDK</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="252"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="251"/>
         <source>Prüfe Qt</source>
         <translation>Check Qt</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="305"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="304"/>
         <source>Prüfe Zielverzeichnis für die Mergemodule</source>
         <translation>Check the targed directory for the merge modules</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="313"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="312"/>
         <source>Das Zielverzeichnis %1 konnte nicht erstellt werden.</source>
         <translation>The target directory %1 coun&apos;t be created.</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="323"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="322"/>
         <source>Das Zielverzeichnis %1 ist nicht leer.</source>
         <translation>The target directory %1 is not empty.</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="354"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="353"/>
         <source>Die Version der Datei %1 konnte nicht ermittelt werden.</source>
         <translation>The version of file %1 can&apos;t be resived.</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="364"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="363"/>
         <source>Die Datei %1 wurde nicht gefunden.</source>
         <translation>The file %1 was not found.</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="374"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="373"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Erstellung der Mergemodule gescheitert.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Build of the merge modules failed.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="378"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="377"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Erstellung der Mergemodule erfolgreich.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Build of the merge modules complete.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="382"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="381"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;fertig&lt;/span&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;OK&lt;/span&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="386"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="385"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;fehlgeschlagen&lt;/span&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;failed&lt;/span&gt;&lt;/html&gt;</translation>
     </message>
@@ -266,6 +266,18 @@ But at the selected one the key is only %1 Bits long.</translation>
         <location filename="../Quellen/DlgHaupt.cpp" line="64"/>
         <source>Das Feld Entwickler darf nicht leer sein.</source>
         <translation type="obsolete">The filed devekoprt muste be filled.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgHaupt.cpp" line="95"/>
+        <source>Unvollständige Parameter</source>
+        <translation>Incomplete  parameters</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgHaupt.cpp" line="96"/>
+        <source>Es liegen nicht alle benötigen Parameter vor.<byte value="xd"/>
+Bitte legen Sie diese über das Menue Optionen-&gt;Einstellungen fest.</source>
+        <translation>Some parameter are missing.
+Go to the menue Option-&gt;Parameters and set it,please.</translation>
     </message>
 </context>
 <context encoding="UTF-8">

@@ -33,13 +33,13 @@ void QFrankQtSBSAArbeitVerteilen::Loslegen()
 		return;
 	if(!K_QtPruefen())
 		return;
-	qDebug()<<"Hier ist noch Testcode";
-	//Damit man zum Testen nicht laufend die Dateien löschen muss.
-	/*if(!K_ZielverzeichnisPruefen())
+		
+	if(!K_ZielverzeichnisPruefen())
 		return;
 	if(!K_DateienKopieren(K_Parameter->QtBibliothekenHohlen(),K_Parameter->ZielverzeichnisHohlen()))
-		return;*/
-	
+		return;
+	//Damit man zum Testen nicht laufend die Dateien löschen muss.
+	/*qDebug()<<"Hier ist noch Testcode";
 	//Da die Liste nur beim kopierren korregiert wird, muss es hier nochmal erfolgen, wenn wir kopieren überspringen
 	QStringList Temp=K_Parameter->QtBibliothekenHohlen();
 	QString NeuerEintrag;
@@ -50,8 +50,7 @@ void QFrankQtSBSAArbeitVerteilen::Loslegen()
 	NeuerEintrag.replace("svg","iconengineSVG");
 	Temp.replace(Position,NeuerEintrag);
 	K_Parameter->QtBibliothekenSetzen(Temp);
-
-
+	*/
 	K_ManifesteExportieren();	
 	//nur zum testen!!!
 	//K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::KatalogErstellen;

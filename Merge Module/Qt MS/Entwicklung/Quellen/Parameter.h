@@ -45,6 +45,7 @@ class QFrankQtSBSAParameter: public QObject
 				const QString&		ZielverzeichnisHohlen()const{return K_Zielverzeichnis;}
 				const QString&		ManifestentwicklerHohlen()const{return K_Entwickler;}
 				const QString&		MergemodulentwicklerHohlen()const{return K_Mergemodulentwickler;}
+				bool				AllesVorliegend();
 	private:
 				QString				K_WindowsSDKPfad;
 				QString				K_QtPfad;

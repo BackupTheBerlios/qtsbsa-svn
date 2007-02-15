@@ -88,14 +88,25 @@ void QFrankQtSBSADlgHaupt::on_Menue_VorspannFuerProgramme_triggered()
 	QFrankQtSBSADlgVorspann Vorspann=new QFrankQtSBSADlgVorspann(this);
 	Vorspann.exec();
 }
-/*void QFrankQtSBSADlgHaupt::on_sfBox_accepted()
+bool QFrankQtSBSADlgHaupt::K_AlleParameterGesetzt()
 {
-	K_Parameter->WindowsSDKPfadSetzen(txtWindowsSDKPfad->text());
-	K_Parameter->QtPfadSetzen(txtQtPfad->text());
-	K_Parameter->ZertSHA1Setzen(txtZertifikat->text().remove(':'));
-	K_Parameter->CPUTypeSetzen(awProzessor->currentText());
-	K_Parameter->ZielverzeichnisSetzen(txtZielPfad->text());
-	K_Parameter->EntwicklerSetzen(txtEntwicklername->text());
+	if(!K_Parameter->AllesVorliegend())
+	{
+		QMessageBox::critical(this,trUtf8("Unvollständige Parameter"),trUtf8("Es liegen nicht alle benötigen Parameter vor.\r\n"
+																			 "Bitte legen Sie diese über das Menue Optionen->Einstellungen fest."));
+		return false;
+	}
+	return true;
+}
+void QFrankQtSBSADlgHaupt::on_Menue_MergemoduleFuerQt_triggered()
+{
+	if(!K_AlleParameterGesetzt())
+		return;
 	QFrankQtSBSADlgFortschritt Fortschritt(this,K_Parameter);
 	Fortschritt.exec();	
-}*/
+}
+void QFrankQtSBSADlgHaupt::on_Menue_AnwendungAnpassen_triggered()
+{
+	if(!K_AlleParameterGesetzt())
+		return;
+}

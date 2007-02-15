@@ -29,10 +29,13 @@ class QFrankQtSBSADlgHaupt : public QMainWindow, private Ui::dlgHauptBasis
 				QFrankQtSBSAParameter*	K_Parameter;
 				void					K_ParamterLaden();
 				void					K_ParameterSpeichern();
+				bool					K_AlleParameterGesetzt();
 	private slots:				
 				void					on_Menue_Einstellungen_triggered();
 				void					on_Menue_UeberQt_triggered();
 				void					on_Menue_UeberDasProgramm_triggered();
 				void					on_Menue_VorspannFuerProgramme_triggered();
+				void					on_Menue_MergemoduleFuerQt_triggered();
+				void					on_Menue_AnwendungAnpassen_triggered();
 };
 #endif

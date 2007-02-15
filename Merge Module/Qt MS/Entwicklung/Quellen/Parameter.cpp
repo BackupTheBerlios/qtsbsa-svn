@@ -19,3 +19,11 @@
 QFrankQtSBSAParameter::QFrankQtSBSAParameter(QObject* eltern):QObject(eltern)
 {
 }
+bool QFrankQtSBSAParameter::AllesVorliegend()
+{
+	if(K_WindowsSDKPfad.isEmpty() || K_QtPfad.isEmpty() || K_WixPfad.isEmpty() || K_ZertSHA1.isEmpty() ||
+	   K_publicKeyToken.isEmpty() || K_Zielverzeichnis.isEmpty() || K_Entwickler.isEmpty() ||
+	   K_Mergemodulentwickler.isEmpty())
+	   return false;
+	return true;
+}

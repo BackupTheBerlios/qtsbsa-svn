@@ -3,87 +3,87 @@
 <context>
     <name>QFrankQtSBSAArbeitVerteilen</name>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="64"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="63"/>
         <source>Extrahiere Manifeste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="83"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="82"/>
         <source>Bearbeite Manifeste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="101"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="100"/>
         <source>Erstelle Kataloge</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="116"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="115"/>
         <source>Signiere Kataloge</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="187"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="186"/>
         <source>Kopiere Qt4 Bibliotheken</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="205"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="204"/>
         <source>Die Datei %1 konnte nicht nach %2 kopiert werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="231"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="230"/>
         <source>Prüfe Windows SDK</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="252"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="251"/>
         <source>Prüfe Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="305"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="304"/>
         <source>Prüfe Zielverzeichnis für die Mergemodule</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="313"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="312"/>
         <source>Das Zielverzeichnis %1 konnte nicht erstellt werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="323"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="322"/>
         <source>Das Zielverzeichnis %1 ist nicht leer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="354"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="353"/>
         <source>Die Version der Datei %1 konnte nicht ermittelt werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="364"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="363"/>
         <source>Die Datei %1 wurde nicht gefunden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="374"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="373"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Erstellung der Mergemodule gescheitert.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="378"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="377"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Erstellung der Mergemodule erfolgreich.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="382"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="381"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;fertig&lt;/span&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="386"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="385"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;fehlgeschlagen&lt;/span&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -164,6 +164,20 @@ Bei dem gewählten Zertifikat beträgt diese jedoch nur %1 Bit</source>
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgEinstellungen.cpp" line="162"/>
         <source>Die SHA-1 Prüfsumme wurde nicht empfangen.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>QFrankQtSBSADlgHaupt</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgHaupt.cpp" line="95"/>
+        <source>Unvollständige Parameter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgHaupt.cpp" line="96"/>
+        <source>Es liegen nicht alle benötigen Parameter vor.<byte value="xd"/>
+Bitte legen Sie diese über das Menue Optionen-&gt;Einstellungen fest.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
