@@ -54,6 +54,9 @@ p, li { white-space: pre-wrap; }
        </property>
        <item>
         <widget class="QTextBrowser" name="textBrowser_2" >
+         <property name="tabStopWidth" >
+          <number>20</number>
+         </property>
          <property name="textInteractionFlags" >
           <enum>Qt::NoTextInteraction</enum>
          </property>
@@ -79,6 +82,9 @@ p, li { white-space: pre-wrap; }
        </property>
        <item>
         <widget class="QTextBrowser" name="textBrowser_3" >
+         <property name="tabStopWidth" >
+          <number>20</number>
+         </property>
          <property name="textInteractionFlags" >
           <enum>Qt::LinksAccessibleByMouse</enum>
          </property>

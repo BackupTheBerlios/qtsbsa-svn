@@ -36,7 +36,8 @@ class QFrankQtSBSAArbeitVerteilen:public QObject
 	private slots:
 				void							K_ThreadFertig( QFrankQtSBSABasisThread *welcher);
 	private:
-				enum							K_Arbeitsschritte{ManifestExportieren=0x0,ManifestBearbeiten=0x1,KatalogErstellen=0x2,KatalogSignieren=0x3};
+				enum							K_Arbeitsschritte{ManifestExportieren=0x0,ManifestBearbeiten=0x1,KatalogErstellen=0x2,KatalogSignieren=0x3,
+																  WixDateienErstellen=0x4};
 				QFrankQtSBSAParameter*	K_Parameter;
 				int								K_AnzahlDerProzesse;	
 				bool							K_WindowsSDKPruefen();
@@ -52,6 +53,7 @@ class QFrankQtSBSAArbeitVerteilen:public QObject
 				void							K_ManifesteBearbeiten();
 				void							K_KatalogeErstellen();
 				void							K_KatalogeSignieren();
+				void							K_WixDateienErstellen();
 				void							K_NaechsterArbeitsschritt();
 				const QString					K_Dateiversion(const QString &datei);
 				uchar							K_Arbeitsschritt;

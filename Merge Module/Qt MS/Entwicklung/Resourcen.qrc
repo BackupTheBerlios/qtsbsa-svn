@@ -7,13 +7,15 @@
 		<file alis="Entwickler.html">Uebersetzungen/Entwickler_en.html</file>
 	</qresource>
 	<qresource prefix="/Info" lang="de">
-		<file>Version.html</file>
-		<file>Entwickler.html</file>		
+		<file alias="Version.html">Resourcen/Version.html</file>
+		<file alias="Entwickler.html">Resourcen/Entwickler.html</file>		
 	</qresource>
 	<qresource prefix="/Info">
 		<file>Lizenz.html</file>
 	</qresource>
 	<qresource>
-		<file>Vorspann.txt</file>
+		<file alias="Vorspann.txt">Resourcen/Vorspann.txt</file>
+		<file alias="QtModul.wxs">Resourcen/QtModul.wxs</file>
+		<file alias="QtPlugIn.wxs">Resourcen/QtPlugIn.wxs</file>
 	</qresource>
 </RCC>
