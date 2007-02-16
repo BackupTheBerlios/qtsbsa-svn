@@ -109,4 +109,9 @@ void QFrankQtSBSADlgHaupt::on_Menue_AnwendungAnpassen_triggered()
 {
 	if(!K_AlleParameterGesetzt())
 		return;
+	//DateiAuswahl
+	QString Datei=QFileDialog::getOpenFileName(this,trUtf8("Bitte die Anwendung wählen, die bearbeitet werden soll."),QString(),
+											   tr("Anwendungen (*.exe *.dll)"));
+	if(Datei.isNull())
+		return;
 }

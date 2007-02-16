@@ -30,7 +30,7 @@ class QFrankQtSBSAKatalogErstellen: public QFrankQtSBSABasisThread
 				enum		K_Schritt{KatalogvorlageErstellen=0x0,KatalogErstellen=0x01};
 				uchar		K_AktuellerSchritt;
 				QProcess	*K_Prozess;
-				QString		K_Dateiname;
+				QString		K_Dateipfad;
 	private slots:
 				void		K_ProzessIstFertig(int rueckgabe);
 	protected:

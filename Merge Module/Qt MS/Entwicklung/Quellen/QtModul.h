@@ -19,15 +19,23 @@
 
 #include <QtCore>
 
-class QFrankQtSBSA
+class QFrankQtSBSAQtModul
 {
 	public:
+			QFrankQtSBSAQtModul();
+			QFrankQtSBSAQtModul(const QString &dateiname,const bool &istPlugIn=false);
 			const QString&	DateinameHohlen()const{return K_Dateiname;}
-			const bool&		IstPlugInHohlen()const{return K_istPlugIn;}
+			const bool&		istPlugIn()const{return K_istPlugIn;}
+			const QString	PlugInTypeHohlen()const{return K_PlugInType;}
 			void			DateinameSetzen(const QString &dateiname){K_Dateiname=dateiname;}
 			void			IstPlugInSetzen(const bool& istPlugIn){K_istPlugIn=istPlugIn;}
+			void			PlugInTypeSetzen(const QString &type){K_PlugInType=type;}
 	private:
 			QString			K_Dateiname;
 			bool			K_istPlugIn;
+			QString			K_PlugInType;
 };
+#ifndef QT_NO_DEBUG
+			QDebug  operator<<(QDebug debug, const QFrankQtSBSAQtModul &modul);
+#endif
 #endif

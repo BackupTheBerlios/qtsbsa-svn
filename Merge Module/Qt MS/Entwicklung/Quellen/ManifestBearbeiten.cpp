@@ -20,13 +20,11 @@
 QFrankQtSBSAManifestBearbeiten::QFrankQtSBSAManifestBearbeiten(const QFrankQtSBSAParameter* parameter,QObject* eltern)
 										:QFrankQtSBSABasisThread(parameter,eltern)
 {
+	K_Dateipfad="";
 }
 void QFrankQtSBSAManifestBearbeiten::run()
 {
-	QString Dateiname=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer);
-	Dateiname.replace('/','\\');
-	K_Dateiname=Dateiname.right(Dateiname.length()-Dateiname.lastIndexOf("\\"));
-	Dateiname=K_Parameter->ZielverzeichnisHohlen()+K_Dateiname+".manifest";
+	QString Dateiname=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen();
 	if(!K_QtKomponenteErmitteln(Dateiname))
 	{
 		K_Fehlercode=1;
@@ -35,7 +33,14 @@ void QFrankQtSBSAManifestBearbeiten::run()
 		return;
 	}
 	QDomDocument Manifest;
-	QFile Datei(Dateiname);
+	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istPlugIn())
+	{
+		K_Dateipfad=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).PlugInTypeHohlen()+"\\";
+		Dateiname=K_Parameter->ZielverzeichnisHohlen()+"/"+K_Dateipfad+Dateiname;		
+	}
+	else
+		Dateiname=K_Parameter->ZielverzeichnisHohlen()+"/"+Dateiname;
+	QFile Datei(Dateiname+".manifest");
 	if(!Datei.open(QIODevice::ReadOnly))
 	{
 		K_Fehlercode=1;
@@ -59,7 +64,7 @@ void QFrankQtSBSAManifestBearbeiten::run()
 	Rootelement.insertBefore(AssemblyID,Rootelement.firstChild());
 	//File Tag einfügen
 	QDomElement DateiTag=Manifest.createElement("file");
-	DateiTag.setAttribute("name",K_Dateiname.remove(0,1));
+	DateiTag.setAttribute("name",K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen());
 	Rootelement.insertAfter(DateiTag,AssemblyID);
 	//Abhängigkeiten von anderen Qt Komponenten ermitteln
 	if(!K_AbhaengigkeitenErmitteln())
@@ -198,14 +203,18 @@ bool QFrankQtSBSAManifestBearbeiten::K_AbhaengigkeitenErmitteln()
 	QProcess Prozess;
 	Prozess.setProcessChannelMode(QProcess::MergedChannels);
 	QStringList Argumente;
-	Argumente<<"/c"<<"/oc:"+K_Dateiname+".braucht"<<K_Dateiname;
-	Prozess.setWorkingDirectory(K_Parameter->ZielverzeichnisHohlen());
+	Argumente<<"/c"<<"/oc:"+K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen()+".braucht"
+			 <<K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen();
+	Prozess.setWorkingDirectory(K_Parameter->ZielverzeichnisHohlen()+"\\"+K_Dateipfad);
 	Prozess.start("\""+K_Parameter->WindowsSDKPfadHohlen()+"\\Depends.Exe\"",Argumente);
 	connect(&Prozess,SIGNAL(finished(int)),this,SLOT(K_ProzessFertig(int)));
 	if(!Prozess.waitForStarted(3000))
 	{
 		K_Fehlermeldung=trUtf8("Prozess zur Abhängigkeitsermittlung für %1 konnte nicht gestartet werden.").arg(K_Parameter->ZielverzeichnisHohlen()+"\\"
-																												+K_Dateiname);
+																												+K_Dateipfad
+																												+K_Parameter->QtBibliothekenHohlen()
+																																.at(K_Dateinummer)
+																																.DateinameHohlen());
 		return false;
 	}
 	//depends gibt 522 als Rückegabecode zurück, wenn alles gut ging.
@@ -220,21 +229,27 @@ bool QFrankQtSBSAManifestBearbeiten::K_AbhaengigkeitenErmitteln()
 																												 qPrintable(QString(Prozess.errorString())),
 									  																			 qPrintable(Fehlermeldung));
 #endif
-		K_Fehlermeldung=trUtf8("Fehler beim Ausführen von depens.exe für %1").arg(K_Parameter->ZielverzeichnisHohlen()+"\\"+K_Dateiname);
+		K_Fehlermeldung=trUtf8("Fehler beim Ausführen von depens.exe für %1").arg(K_Parameter->ZielverzeichnisHohlen()+"\\"+K_Dateipfad+
+																				  K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen());
 		return false;
 	}
 	//Dann schauen wir mal in der Datei nach
-	QFile DateiMitDenAbhaengigkeiten(K_Parameter->ZielverzeichnisHohlen()+"\\"+K_Dateiname+".braucht");
+	QFile DateiMitDenAbhaengigkeiten(K_Parameter->ZielverzeichnisHohlen()+"\\"+
+									 K_Dateipfad+K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen()+".braucht");
 	if(!DateiMitDenAbhaengigkeiten.open(QIODevice::ReadOnly))
 	{
-		K_Fehlermeldung=trUtf8("Fehler beim lesen der Abhängigkeiten aus %1").arg(K_Parameter->ZielverzeichnisHohlen()+"\\"+K_Dateiname+".braucht");
+		K_Fehlermeldung=trUtf8("Fehler beim lesen der Abhängigkeiten aus %1").arg(K_Parameter->ZielverzeichnisHohlen()+"\\"+
+																				  K_Dateipfad+
+																				  K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen()+
+																				  ".braucht");
 		return false;
 	}
 	QTextStream Dateiinhalt(&DateiMitDenAbhaengigkeiten);
 	QStringList Zeile;
 	QString Eintrag;
 #ifndef QT_NO_DEBUG
-		QString Debugtext=K_Parameter->ZielverzeichnisHohlen()+"\\"+K_Dateiname+" braucht: ";
+		QString Debugtext=K_Parameter->ZielverzeichnisHohlen()+"\\"+K_Dateipfad+K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen()+
+						  " braucht: ";
 #endif	
 	while(!Dateiinhalt.atEnd())
 	{
@@ -245,7 +260,7 @@ bool QFrankQtSBSAManifestBearbeiten::K_AbhaengigkeitenErmitteln()
 		if(Eintrag.startsWith("QT"))
 		{
 			//Leider steht auch die Datei selbst in der Liste. K_Dateiname hat als 1. Zeichen das Pfadtrennzeichen!! 
-			if(!Eintrag.contains(K_Dateiname,Qt::CaseInsensitive))
+			if(!Eintrag.contains(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen(),Qt::CaseInsensitive))
 			{
 #ifndef QT_NO_DEBUG
 				Debugtext.append(Eintrag+" ");

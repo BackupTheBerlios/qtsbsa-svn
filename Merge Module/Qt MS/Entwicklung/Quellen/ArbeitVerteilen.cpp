@@ -36,28 +36,20 @@ void QFrankQtSBSAArbeitVerteilen::Loslegen()
 		return;
 	/*if(!K_ZielverzeichnisPruefen())
 		return;
-	if(!K_DateienKopieren(K_Parameter->QtBibliothekenHohlen(),K_Parameter->ZielverzeichnisHohlen()))
+	if(!K_DateienKopieren())
 		return;*/
 	//Damit man zum Testen nicht laufend die Dateien löschen muss.
 	//Test Anfang
 	qDebug()<<"Hier ist noch Testcode";
-	//Da die Liste nur beim kopierren korregiert wird, muss es hier nochmal erfolgen, wenn wir kopieren überspringen
-	QStringList Temp=K_Parameter->QtBibliothekenHohlen();
-	QString NeuerEintrag;
-	QRegExp Suchterm("*iconengines/*svg*");
-	Suchterm.setPatternSyntax(QRegExp::Wildcard);
-	int Position=Temp.indexOf(Suchterm);
-	NeuerEintrag=Temp.at(Position);
-	NeuerEintrag.replace("svg","iconengineSVG");
-	Temp.replace(Position,NeuerEintrag);
-	K_Parameter->QtBibliothekenSetzen(Temp);
-	//nur zum testen!!!
-	//K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::KatalogErstellen;
-	//K_KatalogeErstellen();
-	K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::WixDateienErstellen;
-	K_WixDateienErstellen();
-	//testEnde
 	
+	//nur zum testen!!!
+	//qDebug()<<K_Parameter->QtBibliothekenHohlen();
+	K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::KatalogErstellen;
+	K_KatalogeErstellen();
+	//K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::WixDateienErstellen;
+	//K_WixDateienErstellen();
+	//testEnde
+
 	//K_ManifesteExportieren();	
 }
 void QFrankQtSBSAArbeitVerteilen::K_ManifesteExportieren()
@@ -189,8 +181,8 @@ void QFrankQtSBSAArbeitVerteilen::K_NaechsterArbeitsschritt()
 																		K_KatalogeSignieren();
 																		break;
 		case QFrankQtSBSAArbeitVerteilen::WixDateienErstellen:
-																		break;
 																		K_WixDateienErstellen();
+																		break;																		
 		default:
 #ifndef QT_NO_DEBUG
 																		qDebug("%s K_NaechsterArbeitsschritt: alle Schritt fertig",this->metaObject()->className());
@@ -200,45 +192,39 @@ void QFrankQtSBSAArbeitVerteilen::K_NaechsterArbeitsschritt()
 																		break;
 	};
 }
-bool QFrankQtSBSAArbeitVerteilen::K_DateienKopieren(const QStringList &dateiliste,const QString &zielverzeichnis)
-{
+bool QFrankQtSBSAArbeitVerteilen::K_DateienKopieren()
+{	
 	emit Meldung(tr("Kopiere Qt4 Bibliotheken"));
-	emit FortschrittsanzeigeMaximum(dateiliste.count());
-	QString Datei;
-	QString Ziel;
-	Q_FOREACH(Datei,dateiliste)
+	emit FortschrittsanzeigeMaximum(K_Parameter->QtBibliothekenHohlen().count());
+	QString Ziel,Quelle;
+	Q_FOREACH(QFrankQtSBSAQtModul Datei,K_Parameter->QtBibliothekenHohlen())
 	{
-		Datei.replace("/","\\");
-		Ziel=zielverzeichnis+Datei.right(Datei.length()-Datei.lastIndexOf("\\"));	
-		//Den Namen qsvg gibt es 2 mal. Das iconengine PlugIn wird umbenannt
-		bool EintragKorregieren=false;
-		if(Datei.contains("iconengines") && Datei.contains("svg"))
+		if(!Datei.istPlugIn())
 		{
-			Ziel.replace("svg","iconengineSVG");
-			EintragKorregieren=true;
+			Ziel=K_Parameter->ZielverzeichnisHohlen()+"\\"+Datei.DateinameHohlen();
+			Quelle=K_Parameter->QtPfadHohlen()+"\\"+Datei.DateinameHohlen();
 		}
-		if(!QFile::copy(Datei,Ziel))
+		else
+		{
+			//Muss die Kategorie erst noch erstellt werden??
+			QDir PlugInVerzeichnis(K_Parameter->ZielverzeichnisHohlen()+"\\"+Datei.PlugInTypeHohlen());			
+			if(!PlugInVerzeichnis.exists())
+				PlugInVerzeichnis.mkdir(PlugInVerzeichnis.absolutePath());
+			Ziel=K_Parameter->ZielverzeichnisHohlen()+"\\"+Datei.PlugInTypeHohlen()+"\\"+Datei.DateinameHohlen();
+			QDir PluginsBasisverzeichnis(K_Parameter->QtPfadHohlen());
+			PluginsBasisverzeichnis.cdUp();
+			Quelle=PluginsBasisverzeichnis.absolutePath()+"\\plugins\\"+Datei.PlugInTypeHohlen()+"\\"+Datei.DateinameHohlen();
+		}
+		if(!QFile::copy(Quelle,Ziel))
 		{
 			emit Meldung(tr("Die Datei %1 konnte nicht nach %2 kopiert werden.")
-							.arg(Datei).arg(zielverzeichnis+Datei.right(Datei.length()-Datei.lastIndexOf("\\"))));
+							.arg(Quelle).arg(Ziel));
 			K_SchrittFehlgeschlagen();
 			K_ErstellenGescheitert();
 			emit fertig();
 			return false;
 			break;
-		}
-		if(EintragKorregieren)
-		{
-			QStringList Temp=dateiliste;
-			QString NeuerEintrag;
-			QRegExp Suchterm("*iconengines/*svg*");
-			Suchterm.setPatternSyntax(QRegExp::Wildcard);
-			int Position=Temp.indexOf(Suchterm);
-			NeuerEintrag=Temp.at(Position);
-			NeuerEintrag.replace("svg","iconengineSVG");
-			Temp.replace(Position,NeuerEintrag);
-			K_Parameter->QtBibliothekenSetzen(Temp);
-		}
+		}		
 		emit FortschrittsanzeigeSchritt();
 	}
 	K_SchrittFertig();	
@@ -249,11 +235,11 @@ bool QFrankQtSBSAArbeitVerteilen::K_WindowsSDKPruefen()
 	emit Meldung(trUtf8("Prüfe Windows SDK"));
 
 	//Haben wir alle SDK Werkzeuge??
-	QStringList Werkzeugliste;
-	Werkzeugliste<< K_Parameter->WindowsSDKPfadHohlen()+"\\mt.exe"<<
-					K_Parameter->WindowsSDKPfadHohlen()+"\\signtool.exe"<<
-					K_Parameter->WindowsSDKPfadHohlen()+"\\Depends.Exe"<<
-					K_Parameter->WindowsSDKPfadHohlen()+"\\MakeCat.Exe";
+	QList<QFrankQtSBSAQtModul> Werkzeugliste;
+	Werkzeugliste<< QFrankQtSBSAQtModul(K_Parameter->WindowsSDKPfadHohlen()+"\\mt.exe")<<
+					QFrankQtSBSAQtModul(K_Parameter->WindowsSDKPfadHohlen()+"\\signtool.exe")<<
+					QFrankQtSBSAQtModul(K_Parameter->WindowsSDKPfadHohlen()+"\\Depends.Exe")<<
+					QFrankQtSBSAQtModul(K_Parameter->WindowsSDKPfadHohlen()+"\\MakeCat.Exe");
 	emit FortschrittsanzeigeMaximum(Werkzeugliste.count());
 	if(!K_DateienVorhanden(Werkzeugliste))
 	{
@@ -269,18 +255,19 @@ bool QFrankQtSBSAArbeitVerteilen::K_QtPruefen()
 {
 	emit Meldung(trUtf8("Prüfe Qt"));
 	//sind alle Qt Libs da??
-	QStringList Bibliotheken;
-	Bibliotheken << K_Parameter->QtPfadHohlen()+"\\Qt3Support4.dll"<<
-					K_Parameter->QtPfadHohlen()+"\\QtAssistantClient4.dll"<<
-					K_Parameter->QtPfadHohlen()+"\\QtCore4.dll"<<
-					K_Parameter->QtPfadHohlen()+"\\QtGui4.dll"<<
-					K_Parameter->QtPfadHohlen()+"\\QtNetwork4.dll"<<
-					K_Parameter->QtPfadHohlen()+"\\QtOpenGL4.dll"<<
-					K_Parameter->QtPfadHohlen()+"\\QtSql4.dll"<<
-					K_Parameter->QtPfadHohlen()+"\\QtSvg4.dll"<<
-					K_Parameter->QtPfadHohlen()+"\\QtXml4.dll";
+	QList<QFrankQtSBSAQtModul> Bibliotheken;
+	Bibliotheken << QFrankQtSBSAQtModul("Qt3Support4.dll")<<
+					QFrankQtSBSAQtModul("QtAssistantClient4.dll")<<
+					QFrankQtSBSAQtModul("QtCore4.dll")<<
+					QFrankQtSBSAQtModul("QtGui4.dll")<<
+					QFrankQtSBSAQtModul("QtNetwork4.dll")<<
+					QFrankQtSBSAQtModul("QtOpenGL4.dll")<<
+					QFrankQtSBSAQtModul("QtSql4.dll")<<
+					QFrankQtSBSAQtModul("QtSvg4.dll")<<
+					QFrankQtSBSAQtModul("QtXml4.dll");
 	K_Parameter->QtBibliothekenSetzen(Bibliotheken);
-	if(!K_DateienVorhanden(Bibliotheken))
+	//true=Qt Bestandteile
+	if(!K_DateienVorhanden(Bibliotheken,true))
 	{
 		K_SchrittFehlgeschlagen();
 		K_ErstellenGescheitert();
@@ -288,12 +275,11 @@ bool QFrankQtSBSAArbeitVerteilen::K_QtPruefen()
 		return false;
 	}
 	//Optionale Dateien (Plug-Ins)
-	QString Plugin;
-	QString QtPlugInBereich;
+	QFrankQtSBSAQtModul Plugin;
 	QDir PluginVerzeichnis;
 	QStringList QtPlugInBereiche;
 	QtPlugInBereiche <<"sqldrivers"<<"accessible"<<"codecs"<<"iconengines"<<"imageformats";
-	Q_FOREACH(QtPlugInBereich,QtPlugInBereiche)
+	Q_FOREACH(QString QtPlugInBereich,QtPlugInBereiche)
 	{
 		PluginVerzeichnis.setPath(K_Parameter->QtPfadHohlen()+"\\..\\plugins\\"+QtPlugInBereich);
 		//imageformats iconengines accessible
@@ -301,13 +287,15 @@ bool QFrankQtSBSAArbeitVerteilen::K_QtPruefen()
 			PluginVerzeichnis.setNameFilters(QStringList("*[a-c,e-z,0-9].dll"));
 		else
 			PluginVerzeichnis.setNameFilters(QStringList("*[a-c,e-z,0-9][0-9].dll"));		
-		Q_FOREACH(Plugin,PluginVerzeichnis.entryList(QDir::Files))
-		{			
-			Bibliotheken<<PluginVerzeichnis.canonicalPath()+"/"+Plugin;			
+		Q_FOREACH(QString QtPlugin,PluginVerzeichnis.entryList(QDir::Files))
+		{
+			Plugin=QFrankQtSBSAQtModul(QtPlugin,true);
+			Plugin.PlugInTypeSetzen(QtPlugInBereich);
+			Bibliotheken<<Plugin;			
 		}
 	}	
 	K_Parameter->QtBibliothekenSetzen(Bibliotheken);
-	K_Parameter->QtVersionSetzen(K_Dateiversion(Bibliotheken.at(0)));
+	K_Parameter->QtVersionSetzen(K_Dateiversion(K_Parameter->QtPfadHohlen()+"\\"+Bibliotheken.at(0).DateinameHohlen()));
 	if(K_Parameter->QtVersionHohlen().isEmpty())
 	{
 		K_SchrittFehlgeschlagen();
@@ -372,14 +360,27 @@ const QString QFrankQtSBSAArbeitVerteilen::K_Dateiversion(const QString &datei)
 	emit Meldung(tr("Die Version der Datei %1 konnte nicht ermittelt werden.").arg(datei));
 	return "";
 }
-bool QFrankQtSBSAArbeitVerteilen::K_DateienVorhanden(const QStringList &liste)
-{
-	QString Datei;
-	Q_FOREACH(Datei,liste)
+bool QFrankQtSBSAArbeitVerteilen::K_DateienVorhanden(const QList<QFrankQtSBSAQtModul> &liste,bool qtdateien)
+{	
+	Q_FOREACH(QFrankQtSBSAQtModul Datei,liste)
 	{
-		if(!QFile::exists(Datei))
+		QString Pruefling;
+		if(qtdateien)
 		{
-			emit Meldung(tr("Die Datei %1 wurde nicht gefunden.").arg(Datei));
+			if(Datei.istPlugIn())
+			{
+				QDir Basisverzeichnis(K_Parameter->QtPfadHohlen());
+				Basisverzeichnis.cdUp();
+				Pruefling=Basisverzeichnis.absolutePath()+"\\plugins\\"+Datei.PlugInTypeHohlen()+"\\"+Datei.DateinameHohlen();
+			}
+			else
+				Pruefling=K_Parameter->QtPfadHohlen()+"\\"+Datei.DateinameHohlen();
+		}
+		else
+			Pruefling=Datei.DateinameHohlen();
+		if(!QFile::exists(Pruefling))
+		{
+			emit Meldung(tr("Die Datei %1 wurde nicht gefunden.").arg(Pruefling));
 			return false;
 			break;
 		}

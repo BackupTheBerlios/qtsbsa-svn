@@ -14,4 +14,29 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-//#include "QtModul.h"
+#include "QtModul.h"
+
+QFrankQtSBSAQtModul::QFrankQtSBSAQtModul(const QString &dateiname,const bool &istPlugIn)
+{
+	K_Dateiname=dateiname;
+	K_istPlugIn=istPlugIn;
+}
+QFrankQtSBSAQtModul::QFrankQtSBSAQtModul()
+{
+	K_Dateiname="";
+	K_istPlugIn=false;
+	K_PlugInType="";
+}
+#ifndef QT_NO_DEBUG
+QDebug  operator<<(QDebug debug, const QFrankQtSBSAQtModul &modul)
+{
+	QString Plugin;
+	if(modul.istPlugIn())
+	{
+		Plugin="Ja Type: "+modul.PlugInTypeHohlen();
+	}
+	else
+		Plugin="Nein";
+	return debug<<QString("Dateiname: %1 PlugIn: %2").arg(modul.DateinameHohlen()).arg(Plugin);
+}
+#endif

@@ -29,16 +29,16 @@ QFrankQtSBSAKatalogSignieren::~QFrankQtSBSAKatalogSignieren()
 }
 void QFrankQtSBSAKatalogSignieren::run()
 {
-	QString Datei=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer);
-	Datei.replace('/','\\');
-	Datei=Datei.right(Datei.length()-Datei.lastIndexOf("\\")).remove(0,1)+".cat";
+	QString Dateipfad="";
+	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istPlugIn())
+		Dateipfad=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).PlugInTypeHohlen()+"\\";
 	K_signtoolProzess=new QProcess();
 	K_signtoolProzess->setProcessChannelMode(QProcess::MergedChannels);
 	connect(K_signtoolProzess,SIGNAL(finished(int)),this,SLOT(K_signtoolFertig(int)));
 	QStringList Argumente;
 	Argumente<<"sign"<<"/sha1"<<K_Parameter->ZertSHA1Hohlen()<<"/t"<<"http://timestamp.verisign.com/scripts/timestamp.dll"
-			 <<Datei;
-	K_signtoolProzess->setWorkingDirectory(K_Parameter->ZielverzeichnisHohlen());
+			 <<K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen()+".cat";
+	K_signtoolProzess->setWorkingDirectory(K_Parameter->ZielverzeichnisHohlen()+"\\"+Dateipfad);
 	K_signtoolProzess->start(K_Parameter->WindowsSDKPfadHohlen()+"\\signtool.exe",Argumente);
 	if(!K_signtoolProzess->waitForStarted(5000))
 	{

@@ -30,7 +30,7 @@ class QFrankQtSBSAManifestBearbeiten: public QFrankQtSBSABasisThread
 	private slots:
 				void				K_ProzessFertig(int rueckgabe);
 	private:
-				QString				K_Dateiname;
+				QString				K_Dateipfad;
 				QString				K_QtKomponente;
 				QStringList			K_BenoetigeQtKomponenten;
 				bool				K_QtKomponenteErmitteln(const QString &datei);

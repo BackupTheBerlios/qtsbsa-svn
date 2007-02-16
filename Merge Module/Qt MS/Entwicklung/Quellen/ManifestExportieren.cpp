@@ -38,9 +38,12 @@ void QFrankQtSBSAManifestExportieren::run()
 	K_mtProzess->setProcessChannelMode(QProcess::MergedChannels);
 	connect(K_mtProzess,SIGNAL(finished(int)),this,SLOT(K_mtFertig(int)));
 	QStringList Argumente;
-	QString Datei=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer);
-	Datei.replace('/','\\');
-	Datei=Datei.right(Datei.length()-Datei.lastIndexOf("\\")).remove(0,1);
+	QString Datei=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen();
+	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istPlugIn())
+		Datei=K_Parameter->ZielverzeichnisHohlen()+"/"+
+			  K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).PlugInTypeHohlen()+"/"+Datei;
+	else
+		Datei=K_Parameter->ZielverzeichnisHohlen()+"/"+Datei;
 	Argumente<<"-inputresource:"+Datei+";#2"
 			 <<"-out:"+Datei+".manifest"
 			 <<"-verbose"<<"-nologo";

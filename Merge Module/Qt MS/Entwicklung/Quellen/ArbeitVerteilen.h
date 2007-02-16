@@ -18,6 +18,7 @@
 #define QFRANKQTSBSAARBEITVERTEILEN
 
 #include <QtCore>
+#include "QtModul.h"
 
 class QFrankQtSBSAParameter;
 class QFrankQtSBSABasisThread;
@@ -43,8 +44,8 @@ class QFrankQtSBSAArbeitVerteilen:public QObject
 				bool							K_WindowsSDKPruefen();
 				bool							K_QtPruefen();
 				bool							K_ZielverzeichnisPruefen();
-				bool							K_DateienVorhanden(const QStringList &liste);
-				bool							K_DateienKopieren(const QStringList &dateiliste,const QString &zielverzeichnis);
+				bool							K_DateienVorhanden(const QList<QFrankQtSBSAQtModul> &liste,bool qtdateien=false);
+				bool							K_DateienKopieren();
 				void							K_ErstellenGescheitert();
 				void							K_ErstellenErfolgreich();
 				void							K_SchrittFertig();

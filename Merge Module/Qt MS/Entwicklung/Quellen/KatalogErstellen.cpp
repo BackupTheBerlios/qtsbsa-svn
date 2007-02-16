@@ -21,6 +21,7 @@ QFrankQtSBSAKatalogErstellen::QFrankQtSBSAKatalogErstellen(const QFrankQtSBSAPar
 									  :QFrankQtSBSABasisThread(parameter,eltern)
 {	
 	K_AktuellerSchritt=KatalogvorlageErstellen;
+	K_Dateipfad="";
 }
 QFrankQtSBSAKatalogErstellen::~QFrankQtSBSAKatalogErstellen()
 {
@@ -32,11 +33,12 @@ void QFrankQtSBSAKatalogErstellen::run()
 	connect(K_Prozess,SIGNAL(finished(int)),this,SLOT(K_ProzessIstFertig(int)));
 	K_Prozess->setProcessChannelMode(QProcess::MergedChannels);
 	QStringList Argumente;
-	K_Dateiname=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer);
-	K_Dateiname.replace('/','\\');
-	K_Dateiname=K_Dateiname.right(K_Dateiname.length()-K_Dateiname.lastIndexOf("\\"))+".manifest";
-	Argumente<<"-manifest"<<K_Dateiname.remove(0,1)<<"-makecdfs"<<"-nologo"<<"-hashupdate";
-	K_Prozess->setWorkingDirectory(K_Parameter->ZielverzeichnisHohlen());
+	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istPlugIn())
+		K_Dateipfad=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).PlugInTypeHohlen()+"\\";
+	Argumente<<"-manifest"
+			<<K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen()+".manifest"
+			<<"-makecdfs"<<"-nologo"<<"-hashupdate";
+	K_Prozess->setWorkingDirectory(K_Parameter->ZielverzeichnisHohlen()+"\\"+K_Dateipfad);
 	K_Prozess->start(K_Parameter->WindowsSDKPfadHohlen()+"\\mt.exe",Argumente);
 	if(!K_Prozess->waitForStarted(5000))
 	{
@@ -87,9 +89,10 @@ void QFrankQtSBSAKatalogErstellen::K_ProzessIstFertig(int rueckgabe)
 			delete K_Prozess;
 			K_Prozess=new QProcess();
 			connect(K_Prozess,SIGNAL(finished(int)),this,SLOT(K_ProzessIstFertig(int)));
-			K_Prozess->setWorkingDirectory(K_Parameter->ZielverzeichnisHohlen());
+			K_Prozess->setWorkingDirectory(K_Parameter->ZielverzeichnisHohlen()+"\\"+K_Dateipfad);
 			K_Prozess->setProcessChannelMode(QProcess::MergedChannels);
-			K_Prozess->start(K_Parameter->WindowsSDKPfadHohlen()+"\\makecat.exe",QStringList()<<"-v"<<K_Dateiname+".cdf");
+			K_Prozess->start(K_Parameter->WindowsSDKPfadHohlen()+"\\makecat.exe",
+							 QStringList()<<"-v"<<K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen()+".manifest.cdf");
 			if(!K_Prozess->waitForStarted(5000))
 			{
 				K_Fehlercode=1;
