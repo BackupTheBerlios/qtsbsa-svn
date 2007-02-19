@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Module Id="$MODULID" Language="0" Version="$MODULVERSION">
+	<Module Id="$MODULID" Language="0" Version="$MODULVERSIONLANG">
         	<Package Id="$MODULPAKETGUID" Manufacturer="$MODULHERSTELLER" InstallerVersion="300"/>
         	$MODULABHAENGIGKEIT
 			<Directory Id="TARGETDIR" Name="SourceDir">

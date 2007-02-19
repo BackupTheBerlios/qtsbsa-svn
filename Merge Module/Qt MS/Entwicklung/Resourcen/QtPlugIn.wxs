@@ -4,7 +4,7 @@
 	Die Lösung ist nötig, da ein Bug in Qt verhindet, das die Plug-Ins als
 	Side-by-Side-Assemblies laufen können.
 -->
-	<Module Id="$MODULID" Language="0" Version="$MODULVERSION">
+	<Module Id="$MODULID" Language="0" Version="$MODULVERSIONLANG">
        	<Package Id="$MODULPAKETGUID" Manufacturer="$MODULHERSTELLER" InstallerVersion="300"/>
 		$MODULABHAENGIGKEIT
 		<Directory Id="TARGETDIR" Name="SourceDir">
@@ -15,7 +15,7 @@
 							<Directory Id="plugins" Name="plugins">
 								<Directory Id="$PLUINKATEGORIE" Name="$PLUINKATEGORIE">
         								<Component Id="$MODULKOMPONENTENID" Guid="$KOMPONENTENGUID">
-										<File Id="$MODULDATEIID" Vital="yes" Name="$MODULKATALOGDATEINAME" Source="$MODULKATALOGQUELLE" />                    
+										<File Id="$MODULDATEIID" Vital="yes" Name="$MODULDATEINAME" Source="$MODULDATEIQUELLE" />                    
                	 						<File Id="$MODULMANIFESTID" Vital="yes" Name="$MODULMANIFESTDATEINAME" Source="$MODULMANIFESTQUELLE" />			
 									</Component>
 								</Directory>

@@ -44,10 +44,10 @@ void QFrankQtSBSAArbeitVerteilen::Loslegen()
 	
 	//nur zum testen!!!
 	//qDebug()<<K_Parameter->QtBibliothekenHohlen();
-	K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::KatalogErstellen;
-	K_KatalogeErstellen();
-	//K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::WixDateienErstellen;
-	//K_WixDateienErstellen();
+	//K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::KatalogErstellen;
+	//K_KatalogeErstellen();
+	K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::WixDateienErstellen;
+	K_WixDateienErstellen();
 	//testEnde
 
 	//K_ManifesteExportieren();	

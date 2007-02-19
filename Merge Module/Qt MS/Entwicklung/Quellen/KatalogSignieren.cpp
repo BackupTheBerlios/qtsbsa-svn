@@ -29,6 +29,13 @@ QFrankQtSBSAKatalogSignieren::~QFrankQtSBSAKatalogSignieren()
 }
 void QFrankQtSBSAKatalogSignieren::run()
 {
+	//Qt Plug-Ins haben kein Katalog, also gibt es nix zu signieren.
+	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istPlugIn())
+	{
+		K_Fehlercode=0;
+		emit fertig(this);
+		return;
+	}
 	QString Dateipfad="";
 	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istPlugIn())
 		Dateipfad=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).PlugInTypeHohlen()+"\\";
