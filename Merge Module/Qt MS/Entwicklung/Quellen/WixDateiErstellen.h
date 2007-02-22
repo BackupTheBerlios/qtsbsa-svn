@@ -24,7 +24,7 @@ class QFrankQtSBSAWixDateiErstellen:public QFrankQtSBSABasisThread
 {
 	Q_OBJECT
 	public:
-			QFrankQtSBSAWixDateiErstellen(const QFrankQtSBSAParameter* parameter,QObject* eltern=0);
+			QFrankQtSBSAWixDateiErstellen(QFrankQtSBSAParameter* parameter,QObject* eltern=0);
 	private:
 			void		K_PlatzhalterErsetzen(QString &zeile,const QString &modulname)const;
 			void 		K_AbhaengigkeitenEintragen(QString &zeile)const;

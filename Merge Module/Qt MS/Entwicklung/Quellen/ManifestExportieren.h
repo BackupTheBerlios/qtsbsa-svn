@@ -24,7 +24,7 @@ class QFrankQtSBSAManifestExportieren:public QFrankQtSBSABasisThread
 {
 	Q_OBJECT
 	public:
-				QFrankQtSBSAManifestExportieren(const QFrankQtSBSAParameter* parameter,QObject *eltern=0);	
+				QFrankQtSBSAManifestExportieren( QFrankQtSBSAParameter* parameter,QObject *eltern=0);	
 				~QFrankQtSBSAManifestExportieren();
 
 	private slots:

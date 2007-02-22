@@ -19,7 +19,7 @@
 #include "Parameter.h"
 
 //<Dependency RequiredId="QtCoreModul" RequiredLanguage="0" RequiredVersion="4.2.2.0" />
-QFrankQtSBSAWixDateiErstellen::QFrankQtSBSAWixDateiErstellen(const QFrankQtSBSAParameter* parameter,QObject* eltern)
+QFrankQtSBSAWixDateiErstellen::QFrankQtSBSAWixDateiErstellen( QFrankQtSBSAParameter* parameter,QObject* eltern)
 							  :QFrankQtSBSABasisThread(parameter,eltern)
 {
 }
@@ -149,5 +149,10 @@ void QFrankQtSBSAWixDateiErstellen::K_PlatzhalterErsetzen(QString &zeile,const Q
 }
 void QFrankQtSBSAWixDateiErstellen::K_AbhaengigkeitenEintragen(QString &zeile)const
 {
-	zeile="<kommtnoch />";
+	//Damit der Platzhalter entfernt wird
+	zeile="";
+	Q_FOREACH(QString Abhaengigkeit,K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).AbhaenigkeitenHohlen())
+	{		
+		zeile=zeile+"<Dependency RequiredId=\""+Abhaengigkeit+"Modul\" RequiredLanguage=\"0\" RequiredVersion=\""+K_Parameter->QtVersionHohlen()+"\" />";
+	}	
 }

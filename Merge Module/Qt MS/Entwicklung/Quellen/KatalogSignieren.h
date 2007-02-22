@@ -24,7 +24,7 @@ class QFrankQtSBSAKatalogSignieren:public QFrankQtSBSABasisThread
 {
 	Q_OBJECT
 	public:
-				QFrankQtSBSAKatalogSignieren(const QFrankQtSBSAParameter* parameter,QObject* eltern=0);
+				QFrankQtSBSAKatalogSignieren(QFrankQtSBSAParameter* parameter,QObject* eltern=0);
 				~QFrankQtSBSAKatalogSignieren();
 	private:
 					QProcess*	K_signtoolProzess;

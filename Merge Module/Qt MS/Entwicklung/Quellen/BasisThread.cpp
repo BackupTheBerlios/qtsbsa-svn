@@ -16,7 +16,7 @@
 
 #include "BasisThread.h"
 
-QFrankQtSBSABasisThread::QFrankQtSBSABasisThread(const QFrankQtSBSAParameter* parameter,QObject* eltern):QThread(eltern)
+QFrankQtSBSABasisThread::QFrankQtSBSABasisThread(QFrankQtSBSAParameter* parameter,QObject* eltern):QThread(eltern)
 {
 	K_Parameter=parameter;
 }

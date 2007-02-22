@@ -37,6 +37,8 @@ QDebug  operator<<(QDebug debug, const QFrankQtSBSAQtModul &modul)
 	}
 	else
 		Plugin="Nein";
-	return debug<<QString("Dateiname: %1 PlugIn: %2").arg(modul.DateinameHohlen()).arg(Plugin);
+	return debug<<QString("Dateiname: %1 PlugIn: %2 Abgängigkeiten: %3").arg(modul.DateinameHohlen())
+																		.arg(Plugin)
+																		.arg(modul.AbhaenigkeitenHohlen().join(","));
 }
 #endif

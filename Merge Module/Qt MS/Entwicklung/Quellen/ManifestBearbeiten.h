@@ -26,7 +26,7 @@ class QFrankQtSBSAManifestBearbeiten: public QFrankQtSBSABasisThread
 {
 	Q_OBJECT
 	public:
-				QFrankQtSBSAManifestBearbeiten(const QFrankQtSBSAParameter* parameter,QObject* eltern=0);
+				QFrankQtSBSAManifestBearbeiten(QFrankQtSBSAParameter* parameter,QObject* eltern=0);
 	private slots:
 				void				K_ProzessFertig(int rueckgabe);
 	private:

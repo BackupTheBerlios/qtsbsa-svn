@@ -17,7 +17,7 @@
 #include "KatalogSignieren.h"
 #include "Parameter.h"
 
-QFrankQtSBSAKatalogSignieren::QFrankQtSBSAKatalogSignieren(const QFrankQtSBSAParameter* parameter,QObject* eltern)
+QFrankQtSBSAKatalogSignieren::QFrankQtSBSAKatalogSignieren(QFrankQtSBSAParameter* parameter,QObject* eltern)
 									:QFrankQtSBSABasisThread(parameter,eltern)
 {
 	K_signtoolProzess=NULL;

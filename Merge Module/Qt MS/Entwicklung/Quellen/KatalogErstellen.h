@@ -24,7 +24,7 @@ class QFrankQtSBSAKatalogErstellen: public QFrankQtSBSABasisThread
 {
 	Q_OBJECT
 	public:
-				QFrankQtSBSAKatalogErstellen(const QFrankQtSBSAParameter* parameter,QObject* eltern=0);
+				QFrankQtSBSAKatalogErstellen(QFrankQtSBSAParameter* parameter,QObject* eltern=0);
 				~QFrankQtSBSAKatalogErstellen();
 	private:
 				enum		K_Schritt{KatalogvorlageErstellen=0x0,KatalogErstellen=0x01};

@@ -22,7 +22,7 @@
 	Manifest importieren: mt.exe -manifest XXX.manifest -outputresource:XXXX.dll;#1	
 */
 
-QFrankQtSBSAManifestExportieren::QFrankQtSBSAManifestExportieren(const QFrankQtSBSAParameter* parameter,QObject *eltern)
+QFrankQtSBSAManifestExportieren::QFrankQtSBSAManifestExportieren(QFrankQtSBSAParameter* parameter,QObject *eltern)
 										:QFrankQtSBSABasisThread(parameter,eltern)
 {	
 	K_mtProzess=NULL;

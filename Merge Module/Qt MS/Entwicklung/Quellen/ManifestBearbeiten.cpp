@@ -17,7 +17,7 @@
 #include "ManifestBearbeiten.h"
 #include "Parameter.h"
 
-QFrankQtSBSAManifestBearbeiten::QFrankQtSBSAManifestBearbeiten(const QFrankQtSBSAParameter* parameter,QObject* eltern)
+QFrankQtSBSAManifestBearbeiten::QFrankQtSBSAManifestBearbeiten(QFrankQtSBSAParameter* parameter,QObject* eltern)
 										:QFrankQtSBSABasisThread(parameter,eltern)
 {
 	K_Dateipfad="";
@@ -280,6 +280,9 @@ bool QFrankQtSBSAManifestBearbeiten::K_AbhaengigkeitenErmitteln()
 #ifndef QT_NO_DEBUG
 	qDebug()<<Debugtext;
 #endif
+	QFrankQtSBSAQtModul Modul=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer);
+	Modul.AbhaengigkeitenSetzen(K_BenoetigeQtKomponenten);
+	K_Parameter->QtBibliothekenHohlen().replace(K_Dateinummer,Modul);
 	DateiMitDenAbhaengigkeiten.close();
 	return true;
 }

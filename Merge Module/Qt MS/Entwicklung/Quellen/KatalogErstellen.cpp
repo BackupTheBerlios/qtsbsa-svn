@@ -17,7 +17,7 @@
 #include "KatalogErstellen.h"
 #include "Parameter.h"
 
-QFrankQtSBSAKatalogErstellen::QFrankQtSBSAKatalogErstellen(const QFrankQtSBSAParameter* parameter,QObject* eltern)
+QFrankQtSBSAKatalogErstellen::QFrankQtSBSAKatalogErstellen(QFrankQtSBSAParameter* parameter,QObject* eltern)
 									  :QFrankQtSBSABasisThread(parameter,eltern)
 {	
 	K_AktuellerSchritt=KatalogvorlageErstellen;

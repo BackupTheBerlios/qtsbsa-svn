@@ -39,7 +39,7 @@ class QFrankQtSBSAParameter: public QObject
 				const QString&						QtPfadHohlen()const{return K_QtPfad;}
 				const QString&						WixPfadHohlen()const{return K_WixPfad;}
 				const QString&						QtVersionHohlen()const{return K_QtVersion;}
-				const QList<QFrankQtSBSAQtModul>&	QtBibliothekenHohlen()const{return K_QtBibliotheken;}
+				QList<QFrankQtSBSAQtModul>&			QtBibliothekenHohlen(){return K_QtBibliotheken;}
 				const QString&						ZertSHA1Hohlen()const{return K_ZertSHA1;}
 				const QString&						publicKeyTokenHohlen()const{return K_publicKeyToken;}
 				const QString&						CPUTypeHohlen()const{return K_CPU;}
