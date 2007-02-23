@@ -21,6 +21,7 @@
 #include "KatalogErstellen.h"
 #include "KatalogSignieren.h"
 #include "WixDateiErstellen.h"
+#include "WixDateiUebersetzen.h"
 #include <Windows.h>
 #include <Winver.h>
 
@@ -46,11 +47,11 @@ void QFrankQtSBSAArbeitVerteilen::Loslegen()
 	//qDebug()<<K_Parameter->QtBibliothekenHohlen();
 	//K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::KatalogErstellen;
 	//K_KatalogeErstellen();
-	K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::ManifestBearbeiten;
-	K_ManifesteBearbeiten();
-	
-	//K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::WixDateienErstellen;
-	//K_WixDateienErstellen();
+	//K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::ManifestBearbeiten;
+	//K_ManifesteBearbeiten();
+
+	K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::WixDateienUebersetzen;
+	K_WixDateienUebersetzen();
 	//testEnde
 
 	//K_ManifesteExportieren();	
@@ -136,6 +137,19 @@ void QFrankQtSBSAArbeitVerteilen::K_WixDateienErstellen()
 		erstellen->start();
 	}
 }
+void QFrankQtSBSAArbeitVerteilen::K_WixDateienUebersetzen()
+{
+	emit Meldung(trUtf8("Übersetze Wix Dateien"));
+	K_AnzahlDerProzesse=K_Parameter->QtBibliothekenHohlen().count();
+	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
+	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
+	{
+		QFrankQtSBSAWixDateiErstellen *erstellen=new QFrankQtSBSAWixDateiErstellen(K_Parameter,this);
+		erstellen->DateinummerFestlegen(Threadnummer);
+		connect(erstellen,SIGNAL(fertig(QFrankQtSBSABasisThread*)),this,SLOT(K_ThreadFertig( QFrankQtSBSABasisThread*)));		
+		erstellen->start();
+	}
+}
 void QFrankQtSBSAArbeitVerteilen::K_ThreadFertig(QFrankQtSBSABasisThread *welcher)
 {
 	emit FortschrittsanzeigeSchritt();
@@ -185,7 +199,10 @@ void QFrankQtSBSAArbeitVerteilen::K_NaechsterArbeitsschritt()
 																		break;
 		case QFrankQtSBSAArbeitVerteilen::WixDateienErstellen:
 																		K_WixDateienErstellen();
-																		break;																		
+																		break;
+		case QFrankQtSBSAArbeitVerteilen::WixDateienUebersetzen:
+																		K_WixDateienUebersetzen();
+																		break;
 		default:
 #ifndef QT_NO_DEBUG
 																		qDebug("%s K_NaechsterArbeitsschritt: alle Schritt fertig",this->metaObject()->className());

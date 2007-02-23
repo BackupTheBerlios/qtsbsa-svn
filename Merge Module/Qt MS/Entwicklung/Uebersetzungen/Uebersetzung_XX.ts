@@ -3,88 +3,98 @@
 <context>
     <name>QFrankQtSBSAArbeitVerteilen</name>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="63"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="62"/>
         <source>Extrahiere Manifeste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="82"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="81"/>
         <source>Bearbeite Manifeste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="100"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="99"/>
         <source>Erstelle Kataloge</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="115"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="114"/>
         <source>Signiere Kataloge</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="186"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="217"/>
         <source>Kopiere Qt4 Bibliotheken</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="204"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="241"/>
         <source>Die Datei %1 konnte nicht nach %2 kopiert werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="230"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="255"/>
         <source>Prüfe Windows SDK</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="251"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="276"/>
         <source>Prüfe Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="304"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="331"/>
         <source>Prüfe Zielverzeichnis für die Mergemodule</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="312"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="339"/>
         <source>Das Zielverzeichnis %1 konnte nicht erstellt werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="322"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="349"/>
         <source>Das Zielverzeichnis %1 ist nicht leer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="353"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="380"/>
         <source>Die Version der Datei %1 konnte nicht ermittelt werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="363"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="403"/>
         <source>Die Datei %1 wurde nicht gefunden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="373"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="413"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Erstellung der Mergemodule gescheitert.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="377"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="417"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Erstellung der Mergemodule erfolgreich.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="381"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="421"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;fertig&lt;/span&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="385"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="425"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;fehlgeschlagen&lt;/span&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="129"/>
+        <source>Erstelle Wix Dateien</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="142"/>
+        <source>Übersetze Wix Dateien</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -167,7 +177,7 @@ Bei dem gewählten Zertifikat beträgt diese jedoch nur %1 Bit</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
-<context encoding="UTF-8">
+<context>
     <name>QFrankQtSBSADlgHaupt</name>
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgHaupt.cpp" line="95"/>
@@ -180,16 +190,26 @@ Bei dem gewählten Zertifikat beträgt diese jedoch nur %1 Bit</source>
 Bitte legen Sie diese über das Menue Optionen-&gt;Einstellungen fest.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgHaupt.cpp" line="113"/>
+        <source>Bitte die Anwendung wählen, die bearbeitet werden soll.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/DlgHaupt.cpp" line="114"/>
+        <source>Anwendungen (*.exe *.dll)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context encoding="UTF-8">
     <name>QFrankQtSBSAKatalogErstellen</name>
     <message encoding="UTF-8">
-        <location filename="../Quellen/KatalogErstellen.cpp" line="44"/>
+        <location filename="../Quellen/KatalogErstellen.cpp" line="53"/>
         <source>Das Werkzeug mt.exe konnte nicht ausgeführt werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/KatalogErstellen.cpp" line="96"/>
+        <location filename="../Quellen/KatalogErstellen.cpp" line="106"/>
         <source>Das Werkzeug makecat.exe konnte nicht ausgeführt werden.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -197,7 +217,7 @@ Bitte legen Sie diese über das Menue Optionen-&gt;Einstellungen fest.</source>
 <context encoding="UTF-8">
     <name>QFrankQtSBSAKatalogSignieren</name>
     <message encoding="UTF-8">
-        <location filename="../Quellen/KatalogSignieren.cpp" line="46"/>
+        <location filename="../Quellen/KatalogSignieren.cpp" line="53"/>
         <source>Das Werkzeug signtool.exe konnte nicht ausgeführt werden.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -205,42 +225,42 @@ Bitte legen Sie diese über das Menue Optionen-&gt;Einstellungen fest.</source>
 <context encoding="UTF-8">
     <name>QFrankQtSBSAManifestBearbeiten</name>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="33"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="31"/>
         <source>Nicht erkannte oder ungültige Qt4 Komponente %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="42"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="47"/>
         <source>Die Datei %1 konnte nicht göffnet werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="49"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="54"/>
         <source>%1 ist keine gültige XML Datei.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="87"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="92"/>
         <source>%1 konnte nicht überschrieben werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="207"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="213"/>
         <source>Prozess zur Abhängigkeitsermittlung für %1 konnte nicht gestartet werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="223"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="232"/>
         <source>Fehler beim Ausführen von depens.exe für %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="230"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="241"/>
         <source>Fehler beim lesen der Abhängigkeiten aus %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="257"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="272"/>
         <source>Unbekante Abhängigkeit entdeckt.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -248,8 +268,16 @@ Bitte legen Sie diese über das Menue Optionen-&gt;Einstellungen fest.</source>
 <context encoding="UTF-8">
     <name>QFrankQtSBSAManifestExportieren</name>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestExportieren.cpp" line="53"/>
+        <location filename="../Quellen/ManifestExportieren.cpp" line="56"/>
         <source>Das Werkzeug mt.exe konnte nicht ausgeführt werden.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QFrankQtSBSAWixDateiErstellen</name>
+    <message>
+        <location filename="../Quellen/WixDateiErstellen.cpp" line="47"/>
+        <source>Die Datei %1 konnte nicht angelegt werden.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -490,17 +518,17 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/InfoBasis.ui" line="71"/>
+        <location filename="../Dialoge/InfoBasis.ui" line="74"/>
         <source>Autoren</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/InfoBasis.ui" line="96"/>
+        <location filename="../Dialoge/InfoBasis.ui" line="102"/>
         <source>Haftung</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Dialoge/InfoBasis.ui" line="114"/>
+        <location filename="../Dialoge/InfoBasis.ui" line="120"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
@@ -510,22 +538,22 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/InfoBasis.ui" line="136"/>
+        <location filename="../Dialoge/InfoBasis.ui" line="142"/>
         <source>Lizenz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/InfoBasis.ui" line="62"/>
+        <location filename="../Dialoge/InfoBasis.ui" line="65"/>
         <source>qrc:/Info/Version.html</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/InfoBasis.ui" line="87"/>
+        <location filename="../Dialoge/InfoBasis.ui" line="93"/>
         <source>qrc:/Info/Entwickler.html</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/InfoBasis.ui" line="152"/>
+        <location filename="../Dialoge/InfoBasis.ui" line="158"/>
         <source>qrc:/Info/Lizenz.html</source>
         <translation type="unfinished"></translation>
     </message>

@@ -52,7 +52,8 @@ HEADERS						= Quellen/Parameter.h\
 							  Quellen/DlgVorspann.h\
 							  Quellen/Syntaxhervorhebung.h\
 							  Quellen/WixDateiErstellen.h\
-							  Quellen/QtModul.h
+							  Quellen/QtModul.h\
+							  Quellen/WixDateiUebersetzen.h
 SOURCES						= Quellen/Parameter.cpp\
 							  Quellen/BasisThread.cpp\
 							  Quellen/ManifestExportieren.cpp\
@@ -68,4 +69,5 @@ SOURCES						= Quellen/Parameter.cpp\
 							  Quellen/DlgVorspann.cpp\
 							  Quellen/Syntaxhervorhebung.cpp\
 							  Quellen/WixDateiErstellen.cpp\
-							  Quellen/QtModul.cpp
+							  Quellen/QtModul.cpp\
+							  Quellen/WixDateiUebersetzen.cpp
