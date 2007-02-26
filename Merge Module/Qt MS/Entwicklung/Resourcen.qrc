@@ -11,7 +11,7 @@
 		<file alias="Entwickler.html">Resourcen/Entwickler.html</file>		
 	</qresource>
 	<qresource prefix="/Info">
-		<file>Lizenz.html</file>
+		<file alias="Lizenz.html">Resourcen/Lizenz.html</file>
 	</qresource>
 	<qresource>
 		<file alias="Vorspann.txt">Resourcen/Vorspann.txt</file>
