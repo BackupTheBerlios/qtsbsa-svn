@@ -14,26 +14,12 @@
  along with this program; if not, write to the Free Software Foundation,
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
-#ifndef QFRANKQTSBSAWIXDATEIUEBERSETZEN
-#define QFRANKQTSBSAWIXDATEIUEBERSETZEN
+#ifndef QFRANKQTSBSAAUFRAEUEMEN
+#define QFRANKQTSBSAAUFRAEUEMEN
 
 #include <QtCore>
-#include "BasisThread.h"
 
-class QFrankQtSBSAWixDateiUebersetzen:public QFrankQtSBSABasisThread
+class QFrankQtSBSAAufraeumen
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSAWixDateiUebersetzen(QFrankQtSBSAParameter* parameter,QObject* eltern=0);
-				~QFrankQtSBSAWixDateiUebersetzen();
-	private:
-			enum		Arbeitsschritte{Kerze=0x0,Licht=0x1};
-			QProcess*	K_Prozess;
-			bool		K_Loslegen();
-			uchar		K_Arbeitsschritt;
-	private slots:
-			void		K_ProzessFertig(const int &statuscode);
-	protected:
-			void		run();
 };
 #endif

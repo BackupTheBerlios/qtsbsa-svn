@@ -31,7 +31,7 @@ void QFrankQtSBSAWixDateiErstellen::run()
 	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istPlugIn())
 	{
 		Vorlagendatei.setFileName(":/QtPlugIn.wxs");
-		Dateiname="Qt-"+K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).PlugInTypeHohlen()+"-"+Modulname;
+		Dateiname="Qt_"+K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).PlugInTypeHohlen()+"_"+Modulname;
 		Modulname=Dateiname;
 	}
 	else
@@ -68,8 +68,22 @@ void QFrankQtSBSAWixDateiErstellen::run()
 void QFrankQtSBSAWixDateiErstellen::K_PlatzhalterErsetzen(QString &zeile,const QString &modulname)const
 {
 	//Platzhalter ersetzen;
+	const static uchar GUUIDLAENGE=36;
+	const static uchar MAXMODULEIDLAENGE=72;
+	static uint Textlaenge;
 	if(zeile.contains("$MODULID"))
-		zeile.replace("$MODULID",modulname+"Modul");
+	{
+		// Die Modul ID darf nicht länger als 72 Zeichen sein. +1 Da ein Punkt später in der MSI Tabelle eingefügt wird
+		Textlaenge=QString(modulname+"Modul").size()+GUUIDLAENGE+1;
+		if(Textlaenge>MAXMODULEIDLAENGE)
+		{
+			//kürzen wir ein was zu lang ist.
+			Textlaenge=Textlaenge-MAXMODULEIDLAENGE;
+			zeile.replace("$MODULID",QString(modulname).remove(modulname.size()-Textlaenge,Textlaenge)+"Modul");
+		}
+		else
+			zeile.replace("$MODULID",modulname+"Modul");
+	}
 
 	if(zeile.contains("$MODULVERSIONLANG"))
 		zeile.replace("$MODULVERSIONLANG",K_Parameter->QtVersionHohlen());

@@ -299,6 +299,16 @@ Go to the menue Option-&gt;Parameters and set it,please.</translation>
         <source>Anwendungen (*.exe *.dll)</source>
         <translation>Applicatios (*.exe *.dll)</translation>
     </message>
+    <message>
+        <location filename="../Quellen/DlgHaupt.cpp" line="118"/>
+        <source>Noch nicht fertig</source>
+        <translation>Not ready at this time</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/DlgHaupt.cpp" line="118"/>
+        <source>Diese Funktion ist noch nicht fertig:(</source>
+        <translation>This function is not ready at now:(</translation>
+    </message>
 </context>
 <context encoding="UTF-8">
     <name>QFrankQtSBSAKatalogErstellen</name>
@@ -378,6 +388,14 @@ Go to the menue Option-&gt;Parameters and set it,please.</translation>
         <location filename="../Quellen/WixDateiErstellen.cpp" line="47"/>
         <source>Die Datei %1 konnte nicht angelegt werden.</source>
         <translation>The file %1 count be created.</translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>QFrankQtSBSAWixDateiUebersetzen</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/WixDateiUebersetzen.cpp" line="96"/>
+        <source>Das Werkzeug %1 konnte nicht ausgeführt werden.</source>
+        <translation>The tool %1 coun&apos;t be startet.</translation>
     </message>
 </context>
 <context>

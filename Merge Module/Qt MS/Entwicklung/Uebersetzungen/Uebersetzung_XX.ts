@@ -200,6 +200,16 @@ Bitte legen Sie diese über das Menue Optionen-&gt;Einstellungen fest.</source>
         <source>Anwendungen (*.exe *.dll)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../Quellen/DlgHaupt.cpp" line="118"/>
+        <source>Noch nicht fertig</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/DlgHaupt.cpp" line="118"/>
+        <source>Diese Funktion ist noch nicht fertig:(</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context encoding="UTF-8">
     <name>QFrankQtSBSAKatalogErstellen</name>
@@ -278,6 +288,14 @@ Bitte legen Sie diese über das Menue Optionen-&gt;Einstellungen fest.</source>
     <message>
         <location filename="../Quellen/WixDateiErstellen.cpp" line="47"/>
         <source>Die Datei %1 konnte nicht angelegt werden.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>QFrankQtSBSAWixDateiUebersetzen</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/WixDateiUebersetzen.cpp" line="96"/>
+        <source>Das Werkzeug %1 konnte nicht ausgeführt werden.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

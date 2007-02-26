@@ -114,4 +114,6 @@ void QFrankQtSBSADlgHaupt::on_Menue_AnwendungAnpassen_triggered()
 											   tr("Anwendungen (*.exe *.dll)"));
 	if(Datei.isNull())
 		return;
+	//noch nicht fertig
+	QMessageBox::information(this,tr("Noch nicht fertig"),tr("Diese Funktion ist noch nicht fertig:("));
 }
