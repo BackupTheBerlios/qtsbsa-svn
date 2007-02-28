@@ -15,3 +15,19 @@
  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.*/
 
 #include "Aufraeumen.h"
+
+void QFrankQtSBSAAufraeumen::putzen()
+{
+	/*
+		Am Schluss sollen nur die die Mergemodule übrig bleiben.
+		Und im Debugfall gar nix gelöscht werden.
+	*/
+#ifndef QT_NO_DEBUG
+	qDebug("Es wird nix aufgeräumt, da im Debugmodus.");
+	return;
+#endif
+}
+bool QFrankQtSBSAAufraeumen::K_Dateiloeschen(const QString &datei)
+{
+	return true;
+}

@@ -21,5 +21,9 @@
 
 class QFrankQtSBSAAufraeumen
 {
+	public:
+				void	putzen();	
+	private:
+				bool	K_Dateiloeschen(const QString &datei);
 };
 #endif
