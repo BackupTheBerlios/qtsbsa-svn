@@ -3,103 +3,116 @@
 <context>
     <name>QFrankQtSBSAArbeitVerteilen</name>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="70"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="71"/>
         <source>Extrahiere Manifeste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="89"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="90"/>
         <source>Bearbeite Manifeste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="107"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="108"/>
         <source>Erstelle Kataloge</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="122"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="123"/>
         <source>Signiere Kataloge</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="237"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="254"/>
         <source>Kopiere Qt4 Bibliotheken</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="261"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="278"/>
         <source>Die Datei %1 konnte nicht nach %2 kopiert werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="275"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="292"/>
         <source>Prüfe Windows SDK</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="296"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="313"/>
         <source>Prüfe Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="351"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="368"/>
         <source>Prüfe Zielverzeichnis für die Mergemodule</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="359"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="376"/>
         <source>Das Zielverzeichnis %1 konnte nicht erstellt werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="369"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="386"/>
         <source>Das Zielverzeichnis %1 ist nicht leer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="400"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="417"/>
         <source>Die Version der Datei %1 konnte nicht ermittelt werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="423"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="440"/>
         <source>Die Datei %1 wurde nicht gefunden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="433"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="450"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Erstellung der Mergemodule gescheitert.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="437"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="454"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Erstellung der Mergemodule erfolgreich.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="441"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="458"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;fertig&lt;/span&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="445"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="462"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;fehlgeschlagen&lt;/span&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="137"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="138"/>
         <source>Erstelle Wix Dateien</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="150"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="151"/>
         <source>Übersetze Wix Dateien</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="167"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="168"/>
         <source>Aufräumen</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>QFrankQtSBSAAufraeumen</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/Aufraeumen.cpp" line="69"/>
+        <source>Die Datei %1 konnte nicht gelöscht werden.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/Aufraeumen.cpp" line="88"/>
+        <source>Das Verzeichnis %1 konnte nicht gelöscht werden.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

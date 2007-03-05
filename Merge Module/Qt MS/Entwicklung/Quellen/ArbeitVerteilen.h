@@ -39,6 +39,7 @@ class QFrankQtSBSAArbeitVerteilen:public QObject
 	private:
 				enum							K_Arbeitsschritte{ManifestExportieren=0x0,ManifestBearbeiten=0x1,KatalogErstellen=0x2,KatalogSignieren=0x3,
 																  WixDateienErstellen=0x4,WixDateienUebersetzen=0x5,Aufraeumen=0x6};
+				enum							K_WieAufraeumen{Normal=0x0,NachFehler=0x1};
 				QFrankQtSBSAParameter*	K_Parameter;
 				int								K_AnzahlDerProzesse;	
 				bool							K_WindowsSDKPruefen();
@@ -56,7 +57,7 @@ class QFrankQtSBSAArbeitVerteilen:public QObject
 				void							K_KatalogeSignieren();
 				void							K_WixDateienErstellen();
 				void							K_WixDateienUebersetzen();
-				void							K_Aufraeumen();
+				void							K_Aufraeumen(const uchar &wie);
 				void							K_NaechsterArbeitsschritt();
 				const QString					K_Dateiversion(const QString &datei);
 				uchar							K_Arbeitsschritt;

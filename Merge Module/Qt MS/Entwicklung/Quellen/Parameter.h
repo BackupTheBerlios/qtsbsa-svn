@@ -21,7 +21,8 @@
 #include "QtModul.h"
 
 class QFrankQtSBSAParameter: public QObject
-{	
+{
+	Q_OBJECT
 	public:
 				QFrankQtSBSAParameter(QObject* eltern=0);
 				void								WindowsSDKPfadSetzen(const QString &pfad){K_WindowsSDKPfad=pfad;}

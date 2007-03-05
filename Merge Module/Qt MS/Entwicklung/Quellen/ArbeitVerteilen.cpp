@@ -42,7 +42,8 @@ void QFrankQtSBSAArbeitVerteilen::Loslegen()
 		return;*/
 	//Damit man zum Testen nicht laufend die Dateien löschen muss.
 	//Test Anfang
-	qDebug()<<"Hier ist noch Testcode";
+	
+	//qDebug()<<"Hier ist noch Testcode";
 	
 	//nur zum testen!!!
 	//qDebug()<<K_Parameter->QtBibliothekenHohlen();
@@ -57,12 +58,12 @@ void QFrankQtSBSAArbeitVerteilen::Loslegen()
 	//K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::WixDateienUebersetzen;
 	//K_WixDateienUebersetzen();
 	
-	K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::Aufraeumen;
-	K_Aufraeumen();
+	//K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::Aufraeumen;
+	//K_Aufraeumen(QFrankQtSBSAArbeitVerteilen::Normal);
 
 	//testEnde
 
-	//K_ManifesteExportieren();	
+	K_ManifesteExportieren();	
 }
 void QFrankQtSBSAArbeitVerteilen::K_ManifesteExportieren()
 {
@@ -162,11 +163,25 @@ void QFrankQtSBSAArbeitVerteilen::K_WixDateienUebersetzen()
 		uebersetzen->start();
 	}
 }
-void QFrankQtSBSAArbeitVerteilen::K_Aufraeumen()
+void QFrankQtSBSAArbeitVerteilen::K_Aufraeumen(const uchar &wie)
 {
 	emit Meldung(trUtf8("Aufräumen"));
-	K_SchrittFertig();
-	K_NaechsterArbeitsschritt();
+	QFrankQtSBSAAufraeumen* putzen=new QFrankQtSBSAAufraeumen(K_Parameter,this);
+	if(putzen->putzen())
+		K_SchrittFertig();
+	else
+	{
+		emit Meldung(putzen->Fehlermeldung());
+		K_SchrittFehlgeschlagen();
+		if(wie==QFrankQtSBSAArbeitVerteilen::Normal)
+		{
+			K_ErstellenGescheitert();
+			emit fertig();
+		}
+		return;
+	}
+	if(wie==QFrankQtSBSAArbeitVerteilen::Normal)
+		K_NaechsterArbeitsschritt();
 }
 void QFrankQtSBSAArbeitVerteilen::K_ThreadFertig(QFrankQtSBSABasisThread *welcher)
 {
@@ -195,6 +210,8 @@ void QFrankQtSBSAArbeitVerteilen::K_ThreadFertig(QFrankQtSBSABasisThread *welche
 		else
 		{
 			K_SchrittFehlgeschlagen();
+			K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::Aufraeumen;
+			K_Aufraeumen(QFrankQtSBSAArbeitVerteilen::NachFehler);
 			K_ErstellenGescheitert();
 			emit fertig();
 		}		
@@ -221,7 +238,7 @@ void QFrankQtSBSAArbeitVerteilen::K_NaechsterArbeitsschritt()
 		case QFrankQtSBSAArbeitVerteilen::WixDateienUebersetzen:
 																		K_WixDateienUebersetzen();
 		case QFrankQtSBSAArbeitVerteilen::Aufraeumen:
-																		K_Aufraeumen();
+																		K_Aufraeumen(QFrankQtSBSAArbeitVerteilen::Normal);
 																		break;
 		default:
 #ifndef QT_NO_DEBUG
