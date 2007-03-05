@@ -1,0 +1,111 @@
+<ui version="4.0" >
+ <class>dlgHauptBasis</class>
+ <widget class="QMainWindow" name="dlgHauptBasis" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>516</width>
+    <height>352</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Side-by-Side Assembly Erstellung für Qt</string>
+  </property>
+  <widget class="QWidget" name="centralwidget" />
+  <widget class="QMenuBar" name="menuBar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>516</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_Optionen" >
+    <property name="title" >
+     <string>&amp;Optionen</string>
+    </property>
+    <addaction name="Menue_Einstellungen" />
+   </widget>
+   <widget class="QMenu" name="menu_Anwendungsfall" >
+    <property name="title" >
+     <string>&amp;Anwendungsfall</string>
+    </property>
+    <addaction name="Menue_MergemoduleFuerQt" />
+    <addaction name="Menue_AnwendungAnpassen" />
+   </widget>
+   <widget class="QMenu" name="menu_Hilfe" >
+    <property name="title" >
+     <string>&amp;Hilfe</string>
+    </property>
+    <addaction name="Menue_VorspannFuerProgramme" />
+    <addaction name="Menue_UeberQt" />
+    <addaction name="Menue_UeberDasProgramm" />
+   </widget>
+   <addaction name="menu_Anwendungsfall" />
+   <addaction name="menu_Optionen" />
+   <addaction name="menu_Hilfe" />
+  </widget>
+  <widget class="QStatusBar" name="statusBar" />
+  <action name="Menue_UeberQt" >
+   <property name="text" >
+    <string>Über &amp;Qt</string>
+   </property>
+   <property name="statusTip" >
+    <string>Zeigt Informationen über Qt an.</string>
+   </property>
+   <property name="menuRole" >
+    <enum>QAction::AboutQtRole</enum>
+   </property>
+  </action>
+  <action name="Menue_UeberDasProgramm" >
+   <property name="text" >
+    <string>Über das &amp;Programm</string>
+   </property>
+   <property name="statusTip" >
+    <string>Zeigt Informationen über das Programm an.</string>
+   </property>
+   <property name="menuRole" >
+    <enum>QAction::AboutRole</enum>
+   </property>
+  </action>
+  <action name="Menue_Einstellungen" >
+   <property name="text" >
+    <string>&amp;Einstellungen</string>
+   </property>
+   <property name="statusTip" >
+    <string>Legt die Paramteer für das Programm fest.</string>
+   </property>
+   <property name="menuRole" >
+    <enum>QAction::PreferencesRole</enum>
+   </property>
+  </action>
+  <action name="Menue_MergemoduleFuerQt" >
+   <property name="text" >
+    <string>&amp;Mergemodule für Qt</string>
+   </property>
+   <property name="statusTip" >
+    <string>Erstellt die MSI Mergemodule für Qt.</string>
+   </property>
+  </action>
+  <action name="Menue_AnwendungAnpassen" >
+   <property name="text" >
+    <string>&amp;Anwendung anpassen</string>
+   </property>
+   <property name="statusTip" >
+    <string>Passt das Manifest für eine Anwendung an.</string>
+   </property>
+  </action>
+  <action name="Menue_VorspannFuerProgramme" >
+   <property name="text" >
+    <string>&amp;Vorspann für Programme</string>
+   </property>
+   <property name="statusTip" >
+    <string>Vorspann für Qt Programme anzeigen.</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,39 @@
+#include "Winver.h"
+//Programmsymbol ICON DISCARDABLE  "Bilder\\Symbol.ico"
+1 VERSIONINFO
+FILEVERSION 0,1,0,0
+PRODUCTVERSION 0,1,0,0
+FILEOS VOS__WINDOWS32
+FILETYPE VFT_APP
+FILESUBTYPE  0
+{
+	BLOCK "StringFileInfo"
+	{
+		BLOCK "040704e4"
+		{
+			VALUE	"FileVersion","0.1.0"
+			VALUE	"CompanyName",""
+			VALUE	"LegalCopyright","Urherberrecht 2007 Frank Büttner"
+			VALUE	"ProductName","Qt Side-by-Side Assembly Ersteller"
+			VALUE	"FileDescription","Erstellt das öffentliches Side-by-Side Assembly für Qt und passt Qt Andwendungen entsprechend an."
+		    VALUE	"OriginalFilename","qtsbsa.exe"
+			VALUE	"InternalName","qtsbsa"
+			VALUE	"Comments","Ermöglicht es, Qt als öffentliches Side-by-Side Assembly zu benutzen."
+							   " Es werden die Manifeste korrigiert und die Mergemodule erzeugt."
+							   " Desweiteren könne auch die Manifest von Anwendungen die auf Qt basieren angpasst werden."
+		}
+		BLOCK "040904e4"
+		{
+			VALUE	"FileVersion","0.1.0"
+			VALUE	"CompanyName",""
+			VALUE	"LegalCopyright","Copyright (C) 2007 Frank Büttner"
+			VALUE	"ProductName","Qt Side-by-Side assembly creater"
+			VALUE	"FileDescription","Create the shared Side-by-Side assembly of Qt and modify Qt applications."
+			VALUE	"OriginalFilename","qtsbsa.exe"
+			VALUE	"InternalName","qtsbsa"
+			VALUE	"Comments","Make it posisble to install Qt as an shared Side-by-Side assembly."
+							   " All manifest files will be corrected and the merge modules will be build."
+							   " Also it will be possible to modify application based on Qt to use it."
+		}
+	}
+}
