@@ -36,10 +36,10 @@ void QFrankQtSBSAArbeitVerteilen::Loslegen()
 		return;
 	if(!K_QtPruefen())
 		return;
-	/*if(!K_ZielverzeichnisPruefen())
+	if(!K_ZielverzeichnisPruefen())
 		return;
 	if(!K_DateienKopieren())
-		return;*/
+		return;
 	//Damit man zum Testen nicht laufend die Dateien löschen muss.
 	//Test Anfang
 	
