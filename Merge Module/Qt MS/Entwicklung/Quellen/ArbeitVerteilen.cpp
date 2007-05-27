@@ -367,10 +367,11 @@ bool QFrankQtSBSAArbeitVerteilen::K_QtPruefen()
 	Dateiliste=Dateiliste.filter(QRegExp(".dll$",Qt::CaseInsensitive)); //nur DLL's
 	Dateiliste=Dateiliste.filter(QRegExp(".*([^d][^4]|[^d].|.[^4])\\.dll")); //keine Debugdateien
 
-	geht leider nicht
+	//geht leider nicht
 	Dateiliste=Dateiliste.filter(QRegExp("[^designer]",Qt::CaseInsensitive));//keine Designer Dateien
 
-	qDebug()<<Dateiliste;
+	//nur zum testen
+	qDebug()<< Dateiliste;
 	K_SchrittFehlgeschlagen();
 	K_ErstellenGescheitert();
 	emit fertig();
