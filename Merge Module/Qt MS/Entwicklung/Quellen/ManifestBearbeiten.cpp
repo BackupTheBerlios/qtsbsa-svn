@@ -24,6 +24,13 @@ QFrankQtSBSAManifestBearbeiten::QFrankQtSBSAManifestBearbeiten(QFrankQtSBSAParam
 }
 void QFrankQtSBSAManifestBearbeiten::run()
 {
+	//Sprachpakete haben kein Manifest!!
+	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
+	{
+		K_Fehlercode=0;
+		emit fertig(this);
+		return;
+	}
 	QString Dateiname=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen();
 	if(!K_QtKomponenteErmitteln(Dateiname))
 	{

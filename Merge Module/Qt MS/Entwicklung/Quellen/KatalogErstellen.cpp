@@ -30,8 +30,9 @@ QFrankQtSBSAKatalogErstellen::~QFrankQtSBSAKatalogErstellen()
 void QFrankQtSBSAKatalogErstellen::run()
 {
 	K_Prozess=new QProcess();
-	//Qt Plug-Ins brauchen kein Katlog
-	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istPlugIn())
+	//Qt Plug-Ins und Sprachpaket brauchen kein Katalog, also gibt es nix zu signieren.
+	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istPlugIn() ||
+	   K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
 	{
 		K_Fehlercode=0;
 		emit fertig(this);

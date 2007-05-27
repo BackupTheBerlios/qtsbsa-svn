@@ -1,8 +1,8 @@
 #include "Winver.h"
 //Programmsymbol ICON DISCARDABLE  "Bilder\\Symbol.ico"
 1 VERSIONINFO
-FILEVERSION 0,1,0,0
-PRODUCTVERSION 0,1,0,0
+FILEVERSION 0,2,0,0
+PRODUCTVERSION 0,2,0,0
 FILEOS VOS__WINDOWS32
 FILETYPE VFT_APP
 FILESUBTYPE  0
@@ -11,7 +11,7 @@ FILESUBTYPE  0
 	{
 		BLOCK "040704e4"
 		{
-			VALUE	"FileVersion","0.1.0"
+			VALUE	"FileVersion","0.2.0"
 			VALUE	"CompanyName",""
 			VALUE	"LegalCopyright","Urherberrecht 2007 Frank Büttner"
 			VALUE	"ProductName","Qt Side-by-Side Assembly Ersteller"
@@ -24,7 +24,7 @@ FILESUBTYPE  0
 		}
 		BLOCK "040904e4"
 		{
-			VALUE	"FileVersion","0.1.0"
+			VALUE	"FileVersion","0.2.0"
 			VALUE	"CompanyName",""
 			VALUE	"LegalCopyright","Copyright (C) 2007 Frank Büttner"
 			VALUE	"ProductName","Qt Side-by-Side assembly creater"

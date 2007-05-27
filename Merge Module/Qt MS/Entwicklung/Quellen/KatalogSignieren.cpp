@@ -29,8 +29,9 @@ QFrankQtSBSAKatalogSignieren::~QFrankQtSBSAKatalogSignieren()
 }
 void QFrankQtSBSAKatalogSignieren::run()
 {
-	//Qt Plug-Ins haben kein Katalog, also gibt es nix zu signieren.
-	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istPlugIn())
+	//Qt Plug-Ins und Sprachpaket haben kein Katalog, also gibt es nix zu signieren.
+	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istPlugIn() ||
+	   K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
 	{
 		K_Fehlercode=0;
 		emit fertig(this);

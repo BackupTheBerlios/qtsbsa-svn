@@ -34,6 +34,12 @@ void QFrankQtSBSAWixDateiErstellen::run()
 		Dateiname="Qt_"+K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).PlugInTypeHohlen()+"_"+Modulname;
 		Modulname=Dateiname;
 	}
+	else if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
+	{
+		Vorlagendatei.setFileName(":/QtSprachpaket.wxs");
+		Dateiname="QtSprachpaket_"+Dateiname.mid(2,Dateiname.size()-6);
+		Modulname=Dateiname;
+	}
 	else
 	{
 		Vorlagendatei.setFileName(":/QtModul.wxs");	
@@ -126,6 +132,8 @@ void QFrankQtSBSAWixDateiErstellen::K_PlatzhalterErsetzen(QString &zeile,const Q
 		QString tmp=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen();
 		if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istPlugIn())
 			tmp=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).PlugInTypeHohlen()+"\\"+tmp;
+		else if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
+			tmp="Uebersetzungen\\"+tmp;
 		zeile.replace("$MODULDATEIQUELLE",tmp);
 	}
 

@@ -17,5 +17,6 @@
 		<file alias="Vorspann.txt">Resourcen/Vorspann.txt</file>
 		<file alias="QtModul.wxs">Resourcen/QtModul.wxs</file>
 		<file alias="QtPlugIn.wxs">Resourcen/QtPlugIn.wxs</file>
+		<file alias="QtSprachpaket.wxs">Resourcen/QtSprachpaket.wxs</file>
 	</qresource>
 </RCC>

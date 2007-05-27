@@ -16,10 +16,11 @@
 
 #include "QtModul.h"
 
-QFrankQtSBSAQtModul::QFrankQtSBSAQtModul(const QString &dateiname,const bool &istPlugIn)
+QFrankQtSBSAQtModul::QFrankQtSBSAQtModul(const QString &dateiname,const bool &istPlugIn,const bool &istSprachpaket)
 {
 	K_Dateiname=dateiname;
 	K_istPlugIn=istPlugIn;
+	K_istSprachpaket=istSprachpaket;
 }
 QFrankQtSBSAQtModul::QFrankQtSBSAQtModul()
 {

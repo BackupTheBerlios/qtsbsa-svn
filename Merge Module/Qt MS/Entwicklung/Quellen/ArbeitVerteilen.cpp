@@ -36,10 +36,10 @@ void QFrankQtSBSAArbeitVerteilen::Loslegen()
 		return;
 	if(!K_QtPruefen())
 		return;
-	/*if(!K_ZielverzeichnisPruefen())
+	if(!K_ZielverzeichnisPruefen())
 		return;
 	if(!K_DateienKopieren())
-		return;*/
+		return;
 	//Damit man zum Testen nicht laufend die Dateien löschen muss.
 	//Test Anfang
 	
@@ -63,8 +63,33 @@ void QFrankQtSBSAArbeitVerteilen::Loslegen()
 
 	//testEnde
 
-	K_ManifesteExportieren();	
+	K_ManifesteExportieren();
+	
 }
+/*
+void QFrankQtSBSAArbeitVerteilen::K_ThreadsAnstossen(const uchar &welchen)
+{
+	//zum testen
+	//K_AnzahlDerProzesse=1;
+	K_AnzahlDerProzesse=K_Parameter->QtBibliothekenHohlen().count();
+	switch(welchen)
+	{
+		case QFrankQtSBSAArbeitVerteilen::ManifestExportieren:
+				K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::ManifestExportieren;
+				emit Meldung(tr("Extrahiere Manifeste"));
+				break;
+		default:
+				qFatal("%s K_ThreadsAnstossen: unbekannter Arbeitsschritt",this->metaObject()->className());
+				break;
+	}
+	for(int Schritt=0;Schritt<K_AnzahlDerProzesse;Schritt++)
+	{
+		//void *Aufgabe=new XX(K_Parameter,this);
+		//Aufgabe->DateinummerFestlegen(Schritt);
+		//connect(Aufgabe,SIGNAL(fertig(QFrankQtSBSABasisThread*)),this,SLOT(K_ThreadFertig( QFrankQtSBSABasisThread*)));
+		//Aufgabe->start();
+	}
+}*/
 void QFrankQtSBSAArbeitVerteilen::K_ManifesteExportieren()
 {
 	K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::ManifestExportieren;
@@ -237,6 +262,7 @@ void QFrankQtSBSAArbeitVerteilen::K_NaechsterArbeitsschritt()
 																		break;
 		case QFrankQtSBSAArbeitVerteilen::WixDateienUebersetzen:
 																		K_WixDateienUebersetzen();
+																		break;
 		case QFrankQtSBSAArbeitVerteilen::Aufraeumen:
 																		K_Aufraeumen(QFrankQtSBSAArbeitVerteilen::Normal);
 																		break;
@@ -260,6 +286,16 @@ bool QFrankQtSBSAArbeitVerteilen::K_DateienKopieren()
 		{
 			Ziel=K_Parameter->ZielverzeichnisHohlen()+"\\"+Datei.DateinameHohlen();
 			Quelle=K_Parameter->QtPfadHohlen()+"\\"+Datei.DateinameHohlen();
+		}
+		else if(Datei.istSprachpaket())
+		{
+			QDir SprachpaketVerzeichnis(K_Parameter->ZielverzeichnisHohlen()+"\\Uebersetzungen");
+			if(!SprachpaketVerzeichnis.exists())
+				SprachpaketVerzeichnis.mkdir(SprachpaketVerzeichnis.absolutePath());
+			Ziel=SprachpaketVerzeichnis.absolutePath()+"/"+Datei.DateinameHohlen();
+			QDir PluginsBasisverzeichnis(K_Parameter->QtPfadHohlen());
+			PluginsBasisverzeichnis.cdUp();
+			Quelle=PluginsBasisverzeichnis.absolutePath()+"\\translations\\"+Datei.DateinameHohlen();
 		}
 		else
 		{
@@ -313,15 +349,7 @@ bool QFrankQtSBSAArbeitVerteilen::K_QtPruefen()
 	emit Meldung(trUtf8("Prüfe Qt"));
 	//sind alle Qt Libs da??
 	QList<QFrankQtSBSAQtModul> Bibliotheken;
-	Bibliotheken << QFrankQtSBSAQtModul("Qt3Support4.dll")<<
-					QFrankQtSBSAQtModul("QtAssistantClient4.dll")<<
-					QFrankQtSBSAQtModul("QtCore4.dll")<<
-					QFrankQtSBSAQtModul("QtGui4.dll")<<
-					QFrankQtSBSAQtModul("QtNetwork4.dll")<<
-					QFrankQtSBSAQtModul("QtOpenGL4.dll")<<
-					QFrankQtSBSAQtModul("QtSql4.dll")<<
-					QFrankQtSBSAQtModul("QtSvg4.dll")<<
-					QFrankQtSBSAQtModul("QtXml4.dll");
+	Bibliotheken << QFrankQtSBSAQtModul("QtCore4.dll");					
 	K_Parameter->QtBibliothekenSetzen(Bibliotheken);
 	//true=Qt Bestandteile
 	if(!K_DateienVorhanden(Bibliotheken,true))
@@ -331,10 +359,28 @@ bool QFrankQtSBSAArbeitVerteilen::K_QtPruefen()
 		emit fertig();
 		return false;
 	}
-	//Optionale Dateien (Plug-Ins)
+	//Qt ist da, dann suchen wir den Rest von Qt
+	Bibliotheken.clear();
+	//alle DLL's die nicht auf d4 enden, nicht QtDesigner oder QTest enthalten.
+	QDir QtVerzeichnis(K_Parameter->QtPfadHohlen());
+	QStringList Dateiliste=QtVerzeichnis.entryList((QDir::Files));
+	Dateiliste=Dateiliste.filter(QRegExp(".dll$",Qt::CaseInsensitive)); //nur DLL's
+	Dateiliste=Dateiliste.filter(QRegExp(".*([^d][^4]|[^d].|.[^4])\\.dll")); //keine Debugdateien
+
+	geht leider nicht
+	Dateiliste=Dateiliste.filter(QRegExp("[^designer]",Qt::CaseInsensitive));//keine Designer Dateien
+
+	qDebug()<<Dateiliste;
+	K_SchrittFehlgeschlagen();
+	K_ErstellenGescheitert();
+	emit fertig();
+	return false;
+
+	//Optionale Dateien (Plug-Ins und Sprachpakete)
 	QFrankQtSBSAQtModul Plugin;
 	QDir PluginVerzeichnis;
 	QStringList QtPlugInBereiche;
+	//Plug Ins
 	QtPlugInBereiche <<"sqldrivers"<<"accessible"<<"codecs"<<"iconengines"<<"imageformats";
 	Q_FOREACH(QString QtPlugInBereich,QtPlugInBereiche)
 	{
@@ -350,7 +396,16 @@ bool QFrankQtSBSAArbeitVerteilen::K_QtPruefen()
 			Plugin.PlugInTypeSetzen(QtPlugInBereich);
 			Bibliotheken<<Plugin;			
 		}
-	}	
+	}
+	//Sprachpakete
+	PluginVerzeichnis.setPath(K_Parameter->QtPfadHohlen()+"\\..\\translations\\");
+	PluginVerzeichnis.setNameFilters(QStringList("*.qm"));
+	Q_FOREACH(QString QtPlugin,PluginVerzeichnis.entryList(QDir::Files))
+	{
+			Plugin=QFrankQtSBSAQtModul(QtPlugin,false,true);
+			Bibliotheken<<Plugin;			
+	}
+
 	K_Parameter->QtBibliothekenSetzen(Bibliotheken);
 	K_Parameter->QtVersionSetzen(K_Dateiversion(K_Parameter->QtPfadHohlen()+"\\"+Bibliotheken.at(0).DateinameHohlen()));
 	if(K_Parameter->QtVersionHohlen().isEmpty())

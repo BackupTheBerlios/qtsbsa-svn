@@ -17,7 +17,7 @@
 TEMPLATE					= app
 TARGET						= qtsbsa
 DESTDIR						= bin
-QT							+= xml
+QT							+= xml sql
 #DEFINES						+= QT_SIDE_BY_SIDE_ASSEMBLY
 debug {
 	CONFIG					+= console warn_on
@@ -30,7 +30,7 @@ RCC_DIR						= tmp/resourcen
 #RC_FILE						= $$RCC_DIR/Windows.rc
 RC_FILE						= Windows.rc
 RESOURCES					= Resourcen.qrc
-LIBS						+= -lCrypt32 -lCryptui -lAdvapi32 -lversion
+LIBS						+= -lCrypt32 -lCryptui -lversion
 TRANSLATIONS				= Uebersetzungen/Uebersetzung_en.ts\
 							  Uebersetzungen/Uebersetzung_XX.ts
 FORMS						= Dialoge/HauptBasis.ui\

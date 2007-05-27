@@ -34,6 +34,13 @@ QFrankQtSBSAManifestExportieren::~QFrankQtSBSAManifestExportieren()
 }
 void QFrankQtSBSAManifestExportieren::run()
 {
+	//Sprachpakete haben kein Manifest!!
+	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
+	{
+		K_Fehlercode=0;
+		emit fertig(this);
+		return;
+	}
 	K_mtProzess=new QProcess();
 	K_mtProzess->setProcessChannelMode(QProcess::MergedChannels);
 	connect(K_mtProzess,SIGNAL(finished(int)),this,SLOT(K_mtFertig(int)));

@@ -23,7 +23,7 @@
 class QFrankQtSBSAParameter;
 class QFrankQtSBSABasisThread;
 class QFrankQtSBSAArbeitVerteilen:public QObject
-{
+{	
 	Q_OBJECT
 	public:
 				QFrankQtSBSAArbeitVerteilen(QObject *eltern,QFrankQtSBSAParameter* parameter);				
@@ -60,7 +60,6 @@ class QFrankQtSBSAArbeitVerteilen:public QObject
 				void							K_Aufraeumen(const uchar &wie);
 				void							K_NaechsterArbeitsschritt();
 				const QString					K_Dateiversion(const QString &datei);
-				uchar							K_Arbeitsschritt;
-
+				uchar							K_Arbeitsschritt;				
 };
 #endif
