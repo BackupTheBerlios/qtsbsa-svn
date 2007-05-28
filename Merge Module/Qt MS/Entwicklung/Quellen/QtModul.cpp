@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Frank Büttner frank-buettner@gmx.net
+/* Copyright (C) 2007 Frank BÃ¼ttner frank-buettner@gmx.net
 
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
@@ -38,7 +38,7 @@ QDebug  operator<<(QDebug debug, const QFrankQtSBSAQtModul &modul)
 	}
 	else
 		Plugin="Nein";
-	return debug<<QString("Dateiname: %1 PlugIn: %2 Abgängigkeiten: %3").arg(modul.DateinameHohlen())
+	return debug<<QString("Dateiname: %1 PlugIn: %2 AbgÃ¤ngigkeiten: %3").arg(modul.DateinameHohlen())
 																		.arg(Plugin)
 																		.arg(modul.AbhaenigkeitenHohlen().join(","));
 }

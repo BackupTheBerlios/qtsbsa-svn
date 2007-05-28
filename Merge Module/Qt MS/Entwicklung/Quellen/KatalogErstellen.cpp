@@ -35,7 +35,8 @@ void QFrankQtSBSAKatalogErstellen::run()
 	   K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
 	{
 		K_Fehlercode=0;
-		emit fertig(this);
+		//emit
+		fertig(this);
 		return;
 	}
 	connect(K_Prozess,SIGNAL(finished(int)),this,SLOT(K_ProzessIstFertig(int)));
@@ -52,11 +53,13 @@ void QFrankQtSBSAKatalogErstellen::run()
 	{
 		K_Fehlercode=1;
 		K_Fehlermeldung=trUtf8("Das Werkzeug mt.exe konnte nicht ausgeführt werden.");
-		emit fertig(this);
+		//emit
+		fertig(this);
 		return;
 	}
 	K_Fehlercode=exec();
-	emit fertig(this);
+	//emit
+	fertig(this);
 }
 void QFrankQtSBSAKatalogErstellen::K_ProzessIstFertig(int rueckgabe)
 {
@@ -105,7 +108,8 @@ void QFrankQtSBSAKatalogErstellen::K_ProzessIstFertig(int rueckgabe)
 			{
 				K_Fehlercode=1;
 				K_Fehlermeldung=trUtf8("Das Werkzeug makecat.exe konnte nicht ausgeführt werden.");
-				emit fertig(this);
+				//emit
+				fertig(this);
 				exit(1);
 				return;
 			}

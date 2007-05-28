@@ -34,7 +34,8 @@ void QFrankQtSBSAKatalogSignieren::run()
 	   K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
 	{
 		K_Fehlercode=0;
-		emit fertig(this);
+		//emit
+		fertig(this);
 		return;
 	}
 	QString Dateipfad="";
@@ -52,11 +53,13 @@ void QFrankQtSBSAKatalogSignieren::run()
 	{
 		K_Fehlercode=1;
 		K_Fehlermeldung=trUtf8("Das Werkzeug signtool.exe konnte nicht ausgeführt werden.");
-		emit fertig(this);
+		//emit
+		fertig(this);
 		return;
 	}
 	K_Fehlercode=exec();
-	emit fertig(this);
+	//emit
+	fertig(this);
 }
 void QFrankQtSBSAKatalogSignieren::K_signtoolFertig(int statusCode)
 {

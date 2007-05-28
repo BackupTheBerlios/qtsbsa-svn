@@ -28,7 +28,7 @@ class QFrankQtSBSADlgFortschritt : public QDialog, private Ui::dlgFortschrittBas
 				virtual bool					event(QEvent *ereignis);					
 	private:
 				bool							K_darfGeschlossenWerden;				
-	private slots:
+	private Q_SLOTS:
 				void							on_sfSchliessen_clicked();
 				void							K_NeueMeldung(const QString &meldung);
 				void							K_ErstellungBeendet();

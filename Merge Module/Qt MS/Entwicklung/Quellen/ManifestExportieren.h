@@ -27,7 +27,7 @@ class QFrankQtSBSAManifestExportieren:public QFrankQtSBSABasisThread
 				QFrankQtSBSAManifestExportieren( QFrankQtSBSAParameter* parameter,QObject *eltern=0);	
 				~QFrankQtSBSAManifestExportieren();
 
-	private slots:
+	private Q_SLOTS:
 				void		K_mtFertig(int statusCode);
 	private:	
 				QProcess*	K_mtProzess;				

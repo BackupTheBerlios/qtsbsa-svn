@@ -29,6 +29,29 @@
 QFrankQtSBSAArbeitVerteilen::QFrankQtSBSAArbeitVerteilen(QObject *eltern,QFrankQtSBSAParameter* parameter):QObject(eltern)
 {
 	K_Parameter=parameter;
+	//Umgebungs Variable NUMBER_OF_PROCESSORS auslesen und dies mal Höchstwert für die parallelen Prozesse
+	//festsetzen
+	QStringList Umgebungsvariabeln=QProcess::systemEnvironment();
+	int PositionInDerListe=Umgebungsvariabeln.indexOf(QRegExp("NUMBER_OF_PROCESSORS*",Qt::CaseSensitive,
+																QRegExp::Wildcard));
+	//Wenn -1 kein Eintrag vorhanden, also wird 1 angenommen.
+	if(PositionInDerListe==-1)
+	{
+		K_AnzahlDerMaximalenParallelenProzesse=1;
+#ifndef QT_NO_DEBUG
+		qWarning("%s QFrankQtSBSAArbeitVerteilen: keine CPU Infos!!",this->metaObject()->className());
+#endif
+	}
+	else
+	{
+		K_AnzahlDerMaximalenParallelenProzesse=(uchar)Umgebungsvariabeln.at(PositionInDerListe).split("=")
+																								.at(1).toInt();
+	}
+#ifndef QT_NO_DEBUG
+		qDebug("%s QFrankQtSBSAArbeitVerteilen: Anzahl der CPU's: %i",this->metaObject()->className()
+																	,K_AnzahlDerMaximalenParallelenProzesse);
+#endif
+	Hier geht es weiter erst mal mit der Aufteilung der Threads.	
 }
 void QFrankQtSBSAArbeitVerteilen::Loslegen()
 {
@@ -93,7 +116,8 @@ void QFrankQtSBSAArbeitVerteilen::K_ThreadsAnstossen(const uchar &welchen)
 void QFrankQtSBSAArbeitVerteilen::K_ManifesteExportieren()
 {
 	K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::ManifestExportieren;
-	emit Meldung(tr("Extrahiere Manifeste"));
+	//emit
+	Meldung(tr("Extrahiere Manifeste"));
 	//zum testen nur 1 Thread 
 	//K_AnzahlDerProzesse=1;
 
@@ -101,7 +125,8 @@ void QFrankQtSBSAArbeitVerteilen::K_ManifesteExportieren()
 #ifndef QT_NO_DEBUG
 	qDebug("%s K_ManifesteExportieren: Anzahl der Prozesse: %i",this->metaObject()->className(),K_AnzahlDerProzesse);
 #endif
-	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
+	//emit
+	FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
 	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
 	{
 		QFrankQtSBSAManifestExportieren *Export=new QFrankQtSBSAManifestExportieren(K_Parameter,this);
@@ -112,14 +137,16 @@ void QFrankQtSBSAArbeitVerteilen::K_ManifesteExportieren()
 }
 void QFrankQtSBSAArbeitVerteilen::K_ManifesteBearbeiten()
 {
-	emit Meldung(tr("Bearbeite Manifeste"));
+	//emit
+	Meldung(tr("Bearbeite Manifeste"));
 	//zum testen nur 1 Thread 
 	//K_AnzahlDerProzesse=1;
 	K_AnzahlDerProzesse=K_Parameter->QtBibliothekenHohlen().count();
 #ifndef QT_NO_DEBUG
 	qDebug("%s K_ManifesteBearbeiten: Anzahl der Prozesse: %i",this->metaObject()->className(),K_AnzahlDerProzesse);
 #endif
-	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
+	//emit
+	FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
 	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
 	{
 		QFrankQtSBSAManifestBearbeiten *bearbeiten=new QFrankQtSBSAManifestBearbeiten(K_Parameter,this);
@@ -130,11 +157,13 @@ void QFrankQtSBSAArbeitVerteilen::K_ManifesteBearbeiten()
 }
 void QFrankQtSBSAArbeitVerteilen::K_KatalogeErstellen()
 {
-	emit Meldung(tr("Erstelle Kataloge"));
+	//emit
+	Meldung(tr("Erstelle Kataloge"));
 	K_AnzahlDerProzesse=K_Parameter->QtBibliothekenHohlen().count();
 	//zum testen nur 1 Thread 
 	//K_AnzahlDerProzesse=1;
-	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
+	//emit
+	FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
 	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
 	{
 		QFrankQtSBSAKatalogErstellen *erstellen=new QFrankQtSBSAKatalogErstellen(K_Parameter,this);
@@ -145,11 +174,13 @@ void QFrankQtSBSAArbeitVerteilen::K_KatalogeErstellen()
 }
 void QFrankQtSBSAArbeitVerteilen::K_KatalogeSignieren()
 {
-	emit Meldung(tr("Signiere Kataloge"));
+	//emit
+	Meldung(tr("Signiere Kataloge"));
 	K_AnzahlDerProzesse=K_Parameter->QtBibliothekenHohlen().count();
 	//zum testen nur 1 Thread 
 	//K_AnzahlDerProzesse=1;
-	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
+	//emit
+	FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
 	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
 	{
 		QFrankQtSBSAKatalogSignieren *signieren=new QFrankQtSBSAKatalogSignieren(K_Parameter,this);
@@ -160,9 +191,11 @@ void QFrankQtSBSAArbeitVerteilen::K_KatalogeSignieren()
 }
 void QFrankQtSBSAArbeitVerteilen::K_WixDateienErstellen()
 {
-	emit Meldung(tr("Erstelle Wix Dateien"));
+	//emit
+	Meldung(tr("Erstelle Wix Dateien"));
 	K_AnzahlDerProzesse=K_Parameter->QtBibliothekenHohlen().count();
-	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
+	//emit
+	FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
 	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
 	{
 		QFrankQtSBSAWixDateiErstellen *erstellen=new QFrankQtSBSAWixDateiErstellen(K_Parameter,this);
@@ -173,13 +206,14 @@ void QFrankQtSBSAArbeitVerteilen::K_WixDateienErstellen()
 }
 void QFrankQtSBSAArbeitVerteilen::K_WixDateienUebersetzen()
 {
-	emit Meldung(trUtf8("Übersetze Wix Dateien"));
+	//emit
+	Meldung(trUtf8("Übersetze Wix Dateien"));
 	K_AnzahlDerProzesse=K_Parameter->QtBibliothekenHohlen().count();
 	
 	//Zum testen
 	//K_AnzahlDerProzesse=1;
-
-	emit FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
+	//emit
+	FortschrittsanzeigeMaximum(K_AnzahlDerProzesse);
 	for(int Threadnummer=0;Threadnummer<K_AnzahlDerProzesse;Threadnummer++)
 	{
 		QFrankQtSBSAWixDateiUebersetzen *uebersetzen=new QFrankQtSBSAWixDateiUebersetzen(K_Parameter,this);
@@ -190,18 +224,21 @@ void QFrankQtSBSAArbeitVerteilen::K_WixDateienUebersetzen()
 }
 void QFrankQtSBSAArbeitVerteilen::K_Aufraeumen(const uchar &wie)
 {
-	emit Meldung(trUtf8("Aufräumen"));
+	//emit
+	Meldung(trUtf8("Aufräumen"));
 	QFrankQtSBSAAufraeumen* putzen=new QFrankQtSBSAAufraeumen(K_Parameter,this);
 	if(putzen->putzen())
 		K_SchrittFertig();
 	else
 	{
-		emit Meldung(putzen->Fehlermeldung());
+		//emit
+		Meldung(putzen->Fehlermeldung());
 		K_SchrittFehlgeschlagen();
 		if(wie==QFrankQtSBSAArbeitVerteilen::Normal)
 		{
 			K_ErstellenGescheitert();
-			emit fertig();
+			//emit
+			fertig();
 		}
 		return;
 	}
@@ -210,14 +247,16 @@ void QFrankQtSBSAArbeitVerteilen::K_Aufraeumen(const uchar &wie)
 }
 void QFrankQtSBSAArbeitVerteilen::K_ThreadFertig(QFrankQtSBSABasisThread *welcher)
 {
-	emit FortschrittsanzeigeSchritt();
+	//emit
+	FortschrittsanzeigeSchritt();
 	static bool FehlerAufgetreten=false;
 	K_AnzahlDerProzesse--;
 	int Fehlercode=welcher->FehlercodeHohlen();	
 	if(Fehlercode!=0)
 	{
 		FehlerAufgetreten=true;
-		emit Meldung(welcher->FehlermeldungHohlen());
+		//emit
+		Meldung(welcher->FehlermeldungHohlen());
 	}
 #ifndef QT_NO_DEBUG
 	int Threadnummer=welcher->Threadnummer();
@@ -238,7 +277,8 @@ void QFrankQtSBSAArbeitVerteilen::K_ThreadFertig(QFrankQtSBSABasisThread *welche
 			K_Arbeitsschritt=QFrankQtSBSAArbeitVerteilen::Aufraeumen;
 			K_Aufraeumen(QFrankQtSBSAArbeitVerteilen::NachFehler);
 			K_ErstellenGescheitert();
-			emit fertig();
+			//emit
+			fertig();
 		}		
 	}	
 }
@@ -271,24 +311,35 @@ void QFrankQtSBSAArbeitVerteilen::K_NaechsterArbeitsschritt()
 																		qDebug("%s K_NaechsterArbeitsschritt: alle Schritt fertig",this->metaObject()->className());
 #endif
 																		K_ErstellenErfolgreich();
-																		emit fertig();
+																		//emit
+																		fertig();
 																		break;
 	};
 }
 bool QFrankQtSBSAArbeitVerteilen::K_DateienKopieren()
 {	
-	emit Meldung(tr("Kopiere Qt4 Bibliotheken"));
-	emit FortschrittsanzeigeMaximum(K_Parameter->QtBibliothekenHohlen().count());
+	//emit
+	Meldung(tr("Kopiere Qt4 Bibliotheken"));
+	//emit
+	FortschrittsanzeigeMaximum(K_Parameter->QtBibliothekenHohlen().count());
 	QString Ziel,Quelle;
 	Q_FOREACH(QFrankQtSBSAQtModul Datei,K_Parameter->QtBibliothekenHohlen())
 	{
-		if(!Datei.istPlugIn())
+		if(!Datei.istPlugIn() && !Datei.istSprachpaket())
 		{
+#ifndef QT_NO_DEBUG
+			qDebug("%s K_DateienKopieren: %s ist ein Qt Modul.",this->metaObject()->className(),
+					qPrintable(Datei.DateinameHohlen()));
+#endif
 			Ziel=K_Parameter->ZielverzeichnisHohlen()+"\\"+Datei.DateinameHohlen();
 			Quelle=K_Parameter->QtPfadHohlen()+"\\"+Datei.DateinameHohlen();
 		}
 		else if(Datei.istSprachpaket())
 		{
+#ifndef QT_NO_DEBUG
+			qDebug("%s K_DateienKopieren: %s ist ein Sprachpaket.",this->metaObject()->className(),
+					qPrintable(Datei.DateinameHohlen()));
+#endif
 			QDir SprachpaketVerzeichnis(K_Parameter->ZielverzeichnisHohlen()+"\\Uebersetzungen");
 			if(!SprachpaketVerzeichnis.exists())
 				SprachpaketVerzeichnis.mkdir(SprachpaketVerzeichnis.absolutePath());
@@ -299,6 +350,10 @@ bool QFrankQtSBSAArbeitVerteilen::K_DateienKopieren()
 		}
 		else
 		{
+#ifndef QT_NO_DEBUG
+			qDebug("%s K_DateienKopieren: %s ist ein Plug-In.",this->metaObject()->className(),
+					qPrintable(Datei.DateinameHohlen()));
+#endif
 			//Muss die Kategorie erst noch erstellt werden??
 			QDir PlugInVerzeichnis(K_Parameter->ZielverzeichnisHohlen()+"\\"+Datei.PlugInTypeHohlen());			
 			if(!PlugInVerzeichnis.exists())
@@ -310,22 +365,25 @@ bool QFrankQtSBSAArbeitVerteilen::K_DateienKopieren()
 		}
 		if(!QFile::copy(Quelle,Ziel))
 		{
-			emit Meldung(tr("Die Datei %1 konnte nicht nach %2 kopiert werden.")
-							.arg(Quelle).arg(Ziel));
+			//emit
+			Meldung(tr("Die Datei %1 konnte nicht nach %2 kopiert werden.").arg(Quelle).arg(Ziel));
 			K_SchrittFehlgeschlagen();
 			K_ErstellenGescheitert();
-			emit fertig();
+			//emit
+			fertig();
 			return false;
 			break;
 		}		
-		emit FortschrittsanzeigeSchritt();
+		//emit
+		FortschrittsanzeigeSchritt();
 	}
 	K_SchrittFertig();	
 	return true;
 }
 bool QFrankQtSBSAArbeitVerteilen::K_WindowsSDKPruefen()
 {
-	emit Meldung(trUtf8("Prüfe Windows SDK"));
+	//emit
+	Meldung(trUtf8("Prüfe Windows SDK"));
 
 	//Haben wir alle SDK Werkzeuge??
 	QList<QFrankQtSBSAQtModul> Werkzeugliste;
@@ -333,12 +391,14 @@ bool QFrankQtSBSAArbeitVerteilen::K_WindowsSDKPruefen()
 					QFrankQtSBSAQtModul(K_Parameter->WindowsSDKPfadHohlen()+"\\signtool.exe")<<
 					QFrankQtSBSAQtModul(K_Parameter->WindowsSDKPfadHohlen()+"\\Depends.Exe")<<
 					QFrankQtSBSAQtModul(K_Parameter->WindowsSDKPfadHohlen()+"\\MakeCat.Exe");
-	emit FortschrittsanzeigeMaximum(Werkzeugliste.count());
+	//emit
+	FortschrittsanzeigeMaximum(Werkzeugliste.count());
 	if(!K_DateienVorhanden(Werkzeugliste))
 	{
 		K_SchrittFehlgeschlagen();
 		K_ErstellenGescheitert();
-		emit fertig();
+		//emit
+		fertig();
 		return false;
 	}	
 	K_SchrittFertig();
@@ -346,7 +406,8 @@ bool QFrankQtSBSAArbeitVerteilen::K_WindowsSDKPruefen()
 }
 bool QFrankQtSBSAArbeitVerteilen::K_QtPruefen()
 {
-	emit Meldung(trUtf8("Prüfe Qt"));
+	//emit
+	Meldung(trUtf8("Prüfe Qt"));
 	//sind alle Qt Libs da??
 	QList<QFrankQtSBSAQtModul> Bibliotheken;
 	Bibliotheken << QFrankQtSBSAQtModul("QtCore4.dll");					
@@ -356,7 +417,8 @@ bool QFrankQtSBSAArbeitVerteilen::K_QtPruefen()
 	{
 		K_SchrittFehlgeschlagen();
 		K_ErstellenGescheitert();
-		emit fertig();
+		//emit
+		fertig();
 		return false;
 	}
 	//Qt ist da, dann suchen wir den Rest von Qt
@@ -366,17 +428,23 @@ bool QFrankQtSBSAArbeitVerteilen::K_QtPruefen()
 	QStringList Dateiliste=QtVerzeichnis.entryList((QDir::Files));
 	Dateiliste=Dateiliste.filter(QRegExp(".dll$",Qt::CaseInsensitive)); //nur DLL's
 	Dateiliste=Dateiliste.filter(QRegExp(".*([^d][^4]|[^d].|.[^4])\\.dll")); //keine Debugdateien
-
-	//geht leider nicht
-	Dateiliste=Dateiliste.filter(QRegExp("[^designer]",Qt::CaseInsensitive));//keine Designer Dateien
-
-	//nur zum testen
-	qDebug()<< Dateiliste;
-	K_SchrittFehlgeschlagen();
-	K_ErstellenGescheitert();
-	emit fertig();
-	return false;
-
+	QSet<QString> tmp= QSet<QString>::fromList(Dateiliste);
+	tmp.subtract(QSet<QString>::fromList(Dateiliste.filter("designer",Qt::CaseInsensitive))); //keine Designer Dateien
+	Dateiliste=tmp.toList();
+	//Nur Qt Module
+	tmp.subtract(QSet<QString>::fromList(Dateiliste.filter(QRegExp("^[Qt]"))));//alle nicht Qt Module
+	Dateiliste=QSet<QString>::fromList(Dateiliste).subtract(tmp).toList();
+	//Testmoduel weg
+	int Position=Dateiliste.indexOf(QRegExp("QtTest*",Qt::CaseSensitive,QRegExp::Wildcard));
+	if (Position!=-1)
+	{
+		Dateiliste.removeAt(Position);
+	}
+	//Ab in die Modulliste
+	Q_FOREACH(QString Datei,Dateiliste)
+	{
+		Bibliotheken<<QFrankQtSBSAQtModul(Datei);
+	}
 	//Optionale Dateien (Plug-Ins und Sprachpakete)
 	QFrankQtSBSAQtModul Plugin;
 	QDir PluginVerzeichnis;
@@ -413,7 +481,8 @@ bool QFrankQtSBSAArbeitVerteilen::K_QtPruefen()
 	{
 		K_SchrittFehlgeschlagen();
 		K_ErstellenGescheitert();
-		emit fertig();
+		//emit
+		fertig();
 		return false;
 	}	
 	K_SchrittFertig();
@@ -421,7 +490,8 @@ bool QFrankQtSBSAArbeitVerteilen::K_QtPruefen()
 }
 bool QFrankQtSBSAArbeitVerteilen::K_ZielverzeichnisPruefen()
 {
-	emit Meldung(trUtf8("Prüfe Zielverzeichnis für die Mergemodule"));
+	//emit
+	Meldung(trUtf8("Prüfe Zielverzeichnis für die Mergemodule"));
 	//Ist das Verzeichnis existen und leer? Wenn es nicht da ist, dann soll es angelegt werden
 	QDir Verzeichnis(K_Parameter->ZielverzeichnisHohlen());
 	if(!Verzeichnis.exists())
@@ -429,20 +499,24 @@ bool QFrankQtSBSAArbeitVerteilen::K_ZielverzeichnisPruefen()
 		//versuche es zu erstellen
 		if(!Verzeichnis.mkpath(K_Parameter->ZielverzeichnisHohlen()))
 		{
-			emit Meldung(tr("Das Zielverzeichnis %1 konnte nicht erstellt werden.").arg(K_Parameter->ZielverzeichnisHohlen()));
+			//emit
+			Meldung(tr("Das Zielverzeichnis %1 konnte nicht erstellt werden.").arg(K_Parameter->ZielverzeichnisHohlen()));
 			K_SchrittFehlgeschlagen();
 			K_ErstellenGescheitert();
-			emit fertig();
+			//emit
+			fertig();
 			return false;
 		}
 	}
 	//ist es leer?
 	if(Verzeichnis.count()>2)
 	{
-		emit Meldung(tr("Das Zielverzeichnis %1 ist nicht leer.").arg(K_Parameter->ZielverzeichnisHohlen()));
+		//emit
+		Meldung(tr("Das Zielverzeichnis %1 ist nicht leer.").arg(K_Parameter->ZielverzeichnisHohlen()));
 		K_SchrittFehlgeschlagen();
 		K_ErstellenGescheitert();
-		emit fertig();
+		//emit
+		fertig();
 		return false;
 	}
 	K_SchrittFertig();
@@ -469,8 +543,9 @@ const QString QFrankQtSBSAArbeitVerteilen::K_Dateiversion(const QString &datei)
 			}			
 		}
 		delete Puffer;
-	}	
-	emit Meldung(tr("Die Version der Datei %1 konnte nicht ermittelt werden.").arg(datei));
+	}
+	//emit	
+	Meldung(tr("Die Version der Datei %1 konnte nicht ermittelt werden.").arg(datei));
 	return "";
 }
 bool QFrankQtSBSAArbeitVerteilen::K_DateienVorhanden(const QList<QFrankQtSBSAQtModul> &liste,bool qtdateien)
@@ -493,27 +568,33 @@ bool QFrankQtSBSAArbeitVerteilen::K_DateienVorhanden(const QList<QFrankQtSBSAQtM
 			Pruefling=Datei.DateinameHohlen();
 		if(!QFile::exists(Pruefling))
 		{
-			emit Meldung(tr("Die Datei %1 wurde nicht gefunden.").arg(Pruefling));
+			//emit
+			Meldung(tr("Die Datei %1 wurde nicht gefunden.").arg(Pruefling));
 			return false;
 			break;
 		}
-		emit FortschrittsanzeigeSchritt();
+		//emit
+		FortschrittsanzeigeSchritt();
 	}
 	return true;
 }
 void QFrankQtSBSAArbeitVerteilen::K_ErstellenGescheitert()
 {
-	emit Meldung(tr("<html><b><span style=\"color:#ff0000;\">Erstellung der Mergemodule gescheitert.</span></b></html>")); //Rot und Fett
+	//emit
+	Meldung(tr("<html><b><span style=\"color:#ff0000;\">Erstellung der Mergemodule gescheitert.</span></b></html>")); //Rot und Fett
 }
 void QFrankQtSBSAArbeitVerteilen::K_ErstellenErfolgreich()
 {
-	emit Meldung(tr("<html><b><span style=\"color:#008000;\">Erstellung der Mergemodule erfolgreich.</span></b></html>")); //Grün und Fett
+	//emit
+	Meldung(tr("<html><b><span style=\"color:#008000;\">Erstellung der Mergemodule erfolgreich.</span></b></html>")); //Grün und Fett
 }
 void QFrankQtSBSAArbeitVerteilen::K_SchrittFertig()
 {
-	emit Meldung(tr("<html><span style=\"color:#008000;\">fertig</span></html>"));
+	//emit
+	Meldung(tr("<html><span style=\"color:#008000;\">fertig</span></html>"));
 }
 void QFrankQtSBSAArbeitVerteilen::K_SchrittFehlgeschlagen()
 {
-	emit Meldung(tr("<html><span style=\"color:#ff0000;\">fehlgeschlagen</span></html>"));
+	//emit
+	Meldung(tr("<html><span style=\"color:#ff0000;\">fehlgeschlagen</span></html>"));
 }

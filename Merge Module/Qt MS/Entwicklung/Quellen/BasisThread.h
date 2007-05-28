@@ -26,13 +26,13 @@ class QFrankQtSBSABasisThread:public QThread
 	public:
 				QFrankQtSBSABasisThread(QFrankQtSBSAParameter* parameter,QObject* eltern=0);
 				void					DateinummerFestlegen(const int &nummer){K_Dateinummer=nummer;}
-	public slots:
+	public Q_SLOTS:
 				const int				FehlercodeHohlen(){return K_Fehlercode;}
 				const QString			FehlermeldungHohlen(){return K_Fehlermeldung;}
 #ifndef QT_NO_DEBUG
 				const int				Threadnummer(){return K_Dateinummer;}
 #endif
-	signals:
+	Q_SIGNALS:
 				void					fertig(QFrankQtSBSABasisThread *welcher);				
 	protected:
 				QFrankQtSBSAParameter*	K_Parameter;

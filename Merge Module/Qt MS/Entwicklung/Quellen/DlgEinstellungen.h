@@ -31,7 +31,7 @@ class QFrankQtSBSADlgEinstellungen:public QDialog, private Ui::dlgEinstellungenB
 				bool					AlleAngabenVollstaendig();
 				QString					K_FeldNachHex(const QByteArray &feld); 
 				QFrankQtSBSAParameter*	K_Parameter;
-	private slots:
+	private Q_SLOTS:
 				void					on_sfBox_clicked(QAbstractButton *schaltflaeche);
 				void					on_sfQtPfadSuchen_clicked();
 				void					on_sfWixPfadSuchen_clicked();

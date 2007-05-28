@@ -38,7 +38,8 @@ void QFrankQtSBSAManifestExportieren::run()
 	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
 	{
 		K_Fehlercode=0;
-		emit fertig(this);
+		//emit
+		fertig(this);
 		return;
 	}
 	K_mtProzess=new QProcess();
@@ -61,11 +62,13 @@ void QFrankQtSBSAManifestExportieren::run()
 	{
 		K_Fehlercode=1;
 		K_Fehlermeldung=trUtf8("Das Werkzeug mt.exe konnte nicht ausgeführt werden.");
-		emit fertig(this);
+		//emit
+		fertig(this);
 		return;
 	}
 	K_Fehlercode=exec();
-	emit fertig(this);
+	//emit
+	fertig(this);
 }
 void QFrankQtSBSAManifestExportieren::K_mtFertig(int statusCode)
 {	

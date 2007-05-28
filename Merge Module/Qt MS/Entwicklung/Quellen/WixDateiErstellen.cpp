@@ -51,7 +51,8 @@ void QFrankQtSBSAWixDateiErstellen::run()
 	{
 		K_Fehlercode=1;
 		K_Fehlermeldung=tr("Die Datei %1 konnte nicht angelegt werden.").arg(K_Parameter->ZielverzeichnisHohlen()+"\\"+Dateiname);
-		emit fertig(this);
+		//emit
+		fertig(this);
 	}
 	Vorlagendatei.open(QIODevice::ReadOnly);
 	QTextStream Quelle(&Vorlagendatei);
@@ -69,7 +70,8 @@ void QFrankQtSBSAWixDateiErstellen::run()
 	Ziel.flush();
 	Zieldatei.close();
 	K_Fehlercode=0;
-	emit fertig(this);
+	//emit
+	fertig(this);
 }
 void QFrankQtSBSAWixDateiErstellen::K_PlatzhalterErsetzen(QString &zeile,const QString &modulname)const
 {

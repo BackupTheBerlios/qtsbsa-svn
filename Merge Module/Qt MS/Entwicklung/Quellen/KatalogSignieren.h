@@ -28,7 +28,7 @@ class QFrankQtSBSAKatalogSignieren:public QFrankQtSBSABasisThread
 				~QFrankQtSBSAKatalogSignieren();
 	private:
 					QProcess*	K_signtoolProzess;
-	private slots:
+	private Q_SLOTS:
 					void		K_signtoolFertig(int statusCode);
 	protected:
 					void		run();

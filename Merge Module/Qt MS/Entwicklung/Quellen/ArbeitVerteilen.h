@@ -27,14 +27,14 @@ class QFrankQtSBSAArbeitVerteilen:public QObject
 	Q_OBJECT
 	public:
 				QFrankQtSBSAArbeitVerteilen(QObject *eltern,QFrankQtSBSAParameter* parameter);				
-	public slots:
+	public Q_SLOTS:
 				void							Loslegen();
-	signals:
+	Q_SIGNALS:
 				void							fertig();
 				void							Meldung(const QString &meldung);
 				void							FortschrittsanzeigeSchritt();
 				void							FortschrittsanzeigeMaximum(const int schritte);
-	private slots:
+	private Q_SLOTS:
 				void							K_ThreadFertig( QFrankQtSBSABasisThread *welcher);
 	private:
 				enum							K_Arbeitsschritte{ManifestExportieren=0x0,ManifestBearbeiten=0x1,KatalogErstellen=0x2,KatalogSignieren=0x3,
@@ -60,6 +60,7 @@ class QFrankQtSBSAArbeitVerteilen:public QObject
 				void							K_Aufraeumen(const uchar &wie);
 				void							K_NaechsterArbeitsschritt();
 				const QString					K_Dateiversion(const QString &datei);
-				uchar							K_Arbeitsschritt;				
+				uchar							K_Arbeitsschritt;
+				uchar							K_AnzahlDerMaximalenParallelenProzesse;
 };
 #endif

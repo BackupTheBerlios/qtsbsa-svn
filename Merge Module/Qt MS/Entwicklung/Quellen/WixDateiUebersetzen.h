@@ -31,7 +31,7 @@ class QFrankQtSBSAWixDateiUebersetzen:public QFrankQtSBSABasisThread
 			QProcess*	K_Prozess;
 			bool		K_Loslegen();
 			uchar		K_Arbeitsschritt;
-	private slots:
+	private Q_SLOTS:
 			void		K_ProzessFertig(const int &statuscode);
 	protected:
 			void		run();

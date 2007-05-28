@@ -27,7 +27,7 @@ class QFrankQtSBSAManifestBearbeiten: public QFrankQtSBSABasisThread
 	Q_OBJECT
 	public:
 				QFrankQtSBSAManifestBearbeiten(QFrankQtSBSAParameter* parameter,QObject* eltern=0);
-	private slots:
+	private Q_SLOTS:
 				void				K_ProzessFertig(int rueckgabe);
 	private:
 				QString				K_Dateipfad;

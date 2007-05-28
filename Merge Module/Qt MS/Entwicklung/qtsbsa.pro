@@ -13,6 +13,7 @@
 TEMPLATE = app
 TARGET = qtsbsa
 DESTDIR = bin
+CONFIG += no_keywords
 QT += xml \
     sql \
     core \

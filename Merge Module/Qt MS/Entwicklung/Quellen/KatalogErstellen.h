@@ -31,7 +31,7 @@ class QFrankQtSBSAKatalogErstellen: public QFrankQtSBSABasisThread
 				uchar		K_AktuellerSchritt;
 				QProcess	*K_Prozess;
 				QString		K_Dateipfad;
-	private slots:
+	private Q_SLOTS:
 				void		K_ProzessIstFertig(int rueckgabe);
 	protected:
 				void		run();

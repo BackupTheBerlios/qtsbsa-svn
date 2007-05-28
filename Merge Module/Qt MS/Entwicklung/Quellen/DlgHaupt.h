@@ -30,7 +30,7 @@ class QFrankQtSBSADlgHaupt : public QMainWindow, private Ui::dlgHauptBasis
 				void					K_ParamterLaden();
 				void					K_ParameterSpeichern();
 				bool					K_AlleParameterGesetzt();
-	private slots:				
+	private Q_SLOTS:				
 				void					on_Menue_Einstellungen_triggered();
 				void					on_Menue_UeberQt_triggered();
 				void					on_Menue_UeberDasProgramm_triggered();

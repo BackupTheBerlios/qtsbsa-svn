@@ -32,10 +32,12 @@ void QFrankQtSBSAWixDateiUebersetzen::run()
 	if(!K_Loslegen())
 	{
 		K_Fehlercode=1;
-		emit fertig(this);
+		//emit
+		fertig(this);
 	}
 	K_Fehlercode=exec();
-	emit fertig(this);
+	//emit
+	fertig(this);
 }
 void QFrankQtSBSAWixDateiUebersetzen::K_ProzessFertig(const int &statuscode)
 {	

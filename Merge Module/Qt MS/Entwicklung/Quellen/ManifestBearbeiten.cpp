@@ -28,7 +28,8 @@ void QFrankQtSBSAManifestBearbeiten::run()
 	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
 	{
 		K_Fehlercode=0;
-		emit fertig(this);
+		//emit
+		fertig(this);
 		return;
 	}
 	QString Dateiname=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen();
@@ -36,7 +37,8 @@ void QFrankQtSBSAManifestBearbeiten::run()
 	{
 		K_Fehlercode=1;
 		K_Fehlermeldung=trUtf8("Nicht erkannte oder ungültige Qt4 Komponente %1.").arg(Dateiname);
-		emit fertig(this);
+		//emit
+		fertig(this);
 		return;
 	}
 	QDomDocument Manifest;
@@ -52,7 +54,8 @@ void QFrankQtSBSAManifestBearbeiten::run()
 	{
 		K_Fehlercode=1;
 		K_Fehlermeldung=trUtf8("Die Datei %1 konnte nicht göffnet werden.").arg(Dateiname);
-		emit fertig(this);
+		//emit
+		fertig(this);
 		return;
 	}
 	if(!Manifest.setContent(&Datei))
@@ -60,7 +63,8 @@ void QFrankQtSBSAManifestBearbeiten::run()
 		K_Fehlercode=1;
 		K_Fehlermeldung=trUtf8("%1 ist keine gültige XML Datei.").arg(Dateiname);
 		Datei.close();
-		emit fertig(this);
+		//emit
+		fertig(this);
 		return;
 	}
 	Datei.close();
@@ -77,7 +81,8 @@ void QFrankQtSBSAManifestBearbeiten::run()
 	if(!K_AbhaengigkeitenErmitteln())
 	{
 		K_Fehlercode=1;
-		emit fertig(this);
+		//emit
+		fertig(this);
 		return;
 	}
 	QString Komponente;
@@ -86,7 +91,8 @@ void QFrankQtSBSAManifestBearbeiten::run()
 		if(!K_AbhaengigkeitEinfuegen(Manifest,Komponente))
 		{
 			K_Fehlercode=1;
-			emit fertig(this);
+			//emit
+			fertig(this);
 			return;
 			break;
 		}
@@ -98,7 +104,8 @@ void QFrankQtSBSAManifestBearbeiten::run()
 		K_Fehlercode=1;
 		K_Fehlermeldung=trUtf8("%1 konnte nicht überschrieben werden.").arg(Dateiname);
 		Datei.close();
-		emit fertig(this);
+		//emit
+		fertig(this);
 		return;
 	}
 	QTextStream Datenstrom(&Datei);
@@ -107,7 +114,8 @@ void QFrankQtSBSAManifestBearbeiten::run()
 	Datenstrom.flush();
 	Datei.close();
 	K_Fehlercode=0;
-	emit fertig(this);
+	//emit
+	fertig(this);
 }
 const QDomElement QFrankQtSBSAManifestBearbeiten::K_AssemblyIdentifikationEinfuegen(QDomDocument &manifest)
 {
@@ -167,6 +175,8 @@ bool QFrankQtSBSAManifestBearbeiten::K_QtKomponenteErmitteln(const QString &date
 		K_QtKomponente="QtSvg";
 	else if (datei.contains("xml4",Qt::CaseInsensitive))
 		K_QtKomponente="QtXML";
+	else if (datei.contains("script4",Qt::CaseInsensitive))
+		K_QtKomponente="QtScript";
 	else if (datei.contains("3Support4",Qt::CaseInsensitive))
 		K_QtKomponente="Qt3Support";
 	else if (datei.contains("cncodecs",Qt::CaseInsensitive))
