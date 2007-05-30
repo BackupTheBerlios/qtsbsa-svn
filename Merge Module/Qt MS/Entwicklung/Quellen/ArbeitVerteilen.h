@@ -26,7 +26,8 @@ namespace QFrank
 	class QtSBSABasisThread;
 	class QtSBSAArbeitVerteilen:public QObject
 	{
-		#define 									CPUZUGABE 1;	
+		//Muss min. 1 sein!! 
+		#define 									CPUZUGABE 2
 		Q_OBJECT
 		public:
 					QtSBSAArbeitVerteilen(QObject *eltern,QtSBSAParameter* parameter);				

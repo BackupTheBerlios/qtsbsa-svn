@@ -103,6 +103,8 @@ void QtSBSADlgHaupt::on_Menue_MergemoduleFuerQt_triggered()
 {
 	if(!K_AlleParameterGesetzt())
 		return;
+	QMessageBox::information(this,tr("Hinweis"),
+							 trUtf8("Die folgenden Prozesse können je nach Rechenleistung einige Zeit dauern."));
 	QtSBSADlgFortschritt Fortschritt(this,K_Parameter);
 	Fortschritt.exec();	
 }

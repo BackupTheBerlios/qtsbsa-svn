@@ -39,7 +39,7 @@ void QtSBSAWixDateiErstellen::run()
 	else if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
 	{
 		Vorlagendatei.setFileName(":/QtSprachpaket.wxs");
-		Dateiname="QtSprachpaket_"+Dateiname.mid(2,Dateiname.size()-6);
+		Dateiname="QtSprachpaket_"+Dateiname.mid(3,Dateiname.size()-6);
 		Modulname=Dateiname;
 	}
 	else
@@ -71,6 +71,9 @@ void QtSBSAWixDateiErstellen::run()
 	Vorlagendatei.close();
 	Ziel.flush();
 	Zieldatei.close();
+#ifndef QT_NO_DEBUG
+		qDebug("%s run: Datei %s erstellt.",this->metaObject()->className(),qPrintable(Zieldatei.fileName()));
+#endif
 	K_Fehlercode=0;
 	//emit
 	fertig(this);

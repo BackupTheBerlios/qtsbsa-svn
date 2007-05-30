@@ -39,16 +39,16 @@ QtSBSAArbeitVerteilen::QtSBSAArbeitVerteilen(QObject *eltern,QtSBSAParameter* pa
 	//Wenn -1 kein Eintrag vorhanden, also wird 1 angenommen.
 	if(PositionInDerListe==-1)
 	{
-		K_AnzahlDerMaximalenParallelenProzesse=CPUZUGABE+1;
+		K_AnzahlDerMaximalenParallelenProzesse=CPUZUGABE;
 #ifndef QT_NO_DEBUG
 		qWarning("%s Konstruktor: keine CPU Infos!!",this->metaObject()->className());
 #endif
 	}
 	else
 		K_AnzahlDerMaximalenParallelenProzesse=(uchar)Umgebungsvariabeln.at(PositionInDerListe)
-																		.split("=").at(1).toInt()+CPUZUGABE;
+																		.split("=").at(1).toInt()*CPUZUGABE;
 #ifndef QT_NO_DEBUG
-		qDebug("%s Konstruktor: Anzahl der CPU's(Inklusive der Zugabe %i ): %i",
+		qDebug("%s Konstruktor: Anzahl der CPU's(Multiplikator %i ): %i",
 					this->metaObject()->className(),CPUZUGABE,K_AnzahlDerMaximalenParallelenProzesse);
 #endif		
 }
@@ -78,15 +78,15 @@ void QtSBSAArbeitVerteilen::Loslegen()
 	//K_Arbeitsschritt=QtSBSAArbeitVerteilen::WixDateienErstellen;
 	//K_WixDateienErstellen();
 
-	//K_Arbeitsschritt=QtSBSAArbeitVerteilen::WixDateienUebersetzen;
-	//K_WixDateienUebersetzen();
+	K_Arbeitsschritt=QtSBSAArbeitVerteilen::WixDateienUebersetzen;
+	K_WixDateienUebersetzen();
 	
 	//K_Arbeitsschritt=QtSBSAArbeitVerteilen::Aufraeumen;
 	//K_Aufraeumen(QtSBSAArbeitVerteilen::Normal);
 
 	//testEnde
 
-	K_ManifesteExportieren();
+	//K_ManifesteExportieren();
 	
 }
 /*

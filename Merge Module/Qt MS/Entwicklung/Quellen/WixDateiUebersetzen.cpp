@@ -87,6 +87,10 @@ bool QtSBSAWixDateiUebersetzen::K_Loslegen()
 		Dateiname="Qt_"+K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).PlugInTypeHohlen()+"_"+Dateiname;
 		Dateiname=Dateiname.left(Dateiname.indexOf("."));
 	}
+	else if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
+	{
+		Dateiname="QtSprachpaket_"+Dateiname.mid(3,Dateiname.size()-6);
+	}
 	else
 		Dateiname=Dateiname.left(Dateiname.indexOf(".")-1);
 	switch(K_Arbeitsschritt)

@@ -5,102 +5,102 @@
     <message>
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="71"/>
         <source>Extrahiere Manifeste</source>
-        <translation>Extract manifests</translation>
+        <translation type="obsolete">Extract manifests</translation>
     </message>
     <message>
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="90"/>
         <source>Bearbeite Manifeste</source>
-        <translation>fix the manifest files</translation>
+        <translation type="obsolete">fix the manifest files</translation>
     </message>
     <message>
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="108"/>
         <source>Erstelle Kataloge</source>
-        <translation>Creating catalogs</translation>
+        <translation type="obsolete">Creating catalogs</translation>
     </message>
     <message>
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="123"/>
         <source>Signiere Kataloge</source>
-        <translation>Sign catalogs</translation>
+        <translation type="obsolete">Sign catalogs</translation>
     </message>
     <message>
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="254"/>
         <source>Kopiere Qt4 Bibliotheken</source>
-        <translation>Copy Qt4 libs</translation>
+        <translation type="obsolete">Copy Qt4 libs</translation>
     </message>
     <message>
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="278"/>
         <source>Die Datei %1 konnte nicht nach %2 kopiert werden.</source>
-        <translation>Failed copy file %1 to %2.</translation>
+        <translation type="obsolete">Failed copy file %1 to %2.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="292"/>
         <source>Prüfe Windows SDK</source>
-        <translation>Check the Windows SDK</translation>
+        <translation type="obsolete">Check the Windows SDK</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="313"/>
         <source>Prüfe Qt</source>
-        <translation>Check Qt</translation>
+        <translation type="obsolete">Check Qt</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="368"/>
         <source>Prüfe Zielverzeichnis für die Mergemodule</source>
-        <translation>Check the targed directory for the merge modules</translation>
+        <translation type="obsolete">Check the targed directory for the merge modules</translation>
     </message>
     <message>
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="376"/>
         <source>Das Zielverzeichnis %1 konnte nicht erstellt werden.</source>
-        <translation>The target directory %1 coun&apos;t be created.</translation>
+        <translation type="obsolete">The target directory %1 coun&apos;t be created.</translation>
     </message>
     <message>
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="386"/>
         <source>Das Zielverzeichnis %1 ist nicht leer.</source>
-        <translation>The target directory %1 is not empty.</translation>
+        <translation type="obsolete">The target directory %1 is not empty.</translation>
     </message>
     <message>
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="417"/>
         <source>Die Version der Datei %1 konnte nicht ermittelt werden.</source>
-        <translation>The version of file %1 can&apos;t be resived.</translation>
+        <translation type="obsolete">The version of file %1 can&apos;t be resived.</translation>
     </message>
     <message>
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="440"/>
         <source>Die Datei %1 wurde nicht gefunden.</source>
-        <translation>The file %1 was not found.</translation>
+        <translation type="obsolete">The file %1 was not found.</translation>
     </message>
     <message>
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="450"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Erstellung der Mergemodule gescheitert.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Build of the merge modules failed.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Build of the merge modules failed.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="454"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Erstellung der Mergemodule erfolgreich.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Build of the merge modules complete.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Build of the merge modules complete.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="458"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;fertig&lt;/span&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;OK&lt;/span&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;OK&lt;/span&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="462"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;fehlgeschlagen&lt;/span&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;failed&lt;/span&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;failed&lt;/span&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="138"/>
         <source>Erstelle Wix Dateien</source>
-        <translation>Create Wix files</translation>
+        <translation type="obsolete">Create Wix files</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="151"/>
         <source>Übersetze Wix Dateien</source>
-        <translation>Compiling Wix files</translation>
+        <translation type="obsolete">Compiling Wix files</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/ArbeitVerteilen.cpp" line="168"/>
         <source>Aufräumen</source>
-        <translation>Clean up</translation>
+        <translation type="obsolete">Clean up</translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -108,12 +108,12 @@
     <message encoding="UTF-8">
         <location filename="../Quellen/Aufraeumen.cpp" line="69"/>
         <source>Die Datei %1 konnte nicht gelöscht werden.</source>
-        <translation>Can&apos;t delete file %1.</translation>
+        <translation type="obsolete">Can&apos;t delete file %1.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/Aufraeumen.cpp" line="88"/>
         <source>Das Verzeichnis %1 konnte nicht gelöscht werden.</source>
-        <translation>Can&apos;t remove directory %1.</translation>
+        <translation type="obsolete">Can&apos;t remove directory %1.</translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -121,79 +121,79 @@
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgEinstellungen.cpp" line="82"/>
         <source>Eingaben unvollständig</source>
-        <translation>Input incomplite</translation>
+        <translation type="obsolete">Input incomplite</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgEinstellungen.cpp" line="82"/>
         <source>Sie haben mindestes ein Feld nicht korrekt ausgefüllt.</source>
-        <translation>You have fill one field incomplete minimum.</translation>
+        <translation type="obsolete">You have fill one field incomplete minimum.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgEinstellungen.cpp" line="107"/>
         <source>Bitte das Verzeichnis in dem sich Wix3 befindet auswählen.</source>
-        <translation>Select the directory, witch contains Wix3 please.</translation>
+        <translation type="obsolete">Select the directory, witch contains Wix3 please.</translation>
     </message>
     <message>
         <location filename="../Quellen/DlgEinstellungen.cpp" line="115"/>
         <source>Werkzeuge vom Windows SDK suchen.</source>
-        <translation>Find the tools from the Windows SDK.</translation>
+        <translation type="obsolete">Find the tools from the Windows SDK.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgEinstellungen.cpp" line="123"/>
         <source>Bitte das Verzeichnis für die Mergemodule auswählen.</source>
-        <translation>Select the direcory for the merge modules.</translation>
+        <translation type="obsolete">Select the direcory for the merge modules.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgEinstellungen.cpp" line="99"/>
         <source>Bitte das Verzeichnis mit den Qt Bibliotheken auswählen.</source>
-        <translation>Select the direytory witch conains the Qt librarys please.</translation>
+        <translation type="obsolete">Select the direytory witch conains the Qt librarys please.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgEinstellungen.cpp" line="135"/>
         <source>Fehler beim öffnen des Zertifikatsspeichers.</source>
-        <translation>Error while opening the certificate storage.</translation>
+        <translation type="obsolete">Error while opening the certificate storage.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgEinstellungen.cpp" line="135"/>
         <source>Der Zertifikatsspeicher konnte nicht geöffnet werden.</source>
-        <translation>Error while opening the certificate storage.</translation>
+        <translation type="obsolete">Error while opening the certificate storage.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgEinstellungen.cpp" line="138"/>
         <source>Bitte das Zertifikat zum signieren auswählen</source>
-        <translation>Select the certificate for sign please.</translation>
+        <translation type="obsolete">Select the certificate for sign please.</translation>
     </message>
     <message>
         <location filename="../Quellen/DlgEinstellungen.cpp" line="139"/>
         <source>Welches Zertifikat soll genutzt werden?</source>
-        <translation>Witch certificate shut be used?</translation>
+        <translation type="obsolete">Witch certificate shut be used?</translation>
     </message>
     <message>
         <location filename="../Quellen/DlgEinstellungen.cpp" line="142"/>
         <source>Fehler bei der Auswahl des Zertifikates.</source>
-        <translation>Error doing select the certificate.</translation>
+        <translation type="obsolete">Error doing select the certificate.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgEinstellungen.cpp" line="142"/>
         <source>Es wurde kein Zertifikat ausgewählt.</source>
-        <translation>No certificate was chosen.</translation>
+        <translation type="obsolete">No certificate was chosen.</translation>
     </message>
     <message>
         <location filename="../Quellen/DlgEinstellungen.cpp" line="162"/>
         <source>Fehler im Zertifikat</source>
-        <translation>The certificate is broken.</translation>
+        <translation type="obsolete">The certificate is broken.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgEinstellungen.cpp" line="151"/>
         <source>Für Manifeste beträgt die minimale Schlüssellänge 2048 Bit.<byte value="xd"/>
 Bei dem gewählten Zertifikat beträgt diese jedoch nur %1 Bit</source>
-        <translation>The minimal key size for manifest will be 2048 Bit.
+        <translation type="obsolete">The minimal key size for manifest will be 2048 Bit.
 But at the selected one the key is only %1 Bits long.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgEinstellungen.cpp" line="162"/>
         <source>Die SHA-1 Prüfsumme wurde nicht empfangen.</source>
-        <translation>No SHA-1 checksum was recived.</translation>
+        <translation type="obsolete">No SHA-1 checksum was recived.</translation>
     </message>
 </context>
 <context>
@@ -298,34 +298,34 @@ But at the selected one the key is only %1 Bits long.</translation>
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgHaupt.cpp" line="95"/>
         <source>Unvollständige Parameter</source>
-        <translation>Incomplete  parameters</translation>
+        <translation type="obsolete">Incomplete  parameters</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgHaupt.cpp" line="96"/>
         <source>Es liegen nicht alle benötigen Parameter vor.<byte value="xd"/>
 Bitte legen Sie diese über das Menue Optionen-&gt;Einstellungen fest.</source>
-        <translation>Some parameter are missing.
+        <translation type="obsolete">Some parameter are missing.
 Go to the menue Option-&gt;Parameters and set it,please.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/DlgHaupt.cpp" line="113"/>
         <source>Bitte die Anwendung wählen, die bearbeitet werden soll.</source>
-        <translation>Select the application to be processed, please.</translation>
+        <translation type="obsolete">Select the application to be processed, please.</translation>
     </message>
     <message>
         <location filename="../Quellen/DlgHaupt.cpp" line="114"/>
         <source>Anwendungen (*.exe *.dll)</source>
-        <translation>Applicatios (*.exe *.dll)</translation>
+        <translation type="obsolete">Applicatios (*.exe *.dll)</translation>
     </message>
     <message>
         <location filename="../Quellen/DlgHaupt.cpp" line="118"/>
         <source>Noch nicht fertig</source>
-        <translation>Not ready at this time</translation>
+        <translation type="obsolete">Not ready at this time</translation>
     </message>
     <message>
         <location filename="../Quellen/DlgHaupt.cpp" line="118"/>
         <source>Diese Funktion ist noch nicht fertig:(</source>
-        <translation>This function is not ready at now:(</translation>
+        <translation type="obsolete">This function is not ready at now:(</translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -333,12 +333,12 @@ Go to the menue Option-&gt;Parameters and set it,please.</translation>
     <message encoding="UTF-8">
         <location filename="../Quellen/KatalogErstellen.cpp" line="53"/>
         <source>Das Werkzeug mt.exe konnte nicht ausgeführt werden.</source>
-        <translation>The tool mt.exe can&apos;t be started.</translation>
+        <translation type="obsolete">The tool mt.exe can&apos;t be started.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/KatalogErstellen.cpp" line="106"/>
         <source>Das Werkzeug makecat.exe konnte nicht ausgeführt werden.</source>
-        <translation>The tool makecat.exe coun&apos;t be started.</translation>
+        <translation type="obsolete">The tool makecat.exe coun&apos;t be started.</translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -346,7 +346,7 @@ Go to the menue Option-&gt;Parameters and set it,please.</translation>
     <message encoding="UTF-8">
         <location filename="../Quellen/KatalogSignieren.cpp" line="53"/>
         <source>Das Werkzeug signtool.exe konnte nicht ausgeführt werden.</source>
-        <translation>The tool signtool.exe coun&apos;t be started.</translation>
+        <translation type="obsolete">The tool signtool.exe coun&apos;t be started.</translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -354,42 +354,42 @@ Go to the menue Option-&gt;Parameters and set it,please.</translation>
     <message encoding="UTF-8">
         <location filename="../Quellen/ManifestBearbeiten.cpp" line="31"/>
         <source>Nicht erkannte oder ungültige Qt4 Komponente %1.</source>
-        <translation>Unkown Qt4 compoent %1.</translation>
+        <translation type="obsolete">Unkown Qt4 compoent %1.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/ManifestBearbeiten.cpp" line="47"/>
         <source>Die Datei %1 konnte nicht göffnet werden.</source>
-        <translation>Error while open the file %1.</translation>
+        <translation type="obsolete">Error while open the file %1.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/ManifestBearbeiten.cpp" line="54"/>
         <source>%1 ist keine gültige XML Datei.</source>
-        <translation>%1 is not an valid XML file.</translation>
+        <translation type="obsolete">%1 is not an valid XML file.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/ManifestBearbeiten.cpp" line="92"/>
         <source>%1 konnte nicht überschrieben werden.</source>
-        <translation>%1 can&apos;t be overwritten.</translation>
+        <translation type="obsolete">%1 can&apos;t be overwritten.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/ManifestBearbeiten.cpp" line="213"/>
         <source>Prozess zur Abhängigkeitsermittlung für %1 konnte nicht gestartet werden.</source>
-        <translation>The process for creating the dependencys for %1 coun&apos;t not started.</translation>
+        <translation type="obsolete">The process for creating the dependencys for %1 coun&apos;t not started.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/ManifestBearbeiten.cpp" line="232"/>
         <source>Fehler beim Ausführen von depens.exe für %1</source>
-        <translation>Error  at running depens.exe for %1.</translation>
+        <translation type="obsolete">Error  at running depens.exe for %1.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/ManifestBearbeiten.cpp" line="241"/>
         <source>Fehler beim lesen der Abhängigkeiten aus %1</source>
-        <translation>Error while reading the dependencys from %1.</translation>
+        <translation type="obsolete">Error while reading the dependencys from %1.</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../Quellen/ManifestBearbeiten.cpp" line="272"/>
         <source>Unbekante Abhängigkeit entdeckt.</source>
-        <translation>Unkown delendency detected.</translation>
+        <translation type="obsolete">Unkown delendency detected.</translation>
     </message>
 </context>
 <context encoding="UTF-8">
@@ -397,7 +397,7 @@ Go to the menue Option-&gt;Parameters and set it,please.</translation>
     <message encoding="UTF-8">
         <location filename="../Quellen/ManifestExportieren.cpp" line="56"/>
         <source>Das Werkzeug mt.exe konnte nicht ausgeführt werden.</source>
-        <translation>The tool mt.exe can&apos;t be started.</translation>
+        <translation type="obsolete">The tool mt.exe can&apos;t be started.</translation>
     </message>
 </context>
 <context>
@@ -405,13 +405,342 @@ Go to the menue Option-&gt;Parameters and set it,please.</translation>
     <message>
         <location filename="../Quellen/WixDateiErstellen.cpp" line="47"/>
         <source>Die Datei %1 konnte nicht angelegt werden.</source>
-        <translation>The file %1 count be created.</translation>
+        <translation type="obsolete">The file %1 count be created.</translation>
     </message>
 </context>
 <context encoding="UTF-8">
     <name>QFrankQtSBSAWixDateiUebersetzen</name>
     <message encoding="UTF-8">
         <location filename="../Quellen/WixDateiUebersetzen.cpp" line="107"/>
+        <source>Das Werkzeug %1 konnte nicht ausgeführt werden.</source>
+        <translation type="obsolete">The tool %1 coun&apos;t be startet.</translation>
+    </message>
+</context>
+<context>
+    <name>QtSBSAArbeitVerteilen</name>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="120"/>
+        <source>Extrahiere Manifeste</source>
+        <translation>Extract manifests</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="141"/>
+        <source>Bearbeite Manifeste</source>
+        <translation>fix the manifest files</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="161"/>
+        <source>Erstelle Kataloge</source>
+        <translation>Creating catalogs</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="178"/>
+        <source>Signiere Kataloge</source>
+        <translation>Sign catalogs</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="195"/>
+        <source>Erstelle Wix Dateien</source>
+        <translation>Create Wix files</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="210"/>
+        <source>Übersetze Wix Dateien</source>
+        <translation>Compiling Wix files</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="228"/>
+        <source>Aufräumen</source>
+        <translation>Clean up</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="368"/>
+        <source>Kopiere Qt4 Bibliotheken</source>
+        <translation>Copy Qt4 libs</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="415"/>
+        <source>Die Datei %1 konnte nicht nach %2 kopiert werden.</source>
+        <translation>Failed copy file %1 to %2.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="432"/>
+        <source>Prüfe Windows SDK</source>
+        <translation>Check the Windows SDK</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="456"/>
+        <source>Prüfe Qt</source>
+        <translation>Check Qt</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="540"/>
+        <source>Prüfe Zielverzeichnis für die Mergemodule</source>
+        <translation>Check the targed directory for the merge modules</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="549"/>
+        <source>Das Zielverzeichnis %1 konnte nicht erstellt werden.</source>
+        <translation>The target directory %1 coun&apos;t be created.</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="561"/>
+        <source>Das Zielverzeichnis %1 ist nicht leer.</source>
+        <translation>The target directory %1 is not empty.</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="594"/>
+        <source>Die Version der Datei %1 konnte nicht ermittelt werden.</source>
+        <translation>The version of file %1 can&apos;t be resived.</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="618"/>
+        <source>Die Datei %1 wurde nicht gefunden.</source>
+        <translation>The file %1 was not found.</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="630"/>
+        <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Erstellung der Mergemodule gescheitert.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Build of the merge modules failed.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="635"/>
+        <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Erstellung der Mergemodule erfolgreich.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Build of the merge modules complete.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="640"/>
+        <source>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;fertig&lt;/span&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;OK&lt;/span&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="645"/>
+        <source>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;fehlgeschlagen&lt;/span&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;failed&lt;/span&gt;&lt;/html&gt;</translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>QtSBSAAufraeumen</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/Aufraeumen.cpp" line="70"/>
+        <source>Die Datei %1 konnte nicht gelöscht werden.</source>
+        <translation>Can&apos;t delete file %1.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/Aufraeumen.cpp" line="89"/>
+        <source>Das Verzeichnis %1 konnte nicht gelöscht werden.</source>
+        <translation>Can&apos;t remove directory %1.</translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>QtSBSADlgEinstellungen</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="83"/>
+        <source>Eingaben unvollständig</source>
+        <translation>Input incomplite</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="83"/>
+        <source>Sie haben mindestes ein Feld nicht korrekt ausgefüllt.</source>
+        <translation>You have fill one field incomplete minimum.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="100"/>
+        <source>Bitte das Verzeichnis mit den Qt Bibliotheken auswählen.</source>
+        <translation>Select the direytory witch conains the Qt librarys please.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="108"/>
+        <source>Bitte das Verzeichnis in dem sich Wix3 befindet auswählen.</source>
+        <translation>Select the directory, witch contains Wix3 please.</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="116"/>
+        <source>Werkzeuge vom Windows SDK suchen.</source>
+        <translation>Find the tools from the Windows SDK.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="124"/>
+        <source>Bitte das Verzeichnis für die Mergemodule auswählen.</source>
+        <translation>Select the direcory for the merge modules.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="136"/>
+        <source>Fehler beim öffnen des Zertifikatsspeichers.</source>
+        <translation>Error while opening the certificate storage.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="136"/>
+        <source>Der Zertifikatsspeicher konnte nicht geöffnet werden.</source>
+        <translation>Error while opening the certificate storage.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="139"/>
+        <source>Bitte das Zertifikat zum signieren auswählen</source>
+        <translation>Select the certificate for sign please.</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="140"/>
+        <source>Welches Zertifikat soll genutzt werden?</source>
+        <translation>Witch certificate shut be used?</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="143"/>
+        <source>Fehler bei der Auswahl des Zertifikates.</source>
+        <translation>Error doing select the certificate.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="143"/>
+        <source>Es wurde kein Zertifikat ausgewählt.</source>
+        <translation>No certificate was chosen.</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="163"/>
+        <source>Fehler im Zertifikat</source>
+        <translation>The certificate is broken.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="152"/>
+        <source>Für Manifeste beträgt die minimale Schlüssellänge 2048 Bit.<byte value="xd"/>
+Bei dem gewählten Zertifikat beträgt diese jedoch nur %1 Bit</source>
+        <translation>The minimal key size for manifest will be 2048 Bit.
+But at the selected one the key is only %1 Bits long.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="163"/>
+        <source>Die SHA-1 Prüfsumme wurde nicht empfangen.</source>
+        <translation>No SHA-1 checksum was recived.</translation>
+    </message>
+</context>
+<context>
+    <name>QtSBSADlgHaupt</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgHaupt.cpp" line="96"/>
+        <source>Unvollständige Parameter</source>
+        <translation>Incomplete  parameters</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgHaupt.cpp" line="97"/>
+        <source>Es liegen nicht alle benötigen Parameter vor.<byte value="xd"/>
+Bitte legen Sie diese über das Menue Optionen-&gt;Einstellungen fest.</source>
+        <translation>Some parameter are missing.
+Go to the menue Option-&gt;Parameters and set it,please.</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/DlgHaupt.cpp" line="106"/>
+        <source>Hinweis</source>
+        <translation>Note</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgHaupt.cpp" line="107"/>
+        <source>Die folgenden Prozesse können je nach Rechenleistung einige Zeit dauern.</source>
+        <translation>The following processes can need some time, depand on the performance of your system.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/DlgHaupt.cpp" line="116"/>
+        <source>Bitte die Anwendung wählen, die bearbeitet werden soll.</source>
+        <translation>Select the application to be processed, please.</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/DlgHaupt.cpp" line="117"/>
+        <source>Anwendungen (*.exe *.dll)</source>
+        <translation>Applicatios (*.exe *.dll)</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/DlgHaupt.cpp" line="121"/>
+        <source>Noch nicht fertig</source>
+        <translation>Not ready at this time</translation>
+    </message>
+    <message>
+        <location filename="../Quellen/DlgHaupt.cpp" line="121"/>
+        <source>Diese Funktion ist noch nicht fertig:(</source>
+        <translation>This function is not ready at now:(</translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>QtSBSAKatalogErstellen</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/KatalogErstellen.cpp" line="57"/>
+        <source>Das Werkzeug mt.exe konnte nicht ausgeführt werden.</source>
+        <translation>The tool mt.exe can&apos;t be started.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/KatalogErstellen.cpp" line="112"/>
+        <source>Das Werkzeug makecat.exe konnte nicht ausgeführt werden.</source>
+        <translation>The tool makecat.exe coun&apos;t be started.</translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>QtSBSAKatalogSignieren</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/KatalogSignieren.cpp" line="57"/>
+        <source>Das Werkzeug signtool.exe konnte nicht ausgeführt werden.</source>
+        <translation>The tool signtool.exe coun&apos;t be started.</translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>QtSBSAManifestBearbeiten</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="41"/>
+        <source>Nicht erkannte oder ungültige Qt4 Komponente %1.</source>
+        <translation>Unkown Qt4 compoent %1.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="58"/>
+        <source>Die Datei %1 konnte nicht göffnet werden.</source>
+        <translation>Error while open the file %1.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="66"/>
+        <source>%1 ist keine gültige XML Datei.</source>
+        <translation>%1 is not an valid XML file.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="107"/>
+        <source>%1 konnte nicht überschrieben werden.</source>
+        <translation>%1 can&apos;t be overwritten.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="232"/>
+        <source>Prozess zur Abhängigkeitsermittlung für %1 konnte nicht gestartet werden.</source>
+        <translation>The process for creating the dependencys for %1 coun&apos;t not started.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="251"/>
+        <source>Fehler beim Ausführen von depens.exe für %1</source>
+        <translation>Error  at running depens.exe for %1.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="260"/>
+        <source>Fehler beim lesen der Abhängigkeiten aus %1</source>
+        <translation>Error while reading the dependencys from %1.</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="291"/>
+        <source>Unbekante Abhängigkeit entdeckt.</source>
+        <translation>Unkown delendency detected.</translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>QtSBSAManifestExportieren</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ManifestExportieren.cpp" line="66"/>
+        <source>Das Werkzeug mt.exe konnte nicht ausgeführt werden.</source>
+        <translation>The tool mt.exe can&apos;t be started.</translation>
+    </message>
+</context>
+<context>
+    <name>QtSBSAWixDateiErstellen</name>
+    <message>
+        <location filename="../Quellen/WixDateiErstellen.cpp" line="55"/>
+        <source>Die Datei %1 konnte nicht angelegt werden.</source>
+        <translation>The file %1 count be created.</translation>
+    </message>
+</context>
+<context encoding="UTF-8">
+    <name>QtSBSAWixDateiUebersetzen</name>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/WixDateiUebersetzen.cpp" line="115"/>
         <source>Das Werkzeug %1 konnte nicht ausgeführt werden.</source>
         <translation>The tool %1 coun&apos;t be startet.</translation>
     </message>
