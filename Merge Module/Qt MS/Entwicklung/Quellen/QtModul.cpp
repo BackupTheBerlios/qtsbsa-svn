@@ -16,20 +16,22 @@
 
 #include "QtModul.h"
 
-QFrankQtSBSAQtModul::QFrankQtSBSAQtModul(const QString &dateiname,const bool &istPlugIn,const bool &istSprachpaket)
+using namespace QFrank;
+
+QtSBSAQtModul::QtSBSAQtModul(const QString &dateiname,const bool &istPlugIn,const bool &istSprachpaket)
 {
 	K_Dateiname=dateiname;
 	K_istPlugIn=istPlugIn;
 	K_istSprachpaket=istSprachpaket;
 }
-QFrankQtSBSAQtModul::QFrankQtSBSAQtModul()
+QtSBSAQtModul::QtSBSAQtModul()
 {
 	K_Dateiname="";
 	K_istPlugIn=false;
 	K_PlugInType="";
 }
 #ifndef QT_NO_DEBUG
-QDebug  operator<<(QDebug debug, const QFrankQtSBSAQtModul &modul)
+QDebug  operator<<(QDebug debug, const QtSBSAQtModul &modul)
 {
 	QString Plugin;
 	if(modul.istPlugIn())

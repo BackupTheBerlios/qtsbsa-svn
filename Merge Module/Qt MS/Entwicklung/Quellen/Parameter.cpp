@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Frank Büttner frank-buettner@gmx.net
+/* Copyright (C) 2007 Frank BÃ¼ttner frank-buettner@gmx.net
 
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
@@ -16,10 +16,12 @@
 
 #include "Parameter.h"
 
-QFrankQtSBSAParameter::QFrankQtSBSAParameter(QObject* eltern):QObject(eltern)
+using namespace QFrank;
+
+QtSBSAParameter::QtSBSAParameter(QObject* eltern):QObject(eltern)
 {
 }
-bool QFrankQtSBSAParameter::AllesVorliegend()
+bool QtSBSAParameter::AllesVorliegend()
 {
 	if(K_WindowsSDKPfad.isEmpty() || K_QtPfad.isEmpty() || K_WixPfad.isEmpty() || K_ZertSHA1.isEmpty() ||
 	   K_publicKeyToken.isEmpty() || K_Zielverzeichnis.isEmpty() || K_Entwickler.isEmpty() ||

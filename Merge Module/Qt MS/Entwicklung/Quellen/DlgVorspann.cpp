@@ -17,10 +17,12 @@
 #include "DlgVorspann.h"
 #include "Syntaxhervorhebung.h"
 
-QFrankQtSBSADlgVorspann::QFrankQtSBSADlgVorspann(QWidget *eltern):QDialog(eltern)
+using namespace QFrank;
+
+QtSBSADlgVorspann::QtSBSADlgVorspann(QWidget *eltern):QDialog(eltern)
 {
 	setupUi(this);
-	QFrankQtSBSASyntaxhervorhebung *Syntaxhervorhebung=new QFrankQtSBSASyntaxhervorhebung(txtVorspann->document());	
+	QtSBSASyntaxhervorhebung *Syntaxhervorhebung=new QtSBSASyntaxhervorhebung(txtVorspann->document());	
 	QFile Vorspanntext(":/Vorspann.txt");
 	Vorspanntext.open(QIODevice::ReadOnly);
 	txtVorspann->setText(Vorspanntext.readAll().constData());

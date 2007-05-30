@@ -19,18 +19,21 @@
 
 #include <QtCore>
 
-class QFrankQtSBSAParameter;
-class QFrankQtSBSAAufraeumen:public QObject
+namespace QFrank
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSAAufraeumen(const QFrankQtSBSAParameter* parameter,QObject *eltern=0);
-				bool							putzen();
-				const QString&					Fehlermeldung()const{return K_Fehlermeldung;}
-	private:
-				bool							K_DateiLoeschen(const QString &datei);
-				bool							K_VerzeichnisLoeschen(const QString &verzeichnis);
-				const QFrankQtSBSAParameter*	K_Parameter;
-				QString							K_Fehlermeldung;
-};
+	class QtSBSAParameter;
+	class QtSBSAAufraeumen:public QObject
+	{
+		Q_OBJECT
+		public:
+					QtSBSAAufraeumen(const QtSBSAParameter* parameter,QObject *eltern=0);
+					bool					putzen();
+					const QString&			Fehlermeldung()const{return K_Fehlermeldung;}
+		private:
+					bool					K_DateiLoeschen(const QString &datei);
+					bool					K_VerzeichnisLoeschen(const QString &verzeichnis);
+					const QtSBSAParameter*	K_Parameter;
+					QString					K_Fehlermeldung;
+	};
+}
 #endif

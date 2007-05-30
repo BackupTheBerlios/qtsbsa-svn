@@ -17,17 +17,19 @@
 #include "WixDateiUebersetzen.h"
 #include "Parameter.h"
 
-QFrankQtSBSAWixDateiUebersetzen::QFrankQtSBSAWixDateiUebersetzen(QFrankQtSBSAParameter* parameter,QObject* eltern)
-								:QFrankQtSBSABasisThread(parameter,eltern)
+using namespace QFrank;
+
+QtSBSAWixDateiUebersetzen::QtSBSAWixDateiUebersetzen(QtSBSAParameter* parameter,QObject* eltern)
+								:QtSBSABasisThread(parameter,eltern)
 {	
-	K_Arbeitsschritt=QFrankQtSBSAWixDateiUebersetzen::Kerze;
+	K_Arbeitsschritt=QtSBSAWixDateiUebersetzen::Kerze;
 	K_Prozess=NULL;
 }
-QFrankQtSBSAWixDateiUebersetzen::~QFrankQtSBSAWixDateiUebersetzen()
+QtSBSAWixDateiUebersetzen::~QtSBSAWixDateiUebersetzen()
 {
 	delete K_Prozess;
 }
-void QFrankQtSBSAWixDateiUebersetzen::run()
+void QtSBSAWixDateiUebersetzen::run()
 {	
 	if(!K_Loslegen())
 	{
@@ -39,7 +41,7 @@ void QFrankQtSBSAWixDateiUebersetzen::run()
 	//emit
 	fertig(this);
 }
-void QFrankQtSBSAWixDateiUebersetzen::K_ProzessFertig(const int &statuscode)
+void QtSBSAWixDateiUebersetzen::K_ProzessFertig(const int &statuscode)
 {	
 	QString Fehlermeldung=QString(K_Prozess->readAll());
 	Fehlermeldung.remove("\r");
@@ -56,7 +58,7 @@ void QFrankQtSBSAWixDateiUebersetzen::K_ProzessFertig(const int &statuscode)
 	}
 	else
 	{
-		if(K_Arbeitsschritt==QFrankQtSBSAWixDateiUebersetzen::Licht)
+		if(K_Arbeitsschritt==QtSBSAWixDateiUebersetzen::Licht)
 			exit(0);
 		else
 		{
@@ -68,7 +70,7 @@ void QFrankQtSBSAWixDateiUebersetzen::K_ProzessFertig(const int &statuscode)
 		}
 	}
 }
-bool QFrankQtSBSAWixDateiUebersetzen::K_Loslegen()
+bool QtSBSAWixDateiUebersetzen::K_Loslegen()
 {	
 	if(K_Prozess!=NULL)
 	{
@@ -89,12 +91,12 @@ bool QFrankQtSBSAWixDateiUebersetzen::K_Loslegen()
 		Dateiname=Dateiname.left(Dateiname.indexOf(".")-1);
 	switch(K_Arbeitsschritt)
 	{
-		case QFrankQtSBSAWixDateiUebersetzen::Kerze:
+		case QtSBSAWixDateiUebersetzen::Kerze:
 					Befehl.append("candle.exe");
 					Dateiname.append(".wxs");
 					Argumente<<Dateiname;
 					break;
-		case QFrankQtSBSAWixDateiUebersetzen::Licht:
+		case QtSBSAWixDateiUebersetzen::Licht:
 					Befehl.append("light.exe");
 					Dateiname.append(".wixobj");
 					Argumente<<"-sh"<<Dateiname;

@@ -20,7 +20,8 @@
 #include <Wincrypt.h>
 #include <Cryptuiapi.h>
 
-QFrankQtSBSADlgEinstellungen::QFrankQtSBSADlgEinstellungen(QFrankQtSBSAParameter *parameter,QWidget *eltern):QDialog(eltern)
+using namespace QFrank;
+QtSBSADlgEinstellungen::QtSBSADlgEinstellungen(QtSBSAParameter *parameter,QWidget *eltern):QDialog(eltern)
 {
 	setupUi(this);
 	//Eingabeüberprüfung
@@ -58,7 +59,7 @@ QFrankQtSBSADlgEinstellungen::QFrankQtSBSADlgEinstellungen(QFrankQtSBSAParameter
 	txtZertifikat->setText(tmp);
 	txtPublickeyToken->setText(K_Parameter->publicKeyTokenHohlen());
 }
-void QFrankQtSBSADlgEinstellungen::on_sfBox_clicked(QAbstractButton *schaltflaeche)
+void QtSBSADlgEinstellungen::on_sfBox_clicked(QAbstractButton *schaltflaeche)
 {
 	if(sfBox->buttonRole(schaltflaeche)==QDialogButtonBox::ApplyRole)
 	{
@@ -84,7 +85,7 @@ void QFrankQtSBSADlgEinstellungen::on_sfBox_clicked(QAbstractButton *schaltflaec
 	else
 		reject();
 }
-bool QFrankQtSBSADlgEinstellungen::AlleAngabenVollstaendig()
+bool QtSBSADlgEinstellungen::AlleAngabenVollstaendig()
 {
 	//Sind alle Felder richtig ausgefüllt?
 	if(txtQtPfad->text().isEmpty() || txtWixPfad->text().isEmpty() || txtWindowsSDKPfad->text().isEmpty() || 
@@ -93,7 +94,7 @@ bool QFrankQtSBSADlgEinstellungen::AlleAngabenVollstaendig()
 		return false;
 	return true;
 }
-void QFrankQtSBSADlgEinstellungen::on_sfQtPfadSuchen_clicked()
+void QtSBSADlgEinstellungen::on_sfQtPfadSuchen_clicked()
 {
 	K_Verzeichnisauswahl->setAcceptMode(QFileDialog::AcceptOpen);
 	K_Verzeichnisauswahl->setWindowTitle(trUtf8("Bitte das Verzeichnis mit den Qt Bibliotheken auswählen."));
@@ -101,7 +102,7 @@ void QFrankQtSBSADlgEinstellungen::on_sfQtPfadSuchen_clicked()
 	if(K_Verzeichnisauswahl->result()==QDialog::Accepted)
 		txtQtPfad->setText(K_Verzeichnisauswahl->selectedFiles().first());
 }
-void QFrankQtSBSADlgEinstellungen::on_sfWixPfadSuchen_clicked()
+void QtSBSADlgEinstellungen::on_sfWixPfadSuchen_clicked()
 {
 	K_Verzeichnisauswahl->setAcceptMode(QFileDialog::AcceptOpen);
 	K_Verzeichnisauswahl->setWindowTitle(trUtf8("Bitte das Verzeichnis in dem sich Wix3 befindet auswählen."));
@@ -109,7 +110,7 @@ void QFrankQtSBSADlgEinstellungen::on_sfWixPfadSuchen_clicked()
 	if(K_Verzeichnisauswahl->result()==QDialog::Accepted)
 		txtWixPfad->setText(K_Verzeichnisauswahl->selectedFiles().first());
 }
-void QFrankQtSBSADlgEinstellungen::on_sfWindowsSDKPfadSuchen_clicked()
+void QtSBSADlgEinstellungen::on_sfWindowsSDKPfadSuchen_clicked()
 {
 	K_Verzeichnisauswahl->setAcceptMode(QFileDialog::AcceptOpen);
 	K_Verzeichnisauswahl->setWindowTitle(tr("Werkzeuge vom Windows SDK suchen."));
@@ -117,7 +118,7 @@ void QFrankQtSBSADlgEinstellungen::on_sfWindowsSDKPfadSuchen_clicked()
 	if(K_Verzeichnisauswahl->result()==QDialog::Accepted)
 		txtWindowsSDKPfad->setText(K_Verzeichnisauswahl->selectedFiles().first());
 }
-void QFrankQtSBSADlgEinstellungen::on_sfZielpfadSuchen_clicked()
+void QtSBSADlgEinstellungen::on_sfZielpfadSuchen_clicked()
 {
 	K_Verzeichnisauswahl->setAcceptMode(QFileDialog::AcceptSave);
 	K_Verzeichnisauswahl->setWindowTitle(trUtf8("Bitte das Verzeichnis für die Mergemodule auswählen."));
@@ -125,7 +126,7 @@ void QFrankQtSBSADlgEinstellungen::on_sfZielpfadSuchen_clicked()
 	if(K_Verzeichnisauswahl->result()==QDialog::Accepted)
 		txtZielPfad->setText(K_Verzeichnisauswahl->selectedFiles().first());
 }
-void QFrankQtSBSADlgEinstellungen::on_sfZertifikatSuchen_clicked()
+void QtSBSADlgEinstellungen::on_sfZertifikatSuchen_clicked()
 {
 	HCERTSTORE Zertifikatsspeicher=NULL;
 	PCCERT_CONTEXT Auswahldialog= NULL; 
@@ -233,7 +234,7 @@ void QFrankQtSBSADlgEinstellungen::on_sfZertifikatSuchen_clicked()
 	CertFreeCertificateContext(Auswahldialog);
 	CertCloseStore(Zertifikatsspeicher,CERT_CLOSE_STORE_FORCE_FLAG);	
 }
-QString QFrankQtSBSADlgEinstellungen::K_FeldNachHex(const QByteArray &feld)
+QString QtSBSADlgEinstellungen::K_FeldNachHex(const QByteArray &feld)
 {
 	QString tmp="";
 	uchar low,high;

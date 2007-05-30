@@ -19,20 +19,23 @@
 
 #include "ui_FortschrittBasis.h"
 
-class QFrankQtSBSAParameter;
-class QFrankQtSBSADlgFortschritt : public QDialog, private Ui::dlgFortschrittBasis
+namespace QFrank
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSADlgFortschritt(QWidget *eltern,QFrankQtSBSAParameter* parameter);
-				virtual bool					event(QEvent *ereignis);					
-	private:
-				bool							K_darfGeschlossenWerden;				
-	private Q_SLOTS:
-				void							on_sfSchliessen_clicked();
-				void							K_NeueMeldung(const QString &meldung);
-				void							K_ErstellungBeendet();
-				void							K_FortschrittsanzeigeMaximum(int endpunkt);
-				void							K_FortschrittsanzeigeSchritt();
-};
+	class QtSBSAParameter;
+	class QtSBSADlgFortschritt : public QDialog, private Ui::dlgFortschrittBasis
+	{
+		Q_OBJECT
+		public:
+					QtSBSADlgFortschritt(QWidget *eltern,QtSBSAParameter* parameter);
+					virtual bool					event(QEvent *ereignis);					
+		private:
+					bool							K_darfGeschlossenWerden;				
+		private Q_SLOTS:
+					void							on_sfSchliessen_clicked();
+					void							K_NeueMeldung(const QString &meldung);
+					void							K_ErstellungBeendet();
+					void							K_FortschrittsanzeigeMaximum(int endpunkt);
+					void							K_FortschrittsanzeigeSchritt();
+	};
+}
 #endif

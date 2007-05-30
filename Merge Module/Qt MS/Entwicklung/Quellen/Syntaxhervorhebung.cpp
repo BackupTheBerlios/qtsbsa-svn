@@ -16,7 +16,9 @@
 
 #include "Syntaxhervorhebung.h"
 
-QFrankQtSBSASyntaxhervorhebung::QFrankQtSBSASyntaxhervorhebung(QTextDocument *eltern):QSyntaxHighlighter(eltern)
+using namespace QFrank;
+
+QtSBSASyntaxhervorhebung::QtSBSASyntaxhervorhebung(QTextDocument *eltern):QSyntaxHighlighter(eltern)
 {
 	K_Blau=new QTextCharFormat();
 	K_Blau->setForeground(Qt::blue);
@@ -26,13 +28,13 @@ QFrankQtSBSASyntaxhervorhebung::QFrankQtSBSASyntaxhervorhebung(QTextDocument *el
 	//K_Rot->setForeground(Qt::darkRed);
 	K_Rot->setForeground(Qt::red);
 }
-QFrankQtSBSASyntaxhervorhebung::~QFrankQtSBSASyntaxhervorhebung()
+QtSBSASyntaxhervorhebung::~QtSBSASyntaxhervorhebung()
 {
 	delete K_Blau;
 	delete K_Gruen;
 	delete K_Rot;
 }
-void QFrankQtSBSASyntaxhervorhebung::highlightBlock(const QString &text)
+void QtSBSASyntaxhervorhebung::highlightBlock(const QString &text)
 {	
 	QRegExp Ausdruck;
 	Ausdruck.setPatternSyntax(QRegExp::RegExp2);

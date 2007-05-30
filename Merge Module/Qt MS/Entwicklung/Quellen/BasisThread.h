@@ -19,25 +19,28 @@
 
 #include <QtCore>
 
-class QFrankQtSBSAParameter;
-class QFrankQtSBSABasisThread:public QThread
+namespace QFrank
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSABasisThread(QFrankQtSBSAParameter* parameter,QObject* eltern=0);
-				void					DateinummerFestlegen(const int &nummer){K_Dateinummer=nummer;}
-	public Q_SLOTS:
-				const int				FehlercodeHohlen(){return K_Fehlercode;}
-				const QString			FehlermeldungHohlen(){return K_Fehlermeldung;}
+	class QtSBSAParameter;
+	class QtSBSABasisThread:public QThread
+	{
+		Q_OBJECT
+		public:
+					QtSBSABasisThread(QtSBSAParameter* parameter,QObject* eltern=0);
+					void				DateinummerFestlegen(const int &nummer){K_Dateinummer=nummer;}
+		public Q_SLOTS:
+					const int			FehlercodeHohlen(){return K_Fehlercode;}
+					const QString		FehlermeldungHohlen(){return K_Fehlermeldung;}
 #ifndef QT_NO_DEBUG
-				const int				Threadnummer(){return K_Dateinummer;}
+					const int			Threadnummer(){return K_Dateinummer;}
 #endif
-	Q_SIGNALS:
-				void					fertig(QFrankQtSBSABasisThread *welcher);				
-	protected:
-				QFrankQtSBSAParameter*	K_Parameter;
-				QString					K_Fehlermeldung;
-				int						K_Fehlercode;
-				int						K_Dateinummer;				
-};
+		Q_SIGNALS:
+					void				fertig(QtSBSABasisThread *welcher);				
+		protected:
+					QtSBSAParameter*	K_Parameter;
+					QString				K_Fehlermeldung;
+					int					K_Fehlercode;
+					int					K_Dateinummer;				
+	};
+}
 #endif

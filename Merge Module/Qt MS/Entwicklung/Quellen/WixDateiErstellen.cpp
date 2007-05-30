@@ -18,12 +18,14 @@
 #include "QtModul.h"
 #include "Parameter.h"
 
+using namespace QFrank;
+
 //<Dependency RequiredId="QtCoreModul" RequiredLanguage="0" RequiredVersion="4.2.2.0" />
-QFrankQtSBSAWixDateiErstellen::QFrankQtSBSAWixDateiErstellen( QFrankQtSBSAParameter* parameter,QObject* eltern)
-							  :QFrankQtSBSABasisThread(parameter,eltern)
+QtSBSAWixDateiErstellen::QtSBSAWixDateiErstellen( QtSBSAParameter* parameter,QObject* eltern)
+							  :QtSBSABasisThread(parameter,eltern)
 {
 }
-void QFrankQtSBSAWixDateiErstellen::run()
+void QtSBSAWixDateiErstellen::run()
 {
 	QString Dateiname=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).DateinameHohlen();
 	QString Modulname=Dateiname.left(Dateiname.size()-4);// 4= .dll
@@ -73,7 +75,7 @@ void QFrankQtSBSAWixDateiErstellen::run()
 	//emit
 	fertig(this);
 }
-void QFrankQtSBSAWixDateiErstellen::K_PlatzhalterErsetzen(QString &zeile,const QString &modulname)const
+void QtSBSAWixDateiErstellen::K_PlatzhalterErsetzen(QString &zeile,const QString &modulname)const
 {
 	//Platzhalter ersetzen;
 	const static uchar GUUIDLAENGE=36;
@@ -171,7 +173,7 @@ void QFrankQtSBSAWixDateiErstellen::K_PlatzhalterErsetzen(QString &zeile,const Q
 	if(zeile.contains("$MODULABHAENGIGKEIT"))
 		K_AbhaengigkeitenEintragen(zeile);
 }
-void QFrankQtSBSAWixDateiErstellen::K_AbhaengigkeitenEintragen(QString &zeile)const
+void QtSBSAWixDateiErstellen::K_AbhaengigkeitenEintragen(QString &zeile)const
 {
 	//Damit der Platzhalter entfernt wird
 	zeile="";

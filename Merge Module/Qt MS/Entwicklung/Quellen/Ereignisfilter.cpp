@@ -16,17 +16,18 @@
 
 #include "Ereignisfilter.h"
 
-QFrankQtSBSAEreignisfilter::QFrankQtSBSAEreignisfilter(QObject* eltern):QObject(eltern)
+using namespace QFrank;
+QtSBSAEreignisfilter::QtSBSAEreignisfilter(QObject* eltern):QObject(eltern)
 {
 }
-bool QFrankQtSBSAEreignisfilter::eventFilter(QObject *objekt, QEvent *ereignis)
+bool QtSBSAEreignisfilter::eventFilter(QObject *objekt, QEvent *ereignis)
 {
 	/*
 		Der Fortschrittsdialog darf nur geschlossen werden, wenn er fertig ist.
 	*/
 	qDebug()<<objekt->metaObject()->className();
 	qDebug()<<ereignis;
-	if(objekt->metaObject()->className()=="QFrankQtSBSADlgFortschritt")
+	if(objekt->metaObject()->className()=="QFrank::QtSBSADlgFortschritt")
 	{
 		qDebug()<<"teste";
 		if(ereignis->type()==QEvent::Close)

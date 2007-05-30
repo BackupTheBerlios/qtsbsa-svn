@@ -20,23 +20,26 @@
 #include <QtGui>
 #include "ui_EinstellungenBasis.h"
 
-class QFrankQtSBSAParameter;
-class QFrankQtSBSADlgEinstellungen:public QDialog, private Ui::dlgEinstellungenBasis
+namespace QFrank
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSADlgEinstellungen(QFrankQtSBSAParameter *parameter,QWidget *eltern=0);
-	private:
-				QFileDialog*			K_Verzeichnisauswahl;
-				bool					AlleAngabenVollstaendig();
-				QString					K_FeldNachHex(const QByteArray &feld); 
-				QFrankQtSBSAParameter*	K_Parameter;
-	private Q_SLOTS:
-				void					on_sfBox_clicked(QAbstractButton *schaltflaeche);
-				void					on_sfQtPfadSuchen_clicked();
-				void					on_sfWixPfadSuchen_clicked();
-				void					on_sfWindowsSDKPfadSuchen_clicked();
-				void					on_sfZielpfadSuchen_clicked();
-				void					on_sfZertifikatSuchen_clicked();
-};
+	class QtSBSAParameter;
+	class QtSBSADlgEinstellungen:public QDialog, private Ui::dlgEinstellungenBasis
+	{
+		Q_OBJECT
+		public:
+					QtSBSADlgEinstellungen(QtSBSAParameter *parameter,QWidget *eltern=0);
+		private:
+					QFileDialog*		K_Verzeichnisauswahl;
+					bool				AlleAngabenVollstaendig();
+					QString				K_FeldNachHex(const QByteArray &feld); 
+					QtSBSAParameter*	K_Parameter;
+		private Q_SLOTS:
+					void				on_sfBox_clicked(QAbstractButton *schaltflaeche);
+					void				on_sfQtPfadSuchen_clicked();
+					void				on_sfWixPfadSuchen_clicked();
+					void				on_sfWindowsSDKPfadSuchen_clicked();
+					void				on_sfZielpfadSuchen_clicked();
+					void				on_sfZertifikatSuchen_clicked();
+	};
+}
 #endif

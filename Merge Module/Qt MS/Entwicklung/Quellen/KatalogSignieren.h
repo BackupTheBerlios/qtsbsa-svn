@@ -20,17 +20,20 @@
 #include <QtCore>
 #include "BasisThread.h"
 
-class QFrankQtSBSAKatalogSignieren:public QFrankQtSBSABasisThread
+namespace QFrank
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSAKatalogSignieren(QFrankQtSBSAParameter* parameter,QObject* eltern=0);
-				~QFrankQtSBSAKatalogSignieren();
-	private:
-					QProcess*	K_signtoolProzess;
-	private Q_SLOTS:
-					void		K_signtoolFertig(int statusCode);
-	protected:
-					void		run();
-};
+	class QtSBSAKatalogSignieren:public QtSBSABasisThread
+	{
+		Q_OBJECT
+		public:
+					QtSBSAKatalogSignieren(QtSBSAParameter* parameter,QObject* eltern=0);
+					~QtSBSAKatalogSignieren();
+		private:
+						QProcess*	K_signtoolProzess;
+		private Q_SLOTS:
+						void		K_signtoolFertig(int statusCode);
+		protected:
+						void		run();
+	};
+}
 #endif

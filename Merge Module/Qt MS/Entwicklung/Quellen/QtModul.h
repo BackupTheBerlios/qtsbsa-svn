@@ -19,30 +19,33 @@
 
 #include <QtCore>
 
-class QFrankQtSBSAQtModul
+namespace QFrank
 {
-	public:
-			QFrankQtSBSAQtModul();
-			QFrankQtSBSAQtModul(const QString &dateiname,const bool &istPlugIn=false,const bool &istSprachpaket=false);
-			const QString&		DateinameHohlen()const{return K_Dateiname;}
-			const bool&			istPlugIn()const{return K_istPlugIn;}
-			const bool&			istSprachpaket()const{return K_istSprachpaket;}
-			const QString		PlugInTypeHohlen()const{return K_PlugInType;}
-			const QStringList&	AbhaenigkeitenHohlen()const{return K_Abaengigkeiten;}
-			void				DateinameSetzen(const QString &dateiname){K_Dateiname=dateiname;}
-			void				IstPlugInSetzen(const bool& istPlugIn){K_istPlugIn=istPlugIn;}
-			void				IstSprachpaketSetzen(const bool& istSprachpaket){K_istSprachpaket=istSprachpaket;}
-			void				PlugInTypeSetzen(const QString &type){K_PlugInType=type;}
-			void				AbhaengigkeitenSetzen(const QStringList &liste){K_Abaengigkeiten=liste;}
-			void				AbhaengigkeitAnfuegen(const QString &abhaengigkeit){K_Abaengigkeiten.append(abhaengigkeit);}
-	private:
-			QString				K_Dateiname;
-			bool				K_istPlugIn;
-			bool				K_istSprachpaket;
-			QString				K_PlugInType;
-			QStringList			K_Abaengigkeiten;
-};
+	class QtSBSAQtModul
+	{
+		public:
+				QtSBSAQtModul();
+				QtSBSAQtModul(const QString &dateiname,const bool &istPlugIn=false,const bool &istSprachpaket=false);
+				const QString&		DateinameHohlen()const{return K_Dateiname;}
+				const bool&			istPlugIn()const{return K_istPlugIn;}
+				const bool&			istSprachpaket()const{return K_istSprachpaket;}
+				const QString		PlugInTypeHohlen()const{return K_PlugInType;}
+				const QStringList&	AbhaenigkeitenHohlen()const{return K_Abaengigkeiten;}
+				void				DateinameSetzen(const QString &dateiname){K_Dateiname=dateiname;}
+				void				IstPlugInSetzen(const bool& istPlugIn){K_istPlugIn=istPlugIn;}
+				void				IstSprachpaketSetzen(const bool& istSprachpaket){K_istSprachpaket=istSprachpaket;}
+				void				PlugInTypeSetzen(const QString &type){K_PlugInType=type;}
+				void				AbhaengigkeitenSetzen(const QStringList &liste){K_Abaengigkeiten=liste;}
+				void				AbhaengigkeitAnfuegen(const QString &abhaengigkeit){K_Abaengigkeiten.append(abhaengigkeit);}
+		private:
+				QString				K_Dateiname;
+				bool				K_istPlugIn;
+				bool				K_istSprachpaket;
+				QString				K_PlugInType;
+				QStringList			K_Abaengigkeiten;
+	};
 #ifndef QT_NO_DEBUG
-			QDebug				operator<<(QDebug debug, const QFrankQtSBSAQtModul &modul);
+				QDebug				operator<<(QDebug debug, const QtSBSAQtModul &modul);
 #endif
+}
 #endif

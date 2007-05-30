@@ -20,15 +20,18 @@
 #include <QtCore>
 #include "BasisThread.h"
 
-class QFrankQtSBSAWixDateiErstellen:public QFrankQtSBSABasisThread
+namespace QFrank
 {
-	Q_OBJECT
-	public:
-			QFrankQtSBSAWixDateiErstellen(QFrankQtSBSAParameter* parameter,QObject* eltern=0);
-	private:
-			void		K_PlatzhalterErsetzen(QString &zeile,const QString &modulname)const;
-			void 		K_AbhaengigkeitenEintragen(QString &zeile)const;
-	protected:
-			void		run();
-};
+	class QtSBSAWixDateiErstellen:public QtSBSABasisThread
+	{
+		Q_OBJECT
+		public:
+				QtSBSAWixDateiErstellen(QtSBSAParameter* parameter,QObject* eltern=0);
+		private:
+				void		K_PlatzhalterErsetzen(QString &zeile,const QString &modulname)const;
+				void 		K_AbhaengigkeitenEintragen(QString &zeile)const;
+		protected:
+				void		run();
+	};
+}
 #endif

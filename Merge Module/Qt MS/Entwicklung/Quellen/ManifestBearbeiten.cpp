@@ -17,12 +17,14 @@
 #include "ManifestBearbeiten.h"
 #include "Parameter.h"
 
-QFrankQtSBSAManifestBearbeiten::QFrankQtSBSAManifestBearbeiten(QFrankQtSBSAParameter* parameter,QObject* eltern)
-										:QFrankQtSBSABasisThread(parameter,eltern)
+using namespace QFrank;
+
+QtSBSAManifestBearbeiten::QtSBSAManifestBearbeiten(QtSBSAParameter* parameter,QObject* eltern)
+										:QtSBSABasisThread(parameter,eltern)
 {
 	K_Dateipfad="";
 }
-void QFrankQtSBSAManifestBearbeiten::run()
+void QtSBSAManifestBearbeiten::run()
 {
 	//Sprachpakete haben kein Manifest!!
 	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
@@ -117,7 +119,7 @@ void QFrankQtSBSAManifestBearbeiten::run()
 	//emit
 	fertig(this);
 }
-const QDomElement QFrankQtSBSAManifestBearbeiten::K_AssemblyIdentifikationEinfuegen(QDomDocument &manifest)
+const QDomElement QtSBSAManifestBearbeiten::K_AssemblyIdentifikationEinfuegen(QDomDocument &manifest)
 {
 	QDomElement Identifikation=manifest.createElement("assemblyIdentity");
 	Identifikation.setAttribute("type","win32");
@@ -127,7 +129,7 @@ const QDomElement QFrankQtSBSAManifestBearbeiten::K_AssemblyIdentifikationEinfue
 	Identifikation.setAttribute("publicKeyToken",K_Parameter->publicKeyTokenHohlen());
 	return QDomElement(Identifikation);
 }
-bool QFrankQtSBSAManifestBearbeiten::K_AbhaengigkeitEinfuegen(QDomDocument &manifest,const QString &welche)
+bool QtSBSAManifestBearbeiten::K_AbhaengigkeitEinfuegen(QDomDocument &manifest,const QString &welche)
 {												 
 	/*QDomNode Abhaengigkeiten=manifest.documentElement().namedItem("dependency");
 	if(Abhaengigkeiten.isNull())
@@ -156,7 +158,7 @@ bool QFrankQtSBSAManifestBearbeiten::K_AbhaengigkeitEinfuegen(QDomDocument &mani
 	AnhaengigeAssemblys.appendChild(K_AssemblyIdentifikationEinfuegen(manifest));	
 	return true;
 }
-bool QFrankQtSBSAManifestBearbeiten::K_QtKomponenteErmitteln(const QString &datei)
+bool QtSBSAManifestBearbeiten::K_QtKomponenteErmitteln(const QString &datei)
 {	
 	//Welche Komponete wird bearbeitet??
 	if(datei.contains("core4",Qt::CaseInsensitive))
@@ -211,7 +213,7 @@ bool QFrankQtSBSAManifestBearbeiten::K_QtKomponenteErmitteln(const QString &date
 		return false;
 	return true;
 }
-bool QFrankQtSBSAManifestBearbeiten::K_AbhaengigkeitenErmitteln()
+bool QtSBSAManifestBearbeiten::K_AbhaengigkeitenErmitteln()
 {
 	/*
 		Abängigkeiten bearbeiten
@@ -297,13 +299,13 @@ bool QFrankQtSBSAManifestBearbeiten::K_AbhaengigkeitenErmitteln()
 #ifndef QT_NO_DEBUG
 	qDebug()<<Debugtext;
 #endif
-	QFrankQtSBSAQtModul Modul=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer);
+	QtSBSAQtModul Modul=K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer);
 	Modul.AbhaengigkeitenSetzen(K_BenoetigeQtKomponenten);
 	K_Parameter->QtBibliothekenHohlen().replace(K_Dateinummer,Modul);
 	DateiMitDenAbhaengigkeiten.close();
 	return true;
 }
-void QFrankQtSBSAManifestBearbeiten::K_ProzessFertig(int rueckgabe)
+void QtSBSAManifestBearbeiten::K_ProzessFertig(int rueckgabe)
 {
 	exit(rueckgabe);
 }

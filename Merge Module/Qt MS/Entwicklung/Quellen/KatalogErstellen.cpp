@@ -17,17 +17,19 @@
 #include "KatalogErstellen.h"
 #include "Parameter.h"
 
-QFrankQtSBSAKatalogErstellen::QFrankQtSBSAKatalogErstellen(QFrankQtSBSAParameter* parameter,QObject* eltern)
-									  :QFrankQtSBSABasisThread(parameter,eltern)
+using namespace QFrank;
+
+QtSBSAKatalogErstellen::QtSBSAKatalogErstellen(QtSBSAParameter* parameter,QObject* eltern)
+									  :QtSBSABasisThread(parameter,eltern)
 {	
 	K_AktuellerSchritt=KatalogvorlageErstellen;
 	K_Dateipfad="";
 }
-QFrankQtSBSAKatalogErstellen::~QFrankQtSBSAKatalogErstellen()
+QtSBSAKatalogErstellen::~QtSBSAKatalogErstellen()
 {
 	delete K_Prozess;
 }
-void QFrankQtSBSAKatalogErstellen::run()
+void QtSBSAKatalogErstellen::run()
 {
 	K_Prozess=new QProcess();
 	//Qt Plug-Ins und Sprachpaket brauchen kein Katalog, also gibt es nix zu signieren.
@@ -61,7 +63,7 @@ void QFrankQtSBSAKatalogErstellen::run()
 	//emit
 	fertig(this);
 }
-void QFrankQtSBSAKatalogErstellen::K_ProzessIstFertig(int rueckgabe)
+void QtSBSAKatalogErstellen::K_ProzessIstFertig(int rueckgabe)
 {
 	QString Fehlermeldung=QString(K_Prozess->readAll());
 	Fehlermeldung.remove("\r");

@@ -17,17 +17,19 @@
 #include "KatalogSignieren.h"
 #include "Parameter.h"
 
-QFrankQtSBSAKatalogSignieren::QFrankQtSBSAKatalogSignieren(QFrankQtSBSAParameter* parameter,QObject* eltern)
-									:QFrankQtSBSABasisThread(parameter,eltern)
+using namespace QFrank;
+
+QtSBSAKatalogSignieren::QtSBSAKatalogSignieren(QtSBSAParameter* parameter,QObject* eltern)
+									:QtSBSABasisThread(parameter,eltern)
 {
 	K_signtoolProzess=NULL;
 }
-QFrankQtSBSAKatalogSignieren::~QFrankQtSBSAKatalogSignieren()
+QtSBSAKatalogSignieren::~QtSBSAKatalogSignieren()
 {
 	if(K_signtoolProzess!=NULL)
 		delete K_signtoolProzess;
 }
-void QFrankQtSBSAKatalogSignieren::run()
+void QtSBSAKatalogSignieren::run()
 {
 	//Qt Plug-Ins und Sprachpaket haben kein Katalog, also gibt es nix zu signieren.
 	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istPlugIn() ||
@@ -61,7 +63,7 @@ void QFrankQtSBSAKatalogSignieren::run()
 	//emit
 	fertig(this);
 }
-void QFrankQtSBSAKatalogSignieren::K_signtoolFertig(int statusCode)
+void QtSBSAKatalogSignieren::K_signtoolFertig(int statusCode)
 {
 	/*
 		exit Code:

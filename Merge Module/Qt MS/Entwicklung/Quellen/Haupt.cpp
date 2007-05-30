@@ -88,7 +88,7 @@ int main(int anzahlArgumente, char *Argumente[])
 	QTranslator Meine;	
 	Meine.load(":/Uebersetzungen/Uebersetzung");	
 	Programm.installTranslator(&Meine);
-	QFrankQtSBSADlgHaupt Hauptdialog;
+	QFrank::QtSBSADlgHaupt Hauptdialog;
 	Hauptdialog.show();
 	return Programm.exec(); 
 }

@@ -22,8 +22,9 @@
 #include "Parameter.h"
 #include <QtGui>
 
+using namespace QFrank;
 
-QFrankQtSBSADlgHaupt::QFrankQtSBSADlgHaupt(QWidget *eltern) : QMainWindow(eltern)
+QtSBSADlgHaupt::QtSBSADlgHaupt(QWidget *eltern) : QMainWindow(eltern)
 {
 	setupUi(this);
 	//Zentrieren
@@ -32,10 +33,10 @@ QFrankQtSBSADlgHaupt::QFrankQtSBSADlgHaupt(QWidget *eltern) : QMainWindow(eltern
 	int y=(Desktop->height()-this->height())/2;
 	//jetzt das Fenster verschieben
 	this->move(x,y);
-	K_Parameter=new QFrankQtSBSAParameter(this);
+	K_Parameter=new QtSBSAParameter(this);
 	K_ParamterLaden();
 }
-void QFrankQtSBSADlgHaupt::K_ParamterLaden()
+void QtSBSADlgHaupt::K_ParamterLaden()
 {
 	QSettings Programmparamter(QSettings::IniFormat,QSettings::UserScope,"QtSBSA","Parameter");
 	K_Parameter->WindowsSDKPfadSetzen(Programmparamter.value("Verzeichnisse/WindowsSDK","").toString());
@@ -51,7 +52,7 @@ void QFrankQtSBSADlgHaupt::K_ParamterLaden()
 	K_Parameter->ZertSHA1Setzen(Programmparamter.value("Zertifikat/SHA1","").toString());
 	K_Parameter->publicKeyTokenSetzen(Programmparamter.value("Zertifikat/publickeyToken","").toString());
 }
-void QFrankQtSBSADlgHaupt::K_ParameterSpeichern()
+void QtSBSADlgHaupt::K_ParameterSpeichern()
 {
 	QSettings Programmparamter(QSettings::IniFormat,QSettings::UserScope,"QtSBSA","Parameter");
 	Programmparamter.setValue("Verzeichnisse/WindowsSDK",K_Parameter->WindowsSDKPfadHohlen());
@@ -67,28 +68,28 @@ void QFrankQtSBSADlgHaupt::K_ParameterSpeichern()
 	Programmparamter.setValue("Zertifikat/SHA1",K_Parameter->ZertSHA1Hohlen());
 	Programmparamter.setValue("Zertifikat/publickeyToken",K_Parameter->publicKeyTokenHohlen());
 }
-void QFrankQtSBSADlgHaupt::on_Menue_Einstellungen_triggered()
+void QtSBSADlgHaupt::on_Menue_Einstellungen_triggered()
 {
-	QFrankQtSBSADlgEinstellungen* Einstellungen =new QFrankQtSBSADlgEinstellungen(K_Parameter,this);
+	QtSBSADlgEinstellungen* Einstellungen =new QtSBSADlgEinstellungen(K_Parameter,this);
 	Einstellungen->exec();
 	if(Einstellungen->result()==QDialog::Accepted)
 		K_ParameterSpeichern();		
 }
-void QFrankQtSBSADlgHaupt::on_Menue_UeberQt_triggered()
+void QtSBSADlgHaupt::on_Menue_UeberQt_triggered()
 {
 	QMessageBox::aboutQt(this);
 }
-void QFrankQtSBSADlgHaupt::on_Menue_UeberDasProgramm_triggered()
+void QtSBSADlgHaupt::on_Menue_UeberDasProgramm_triggered()
 {
-	QFrankQtSBSADlgInfo Infodialog=new QFrankQtSBSADlgInfo(this);
+	QtSBSADlgInfo Infodialog=new QtSBSADlgInfo(this);
 	Infodialog.exec();
 }
-void QFrankQtSBSADlgHaupt::on_Menue_VorspannFuerProgramme_triggered()
+void QtSBSADlgHaupt::on_Menue_VorspannFuerProgramme_triggered()
 {
-	QFrankQtSBSADlgVorspann Vorspann=new QFrankQtSBSADlgVorspann(this);
+	QtSBSADlgVorspann Vorspann=new QtSBSADlgVorspann(this);
 	Vorspann.exec();
 }
-bool QFrankQtSBSADlgHaupt::K_AlleParameterGesetzt()
+bool QtSBSADlgHaupt::K_AlleParameterGesetzt()
 {
 	if(!K_Parameter->AllesVorliegend())
 	{
@@ -98,14 +99,14 @@ bool QFrankQtSBSADlgHaupt::K_AlleParameterGesetzt()
 	}
 	return true;
 }
-void QFrankQtSBSADlgHaupt::on_Menue_MergemoduleFuerQt_triggered()
+void QtSBSADlgHaupt::on_Menue_MergemoduleFuerQt_triggered()
 {
 	if(!K_AlleParameterGesetzt())
 		return;
-	QFrankQtSBSADlgFortschritt Fortschritt(this,K_Parameter);
+	QtSBSADlgFortschritt Fortschritt(this,K_Parameter);
 	Fortschritt.exec();	
 }
-void QFrankQtSBSADlgHaupt::on_Menue_AnwendungAnpassen_triggered()
+void QtSBSADlgHaupt::on_Menue_AnwendungAnpassen_triggered()
 {
 	if(!K_AlleParameterGesetzt())
 		return;

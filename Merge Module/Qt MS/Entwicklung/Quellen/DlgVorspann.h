@@ -20,10 +20,13 @@
 #include <QtGui>
 #include "ui_VorspannBasis.h"
 
-class QFrankQtSBSADlgVorspann:public QDialog,private Ui::dlgVorspannBasis
+namespace QFrank
 {
-	Q_OBJECT
-	public:
-			QFrankQtSBSADlgVorspann(QWidget *eltern=0);			
-};
+	class QtSBSADlgVorspann:public QDialog,private Ui::dlgVorspannBasis
+	{
+		Q_OBJECT
+		public:
+				QtSBSADlgVorspann(QWidget *eltern=0);			
+	};
+}
 #endif

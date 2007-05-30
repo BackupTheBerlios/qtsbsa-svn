@@ -20,11 +20,13 @@
 #include <QtGui>
 #include "ui_InfoBasis.h"
 
-class QFrankQtSBSADlgInfo : public QDialog, private Ui::dlgInfoBasis
+namespace QFrank
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSADlgInfo(QWidget *eltern=0);
-};
-
+	class QtSBSADlgInfo : public QDialog, private Ui::dlgInfoBasis
+	{
+		Q_OBJECT
+		public:
+					QtSBSADlgInfo(QWidget *eltern=0);
+	};
+}
 #endif

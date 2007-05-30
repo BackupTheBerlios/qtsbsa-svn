@@ -21,23 +21,26 @@
 #include <QtXml>
 #include "BasisThread.h"
 
-class QFrankQtSBSAParameter;
-class QFrankQtSBSAManifestBearbeiten: public QFrankQtSBSABasisThread
+namespace QFrank
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSAManifestBearbeiten(QFrankQtSBSAParameter* parameter,QObject* eltern=0);
-	private Q_SLOTS:
-				void				K_ProzessFertig(int rueckgabe);
-	private:
-				QString				K_Dateipfad;
-				QString				K_QtKomponente;
-				QStringList			K_BenoetigeQtKomponenten;
-				bool				K_QtKomponenteErmitteln(const QString &datei);
-				bool				K_AbhaengigkeitenErmitteln();
-				const QDomElement	K_AssemblyIdentifikationEinfuegen(QDomDocument &manifest);
-				bool				K_AbhaengigkeitEinfuegen(QDomDocument &manifest,const QString &welche);
-	protected:
-				void				run();
-};
+	class QtSBSAParameter;
+	class QtSBSAManifestBearbeiten: public QtSBSABasisThread
+	{
+		Q_OBJECT
+		public:
+					QtSBSAManifestBearbeiten(QtSBSAParameter* parameter,QObject* eltern=0);
+		private Q_SLOTS:
+					void				K_ProzessFertig(int rueckgabe);
+		private:
+					QString				K_Dateipfad;
+					QString				K_QtKomponente;
+					QStringList			K_BenoetigeQtKomponenten;
+					bool				K_QtKomponenteErmitteln(const QString &datei);
+					bool				K_AbhaengigkeitenErmitteln();
+					const QDomElement	K_AssemblyIdentifikationEinfuegen(QDomDocument &manifest);
+					bool				K_AbhaengigkeitEinfuegen(QDomDocument &manifest,const QString &welche);
+		protected:
+					void				run();
+	};
+}
 #endif

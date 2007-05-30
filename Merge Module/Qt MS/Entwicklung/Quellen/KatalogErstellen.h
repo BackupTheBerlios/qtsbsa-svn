@@ -20,20 +20,23 @@
 #include <QtCore>
 #include "BasisThread.h"
 
-class QFrankQtSBSAKatalogErstellen: public QFrankQtSBSABasisThread
+namespace QFrank
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSAKatalogErstellen(QFrankQtSBSAParameter* parameter,QObject* eltern=0);
-				~QFrankQtSBSAKatalogErstellen();
-	private:
-				enum		K_Schritt{KatalogvorlageErstellen=0x0,KatalogErstellen=0x01};
-				uchar		K_AktuellerSchritt;
-				QProcess	*K_Prozess;
-				QString		K_Dateipfad;
-	private Q_SLOTS:
-				void		K_ProzessIstFertig(int rueckgabe);
-	protected:
-				void		run();
-};
+	class QtSBSAKatalogErstellen: public QtSBSABasisThread
+	{
+		Q_OBJECT
+		public:
+					QtSBSAKatalogErstellen(QtSBSAParameter* parameter,QObject* eltern=0);
+					~QtSBSAKatalogErstellen();
+		private:
+					enum		K_Schritt{KatalogvorlageErstellen=0x0,KatalogErstellen=0x01};
+					uchar		K_AktuellerSchritt;
+					QProcess	*K_Prozess;
+					QString		K_Dateipfad;
+		private Q_SLOTS:
+					void		K_ProzessIstFertig(int rueckgabe);
+		protected:
+					void		run();
+	};
+}
 #endif

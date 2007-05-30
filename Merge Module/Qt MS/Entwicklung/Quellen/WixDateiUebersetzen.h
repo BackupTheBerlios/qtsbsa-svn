@@ -20,20 +20,23 @@
 #include <QtCore>
 #include "BasisThread.h"
 
-class QFrankQtSBSAWixDateiUebersetzen:public QFrankQtSBSABasisThread
+namespace QFrank
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSAWixDateiUebersetzen(QFrankQtSBSAParameter* parameter,QObject* eltern=0);
-				~QFrankQtSBSAWixDateiUebersetzen();
-	private:
-			enum		Arbeitsschritte{Kerze=0x0,Licht=0x1};
-			QProcess*	K_Prozess;
-			bool		K_Loslegen();
-			uchar		K_Arbeitsschritt;
-	private Q_SLOTS:
-			void		K_ProzessFertig(const int &statuscode);
-	protected:
-			void		run();
-};
+	class QtSBSAWixDateiUebersetzen:public QtSBSABasisThread
+	{
+		Q_OBJECT
+		public:
+					QtSBSAWixDateiUebersetzen(QtSBSAParameter* parameter,QObject* eltern=0);
+					~QtSBSAWixDateiUebersetzen();
+		private:
+				enum		Arbeitsschritte{Kerze=0x0,Licht=0x1};
+				QProcess*	K_Prozess;
+				bool		K_Loslegen();
+				uchar		K_Arbeitsschritt;
+		private Q_SLOTS:
+				void		K_ProzessFertig(const int &statuscode);
+		protected:
+				void		run();
+	};
+}
 #endif

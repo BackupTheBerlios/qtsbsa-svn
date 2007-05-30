@@ -20,18 +20,21 @@
 #include <QtCore>
 #include "BasisThread.h"
 
-class QFrankQtSBSAManifestExportieren:public QFrankQtSBSABasisThread
+namespace QFrank
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSAManifestExportieren( QFrankQtSBSAParameter* parameter,QObject *eltern=0);	
-				~QFrankQtSBSAManifestExportieren();
-
-	private Q_SLOTS:
-				void		K_mtFertig(int statusCode);
-	private:	
-				QProcess*	K_mtProzess;				
-	protected:
-				void		run();
-};
+	class QtSBSAManifestExportieren:public QtSBSABasisThread
+	{
+		Q_OBJECT
+		public:
+					QtSBSAManifestExportieren(QtSBSAParameter* parameter,QObject *eltern=0);	
+					~QtSBSAManifestExportieren();
+	
+		private Q_SLOTS:
+					void		K_mtFertig(int statusCode);
+		private:	
+					QProcess*	K_mtProzess;				
+		protected:
+					void		run();
+	};
+}
 #endif

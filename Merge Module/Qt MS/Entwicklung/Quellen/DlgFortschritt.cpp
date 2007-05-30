@@ -18,7 +18,8 @@
 #include "ArbeitVerteilen.h"
 #include <QtGui>
 
-QFrankQtSBSADlgFortschritt::QFrankQtSBSADlgFortschritt(QWidget *eltern,QFrankQtSBSAParameter* parameter) : QDialog(eltern)
+using namespace QFrank;
+QtSBSADlgFortschritt::QtSBSADlgFortschritt(QWidget *eltern,QtSBSAParameter* parameter) : QDialog(eltern)
 {
 	setupUi(this);
 	setWindowFlags(windowFlags()^Qt::WindowSystemMenuHint);
@@ -29,19 +30,19 @@ QFrankQtSBSADlgFortschritt::QFrankQtSBSADlgFortschritt(QWidget *eltern,QFrankQtS
 	//jetzt das Fenster verschieben
 	this->move(x,y);
 	K_darfGeschlossenWerden=false;
-	QFrankQtSBSAArbeitVerteilen *Abarbeiten=new QFrankQtSBSAArbeitVerteilen(this,parameter);
+	QtSBSAArbeitVerteilen *Abarbeiten=new QtSBSAArbeitVerteilen(this,parameter);
 	connect(Abarbeiten,SIGNAL(fertig()),this,SLOT(K_ErstellungBeendet()));
 	connect(Abarbeiten,SIGNAL(Meldung(const QString&)),this,SLOT(K_NeueMeldung(const QString&)));
 	connect(Abarbeiten,SIGNAL(FortschrittsanzeigeSchritt()),this,SLOT(K_FortschrittsanzeigeSchritt()));
 	connect(Abarbeiten,SIGNAL(FortschrittsanzeigeMaximum(int)),this,SLOT(K_FortschrittsanzeigeMaximum(int)));
 	QTimer::singleShot(0,Abarbeiten,SLOT(Loslegen()));	
 }
-void QFrankQtSBSADlgFortschritt::on_sfSchliessen_clicked()
+void QtSBSADlgFortschritt::on_sfSchliessen_clicked()
 {
 	K_darfGeschlossenWerden=true;
 	reject();
 }
-bool QFrankQtSBSADlgFortschritt::event(QEvent *ereignis)
+bool QtSBSADlgFortschritt::event(QEvent *ereignis)
 {
 	bool bearbeitet=false;
 	if(ereignis->type()==QEvent::Close)
@@ -54,20 +55,20 @@ bool QFrankQtSBSADlgFortschritt::event(QEvent *ereignis)
 	}
 	return bearbeitet;
 }
-void QFrankQtSBSADlgFortschritt::K_NeueMeldung(const QString &meldung)
+void QtSBSADlgFortschritt::K_NeueMeldung(const QString &meldung)
 {
 	txtAusgabe->append(meldung);
 }
-void QFrankQtSBSADlgFortschritt::K_ErstellungBeendet()
+void QtSBSADlgFortschritt::K_ErstellungBeendet()
 {
 	sfSchliessen->setEnabled(true);
 }
-void QFrankQtSBSADlgFortschritt::K_FortschrittsanzeigeMaximum(int endpunkt)
+void QtSBSADlgFortschritt::K_FortschrittsanzeigeMaximum(int endpunkt)
 {
 	Fortschrittsanzeige->setMaximum(endpunkt);
 	Fortschrittsanzeige->reset();
 }
-void QFrankQtSBSADlgFortschritt::K_FortschrittsanzeigeSchritt()
+void QtSBSADlgFortschritt::K_FortschrittsanzeigeSchritt()
 {
 	Fortschrittsanzeige->setValue(Fortschrittsanzeige->value()+1);	
 }

@@ -16,7 +16,9 @@
 
 #include "DlgProgramminfo.h"
 
-QFrankQtSBSADlgInfo::QFrankQtSBSADlgInfo(QWidget *eltern):QDialog(eltern)
+using namespace QFrank;
+
+QtSBSADlgInfo::QtSBSADlgInfo(QWidget *eltern):QDialog(eltern)
 {
 	setupUi(this);
 	setWindowFlags(windowFlags()^Qt::WindowContextHelpButtonHint);

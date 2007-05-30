@@ -17,12 +17,13 @@
 #include "Aufraeumen.h"
 #include "Parameter.h"
 
-QFrankQtSBSAAufraeumen::QFrankQtSBSAAufraeumen(const QFrankQtSBSAParameter* parameter,QObject *eltern)
+using namespace QFrank;
+QtSBSAAufraeumen::QtSBSAAufraeumen(const QtSBSAParameter* parameter,QObject *eltern)
 					  :QObject(eltern)
 {
 	K_Parameter=parameter;
 }
-bool QFrankQtSBSAAufraeumen::putzen()
+bool QtSBSAAufraeumen::putzen()
 {
 	/*
 		Am Schluss sollen nur die die Mergemodule übrig bleiben.
@@ -59,7 +60,7 @@ bool QFrankQtSBSAAufraeumen::putzen()
 	}
 	return true;
 }
-bool QFrankQtSBSAAufraeumen::K_DateiLoeschen(const QString &datei)
+bool QtSBSAAufraeumen::K_DateiLoeschen(const QString &datei)
 {
 #ifdef QT_NO_DEBUG
 	QDir Datei;
@@ -73,7 +74,7 @@ bool QFrankQtSBSAAufraeumen::K_DateiLoeschen(const QString &datei)
 	return true;
 #endif
 }
-bool QFrankQtSBSAAufraeumen::K_VerzeichnisLoeschen(const QString &verzeichnis)
+bool QtSBSAAufraeumen::K_VerzeichnisLoeschen(const QString &verzeichnis)
 {
 	QDir Dateien(K_Parameter->ZielverzeichnisHohlen()+"/"+verzeichnis);
 	QStringList Dateiliste=Dateien.entryList(QDir::NoDotAndDotDot|QDir::Files);

@@ -19,23 +19,26 @@
 
 #include "ui_HauptBasis.h"
 
-class QFrankQtSBSAParameter;
-class QFrankQtSBSADlgHaupt : public QMainWindow, private Ui::dlgHauptBasis
+namespace QFrank
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSADlgHaupt(QWidget *eltern = 0);
-	private:				
-				QFrankQtSBSAParameter*	K_Parameter;
-				void					K_ParamterLaden();
-				void					K_ParameterSpeichern();
-				bool					K_AlleParameterGesetzt();
-	private Q_SLOTS:				
-				void					on_Menue_Einstellungen_triggered();
-				void					on_Menue_UeberQt_triggered();
-				void					on_Menue_UeberDasProgramm_triggered();
-				void					on_Menue_VorspannFuerProgramme_triggered();
-				void					on_Menue_MergemoduleFuerQt_triggered();
-				void					on_Menue_AnwendungAnpassen_triggered();
-};
+	class QtSBSAParameter;
+	class QtSBSADlgHaupt : public QMainWindow, private Ui::dlgHauptBasis
+	{
+		Q_OBJECT
+		public:
+					QtSBSADlgHaupt(QWidget *eltern = 0);
+		private:				
+					QtSBSAParameter*	K_Parameter;
+					void				K_ParamterLaden();
+					void				K_ParameterSpeichern();
+					bool				K_AlleParameterGesetzt();
+		private Q_SLOTS:				
+					void				on_Menue_Einstellungen_triggered();
+					void				on_Menue_UeberQt_triggered();
+					void				on_Menue_UeberDasProgramm_triggered();
+					void				on_Menue_VorspannFuerProgramme_triggered();
+					void				on_Menue_MergemoduleFuerQt_triggered();
+					void				on_Menue_AnwendungAnpassen_triggered();
+	};
+}
 #endif

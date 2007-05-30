@@ -22,17 +22,19 @@
 	Manifest importieren: mt.exe -manifest XXX.manifest -outputresource:XXXX.dll;#1	
 */
 
-QFrankQtSBSAManifestExportieren::QFrankQtSBSAManifestExportieren(QFrankQtSBSAParameter* parameter,QObject *eltern)
-										:QFrankQtSBSABasisThread(parameter,eltern)
+using namespace QFrank;
+
+QtSBSAManifestExportieren::QtSBSAManifestExportieren(QtSBSAParameter* parameter,QObject *eltern)
+										:QtSBSABasisThread(parameter,eltern)
 {	
 	K_mtProzess=NULL;
 }
-QFrankQtSBSAManifestExportieren::~QFrankQtSBSAManifestExportieren()
+QtSBSAManifestExportieren::~QtSBSAManifestExportieren()
 {
 	if(K_mtProzess!=NULL)
 		delete K_mtProzess;
 }
-void QFrankQtSBSAManifestExportieren::run()
+void QtSBSAManifestExportieren::run()
 {
 	//Sprachpakete haben kein Manifest!!
 	if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
@@ -70,7 +72,7 @@ void QFrankQtSBSAManifestExportieren::run()
 	//emit
 	fertig(this);
 }
-void QFrankQtSBSAManifestExportieren::K_mtFertig(int statusCode)
+void QtSBSAManifestExportieren::K_mtFertig(int statusCode)
 {	
 	/*
 		exit Code:

@@ -19,12 +19,15 @@
 
 #include <QtCore>
 
-class QFrankQtSBSAEreignisfilter : public QObject
+namespace QFrank
 {
-	Q_OBJECT
-	public:
-				QFrankQtSBSAEreignisfilter(QObject* eltern=0);
-	protected:
-				bool eventFilter(QObject *objekt, QEvent *ereignis);
-};
+	class QtSBSAEreignisfilter : public QObject
+	{
+		Q_OBJECT
+		public:
+					QtSBSAEreignisfilter(QObject* eltern=0);
+		protected:
+					bool eventFilter(QObject *objekt, QEvent *ereignis);
+	};
+}
 #endif
