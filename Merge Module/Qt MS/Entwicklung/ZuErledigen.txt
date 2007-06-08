@@ -1,0 +1,4 @@
+für 0.3.0
+neu: Einbau des Assistenten als Modul
+fehler: Wenn ein Fehler bei den Threads passiert-> sauberes Programmende
+fehler: Versionsinfos werden merkwürdig angezeigt.
