@@ -1,0 +1,13 @@
+﻿[Deutsch]
+Übersetzen:
+		lrelease qtsbsa.pro
+		qmake qtsbsa.pro
+		nmake/make
+		Das Ergbnis liegt denn in dem Unterverzeichnis BIN.
+
+[English]
+compiling:
+		lrelease qtsbsa.pro
+		qmake qtsbsa.pro
+		nmake/make
+		The result will be placed under the BIN directory.

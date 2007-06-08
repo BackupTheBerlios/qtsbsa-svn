@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Module Id="$MODULID" Language="0" Version="$MODULVERSIONLANG">
+        	<Package Id="$MODULPAKETGUID" Manufacturer="$MODULHERSTELLER" InstallerVersion="300"/>
+		<Dependency RequiredId="QtCoreModul" RequiredLanguage="0" RequiredVersion="$MODULVERSIONLANG" />
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="CommonFilesFolder">
+				<Directory Id="Entwickler" Name="$MODULASSEMBLYENDTWICKLER">
+					<Directory Id="Qt" Name="Qt">
+						<Directory Id="Version" Name="$MODULVERSIONKURZ">
+							<Directory Id="Uebersetzungen" Name="Uebersetzungen">						
+        							<Component Id="$MODULKOMPONENTENID" Guid="$KOMPONENTENGUID">							
+									<File Id="$MODULDATEIID" Vital="yes" Name="$MODULDATEINAME" Source="$MODULDATEIQUELLE" />              		  				
+								</Component>
+							</Directory>
+						</Directory>
+					</Directory>
+				</Directory>
+			</Directory>
+		</Directory>
+	</Module>
+</Wix>

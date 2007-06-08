@@ -1,0 +1,22 @@
+<!DOCTYPE RCC><RCC version="1.0">
+	<qresource prefix="/Uebersetzungen" lang="en">
+		<file alias="Uebersetzung">Uebersetzungen/Uebersetzung_en.qm</file>
+	</qresource>
+	<qresource prefix="/Info" lang="en">
+		<file alias="Version.html">Uebersetzungen/Version_en.html</file>
+		<file alis="Entwickler.html">Uebersetzungen/Entwickler_en.html</file>
+	</qresource>
+	<qresource prefix="/Info" lang="de">
+		<file alias="Version.html">Resourcen/Version.html</file>
+		<file alias="Entwickler.html">Resourcen/Entwickler.html</file>		
+	</qresource>
+	<qresource prefix="/Info">
+		<file alias="Lizenz.html">Resourcen/Lizenz.html</file>
+	</qresource>
+	<qresource>
+		<file alias="Vorspann.txt">Resourcen/Vorspann.txt</file>
+		<file alias="QtModul.wxs">Resourcen/QtModul.wxs</file>
+		<file alias="QtPlugIn.wxs">Resourcen/QtPlugIn.wxs</file>
+		<file alias="QtSprachpaket.wxs">Resourcen/QtSprachpaket.wxs</file>
+	</qresource>
+</RCC>
