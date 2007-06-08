@@ -1,135 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1">
 <context>
-    <name>QFrankQtSBSAArbeitVerteilen</name>
-</context>
-<context encoding="UTF-8">
-    <name>QFrankQtSBSAAufraeumen</name>
-</context>
-<context encoding="UTF-8">
-    <name>QFrankQtSBSADlgEinstellungen</name>
-</context>
-<context>
-    <name>QFrankQtSBSADlgHaupt</name>
-</context>
-<context encoding="UTF-8">
-    <name>QFrankQtSBSAKatalogErstellen</name>
-</context>
-<context encoding="UTF-8">
-    <name>QFrankQtSBSAKatalogSignieren</name>
-</context>
-<context encoding="UTF-8">
-    <name>QFrankQtSBSAManifestBearbeiten</name>
-</context>
-<context encoding="UTF-8">
-    <name>QFrankQtSBSAManifestExportieren</name>
-</context>
-<context>
-    <name>QFrankQtSBSAWixDateiErstellen</name>
-</context>
-<context encoding="UTF-8">
-    <name>QFrankQtSBSAWixDateiUebersetzen</name>
-</context>
-<context>
     <name>QtSBSAArbeitVerteilen</name>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="120"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="119"/>
         <source>Extrahiere Manifeste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="141"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="140"/>
         <source>Bearbeite Manifeste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="161"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="160"/>
         <source>Erstelle Kataloge</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="178"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="177"/>
         <source>Signiere Kataloge</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="195"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="194"/>
         <source>Erstelle Wix Dateien</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="210"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="209"/>
         <source>Übersetze Wix Dateien</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="228"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="227"/>
         <source>Aufräumen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="368"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="378"/>
         <source>Kopiere Qt4 Bibliotheken</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="415"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="425"/>
         <source>Die Datei %1 konnte nicht nach %2 kopiert werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="432"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="442"/>
         <source>Prüfe Windows SDK</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="456"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="466"/>
         <source>Prüfe Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="540"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="569"/>
         <source>Prüfe Zielverzeichnis für die Mergemodule</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="549"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="578"/>
         <source>Das Zielverzeichnis %1 konnte nicht erstellt werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="561"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="590"/>
         <source>Das Zielverzeichnis %1 ist nicht leer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="594"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="623"/>
         <source>Die Version der Datei %1 konnte nicht ermittelt werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="618"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="647"/>
         <source>Die Datei %1 wurde nicht gefunden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="630"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="659"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;Erstellung der Mergemodule gescheitert.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="635"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="664"/>
         <source>&lt;html&gt;&lt;b&gt;&lt;span style=&quot;color:#008000;&quot;&gt;Erstellung der Mergemodule erfolgreich.&lt;/span&gt;&lt;/b&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="640"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="669"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#008000;&quot;&gt;fertig&lt;/span&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/ArbeitVerteilen.cpp" line="645"/>
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="674"/>
         <source>&lt;html&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;fehlgeschlagen&lt;/span&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../Quellen/ArbeitVerteilen.cpp" line="485"/>
+        <source>Ungültige Qt Version. Es wird nur Qt ab 4.3.0 unterstützt. Gefunden wurde jedoch: %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -149,78 +124,78 @@
 <context encoding="UTF-8">
     <name>QtSBSADlgEinstellungen</name>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="83"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="81"/>
         <source>Eingaben unvollständig</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="83"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="81"/>
         <source>Sie haben mindestes ein Feld nicht korrekt ausgefüllt.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="100"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="97"/>
         <source>Bitte das Verzeichnis mit den Qt Bibliotheken auswählen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="108"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="104"/>
         <source>Bitte das Verzeichnis in dem sich Wix3 befindet auswählen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="116"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="111"/>
         <source>Werkzeuge vom Windows SDK suchen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="124"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="117"/>
         <source>Bitte das Verzeichnis für die Mergemodule auswählen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="136"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="129"/>
         <source>Fehler beim öffnen des Zertifikatsspeichers.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="136"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="129"/>
         <source>Der Zertifikatsspeicher konnte nicht geöffnet werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="139"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="132"/>
         <source>Bitte das Zertifikat zum signieren auswählen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="140"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="133"/>
         <source>Welches Zertifikat soll genutzt werden?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="143"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="136"/>
         <source>Fehler bei der Auswahl des Zertifikates.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="143"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="136"/>
         <source>Es wurde kein Zertifikat ausgewählt.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="163"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="156"/>
         <source>Fehler im Zertifikat</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="152"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="145"/>
         <source>Für Manifeste beträgt die minimale Schlüssellänge 2048 Bit.<byte value="xd"/>
 Bei dem gewählten Zertifikat beträgt diese jedoch nur %1 Bit</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/DlgEinstellungen.cpp" line="163"/>
+        <location filename="../Quellen/DlgEinstellungen.cpp" line="156"/>
         <source>Die SHA-1 Prüfsumme wurde nicht empfangen.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -313,22 +288,22 @@ Bitte legen Sie diese über das Menue Optionen-&gt;Einstellungen fest.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="232"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="234"/>
         <source>Prozess zur Abhängigkeitsermittlung für %1 konnte nicht gestartet werden.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="251"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="253"/>
         <source>Fehler beim Ausführen von depens.exe für %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="260"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="262"/>
         <source>Fehler beim lesen der Abhängigkeiten aus %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../Quellen/ManifestBearbeiten.cpp" line="291"/>
+        <location filename="../Quellen/ManifestBearbeiten.cpp" line="293"/>
         <source>Unbekante Abhängigkeit entdeckt.</source>
         <translation type="unfinished"></translation>
     </message>
