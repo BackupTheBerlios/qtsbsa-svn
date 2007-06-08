@@ -58,15 +58,15 @@ void QtSBSAArbeitVerteilen::Loslegen()
 		return;
 	if(!K_QtPruefen())
 		return;
-	/*if(!K_ZielverzeichnisPruefen())
+	if(!K_ZielverzeichnisPruefen())
 		return;
 	if(!K_DateienKopieren())
-		return;*/
+		return;
 		
 	//Damit man zum Testen nicht laufend die Dateien löschen muss.
 	//Test Anfang
 	
-	qDebug()<<"Hier ist noch Testcode";
+	//qDebug()<<"Hier ist noch Testcode";
 	
 	//nur zum testen!!!
 	//qDebug()<<K_Parameter->QtBibliothekenHohlen();
@@ -78,16 +78,15 @@ void QtSBSAArbeitVerteilen::Loslegen()
 	//K_Arbeitsschritt=QtSBSAArbeitVerteilen::WixDateienErstellen;
 	//K_WixDateienErstellen();
 
-	K_Arbeitsschritt=QtSBSAArbeitVerteilen::WixDateienUebersetzen;
-	K_WixDateienUebersetzen();
+	//K_Arbeitsschritt=QtSBSAArbeitVerteilen::WixDateienUebersetzen;
+	//K_WixDateienUebersetzen();
 	
 	//K_Arbeitsschritt=QtSBSAArbeitVerteilen::Aufraeumen;
 	//K_Aufraeumen(QtSBSAArbeitVerteilen::Normal);
 
 	//testEnde
 
-	//K_ManifesteExportieren();
-	
+	K_ManifesteExportieren();	
 }
 /*
 void QtSBSAArbeitVerteilen::K_ThreadsAnstossen(const uchar &welchen)
@@ -245,7 +244,7 @@ void QtSBSAArbeitVerteilen::K_Aufraeumen(const uchar &wie)
 	if(wie==QtSBSAArbeitVerteilen::Normal)
 		K_NaechsterArbeitsschritt();
 }
-void QtSBSAArbeitVerteilen::K_ThreadVerwaltung()
+void QtSBSAArbeitVerteilen::K_ThreadVerwaltung(const bool fehlerstatus)
 {
 	uchar LaufendeThreads=0;
 	QList<QThread* > SchlafendeProzesse;
@@ -286,7 +285,16 @@ void QtSBSAArbeitVerteilen::K_ThreadVerwaltung()
 			//Haben wir soviel überhaupt in der Liste??
 			if((SchlafendeProzesse.size()-1)<(int)Zaehler)
 				return;
-			SchlafendeProzesse.takeAt(Zaehler)->start();
+			if(fehlerstatus)
+			{
+#ifndef QT_NO_DEBUG
+				qDebug("%s K_ThreadVerwaltung: Fehlerstatus gesetzt. Es werden keine neuen Threads aktiviert.",
+				this->metaObject()->className());
+#endif
+				K_AnzahlDerProzesse--;
+			}
+			else
+				SchlafendeProzesse.takeAt(Zaehler)->start();
 		}
 	}
 }
@@ -307,7 +315,7 @@ void QtSBSAArbeitVerteilen::K_ThreadFertig(QtSBSABasisThread *welcher)
 	int Threadnummer=welcher->Threadnummer();
 	qDebug("%s K_ThreadFertig: Thread %i ist fertig mit dem Fehlercode %i",this->metaObject()->className(),Threadnummer,Fehlercode);
 #endif
-	K_ThreadVerwaltung();
+	K_ThreadVerwaltung(FehlerAufgetreten);
 	if(K_AnzahlDerProzesse==0)
 	{
 		if(!FehlerAufgetreten)
@@ -319,6 +327,8 @@ void QtSBSAArbeitVerteilen::K_ThreadFertig(QtSBSABasisThread *welcher)
 		}
 		else
 		{
+			//Fehlermerker zurücksetzen
+			FehlerAufgetreten=false;
 			K_SchrittFehlgeschlagen();
 			K_Arbeitsschritt=QtSBSAArbeitVerteilen::Aufraeumen;
 			K_Aufraeumen(QtSBSAArbeitVerteilen::NachFehler);
@@ -467,6 +477,18 @@ bool QtSBSAArbeitVerteilen::K_QtPruefen()
 		fertig();
 		return false;
 	}
+	//ist es <4.3?
+	QString QtVersion=K_Dateiversion(K_Parameter->QtPfadHohlen()+"\\"+Bibliotheken.at(0).DateinameHohlen());
+	QStringList QtVersionListe=QtVersion.split(".");
+	if(QtVersionListe.at(0).toInt()<=4 && QtVersionListe.at(1).toInt()<3)
+	{
+		Meldung(trUtf8("Ungültige Qt Version. Es wird nur Qt ab 4.3.0 unterstützt. Gefunden wurde jedoch: %1").arg(QtVersion));
+		K_SchrittFehlgeschlagen();
+		K_ErstellenGescheitert();
+		fertig();
+		return false;
+	}
+	
 	//Qt ist da, dann suchen wir den Rest von Qt
 	Bibliotheken.clear();
 	//alle DLL's die nicht auf d4 enden, nicht QtDesigner oder QTest enthalten.
@@ -501,10 +523,13 @@ bool QtSBSAArbeitVerteilen::K_QtPruefen()
 	{
 		PluginVerzeichnis.setPath(K_Parameter->QtPfadHohlen()+"\\..\\plugins\\"+QtPlugInBereich);
 		//imageformats iconengines accessible
-		if(QtPlugInBereich=="sqldrivers" || QtPlugInBereich=="codecs")
+		
+		//War nötig, da Qt < 4.3.0 die Plugins nicht einheitlich benannte
+		/*if(QtPlugInBereich=="sqldrivers" || QtPlugInBereich=="codecs")
+		
 			PluginVerzeichnis.setNameFilters(QStringList("*[a-c,e-z,0-9].dll"));
-		else
-			PluginVerzeichnis.setNameFilters(QStringList("*[a-c,e-z,0-9][0-9].dll"));		
+		else*/
+		PluginVerzeichnis.setNameFilters(QStringList("*[a-c,e-z,0-9][0-9].dll"));		
 		Q_FOREACH(QString QtPlugin,PluginVerzeichnis.entryList(QDir::Files))
 		{
 			Plugin=QtSBSAQtModul(QtPlugin,true);
@@ -517,8 +542,12 @@ bool QtSBSAArbeitVerteilen::K_QtPruefen()
 	PluginVerzeichnis.setNameFilters(QStringList("*.qm"));
 	Q_FOREACH(QString QtPlugin,PluginVerzeichnis.entryList(QDir::Files))
 	{
-			Plugin=QtSBSAQtModul(QtPlugin,false,true);
-			Bibliotheken<<Plugin;			
+			//Die Übersetzung für den Designer/Linugist brauchen wir nicht
+			if(!QtPlugin.contains("designer",Qt::CaseInsensitive) && !QtPlugin.contains("linguist",Qt::CaseInsensitive))
+			{
+				Plugin=QtSBSAQtModul(QtPlugin,false,true);
+				Bibliotheken<<Plugin;
+			}			
 	}
 
 	K_Parameter->QtBibliothekenSetzen(Bibliotheken);

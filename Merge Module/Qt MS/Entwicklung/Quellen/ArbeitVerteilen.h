@@ -63,7 +63,7 @@ namespace QFrank
 					void							K_WixDateienUebersetzen();
 					void							K_Aufraeumen(const uchar &wie);
 					void							K_NaechsterArbeitsschritt();
-					void							K_ThreadVerwaltung();
+					void							K_ThreadVerwaltung(const bool fehlerstatus=false);
 					const QString					K_Dateiversion(const QString &datei);
 					uchar							K_Arbeitsschritt;
 					uchar							K_AnzahlDerMaximalenParallelenProzesse;					

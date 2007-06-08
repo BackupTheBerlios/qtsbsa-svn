@@ -39,7 +39,7 @@ void QtSBSAWixDateiErstellen::run()
 	else if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
 	{
 		Vorlagendatei.setFileName(":/QtSprachpaket.wxs");
-		Dateiname="QtSprachpaket_"+Dateiname.mid(3,Dateiname.size()-6);
+		Dateiname="QtSprachpaket_"+Dateiname.left(Dateiname.size()-3);
 		Modulname=Dateiname;
 	}
 	else

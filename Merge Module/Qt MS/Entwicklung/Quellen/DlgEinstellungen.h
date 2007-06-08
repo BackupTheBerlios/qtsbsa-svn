@@ -28,8 +28,7 @@ namespace QFrank
 		Q_OBJECT
 		public:
 					QtSBSADlgEinstellungen(QtSBSAParameter *parameter,QWidget *eltern=0);
-		private:
-					QFileDialog*		K_Verzeichnisauswahl;
+		private:					
 					bool				AlleAngabenVollstaendig();
 					QString				K_FeldNachHex(const QByteArray &feld); 
 					QtSBSAParameter*	K_Parameter;

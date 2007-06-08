@@ -89,7 +89,7 @@ bool QtSBSAWixDateiUebersetzen::K_Loslegen()
 	}
 	else if(K_Parameter->QtBibliothekenHohlen().at(K_Dateinummer).istSprachpaket())
 	{
-		Dateiname="QtSprachpaket_"+Dateiname.mid(3,Dateiname.size()-6);
+		Dateiname="QtSprachpaket_"+Dateiname.left(Dateiname.size()-3);
 	}
 	else
 		Dateiname=Dateiname.left(Dateiname.indexOf(".")-1);

@@ -201,6 +201,8 @@ bool QtSBSAManifestBearbeiten::K_QtKomponenteErmitteln(const QString &datei)
 		K_QtKomponente="PlugIn-BildJpeg";
 	else if (datei.contains("mng",Qt::CaseInsensitive))
 		K_QtKomponente="PlugIn-BildMng";
+	else if (datei.contains("tiff",Qt::CaseInsensitive))
+		K_QtKomponente="PlugIn-BildTiff";
 	else if (datei.contains("svg",Qt::CaseInsensitive) && !datei.contains("iconengine",Qt::CaseInsensitive))
 		K_QtKomponente="PlugIn-BildSvg";
 	else if (datei.contains("svg",Qt::CaseInsensitive) && datei.contains("iconengine",Qt::CaseInsensitive))

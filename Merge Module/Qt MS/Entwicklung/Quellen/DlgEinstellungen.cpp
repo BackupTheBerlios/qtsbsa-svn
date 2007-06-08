@@ -34,8 +34,6 @@ QtSBSADlgEinstellungen::QtSBSADlgEinstellungen(QtSBSAParameter *parameter,QWidge
 	int y=(Desktop->height()-this->height())/2;
 	//jetzt das Fenster verschieben
 	this->move(x,y);
-	K_Verzeichnisauswahl=new QFileDialog(this,Qt::Window); 
-	K_Verzeichnisauswahl->setFileMode(QFileDialog::DirectoryOnly);
 	K_Parameter=parameter;
 	txtQtPfad->setText(K_Parameter->QtPfadHohlen());
 	txtWixPfad->setText(K_Parameter->WixPfadHohlen());
@@ -96,35 +94,30 @@ bool QtSBSADlgEinstellungen::AlleAngabenVollstaendig()
 }
 void QtSBSADlgEinstellungen::on_sfQtPfadSuchen_clicked()
 {
-	K_Verzeichnisauswahl->setAcceptMode(QFileDialog::AcceptOpen);
-	K_Verzeichnisauswahl->setWindowTitle(trUtf8("Bitte das Verzeichnis mit den Qt Bibliotheken auswählen."));
-	K_Verzeichnisauswahl->exec();
-	if(K_Verzeichnisauswahl->result()==QDialog::Accepted)
-		txtQtPfad->setText(K_Verzeichnisauswahl->selectedFiles().first());
+	QString Verzeichnis=QFileDialog::getExistingDirectory(this,trUtf8("Bitte das Verzeichnis mit den Qt Bibliotheken auswählen."),
+															txtQtPfad->text());
+	if(!Verzeichnis.isEmpty())
+		txtQtPfad->setText(Verzeichnis);
 }
 void QtSBSADlgEinstellungen::on_sfWixPfadSuchen_clicked()
 {
-	K_Verzeichnisauswahl->setAcceptMode(QFileDialog::AcceptOpen);
-	K_Verzeichnisauswahl->setWindowTitle(trUtf8("Bitte das Verzeichnis in dem sich Wix3 befindet auswählen."));
-	K_Verzeichnisauswahl->exec();
-	if(K_Verzeichnisauswahl->result()==QDialog::Accepted)
-		txtWixPfad->setText(K_Verzeichnisauswahl->selectedFiles().first());
+	QString Verzeichnis=QFileDialog::getExistingDirectory(this,trUtf8("Bitte das Verzeichnis in dem sich Wix3 befindet auswählen."),
+															txtWixPfad->text());
+	if(!Verzeichnis.isEmpty())
+		txtWixPfad->setText(Verzeichnis);
 }
 void QtSBSADlgEinstellungen::on_sfWindowsSDKPfadSuchen_clicked()
 {
-	K_Verzeichnisauswahl->setAcceptMode(QFileDialog::AcceptOpen);
-	K_Verzeichnisauswahl->setWindowTitle(tr("Werkzeuge vom Windows SDK suchen."));
-	K_Verzeichnisauswahl->exec();
-	if(K_Verzeichnisauswahl->result()==QDialog::Accepted)
-		txtWindowsSDKPfad->setText(K_Verzeichnisauswahl->selectedFiles().first());
+	QString Verzeichnis=QFileDialog::getExistingDirectory(this,tr("Werkzeuge vom Windows SDK suchen."),txtWindowsSDKPfad->text());
+	if(!Verzeichnis.isEmpty())
+		txtWindowsSDKPfad->setText(Verzeichnis);
 }
 void QtSBSADlgEinstellungen::on_sfZielpfadSuchen_clicked()
 {
-	K_Verzeichnisauswahl->setAcceptMode(QFileDialog::AcceptSave);
-	K_Verzeichnisauswahl->setWindowTitle(trUtf8("Bitte das Verzeichnis für die Mergemodule auswählen."));
-	K_Verzeichnisauswahl->exec();
-	if(K_Verzeichnisauswahl->result()==QDialog::Accepted)
-		txtZielPfad->setText(K_Verzeichnisauswahl->selectedFiles().first());
+	QString Verzeichnis=QFileDialog::getExistingDirectory(this,trUtf8("Bitte das Verzeichnis für die Mergemodule auswählen."),
+															txtZielPfad->text());
+	if(!Verzeichnis.isEmpty())
+		txtZielPfad->setText(Verzeichnis);
 }
 void QtSBSADlgEinstellungen::on_sfZertifikatSuchen_clicked()
 {
